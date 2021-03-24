@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>js生成form下拉表达 | AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="生成form表单的年月日时辰干支下拉列表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js生成form下拉表达">
+<meta property="og:url" content="https://aquarian-age.github.io/2020/11/15/js%E7%94%9F%E6%88%90form%E4%B8%8B%E6%8B%89%E8%A1%A8%E8%BE%BE/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:description" content="生成form表单的年月日时辰干支下拉列表">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-11-15T02:07:15.000Z">
+<meta property="article:modified_time" content="2020-11-15T06:22:59.458Z">
+<meta property="article:author" content="Liangzi">
+<meta property="article:tag" content="Go">
+<meta property="article:tag" content="web">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-js生成form下拉表达" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/15/js%E7%94%9F%E6%88%90form%E4%B8%8B%E6%8B%89%E8%A1%A8%E8%BE%BE/" class="article-date">
+  <time datetime="2020-11-15T02:07:15.000Z" itemprop="datePublished">2020-11-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      js生成form下拉表达
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>生成form表单的年月日时辰干支下拉列表</p>
+<a id="more"></a>
+<p><strong>jz60.html</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://s3.pstatp.com/cdn/expire-1-M/jquery/3.2.1/jquery.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"text-align: center;"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/jz60"</span> <span class="attr">id</span>=<span class="string">"formid"</span> <span class="attr">method</span>=<span class="string">"POST"</span> <span class="attr">onsubmit</span>=<span class="string">"return jzform()"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">"jzy"</span> <span class="attr">id</span>=<span class="string">"jzidy"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="handlebars"><span class="xml">                    //            <span class="comment">&lt;!-- 年干支 --&gt;</span></span></span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> jz60 = <span class="keyword">new</span> <span class="built_in">Array</span>(</span></span><br><span class="line"><span class="actionscript">                        <span class="string">"甲子"</span>, <span class="string">"乙丑"</span>, <span class="string">"丙寅"</span>, <span class="string">"丁卯"</span>, <span class="string">"戊辰"</span>, <span class="string">"己巳"</span>, <span class="string">"庚午"</span>, <span class="string">"辛未"</span>, <span class="string">"壬申"</span>, <span class="string">"癸酉"</span>, <span class="comment">//0-9  甲子旬</span></span></span><br><span class="line"><span class="actionscript">                        <span class="string">"甲戌"</span>, <span class="string">"乙亥"</span>, <span class="string">"丙子"</span>, <span class="string">"丁丑"</span>, <span class="string">"戊寅"</span>, <span class="string">"己卯"</span>, <span class="string">"庚辰"</span>, <span class="string">"辛巳"</span>, <span class="string">"壬午"</span>, <span class="string">"癸未"</span>, <span class="comment">//10-19 甲戌旬</span></span></span><br><span class="line"><span class="actionscript">                        <span class="string">"甲申"</span>, <span class="string">"乙酉"</span>, <span class="string">"丙戌"</span>, <span class="string">"丁亥"</span>, <span class="string">"戊子"</span>, <span class="string">"己丑"</span>, <span class="string">"庚寅"</span>, <span class="string">"辛卯"</span>, <span class="string">"壬辰"</span>, <span class="string">"癸巳"</span>, <span class="comment">//20-29 甲申旬</span></span></span><br><span class="line"><span class="actionscript">                        <span class="string">"甲午"</span>, <span class="string">"乙未"</span>, <span class="string">"丙申"</span>, <span class="string">"丁酉"</span>, <span class="string">"戊戌"</span>, <span class="string">"己亥"</span>, <span class="string">"庚子"</span>, <span class="string">"辛丑"</span>, <span class="string">"壬寅"</span>, <span class="string">"癸卯"</span>, <span class="comment">//30-39 甲午旬</span></span></span><br><span class="line"><span class="actionscript">                        <span class="string">"甲辰"</span>, <span class="string">"乙巳"</span>, <span class="string">"丙午"</span>, <span class="string">"丁未"</span>, <span class="string">"戊申"</span>, <span class="string">"己酉"</span>, <span class="string">"庚戌"</span>, <span class="string">"辛亥"</span>, <span class="string">"壬子"</span>, <span class="string">"癸丑"</span>, <span class="comment">//40-49 甲辰旬</span></span></span><br><span class="line"><span class="actionscript">                        <span class="string">"甲寅"</span>, <span class="string">"乙卯"</span>, <span class="string">"丙辰"</span>, <span class="string">"丁巳"</span>, <span class="string">"戊午"</span>, <span class="string">"己未"</span>, <span class="string">"庚申"</span>, <span class="string">"辛酉"</span>, <span class="string">"壬戌"</span>, <span class="string">"癸亥"</span>, <span class="comment">//50-59 甲寅旬</span></span></span><br><span class="line">                    );</span><br><span class="line"><span class="actionscript">                    <span class="comment">//创建下拉列表</span></span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> jzSelect = <span class="built_in">document</span>.getElementById(<span class="string">"jzidy"</span>)</span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">60</span>; i++) &#123;</span></span><br><span class="line"><span class="javascript">                        <span class="keyword">var</span> opt = <span class="built_in">document</span>.createElement(<span class="string">"option"</span>);</span></span><br><span class="line">                        opt.value = i;</span><br><span class="line"><span class="actionscript">                        opt.text = jz60[i] + <span class="string">"年"</span>;</span></span><br><span class="line">                        jzSelect.appendChild(opt);</span><br><span class="line">                    &#125;</span><br><span class="line"><span class="actionscript">                   <span class="comment">// document.form.appendChild(jzSelect);</span></span></span><br><span class="line"><span class="javascript">                   <span class="built_in">document</span>.body.appendChild(<span class="built_in">document</span>.getElementById(<span class="string">"formid"</span>));</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 月 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">"jzm"</span> <span class="attr">id</span>=<span class="string">"jzidm"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> jz60 = <span class="keyword">new</span> <span class="built_in">Array</span>(</span></span><br><span class="line"><span class="actionscript">                        <span class="string">"甲子"</span>, <span class="string">"乙丑"</span>, <span class="string">"丙寅"</span>, <span class="string">"丁卯"</span>, <span class="string">"戊辰"</span>, <span class="string">"己巳"</span>, <span class="string">"庚午"</span>, <span class="string">"辛未"</span>, <span class="string">"壬申"</span>, <span class="string">"癸酉"</span>, <span class="comment">//0-9  甲子旬</span></span></span><br><span class="line"><span class="actionscript">                        <span class="string">"甲戌"</span>, <span class="string">"乙亥"</span>, <span class="string">"丙子"</span>, <span class="string">"丁丑"</span>, <span class="string">"戊寅"</span>, <span class="string">"己卯"</span>, <span class="string">"庚辰"</span>, <span class="string">"辛巳"</span>, <span class="string">"壬午"</span>, <span class="string">"癸未"</span>, <span class="comment">//10-19 甲戌旬</span></span></span><br><span class="line"><span class="actionscript">                        <span class="string">"甲申"</span>, <span class="string">"乙酉"</span>, <span class="string">"丙戌"</span>, <span class="string">"丁亥"</span>, <span class="string">"戊子"</span>, <span class="string">"己丑"</span>, <span class="string">"庚寅"</span>, <span class="string">"辛卯"</span>, <span class="string">"壬辰"</span>, <span class="string">"癸巳"</span>, <span class="comment">//20-29 甲申旬</span></span></span><br><span class="line"><span class="actionscript">                        <span class="string">"甲午"</span>, <span class="string">"乙未"</span>, <span class="string">"丙申"</span>, <span class="string">"丁酉"</span>, <span class="string">"戊戌"</span>, <span class="string">"己亥"</span>, <span class="string">"庚子"</span>, <span class="string">"辛丑"</span>, <span class="string">"壬寅"</span>, <span class="string">"癸卯"</span>, <span class="comment">//30-39 甲午旬</span></span></span><br><span class="line"><span class="actionscript">                        <span class="string">"甲辰"</span>, <span class="string">"乙巳"</span>, <span class="string">"丙午"</span>, <span class="string">"丁未"</span>, <span class="string">"戊申"</span>, <span class="string">"己酉"</span>, <span class="string">"庚戌"</span>, <span class="string">"辛亥"</span>, <span class="string">"壬子"</span>, <span class="string">"癸丑"</span>, <span class="comment">//40-49 甲辰旬</span></span></span><br><span class="line"><span class="actionscript">                        <span class="string">"甲寅"</span>, <span class="string">"乙卯"</span>, <span class="string">"丙辰"</span>, <span class="string">"丁巳"</span>, <span class="string">"戊午"</span>, <span class="string">"己未"</span>, <span class="string">"庚申"</span>, <span class="string">"辛酉"</span>, <span class="string">"壬戌"</span>, <span class="string">"癸亥"</span>, <span class="comment">//50-59 甲寅旬</span></span></span><br><span class="line">                    );</span><br><span class="line"><span class="actionscript">                    <span class="comment">//创建下拉列表</span></span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> jzSelect = <span class="built_in">document</span>.getElementById(<span class="string">"jzidm"</span>);</span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">60</span>; i++) &#123;</span></span><br><span class="line"><span class="javascript">                        <span class="keyword">var</span> opt = <span class="built_in">document</span>.createElement(<span class="string">"option"</span>);</span></span><br><span class="line">                        opt.value = i;</span><br><span class="line"><span class="actionscript">                        opt.text = jz60[i] + <span class="string">"月"</span>;</span></span><br><span class="line">                        jzSelect.appendChild(opt);</span><br><span class="line">                    &#125;</span><br><span class="line"><span class="actionscript">                   <span class="comment">// document.form.appendChild(jzSelect);</span></span></span><br><span class="line"><span class="javascript">                   <span class="built_in">document</span>.body.appendChild(<span class="built_in">document</span>.getElementById(<span class="string">"formid"</span>));</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 日 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">"jzd"</span> <span class="attr">id</span>=<span class="string">"jzidd"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> jz60 = <span class="keyword">new</span> <span class="built_in">Array</span>(</span></span><br><span class="line"><span class="actionscript">                        <span class="string">"甲子"</span>, <span class="string">"乙丑"</span>, <span class="string">"丙寅"</span>, <span class="string">"丁卯"</span>, <span class="string">"戊辰"</span>, <span class="string">"己巳"</span>, <span class="string">"庚午"</span>, <span class="string">"辛未"</span>, <span class="string">"壬申"</span>, <span class="string">"癸酉"</span>, <span class="comment">//0-9  甲子旬</span></span></span><br><span class="line"><span class="actionscript">                        <span class="string">"甲戌"</span>, <span class="string">"乙亥"</span>, <span class="string">"丙子"</span>, <span class="string">"丁丑"</span>, <span class="string">"戊寅"</span>, <span class="string">"己卯"</span>, <span class="string">"庚辰"</span>, <span class="string">"辛巳"</span>, <span class="string">"壬午"</span>, <span class="string">"癸未"</span>, <span class="comment">//10-19 甲戌旬</span></span></span><br><span class="line"><span class="actionscript">                        <span class="string">"甲申"</span>, <span class="string">"乙酉"</span>, <span class="string">"丙戌"</span>, <span class="string">"丁亥"</span>, <span class="string">"戊子"</span>, <span class="string">"己丑"</span>, <span class="string">"庚寅"</span>, <span class="string">"辛卯"</span>, <span class="string">"壬辰"</span>, <span class="string">"癸巳"</span>, <span class="comment">//20-29 甲申旬</span></span></span><br><span class="line"><span class="actionscript">                        <span class="string">"甲午"</span>, <span class="string">"乙未"</span>, <span class="string">"丙申"</span>, <span class="string">"丁酉"</span>, <span class="string">"戊戌"</span>, <span class="string">"己亥"</span>, <span class="string">"庚子"</span>, <span class="string">"辛丑"</span>, <span class="string">"壬寅"</span>, <span class="string">"癸卯"</span>, <span class="comment">//30-39 甲午旬</span></span></span><br><span class="line"><span class="actionscript">                        <span class="string">"甲辰"</span>, <span class="string">"乙巳"</span>, <span class="string">"丙午"</span>, <span class="string">"丁未"</span>, <span class="string">"戊申"</span>, <span class="string">"己酉"</span>, <span class="string">"庚戌"</span>, <span class="string">"辛亥"</span>, <span class="string">"壬子"</span>, <span class="string">"癸丑"</span>, <span class="comment">//40-49 甲辰旬</span></span></span><br><span class="line"><span class="actionscript">                        <span class="string">"甲寅"</span>, <span class="string">"乙卯"</span>, <span class="string">"丙辰"</span>, <span class="string">"丁巳"</span>, <span class="string">"戊午"</span>, <span class="string">"己未"</span>, <span class="string">"庚申"</span>, <span class="string">"辛酉"</span>, <span class="string">"壬戌"</span>, <span class="string">"癸亥"</span>, <span class="comment">//50-59 甲寅旬</span></span></span><br><span class="line">                    );</span><br><span class="line"><span class="actionscript">                    <span class="comment">//创建下拉列表</span></span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> jzSelect = <span class="built_in">document</span>.getElementById(<span class="string">"jzidd"</span>);</span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">60</span>; i++) &#123;</span></span><br><span class="line"><span class="javascript">                        <span class="keyword">var</span> opt = <span class="built_in">document</span>.createElement(<span class="string">"option"</span>);</span></span><br><span class="line">                        opt.value = i;</span><br><span class="line"><span class="actionscript">                        opt.text = jz60[i] + <span class="string">"日"</span>;</span></span><br><span class="line">                        jzSelect.appendChild(opt);</span><br><span class="line">                    &#125;</span><br><span class="line"><span class="actionscript">                   <span class="comment">// document.form.appendChild(jzSelect);</span></span></span><br><span class="line"><span class="javascript">                   <span class="built_in">document</span>.body.appendChild(<span class="built_in">document</span>.getElementById(<span class="string">"formid"</span>));</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 时辰 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">"jzh"</span> <span class="attr">id</span>=<span class="string">"jzidh"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> jz60 = <span class="keyword">new</span> <span class="built_in">Array</span>(</span></span><br><span class="line"><span class="actionscript">                        <span class="string">"甲子"</span>, <span class="string">"乙丑"</span>, <span class="string">"丙寅"</span>, <span class="string">"丁卯"</span>, <span class="string">"戊辰"</span>, <span class="string">"己巳"</span>, <span class="string">"庚午"</span>, <span class="string">"辛未"</span>, <span class="string">"壬申"</span>, <span class="string">"癸酉"</span>, <span class="comment">//0-9  甲子旬</span></span></span><br><span class="line"><span class="actionscript">                        <span class="string">"甲戌"</span>, <span class="string">"乙亥"</span>, <span class="string">"丙子"</span>, <span class="string">"丁丑"</span>, <span class="string">"戊寅"</span>, <span class="string">"己卯"</span>, <span class="string">"庚辰"</span>, <span class="string">"辛巳"</span>, <span class="string">"壬午"</span>, <span class="string">"癸未"</span>, <span class="comment">//10-19 甲戌旬</span></span></span><br><span class="line"><span class="actionscript">                        <span class="string">"甲申"</span>, <span class="string">"乙酉"</span>, <span class="string">"丙戌"</span>, <span class="string">"丁亥"</span>, <span class="string">"戊子"</span>, <span class="string">"己丑"</span>, <span class="string">"庚寅"</span>, <span class="string">"辛卯"</span>, <span class="string">"壬辰"</span>, <span class="string">"癸巳"</span>, <span class="comment">//20-29 甲申旬</span></span></span><br><span class="line"><span class="actionscript">                        <span class="string">"甲午"</span>, <span class="string">"乙未"</span>, <span class="string">"丙申"</span>, <span class="string">"丁酉"</span>, <span class="string">"戊戌"</span>, <span class="string">"己亥"</span>, <span class="string">"庚子"</span>, <span class="string">"辛丑"</span>, <span class="string">"壬寅"</span>, <span class="string">"癸卯"</span>, <span class="comment">//30-39 甲午旬</span></span></span><br><span class="line"><span class="actionscript">                        <span class="string">"甲辰"</span>, <span class="string">"乙巳"</span>, <span class="string">"丙午"</span>, <span class="string">"丁未"</span>, <span class="string">"戊申"</span>, <span class="string">"己酉"</span>, <span class="string">"庚戌"</span>, <span class="string">"辛亥"</span>, <span class="string">"壬子"</span>, <span class="string">"癸丑"</span>, <span class="comment">//40-49 甲辰旬</span></span></span><br><span class="line"><span class="actionscript">                        <span class="string">"甲寅"</span>, <span class="string">"乙卯"</span>, <span class="string">"丙辰"</span>, <span class="string">"丁巳"</span>, <span class="string">"戊午"</span>, <span class="string">"己未"</span>, <span class="string">"庚申"</span>, <span class="string">"辛酉"</span>, <span class="string">"壬戌"</span>, <span class="string">"癸亥"</span>, <span class="comment">//50-59 甲寅旬</span></span></span><br><span class="line">                    );</span><br><span class="line"><span class="actionscript">                    <span class="comment">//创建下拉列表</span></span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> jzSelect = <span class="built_in">document</span>.getElementById(<span class="string">"jzidh"</span>);</span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">60</span>; i++) &#123;</span></span><br><span class="line"><span class="javascript">                        <span class="keyword">var</span> opt = <span class="built_in">document</span>.createElement(<span class="string">"option"</span>);</span></span><br><span class="line">                        opt.value = i;</span><br><span class="line"><span class="actionscript">                        opt.text = jz60[i] + <span class="string">"时"</span>;</span></span><br><span class="line">                        jzSelect.appendChild(opt);</span><br><span class="line">                    &#125;</span><br><span class="line"><span class="actionscript">                    <span class="comment">//document.form.appendChild(jzSelect);</span></span></span><br><span class="line"><span class="javascript">                    <span class="built_in">document</span>.body.appendChild(<span class="built_in">document</span>.getElementById(<span class="string">"formid"</span>));</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="comment">//ajax异步</span></span></span><br><span class="line"><span class="actionscript">        <span class="function"><span class="keyword">function</span> <span class="title">jzform</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">            $.ajax(&#123;</span></span><br><span class="line"><span class="actionscript">                type: <span class="string">"post"</span>,</span></span><br><span class="line"><span class="actionscript">                url: <span class="string">"/jz60"</span>,</span></span><br><span class="line"><span class="javascript">                data: $(<span class="string">'#formid'</span>).serialize(),</span></span><br><span class="line"><span class="actionscript">                success: <span class="function"><span class="keyword">function</span> <span class="params">(e)</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">                    <span class="built_in">console</span>.log(e);<span class="comment">//服务器返回值</span></span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line"><span class="actionscript">            <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>main.go</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"encoding/json"</span></span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"io"</span></span><br><span class="line">	<span class="string">"log"</span></span><br><span class="line">	<span class="string">"net/http"</span></span><br><span class="line">	<span class="string">"strconv"</span></span><br><span class="line">	<span class="string">"text/template"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">//年月日干支对应的数字</span></span><br><span class="line"><span class="keyword">type</span> GZN <span class="keyword">struct</span> &#123;</span><br><span class="line">	Ygz, Mgz, Dgz, Hgz <span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">selectlist</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> r.Method == <span class="string">"GET"</span> &#123;</span><br><span class="line">		t, err := template.ParseFiles(<span class="string">"jz60.html"</span>)</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Fatal(<span class="string">"t-err:"</span>, err)</span><br><span class="line">		&#125;</span><br><span class="line">		t.Execute(w, <span class="literal">nil</span>)</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		r.ParseForm()</span><br><span class="line">		y, err := strconv.Atoi(r.Form[<span class="string">"jzy"</span>][<span class="number">0</span>])</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Fatal(<span class="string">"y-err:"</span>, err)</span><br><span class="line">		&#125;</span><br><span class="line">		m, err := strconv.Atoi(r.Form[<span class="string">"jzm"</span>][<span class="number">0</span>])</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Fatal(<span class="string">"m-err:"</span>, err)</span><br><span class="line">		&#125;</span><br><span class="line">		d, err := strconv.Atoi(r.Form[<span class="string">"jzd"</span>][<span class="number">0</span>])</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Fatal(<span class="string">"d-err:"</span>, err)</span><br><span class="line">		&#125;</span><br><span class="line">		h, err := strconv.Atoi(r.Form[<span class="string">"jzh"</span>][<span class="number">0</span>])</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Fatal(<span class="string">"h-err"</span>, err)</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		fmt.Printf(<span class="string">"ys: %d m:%d d:%d h:%d \n"</span>, y, m, d, h)</span><br><span class="line">		gzn := GZN&#123;</span><br><span class="line">			Ygz: y,</span><br><span class="line">			Mgz: m,</span><br><span class="line">		&#125;</span><br><span class="line">		js, err := json.Marshal(gzn)</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Fatal(<span class="string">"js-err"</span>, err)</span><br><span class="line">		&#125;</span><br><span class="line">		io.WriteString(w, <span class="keyword">string</span>(js))</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	http.HandleFunc(<span class="string">"/jz60"</span>, selectlist)</span><br><span class="line">	err := http.ListenAndServe(<span class="string">":8080"</span>, <span class="literal">nil</span>)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatal(<span class="string">"listenAndServer:"</span>, err)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>参考</strong></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/forms" target="_blank" rel="noopener">forms</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLFormElement" target="_blank" rel="noopener">HTMLFormElement</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLSelectElement" target="_blank" rel="noopener">HTMLSelectElement</a></p>
+<hr>
+<p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2020/11/15/js%E7%94%9F%E6%88%90form%E4%B8%8B%E6%8B%89%E8%A1%A8%E8%BE%BE/" data-id="ckivmllxx002kx720a71w903m" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2020/11/15/js%E7%94%9F%E6%88%90form%E4%B8%8B%E6%8B%89%E8%A1%A8%E8%BE%BE/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/" rel="tag">Go</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/" rel="tag">web</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2020/11/25/%E6%97%B6%E5%AE%B6%E5%A5%87%E9%97%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          时家奇门
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/11/14/AJAX%E5%BC%82%E6%AD%A5/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">AJAX异步</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title recent-posts">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/03/08/%E6%A3%80%E6%9F%A5Go%E5%AF%BC%E5%85%A5%E5%8C%85%E7%9A%84%E5%8D%B1%E9%99%A9%E6%80%A7/">检查Go导入包的危险性</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/05/%E5%9F%9F%E5%90%8D/">域名</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/03/Flames/">雙生紫焰Violet Flames</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/01/cmha/">承蒙厚爱</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/24/%E6%81%B6/">恶</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2020/11/15/js%E7%94%9F%E6%88%90form%E4%B8%8B%E6%8B%89%E8%A1%A8%E8%BE%BE/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

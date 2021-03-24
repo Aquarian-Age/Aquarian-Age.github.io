@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>AJAX异步 | AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Go+JS的异步操作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AJAX异步">
+<meta property="og:url" content="https://aquarian-age.github.io/2020/11/14/AJAX%E5%BC%82%E6%AD%A5/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:description" content="Go+JS的异步操作">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-11-14T03:26:29.000Z">
+<meta property="article:modified_time" content="2020-11-14T03:43:24.746Z">
+<meta property="article:author" content="Liangzi">
+<meta property="article:tag" content="web">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-AJAX异步" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/14/AJAX%E5%BC%82%E6%AD%A5/" class="article-date">
+  <time datetime="2020-11-14T03:26:29.000Z" itemprop="datePublished">2020-11-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      AJAX异步
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>Go+JS的异步操作<br><a id="more"></a></p>
+<h3 id="Go"><a href="#Go" class="headerlink" title="Go"></a>Go</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"encoding/json"</span></span><br><span class="line">	<span class="string">"io"</span></span><br><span class="line">	<span class="string">"log"</span></span><br><span class="line">	<span class="string">"net/http"</span></span><br><span class="line">	<span class="string">"text/template"</span></span><br><span class="line">	   )</span><br><span class="line"></span><br><span class="line"><span class="comment">//关于...</span></span><br><span class="line"><span class="keyword">type</span> About <span class="keyword">struct</span> &#123;</span><br><span class="line">	Ccal <span class="keyword">string</span></span><br><span class="line">	Data <span class="keyword">string</span></span><br><span class="line">	Xlr  <span class="keyword">string</span></span><br><span class="line">	Xjbf <span class="keyword">string</span></span><br><span class="line">	Ck   <span class="keyword">string</span></span><br><span class="line">	Me   <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//生成json传递给前端js处理</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendJson</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">		<span class="keyword">if</span> r.Method == <span class="string">"GET"</span> &#123;</span><br><span class="line">				t, _ := template.ParseFiles(<span class="string">"json.html"</span>)</span><br><span class="line">						t.Execute(w, <span class="literal">nil</span>)</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">ccal := <span class="string">"农历 择吉 可计算时间范围:1601～3498"</span></span><br><span class="line">			  data := <span class="string">"农历数据来源: https://example.com"</span></span><br><span class="line">			  xlr := <span class="string">"小六壬择吉 依据道家小六壬择法卷"</span></span><br><span class="line">			  xjbf := <span class="string">"择日 依据协纪辩方书 时辰吉凶参考&lt;&lt;讲武全书兵占&gt;&gt;通书部分"</span></span><br><span class="line">			  ck := <span class="string">"农历编算参考: https://example.com"</span></span><br><span class="line">			  me := <span class="string">"作者 梁子: xiaoyaoke7630@sina.com"</span></span><br><span class="line">			  about := About&#123;</span><br><span class="line">Ccal: ccal,</span><br><span class="line">			  Data: data,</span><br><span class="line">			  Xlr:  xlr,</span><br><span class="line">			  Xjbf: xjbf,</span><br><span class="line">			  Ck:   ck,</span><br><span class="line">			  Me:   me,</span><br><span class="line">			  &#125;</span><br><span class="line">	  ja, _ := json.Marshal(about)</span><br><span class="line">			  io.WriteString(w, <span class="keyword">string</span>(ja))</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">		http.HandleFunc(<span class="string">"/json"</span>, sendJson)</span><br><span class="line">		err := http.ListenAndServe(<span class="string">":8080"</span>, <span class="literal">nil</span>)</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Fatal(<span class="string">"listenAndServe:"</span>, err)</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="AJAX异步"><a href="#AJAX异步" class="headerlink" title="AJAX异步"></a>AJAX异步</h3><p><strong>原生方式</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://s3.pstatp.com/cdn/expire-1-M/jquery/3.2.1/jquery.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>jsonExample<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"show"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">	<span class="comment">////////////////////////参考</span></span></span><br><span class="line"><span class="actionscript">	<span class="comment">//https://www.w3cschool.cn/ajax/ajax-xmlhttprequest-send.html</span></span></span><br><span class="line"><span class="actionscript">	<span class="comment">//https://golangtc.com/t/549bcc76421aa9396a000081</span></span></span><br><span class="line"><span class="actionscript">	<span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span></span><br><span class="line"><span class="actionscript">	xhr.open(<span class="string">"POST"</span>, <span class="string">"/json"</span>, <span class="literal">true</span>);<span class="comment">//请求方式 请求地址</span></span></span><br><span class="line">	xhr.send();</span><br><span class="line"><span class="actionscript">	xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line">		if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) &#123;</span><br><span class="line"><span class="actionscript">			<span class="keyword">var</span> fromserve = xhr.responseText;<span class="comment">//从服务器传过来的 数据</span></span></span><br><span class="line"><span class="javascript">			<span class="keyword">var</span> ps = <span class="built_in">JSON</span>.parse(fromserve);<span class="comment">//解析json数据</span></span></span><br><span class="line"><span class="actionscript">			<span class="comment">// console.log("serverjson:", ps);//打印调试数据</span></span></span><br><span class="line"><span class="actionscript">			<span class="keyword">var</span> ccal = ps.Ccal;</span></span><br><span class="line"><span class="actionscript">			<span class="keyword">var</span> data = ps.Data;</span></span><br><span class="line"><span class="actionscript">			<span class="keyword">var</span> xlr = ps.Xlr;</span></span><br><span class="line"><span class="actionscript">			<span class="keyword">var</span> xjbf = ps.Xjbf;</span></span><br><span class="line"><span class="actionscript">			<span class="keyword">var</span> ck = ps.Ck;</span></span><br><span class="line"><span class="actionscript">			<span class="keyword">var</span> me = ps.Me;</span></span><br><span class="line"><span class="actionscript">			<span class="comment">//写数据呈现到指定页面位置</span></span></span><br><span class="line"><span class="javascript">			<span class="keyword">var</span> px = <span class="built_in">document</span>.getElementById(<span class="string">"show"</span>);</span></span><br><span class="line"><span class="actionscript">			px.innerHTML = ccal + <span class="string">"&lt;br /&gt;"</span> + data + <span class="string">"&lt;br /&gt;"</span> + xlr + <span class="string">"&lt;br /&gt;"</span> + xjbf + <span class="string">"&lt;br /&gt;"</span> + ck + <span class="string">"&lt;br /&gt;"</span> + me;</span></span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>JQuery</strong>方式<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://s3.pstatp.com/cdn/expire-1-M/jquery/3.2.1/jquery.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>jsonExample<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--jquery方法--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"px"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">	<span class="comment">//////////////////参考 https://api.jquery.com/ready/</span></span></span><br><span class="line"><span class="javascript">	$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">		$.ajax(&#123;</span></span><br><span class="line"><span class="actionscript">			url: <span class="string">'/json'</span>,</span></span><br><span class="line"><span class="actionscript">			type: <span class="string">"post"</span>,</span></span><br><span class="line"><span class="javascript">			data: $(<span class="string">'#show'</span>).serialize(),</span></span><br><span class="line"><span class="actionscript">			dataType: <span class="string">'json'</span>,</span></span><br><span class="line"><span class="actionscript">			success: <span class="function"><span class="keyword">function</span> <span class="params">(e)</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">				<span class="keyword">var</span> ccal = e.Ccal;</span></span><br><span class="line"><span class="actionscript">				<span class="keyword">var</span> data = e.Data;</span></span><br><span class="line"><span class="actionscript">				<span class="keyword">var</span> xlr = e.Xlr;</span></span><br><span class="line"><span class="actionscript">				<span class="keyword">var</span> xjbf = e.Xjbf;</span></span><br><span class="line"><span class="actionscript">				<span class="keyword">var</span> ck = e.Ck;</span></span><br><span class="line"><span class="actionscript">				<span class="keyword">var</span> me = e.Me;</span></span><br><span class="line"><span class="actionscript">				<span class="keyword">var</span> all = ccal + data + xlr + xjbf + ck + me</span></span><br><span class="line"><span class="javascript">				$(<span class="string">"#px"</span>).text(all);</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;);</span><br><span class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2020/11/14/AJAX%E5%BC%82%E6%AD%A5/" data-id="ckivmllvm0005x72046ib7p6m" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2020/11/14/AJAX%E5%BC%82%E6%AD%A5/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/" rel="tag">web</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2020/11/15/js%E7%94%9F%E6%88%90form%E4%B8%8B%E6%8B%89%E8%A1%A8%E8%BE%BE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          js生成form下拉表达
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/11/09/form%E4%B8%8D%E8%B7%B3%E8%BD%AC/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">form不跳转</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Go"><span class="toc-number">1.</span> <span class="toc-text">Go</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AJAX异步"><span class="toc-number">2.</span> <span class="toc-text">AJAX异步</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2020/11/14/AJAX%E5%BC%82%E6%AD%A5/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

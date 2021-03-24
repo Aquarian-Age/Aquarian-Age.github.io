@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>LineageOS16电信radio网络-通话 | AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="手里的这HTC Ultra荒废很久了　一直是第三方ROM7.0折腾一下上班用　手机自己的　号码自己的　现在这个公司和上一家真是没得比刷了XDA论坛的Lineage OS 16相当于Android 9系统开机wifi链接成功了就是没网　搜了一下发现是国内网络的原因　谷歌被墙了．．．">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LineageOS16电信radio网络-通话">
+<meta property="og:url" content="https://aquarian-age.github.io/2020/09/20/LineageOS16%E7%94%B5%E4%BF%A1%E7%BD%91%E7%BB%9C-%E9%80%9A%E8%AF%9Dradio/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:description" content="手里的这HTC Ultra荒废很久了　一直是第三方ROM7.0折腾一下上班用　手机自己的　号码自己的　现在这个公司和上一家真是没得比刷了XDA论坛的Lineage OS 16相当于Android 9系统开机wifi链接成功了就是没网　搜了一下发现是国内网络的原因　谷歌被墙了．．．">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-09-20T00:15:30.000Z">
+<meta property="article:modified_time" content="2020-10-05T22:17:44.518Z">
+<meta property="article:author" content="Liangzi">
+<meta property="article:tag" content="手机">
+<meta property="article:tag" content="网络">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-LineageOS16电信网络-通话radio" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/20/LineageOS16%E7%94%B5%E4%BF%A1%E7%BD%91%E7%BB%9C-%E9%80%9A%E8%AF%9Dradio/" class="article-date">
+  <time datetime="2020-09-20T00:15:30.000Z" itemprop="datePublished">2020-09-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      LineageOS16电信radio网络-通话
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>手里的这HTC Ultra荒废很久了　一直是第三方ROM7.0<br>折腾一下上班用　手机自己的　号码自己的　现在这个公司和上一家真是没得比<br>刷了XDA论坛的Lineage OS 16相当于Android 9<br>系统开机wifi链接成功了就是没网　搜了一下发现是国内网络的原因　谷歌被墙了．．．</p>
+<a id="more"></a>
+<h3 id="查看wifi配置"><a href="#查看wifi配置" class="headerlink" title="查看wifi配置"></a>查看wifi配置</h3><p>captive_portal_detection_enabled=0<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell settings list global</span><br></pre></td></tr></table></figure><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line">adb_enabled&#x3D;1</span><br><span class="line">add_users_when_locked&#x3D;0</span><br><span class="line">airplane_mode_on&#x3D;0</span><br><span class="line">airplane_mode_radios&#x3D;cell,bluetooth,wifi,nfc,wimax</span><br><span class="line">airplane_mode_toggleable_radios&#x3D;bluetooth,wifi,nfc</span><br><span class="line">assisted_gps_enabled&#x3D;1</span><br><span class="line">audio_safe_volume_state&#x3D;3</span><br><span class="line">auto_time&#x3D;1</span><br><span class="line">auto_time_zone&#x3D;1</span><br><span class="line">bluetooth_disabled_profiles&#x3D;0</span><br><span class="line">bluetooth_on&#x3D;0</span><br><span class="line">boot_count&#x3D;1</span><br><span class="line">call_auto_retry&#x3D;0</span><br><span class="line">captive_portal_detection_enabled&#x3D;0</span><br><span class="line">car_dock_sound&#x3D;&#x2F;system&#x2F;media&#x2F;audio&#x2F;ui&#x2F;Dock.ogg</span><br><span class="line">car_undock_sound&#x3D;&#x2F;system&#x2F;media&#x2F;audio&#x2F;ui&#x2F;Undock.ogg</span><br><span class="line">cdma_cell_broadcast_sms&#x3D;1</span><br><span class="line">charging_vibration_enabled&#x3D;1</span><br><span class="line">data_roaming&#x3D;0</span><br><span class="line">database_creation_buildid&#x3D;PQ3A.190801.002</span><br><span class="line">debug_app&#x3D;null</span><br><span class="line">default_install_location&#x3D;0</span><br><span class="line">default_restrict_background_data&#x3D;0</span><br><span class="line">desk_dock_sound&#x3D;&#x2F;system&#x2F;media&#x2F;audio&#x2F;ui&#x2F;Dock.ogg</span><br><span class="line">desk_undock_sound&#x3D;&#x2F;system&#x2F;media&#x2F;audio&#x2F;ui&#x2F;Undock.ogg</span><br><span class="line">development_settings_enabled&#x3D;1</span><br><span class="line">device_name&#x3D;U Ultra</span><br><span class="line">device_provisioned&#x3D;1</span><br><span class="line">dock_audio_media_enabled&#x3D;1</span><br><span class="line">dock_sounds_enabled&#x3D;0</span><br><span class="line">dock_sounds_enabled_when_accessbility&#x3D;0</span><br><span class="line">emergency_affordance_needed&#x3D;0</span><br><span class="line">emergency_tone&#x3D;0</span><br><span class="line">heads_up_notifications_enabled&#x3D;1</span><br><span class="line">location_global_kill_switch&#x3D;0</span><br><span class="line">lock_sound&#x3D;&#x2F;system&#x2F;media&#x2F;audio&#x2F;ui&#x2F;Lock.ogg</span><br><span class="line">low_battery_sound&#x3D;&#x2F;system&#x2F;media&#x2F;audio&#x2F;ui&#x2F;LowBattery.ogg</span><br><span class="line">low_battery_sound_timeout&#x3D;0</span><br><span class="line">low_power&#x3D;0</span><br><span class="line">max_sound_trigger_detection_service_ops_per_day&#x3D;1000</span><br><span class="line">mobile_data&#x3D;1</span><br><span class="line">mobile_data_always_on&#x3D;1</span><br><span class="line">mode_ringer&#x3D;2</span><br><span class="line">multi_sim_data_call&#x3D;-1</span><br><span class="line">multi_sim_voice_call&#x3D;2147483643</span><br><span class="line">netstats_enabled&#x3D;1</span><br><span class="line">network_recommendations_enabled&#x3D;0</span><br><span class="line">network_watchlist_last_report_time&#x3D;1600473600000</span><br><span class="line">ota_disable_automatic_update&#x3D;0</span><br><span class="line">package_verifier_enable&#x3D;1</span><br><span class="line">power_sounds_enabled&#x3D;1</span><br><span class="line">preferred_network_mode2147483643&#x3D;10</span><br><span class="line">preferred_network_mode&#x3D;22,22</span><br><span class="line">private_dns_mode&#x3D;off</span><br><span class="line">set_install_location&#x3D;0</span><br><span class="line">show_zen_settings_suggestion&#x3D;1</span><br><span class="line">sound_trigger_detection_service_op_timeout&#x3D;15000</span><br><span class="line">stay_on_while_plugged_in&#x3D;0</span><br><span class="line">subscription_mode&#x3D;0</span><br><span class="line">sysui_demo_allowed&#x3D;null</span><br><span class="line">tether_offload_disabled&#x3D;0</span><br><span class="line">theater_mode_on&#x3D;0</span><br><span class="line">transition_animation_scale&#x3D;1.0</span><br><span class="line">trusted_sound&#x3D;&#x2F;system&#x2F;media&#x2F;audio&#x2F;ui&#x2F;Trusted.ogg</span><br><span class="line">unlock_sound&#x3D;&#x2F;system&#x2F;media&#x2F;audio&#x2F;ui&#x2F;Unlock.ogg</span><br><span class="line">usb_mass_storage_enabled&#x3D;1</span><br><span class="line">wait_for_debugger&#x3D;0</span><br><span class="line">webview_provider&#x3D;com.android.webview</span><br><span class="line">wifi_display_certification_on&#x3D;1</span><br><span class="line">wifi_display_on&#x3D;0</span><br><span class="line">wifi_max_dhcp_retry_count&#x3D;9</span><br><span class="line">wifi_networks_available_notification_on&#x3D;1</span><br><span class="line">wifi_on&#x3D;1</span><br><span class="line">wifi_scan_always_enabled&#x3D;1</span><br><span class="line">wifi_sleep_policy&#x3D;2</span><br><span class="line">wifi_verbose_logging_enabled&#x3D;0</span><br><span class="line">wifi_wakeup_enabled&#x3D;1</span><br><span class="line">window_animation_scale&#x3D;1.0</span><br><span class="line">wireless_charging_started_sound&#x3D;&#x2F;system&#x2F;media&#x2F;audio&#x2F;ui&#x2F;ChargingStarted.ogg</span><br><span class="line">zen_duration&#x3D;0</span><br><span class="line">zen_mode&#x3D;0</span><br><span class="line">zen_mode_config_etag&#x3D;1284666450</span><br><span class="line">zen_mode_ringer_level&#x3D;2</span><br><span class="line">zen_settings_suggestion_viewed&#x3D;0</span><br><span class="line">zen_settings_updated&#x3D;1</span><br></pre></td></tr></table></figure></p>
+<h3 id="修改wifi配置"><a href="#修改wifi配置" class="headerlink" title="修改wifi配置"></a>修改wifi配置</h3><p>captive_portal_detection_enabled=1</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell settings put global captive_portal_https_url https://www.google.cn/generate_204</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="radio问题"><a href="#radio问题" class="headerlink" title="radio问题"></a>radio问题</h3><p>连上wifi一通折腾软件弄好了发现移动网络不行　之前用联通卡试了没问题<br>电信卡上去设置后LET有网络　一打电话就歇菜<br>当初刷其他rom的时候就碰到过　根据经验root之后adb shell进去</p>
+<ul>
+<li>找到radio位置</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/mounts</span><br></pre></td></tr></table></figure>
+<p>/dev/block/platform/soc/624000.ufshc/by-name/radio /firmware/radio vfat ro,relatime,uid=1000,gid=1000,fmask=0337,dmask=0227,codepage=437,iocharset=iso8859-1,shortname=lower,errors=remount-ro 0 0</p>
+<ul>
+<li>备份当前系统的radio以防万一<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">oce:/mnt/sdcard <span class="comment"># dd if=/dev/block/platform/soc/624000.ufshc/by-name/radio of=./lineage16-radio.img</span></span><br></pre></td></tr></table></figure></li>
+<li>刷入官方8.0版本的radio<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">27|oce:/mnt/sdcard/Download <span class="comment"># dd if=./radio.img of=/dev/block/platform/soc/624000.ufshc/by-name/radio</span></span><br></pre></td></tr></table></figure>
+失败　提示权限问题<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">27|oce:/mnt/sdcard/Download <span class="comment"># ls -l /dev/block/by-name/radio                                                                         </span></span><br><span class="line">lrwxrwxrwx 1 root root 16 1972-05-03 00:08 /dev/block/by-name/radio -&gt; /dev/block/sdd12</span><br></pre></td></tr></table></figure>
+再刷<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="keyword">if</span>=./radio.img of=/dev/block/sdd12</span><br></pre></td></tr></table></figure>
+依然是权限问题 adb root; adb shell进去依然不行</li>
+</ul>
+<h3 id="进入Recovery模式刷radio"><a href="#进入Recovery模式刷radio" class="headerlink" title="进入Recovery模式刷radio"></a>进入Recovery模式刷radio</h3><p>开终端</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> sdcard/Download/</span><br><span class="line">dd <span class="keyword">if</span>=./radio.img of=/dev/block/sdd12</span><br></pre></td></tr></table></figure>
+<hr>
+<p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2020/09/20/LineageOS16%E7%94%B5%E4%BF%A1%E7%BD%91%E7%BB%9C-%E9%80%9A%E8%AF%9Dradio/" data-id="ckivmllvr000ex7201oyd8kcx" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2020/09/20/LineageOS16%E7%94%B5%E4%BF%A1%E7%BD%91%E7%BB%9C-%E9%80%9A%E8%AF%9Dradio/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%89%8B%E6%9C%BA/" rel="tag">手机</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2020/09/20/%E5%BB%BA%E9%99%A4%E5%8D%81%E4%BA%8C%E7%A5%9E%E7%85%9E/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          建除十二神煞
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/09/19/%E4%BA%94%E9%AC%BC/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">五鬼</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看wifi配置"><span class="toc-number">1.</span> <span class="toc-text">查看wifi配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改wifi配置"><span class="toc-number">2.</span> <span class="toc-text">修改wifi配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#radio问题"><span class="toc-number">3.</span> <span class="toc-text">radio问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进入Recovery模式刷radio"><span class="toc-number">4.</span> <span class="toc-text">进入Recovery模式刷radio</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2020/09/20/LineageOS16%E7%94%B5%E4%BF%A1%E7%BD%91%E7%BB%9C-%E9%80%9A%E8%AF%9Dradio/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

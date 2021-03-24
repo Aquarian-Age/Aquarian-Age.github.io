@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="AquarianAge">
+<meta property="og:url" content="https://aquarian-age.github.io/page/14/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Liangzi">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-qemu-创建虚拟机" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/01/qemu-%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA/" class="article-date">
+  <time datetime="2018-04-01T12:26:17.000Z" itemprop="datePublished">2018-04-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/01/qemu-%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA/">使用qemu创建虚拟机</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="安装指导资料"><a href="#安装指导资料" class="headerlink" title="安装指导资料"></a>安装指导资料</h2><hr>
+<h2 id="Use-the-following-command-to-create-a-10GB-image-file-You-can-change-the-size-if-you-want-but-make-sure-it’s-enough"><a href="#Use-the-following-command-to-create-a-10GB-image-file-You-can-change-the-size-if-you-want-but-make-sure-it’s-enough" class="headerlink" title="Use the following command to create a 10GB image file (You can change the size if you want but make sure it’s enough):"></a>Use the following command to create a 10GB image file (You can change the size if you want but make sure it’s enough):</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qemu-img create -f qcow2 android-marshmallow.img 10G</span><br></pre></td></tr></table></figure>
+<h2 id="You-will-notice-that-a-small-file-was-created-in-your-home-folder-it-won’t-be-10GB-in-size-but-QEMU-will-set-its-maximum-possible-size-up-to-10GB-only-this-is-to-save-unnecessary-used-disk-space"><a href="#You-will-notice-that-a-small-file-was-created-in-your-home-folder-it-won’t-be-10GB-in-size-but-QEMU-will-set-its-maximum-possible-size-up-to-10GB-only-this-is-to-save-unnecessary-used-disk-space" class="headerlink" title="You will notice that a small file was created in your home folder, it won’t be 10GB in size, but QEMU will set its maximum possible size up to 10GB only, this is to save unnecessary used disk space."></a>You will notice that a small file was created in your home folder, it won’t be 10GB in size, but QEMU will set its maximum possible size up to 10GB only, this is to save unnecessary used disk space.</h2><h2 id="If-you-don’t-like-to-use-QEMU-you-can-use-VirtualBox-it’s-a-complete-virtual-machine-solution-with-the-GUI-included"><a href="#If-you-don’t-like-to-use-QEMU-you-can-use-VirtualBox-it’s-a-complete-virtual-machine-solution-with-the-GUI-included" class="headerlink" title="If you don’t like to use QEMU, you can use VirtualBox, it’s a complete virtual machine solution with the GUI included:"></a>If you don’t like to use QEMU, you can use VirtualBox, it’s a complete virtual machine solution with the GUI included:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install virtualbox virtualbox-qt</span><br></pre></td></tr></table></figure>
+<h2 id="Download-Android-6-0-Marshmallow-for-x86the-name-of-the-file-android-x86-64-6-0-rc2-iso-with-the-file-you-downloaded"><a href="#Download-Android-6-0-Marshmallow-for-x86the-name-of-the-file-android-x86-64-6-0-rc2-iso-with-the-file-you-downloaded" class="headerlink" title="Download Android 6.0 Marshmallow for x86the name of the file android-x86_64-6.0-rc2.iso with the file you downloaded"></a><a href="http://www.android-x86.org/download" target="_blank" rel="noopener">Download Android 6.0 Marshmallow for x86</a>the name of the file android-x86_64-6.0-rc2.iso with the file you downloaded</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -c http:&#x2F;&#x2F;gigenet.dl.osdn.jp&#x2F;android-x86&#x2F;67834&#x2F;android-x86_64-7.1-r1.iso</span><br></pre></td></tr></table></figure>
+<h2 id="rpm-link-android-rpm"><a href="#rpm-link-android-rpm" class="headerlink" title="rpm link:android rpm"></a>rpm link:<a href="http://pumath.dl.osdn.jp/android-x86/67834/android-x86-7.1-r1.x86_64.rpm" target="_blank" rel="noopener">android rpm</a></h2>
+        
+          <p class="article-more-link">
+            <a href="/2018/04/01/qemu-%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/04/01/qemu-%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA/" data-id="ckivmllxz002qx720475mebxh" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/04/01/qemu-%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qemu/" rel="tag">qemu</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-openSUSE-42-3-编译gcc4-9-4-安装flameshot" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/27/openSUSE-42-3-%E7%BC%96%E8%AF%91gcc4-9-4-%E5%AE%89%E8%A3%85flameshot/" class="article-date">
+  <time datetime="2018-03-27T14:07:44.000Z" itemprop="datePublished">2018-03-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/27/openSUSE-42-3-%E7%BC%96%E8%AF%91gcc4-9-4-%E5%AE%89%E8%A3%85flameshot/">openSUSE 42.3 编译gcc4.9.4 安装flameshot</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="下载GCC"><a href="#下载GCC" class="headerlink" title="下载GCC"></a>下载GCC</h1><p><a href="ftp://ftp.gnu.org/gnu/gcc/gcc-4.9.4/gcc-4.9.4.tar.gz">官方FTP</a><br><a href="http://ftpmirror.gnu.org" target="_blank" rel="noopener">自动选择速度较快的镜像站</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cd gcc-4.9.4&#x2F;</span><br><span class="line">tar xvf gcc-4.9.4.tar.gz -C ~&#x2F;src&#x2F;</span><br><span class="line">cd ~&#x2F;src&#x2F;gcc-4.9.4&#x2F;</span><br><span class="line">.&#x2F;configure </span><br><span class="line">vim README</span><br><span class="line">sh .&#x2F;contrib&#x2F;download_prerequisites</span><br><span class="line">..</span><br><span class="line">mkdir buidl-gcc-4.9.4</span><br><span class="line">cd buidl-gcc-4.9.4&#x2F;</span><br><span class="line">..&#x2F;gcc-4.9.4&#x2F;configure --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&#x2F; --enable-checking&#x3D;release --enable-languages&#x3D;c,c++ --disable-multilib</span><br><span class="line">make -j4</span><br></pre></td></tr></table></figure>
+<h2 id=""><a href="#" class="headerlink" title=""></a>
+        
+          <p class="article-more-link">
+            <a href="/2018/03/27/openSUSE-42-3-%E7%BC%96%E8%AF%91gcc4-9-4-%E5%AE%89%E8%A3%85flameshot/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/03/27/openSUSE-42-3-%E7%BC%96%E8%AF%91gcc4-9-4-%E5%AE%89%E8%A3%85flameshot/" data-id="ckivmllxy002ox720gd676j75" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/03/27/openSUSE-42-3-%E7%BC%96%E8%AF%91gcc4-9-4-%E5%AE%89%E8%A3%85flameshot/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-openSUSE-42-3-实现IP转发且重启不失效" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/26/openSUSE-42-3-%E5%AE%9E%E7%8E%B0IP%E8%BD%AC%E5%8F%91%E4%B8%94%E9%87%8D%E5%90%AF%E4%B8%8D%E5%A4%B1%E6%95%88/" class="article-date">
+  <time datetime="2018-03-26T09:50:27.000Z" itemprop="datePublished">2018-03-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/26/openSUSE-42-3-%E5%AE%9E%E7%8E%B0IP%E8%BD%AC%E5%8F%91%E4%B8%94%E9%87%8D%E5%90%AF%E4%B8%8D%E5%A4%B1%E6%95%88/">openSUSE 42.3 实现IP转发且重启不失效</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.suse.com/documentation/sles-12/book_sle_admin/data/sec_basicnet_router.html" target="_blank" rel="noopener">官网文档内容</a></p>
+<h2 id="Basic-Router-Setup"><a href="#Basic-Router-Setup" class="headerlink" title="Basic Router Setup"></a>Basic Router Setup</h2><p>A router is a networking device that delivers and receives data (network packets) to or from more than one network back and forth. You often use a router to connect your local network to the remote network (Internet) or to connect local network segments. With SUSE Linux Enterprise Server you can build a router with features such as NAT (Network Address Translation) or advanced firewalling.</p>
+<p>The following are basic steps to turn SUSE Linux Enterprise Server into a router.<br>
+        
+          <p class="article-more-link">
+            <a href="/2018/03/26/openSUSE-42-3-%E5%AE%9E%E7%8E%B0IP%E8%BD%AC%E5%8F%91%E4%B8%94%E9%87%8D%E5%90%AF%E4%B8%8D%E5%A4%B1%E6%95%88/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/03/26/openSUSE-42-3-%E5%AE%9E%E7%8E%B0IP%E8%BD%AC%E5%8F%91%E4%B8%94%E9%87%8D%E5%90%AF%E4%B8%8D%E5%A4%B1%E6%95%88/" data-id="ckivmllwg0021x720817y278k" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/03/26/openSUSE-42-3-%E5%AE%9E%E7%8E%B0IP%E8%BD%AC%E5%8F%91%E4%B8%94%E9%87%8D%E5%90%AF%E4%B8%8D%E5%A4%B1%E6%95%88/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-git远程提交错误的解决方法-Linux系统-The-requested-URL-returned-error-403" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/22/git%E8%BF%9C%E7%A8%8B%E6%8F%90%E4%BA%A4%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-Linux%E7%B3%BB%E7%BB%9F-The-requested-URL-returned-error-403/" class="article-date">
+  <time datetime="2018-03-22T14:02:18.000Z" itemprop="datePublished">2018-03-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/22/git%E8%BF%9C%E7%A8%8B%E6%8F%90%E4%BA%A4%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-Linux%E7%B3%BB%E7%BB%9F-The-requested-URL-returned-error-403/">git远程提交错误</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="error信息"><a href="#error信息" class="headerlink" title="error信息:"></a>error信息:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">四 3月 22|19:20|0:&gt;git push -u origin master </span><br><span class="line">Pass a valid window to KWallet::Wallet::openWallet().</span><br><span class="line">Pass a valid window to KWallet::Wallet::openWallet().</span><br><span class="line">remote: Permission to Aquarian-Age&#x2F;bucklespring.git denied to l----6.</span><br><span class="line">fatal: unable to access &#39;https:&#x2F;&#x2F;github.com&#x2F;Aquarian-Age&#x2F;bucklespring.git&#x2F;&#39;: The requested URL returned error: 403</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2018/03/22/git%E8%BF%9C%E7%A8%8B%E6%8F%90%E4%BA%A4%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-Linux%E7%B3%BB%E7%BB%9F-The-requested-URL-returned-error-403/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/03/22/git%E8%BF%9C%E7%A8%8B%E6%8F%90%E4%BA%A4%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-Linux%E7%B3%BB%E7%BB%9F-The-requested-URL-returned-error-403/" data-id="ckivmllw9001hx720955cg1y6" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/03/22/git%E8%BF%9C%E7%A8%8B%E6%8F%90%E4%BA%A4%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-Linux%E7%B3%BB%E7%BB%9F-The-requested-URL-returned-error-403/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-昨日小语" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/16/%E6%98%A8%E6%97%A5%E5%B0%8F%E8%AF%AD/" class="article-date">
+  <time datetime="2018-03-16T09:33:43.000Z" itemprop="datePublished">2018-03-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/16/%E6%98%A8%E6%97%A5%E5%B0%8F%E8%AF%AD/">小语0</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这是之前<a href="tianwaifeixian.leanote.com">蚂蚁笔记博客</a>上面copy过来的</p>
+        
+          <p class="article-more-link">
+            <a href="/2018/03/16/%E6%98%A8%E6%97%A5%E5%B0%8F%E8%AF%AD/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/03/16/%E6%98%A8%E6%97%A5%E5%B0%8F%E8%AF%AD/" data-id="ckivmllyx0058x7206w7r0d20" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/03/16/%E6%98%A8%E6%97%A5%E5%B0%8F%E8%AF%AD/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B0%8F%E8%AF%AD/" rel="tag">小语</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-linux的gpasswd管理用户属组以及相关目录下软件更新权限问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/14/linux%E7%9A%84gpasswd%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7%E5%B1%9E%E7%BB%84%E4%BB%A5%E5%8F%8A%E7%9B%B8%E5%85%B3%E7%9B%AE%E5%BD%95%E4%B8%8B%E8%BD%AF%E4%BB%B6%E6%9B%B4%E6%96%B0%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98/" class="article-date">
+  <time datetime="2018-03-13T23:05:10.000Z" itemprop="datePublished">2018-03-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/14/linux%E7%9A%84gpasswd%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7%E5%B1%9E%E7%BB%84%E4%BB%A5%E5%8F%8A%E7%9B%B8%E5%85%B3%E7%9B%AE%E5%BD%95%E4%B8%8B%E8%BD%AF%E4%BB%B6%E6%9B%B4%E6%96%B0%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98/">gpasswd管理用户权限</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>firefox从官网下载的<br>刚才打开发现提示更新失败 想到可能是因为我把它放在了/opt分区的原因<br>/opt分区对当前用户没有写入权限 所以也就不能自动更新了</p>
+<h3 id="添加用户Aquarian到root组中："><a href="#添加用户Aquarian到root组中：" class="headerlink" title="添加用户Aquarian到root组中："></a>添加用户Aquarian到root组中：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo gpasswd -a Aquarian root</span><br><span class="line">正在将用户“Aquarian”加入到“root”组中</span><br><span class="line">更改&#x2F;opt目录权限 使其对属组用户可写</span><br><span class="line"></span><br><span class="line">sudo chmod -R g+w &#x2F;opt</span><br></pre></td></tr></table></figure>
+<hr>
+<p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/03/14/linux%E7%9A%84gpasswd%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7%E5%B1%9E%E7%BB%84%E4%BB%A5%E5%8F%8A%E7%9B%B8%E5%85%B3%E7%9B%AE%E5%BD%95%E4%B8%8B%E8%BD%AF%E4%BB%B6%E6%9B%B4%E6%96%B0%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98/" data-id="ckivmllwd001sx7206fqhatz5" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/03/14/linux%E7%9A%84gpasswd%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7%E5%B1%9E%E7%BB%84%E4%BB%A5%E5%8F%8A%E7%9B%B8%E5%85%B3%E7%9B%AE%E5%BD%95%E4%B8%8B%E8%BD%AF%E4%BB%B6%E6%9B%B4%E6%96%B0%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-share" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/27/share/" class="article-date">
+  <time datetime="2018-02-26T22:32:35.000Z" itemprop="datePublished">2018-02-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/27/share/">share</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h3 id="syncthing"><a href="#syncthing" class="headerlink" title="syncthing"></a>syncthing</h3><ul>
+<li>官方介绍:Syncthing是一个应用程序，可让您跨多个设备同步文件。这意味着在一台计算机上创建，修改或删除文件将自动复制到其他设备。Syncthing不会将您的数据上传到云，但会在您的计算机同时联机时立即在您的计算机上交换数据。</li>
+<li><a href="https://docs.syncthing.net/users/faq.html" target="_blank" rel="noopener">Doc-Usage-2.2.FAQ</a></li>
+<li>GitHub项目地址: <a href="https://github.com/syncthing/syncthing/tree/v0.14.49" target="_blank" rel="noopener">https://github.com/syncthing/syncthing/tree/v0.14.49</a></li>
+</ul>
+<h3 id="Rclone-命令行网盘同步神器"><a href="#Rclone-命令行网盘同步神器" class="headerlink" title="Rclone 命令行网盘同步神器"></a>Rclone 命令行网盘同步神器</h3><ul>
+<li>Rclone is a command line program to sync files and directories</li>
+<li><a href="https://rclone.org/" target="_blank" rel="noopener">https://rclone.org/</a></li>
+<li>GitHub地址 <a href="https://github.com/ncw/rclone" target="_blank" rel="noopener">https://github.com/ncw/rclone</a></li>
+</ul>
+<h3 id="百度网盘下载"><a href="#百度网盘下载" class="headerlink" title="百度网盘下载"></a>百度网盘下载</h3><ul>
+<li><a href="https://github.com/iikira/BaiduPCS-Go" target="_blank" rel="noopener">https://github.com/iikira/BaiduPCS-Go</a></li>
+</ul>
+<h3 id="在线云存储"><a href="#在线云存储" class="headerlink" title="在线云存储"></a>在线云存储</h3><h4 id="奶牛快传"><a href="#奶牛快传" class="headerlink" title="奶牛快传"></a>奶牛快传</h4><ul>
+<li><a href="https://cowtransfer.com/" target="_blank" rel="noopener">https://cowtransfer.com/</a></li>
+</ul>
+<h4 id="从命令行轻松上传文件"><a href="#从命令行轻松上传文件" class="headerlink" title="从命令行轻松上传文件"></a>从命令行轻松上传文件</h4><ul>
+<li><a href="https://transfer.sh" target="_blank" rel="noopener">https://transfer.sh</a></li>
+<li>使用方法见网站“示例用例”或者从github获取造好的轮子<a href="git clone https://github.com/alexanderepstein/Bash-Snippets">git clone https://github.com/alexanderepstein/Bash-Snippets</a></li>
+</ul>
+        
+          <p class="article-more-link">
+            <a href="/2018/02/27/share/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/02/27/share/" data-id="ckivmlly0002ux720hd2ygf19" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/02/27/share/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%86%E4%BA%AB/" rel="tag">分享</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-上证指数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/22/%E4%B8%8A%E8%AF%81%E6%8C%87%E6%95%B0/" class="article-date">
+  <time datetime="2018-02-22T02:08:39.000Z" itemprop="datePublished">2018-02-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/22/%E4%B8%8A%E8%AF%81%E6%8C%87%E6%95%B0/">上证指数0</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>上证指数：<br>万变不离是5波～<br><img src="https://wx1.sinaimg.cn/mw1024/56e62e01ly1foozlrcch7j211o0gh408.jpg" alt="上证指数周线"><br><img src="https://wx1.sinaimg.cn/mw1024/56e62e01ly1foozlwo11pj20ta0g4t93.jpg" alt="上证指数周线1"><br>螺纹钢也如期开始下行了～<br>
+        
+          <p class="article-more-link">
+            <a href="/2018/02/22/%E4%B8%8A%E8%AF%81%E6%8C%87%E6%95%B0/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/02/22/%E4%B8%8A%E8%AF%81%E6%8C%87%E6%95%B0/" data-id="ckivmllye003wx72007vz244q" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/02/22/%E4%B8%8A%E8%AF%81%E6%8C%87%E6%95%B0/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B5%84%E6%9C%AC%E6%8A%95%E6%9C%BA/" rel="tag">资本投机</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-chroot-openSUSE" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/16/chroot-openSUSE/" class="article-date">
+  <time datetime="2018-02-16T02:49:27.000Z" itemprop="datePublished">2018-02-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/16/chroot-openSUSE/">chroot openSUSE</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>openSUSE修复grub方法</p>
+        
+          <p class="article-more-link">
+            <a href="/2018/02/16/chroot-openSUSE/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/02/16/chroot-openSUSE/" data-id="ckivmllw2000zx7204o2c0cgd" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/02/16/chroot-openSUSE/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-小语" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/15/%E5%B0%8F%E8%AF%AD/" class="article-date">
+  <time datetime="2018-02-15T09:29:07.000Z" itemprop="datePublished">2018-02-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/15/%E5%B0%8F%E8%AF%AD/">小语1</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="法华"><a href="#法华" class="headerlink" title="法华"></a>法华</h3><hr>
+<p>石破惊天说法华 风起云涌演楞严<br>古来神韵存千载 今夕浮世欲纷飞<br><img src="https://wx3.sinaimg.cn/mw690/56e62e01ly1fq2u5aao5vj235s2dcu0y.jpg" alt="法华"></p>
+        
+          <p class="article-more-link">
+            <a href="/2018/02/15/%E5%B0%8F%E8%AF%AD/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/02/15/%E5%B0%8F%E8%AF%AD/" data-id="ckivmllyp004ox720gq4007ed" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/02/15/%E5%B0%8F%E8%AF%AD/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B0%8F%E8%AF%AD/" rel="tag">小语</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-Linux-power-manager-laptop-mode-tools" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/14/Linux-power-manager-laptop-mode-tools/" class="article-date">
+  <time datetime="2018-02-14T06:15:55.000Z" itemprop="datePublished">2018-02-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/14/Linux-power-manager-laptop-mode-tools/">Linux硬盘管理-laptop-mode-tools</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Linux的硬盘管理在openSUSE上用的是laptop-mode-tools-需要的工具是hdparm"><a href="#Linux的硬盘管理在openSUSE上用的是laptop-mode-tools-需要的工具是hdparm" class="headerlink" title="Linux的硬盘管理在openSUSE上用的是laptop-mode-tools 需要的工具是hdparm"></a>Linux的硬盘管理在openSUSE上用的是<a href="https://zh.opensuse.org/%E7%A1%AC%E7%9B%98_APM_%E8%AE%BE%E7%BD%AE" target="_blank" rel="noopener">laptop-mode-tools</a> 需要的工具是hdparm</h1><h2 id="安装ext4模块的管理工具"><a href="#安装ext4模块的管理工具" class="headerlink" title="安装ext4模块的管理工具"></a>安装ext4模块的管理工具</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> 日 1月 28|08:44|0:&gt;sudo zypper in laptop-mode-tools</span><br><span class="line">正在加载软件源数据...</span><br><span class="line">正在读取已安装的软件包...</span><br><span class="line">正在解决软件包依赖关系...</span><br><span class="line"></span><br><span class="line">将安装以下 1 个新软件包：</span><br><span class="line">  laptop-mode-tools</span><br><span class="line"></span><br><span class="line">1 个软件包将新装.</span><br><span class="line">总下载大小：80.5 KiB。已缓存：0 B。 操作完成后，将使用额外的 205.4 KiB。</span><br><span class="line">继续吗？ [y&#x2F;n&#x2F;...? 显示全部选项] (y): y</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2018/02/14/Linux-power-manager-laptop-mode-tools/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/02/14/Linux-power-manager-laptop-mode-tools/" data-id="ckivmlm0a0086x720fzmi39y6" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/02/14/Linux-power-manager-laptop-mode-tools/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-about" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/31/about/" class="article-date">
+  <time datetime="2018-01-30T23:57:48.000Z" itemprop="datePublished">2018-01-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/31/about/">about me</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <ul>
+<li><strong>1980生人 水瓶座 极简主义 敏感而无更高的觉知</strong></li>
+<li><strong>非IT业内人士 非全日制专科学历(2013~2016 江南大学 社会工作专业)</strong></li>
+<li><strong><a href="https://www.gnu.org/home.zh-cn.html" target="_blank" rel="noopener">GNU</a>/<a href="https://www.kernel.org/" target="_blank" rel="noopener">Linux</a>用户 <a href="https://www.opensuse.org/" target="_blank" rel="noopener">openSUSE</a> <a href="https://www.kde.org/plasma-desktop" target="_blank" rel="noopener">KDE</a> 桌面使用者</strong></li>
+<li><strong>曾有過幾年宗教靈修經歷 无信仰主义 无国界思维</strong></li>
+<li><strong>喜歡親近自然 养狗</strong></li>
+<li><strong>只有在不断的思考中才觉得生命有一点所谓的意义</strong></li>
+<li><strong>喜欢钻研 喜欢新技术 喜欢折腾 喜欢自己动手尝试</strong></li>
+</ul>
+<hr>
+<ul>
+<li><strong>业余作品</strong></li>
+</ul>
+<p><a href="https://github.com/Aquarian-Age/sjqm" target="_blank" rel="noopener">奇门</a></p>
+<p><a href="https://github.com/Aquarian-Age/ccal" target="_blank" rel="noopener">农历-择吉</a><br>图片需要<code>扶墙</code><br><img src="https://raw.githubusercontent.com/Aquarian-Age/ccal/amrta/png/cal.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/01/31/about/" data-id="ckivmllvx000ox7205dlz7dr2" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/01/31/about/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/me/" rel="tag">me</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-ocserv-install-on-centos6-8" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/28/ocserv-install-on-centos6-8/" class="article-date">
+  <time datetime="2018-01-28T15:25:17.000Z" itemprop="datePublished">2018-01-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/28/ocserv-install-on-centos6-8/">ocserv-install-on-centos6.8</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="下载相关依赖及软件"><a href="#下载相关依赖及软件" class="headerlink" title="下载相关依赖及软件"></a>下载相关依赖及软件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd </span><br><span class="line">yum install autoconf automake gcc libtasn1-devel zlib zlib-devel trousers trousers-devel gmp-devel gmp xz texinif libnl-devel libnl wrappers-libs tcp wrappers-devel tcp_wrappers dbus dbus-devel ncurses-devel pam-devel readline-devel bison bison-devel flex gcc wget</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2018/01/28/ocserv-install-on-centos6-8/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/01/28/ocserv-install-on-centos6-8/" data-id="ckivmllxy002nx7201amr6nt3" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/01/28/ocserv-install-on-centos6-8/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/" rel="tag">VPS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-proxychain4去插件全局代理浏览器上网" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/27/proxychain4%E5%8E%BB%E6%8F%92%E4%BB%B6%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8A%E7%BD%91/" class="article-date">
+  <time datetime="2018-01-27T03:31:51.000Z" itemprop="datePublished">2018-01-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/27/proxychain4%E5%8E%BB%E6%8F%92%E4%BB%B6%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8A%E7%BD%91/">proxychain4去插件全局代理浏览器上网</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        The article has been encrypted, please enter your password to view.<br>
+        
+          <p class="article-more-link">
+            <a href="/2018/01/27/proxychain4%E5%8E%BB%E6%8F%92%E4%BB%B6%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8A%E7%BD%91/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/01/27/proxychain4%E5%8E%BB%E6%8F%92%E4%BB%B6%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8A%E7%BD%91/" data-id="ckivmllwi0028x7205sm3a80h" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/01/27/proxychain4%E5%8E%BB%E6%8F%92%E4%BB%B6%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8A%E7%BD%91/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/page/13/">&amp;laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/15/">下一页&amp;raquo;</a>
+  </nav>
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title recent-posts">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/03/08/%E6%A3%80%E6%9F%A5Go%E5%AF%BC%E5%85%A5%E5%8C%85%E7%9A%84%E5%8D%B1%E9%99%A9%E6%80%A7/">检查Go导入包的危险性</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/05/%E5%9F%9F%E5%90%8D/">域名</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/03/Flames/">雙生紫焰Violet Flames</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/01/cmha/">承蒙厚爱</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/24/%E6%81%B6/">恶</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>TDB2UTC+8 | AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="echo –&gt; 时间转换">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TDB2UTC+8">
+<meta property="og:url" content="https://aquarian-age.github.io/2020/02/29/TDB2UTC-8/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:description" content="echo –&gt; 时间转换">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-29T12:15:53.000Z">
+<meta property="article:modified_time" content="2020-10-05T22:06:02.089Z">
+<meta property="article:author" content="Liangzi">
+<meta property="article:tag" content="Go">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-TDB2UTC-8" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/29/TDB2UTC-8/" class="article-date">
+  <time datetime="2020-02-29T12:15:53.000Z" itemprop="datePublished">2020-02-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      TDB2UTC+8
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>echo –&gt; 时间转换<br><a id="more"></a></p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"time"</span></span><br><span class="line">	<span class="string">"github.com/soniakeys/meeus/v3/julian"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Jqws = []<span class="keyword">string</span>&#123;</span><br><span class="line">	<span class="string">"Jd0"</span>, <span class="comment">//Jd0(公历年1月1日TDB16时的儒略数)</span></span><br><span class="line">	<span class="string">"Z11a冬至"</span>, <span class="string">"J12小寒"</span>, <span class="string">"Z12大寒"</span>, <span class="string">"J01立春"</span>, <span class="string">"Z01雨水"</span>, <span class="string">"J02惊蛰"</span>,</span><br><span class="line">	<span class="string">"Z02春分"</span>, <span class="string">"J03清明"</span>, <span class="string">"Z03谷雨"</span>, <span class="string">"J04立夏"</span>, <span class="string">"Z04小满"</span>, <span class="string">"J05芒种"</span>,</span><br><span class="line">	<span class="string">"Z05夏至"</span>, <span class="string">"J06小暑"</span>, <span class="string">"Z06大暑"</span>, <span class="string">"J07立秋"</span>, <span class="string">"Z07处暑"</span>, <span class="string">"J08白露"</span>,</span><br><span class="line">	<span class="string">"Z08秋分"</span>, <span class="string">"J09寒露"</span>, <span class="string">"Z09霜降"</span>, <span class="string">"J10立冬"</span>, <span class="string">"Z10小雪"</span>, <span class="string">"J11大雪"</span>,</span><br><span class="line">	<span class="string">"Z11b冬至"</span>, <span class="string">"Q0_01朔"</span>, <span class="string">"Q1_01上弦"</span>, <span class="string">"Q2_01望"</span>, <span class="string">"Q3_01下弦"</span>, <span class="string">"Q0_02朔"</span>,</span><br><span class="line">	<span class="string">"Q1_02上弦"</span>, <span class="string">"Q2_02望"</span>, <span class="string">"Q3_02下弦"</span>, <span class="string">"Q0_03朔"</span>, <span class="string">"Q1_03上弦"</span>, <span class="string">"Q2_03望"</span>,</span><br><span class="line">	<span class="string">"Q3_03下弦"</span>, <span class="string">"Q0_04朔"</span>, <span class="string">"Q1_04上弦"</span>, <span class="string">"Q2_04望"</span>, <span class="string">"Q3_04下弦"</span>, <span class="string">"Q0_05朔"</span>,</span><br><span class="line">	<span class="string">"Q1_05上弦"</span>, <span class="string">"Q2_05望"</span>, <span class="string">"Q3_05下弦"</span>, <span class="string">"Q0_06朔"</span>, <span class="string">"Q1_06上弦"</span>, <span class="string">"Q2_06望"</span>,</span><br><span class="line">	<span class="string">"Q3_06下弦"</span>, <span class="string">"Q0_07朔"</span>, <span class="string">"Q1_07上弦"</span>, <span class="string">"Q2_07望"</span>, <span class="string">"Q3_07下弦"</span>, <span class="string">"Q0_08朔"</span>,</span><br><span class="line">	<span class="string">"Q1_08上弦"</span>, <span class="string">"Q2_08望"</span>, <span class="string">"Q3_08下弦"</span>, <span class="string">"Q0_09朔"</span>, <span class="string">"Q1_09上弦"</span>, <span class="string">"Q2_09望"</span>,</span><br><span class="line">	<span class="string">"Q3_09下弦"</span>, <span class="string">"Q0_10朔"</span>, <span class="string">"Q1_10上弦"</span>, <span class="string">"Q2_10望"</span>, <span class="string">"Q3_10下弦"</span>, <span class="string">"Q0_11朔"</span>,</span><br><span class="line">	<span class="string">"Q1_11上弦"</span>, <span class="string">"Q2_11望"</span>, <span class="string">"Q3_11下弦"</span>, <span class="string">"Q0_12朔"</span>, <span class="string">"Q1_12上弦"</span>, <span class="string">"Q2_12望"</span>,</span><br><span class="line">	<span class="string">"Q3_12下弦"</span>, <span class="string">"Q0_13朔"</span>, <span class="string">"Q1_13上弦"</span>, <span class="string">"Q2_13望"</span>, <span class="string">"Q3_13下弦"</span>, <span class="string">"Q0_14朔"</span>,</span><br><span class="line">	<span class="string">"Q1_14上弦"</span>, <span class="string">"Q2_14望"</span>, <span class="string">"Q3_14下弦"</span>, <span class="string">"Q0_15朔"</span>, <span class="string">"Q1_15上弦"</span>, <span class="string">"Q2_15望"</span>,</span><br><span class="line">	<span class="string">"Q3_15下弦"</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> yearData = []<span class="keyword">float64</span>&#123;<span class="number">2457753.166666667</span>, <span class="number">-9.218530598907774</span>, <span class="number">5.497842492259482</span>, <span class="number">20.22552626914905</span>, <span class="number">34.98278448254984</span>, <span class="number">49.81422132714489</span>, <span class="number">64.73185906912768</span>, <span class="number">79.7706837421389</span>, <span class="number">94.92950107548511</span>, <span class="number">110.2278923247768</span>, <span class="number">125.6473539133397</span>, <span class="number">141.1889441576064</span>, <span class="number">156.8178868452061</span>, <span class="number">172.5175710195247</span>, <span class="number">188.2443347964343</span>, <span class="number">203.9697983340854</span>, <span class="number">219.653576701181</span>, <span class="number">235.2648394221505</span>, <span class="number">250.7776125987015</span>, <span class="number">266.1687161453686</span>, <span class="number">281.4328387077553</span>, <span class="number">296.5609976901412</span>, <span class="number">311.5687306023763</span>, <span class="number">326.4623633838494</span>, <span class="number">341.2734759041009</span>, <span class="number">356.0202079718217</span>, <span class="number">-31.15322074152738</span>, <span class="number">-23.28878613426208</span>, <span class="number">-16.66202080737692</span>, <span class="number">-9.585510966784234</span>, <span class="number">-1.378940928726802</span>, <span class="number">6.158425585967435</span>, <span class="number">12.81604788607298</span>, <span class="number">20.26012282309312</span>, <span class="number">28.3390093142288</span>, <span class="number">35.51390050633605</span>, <span class="number">42.35696260310556</span>, <span class="number">50.14879629572398</span>, <span class="number">57.95800218123338</span>, <span class="number">64.81493448512025</span>, <span class="number">71.95481352077726</span>, <span class="number">79.99955372169302</span>, <span class="number">87.45719143015639</span>, <span class="number">94.11150758401725</span>, <span class="number">101.5897514811425</span>, <span class="number">109.7485386574169</span>, <span class="number">116.8453376379099</span>, <span class="number">123.4500025379543</span>, <span class="number">131.2386318434127</span>, <span class="number">139.3569089792531</span>, <span class="number">146.1566694270907</span>, <span class="number">152.8633722436074</span>, <span class="number">160.8824524805873</span>, <span class="number">168.8151802809744</span>, <span class="number">175.4387873367149</span>, <span class="number">182.3696136737537</span>, <span class="number">190.50536410015</span>, <span class="number">198.1436006619345</span>, <span class="number">204.7407839531784</span>, <span class="number">211.9751609480471</span>, <span class="number">220.0915066897796</span>, <span class="number">227.3862542486011</span>, <span class="number">234.1050872574149</span>, <span class="number">241.6764830585174</span>, <span class="number">249.6277428910258</span>, <span class="number">256.6014980482746</span>, <span class="number">263.5632027415998</span>, <span class="number">271.4546324535683</span>, <span class="number">279.1119876746611</span>, <span class="number">285.8517879259808</span>, <span class="number">293.1341653757766</span>, <span class="number">301.2661271932936</span>, <span class="number">308.5583692126198</span>, <span class="number">315.1927387618005</span>, <span class="number">322.8217183474621</span>, <span class="number">331.0444928455917</span>, <span class="number">337.9917531408973</span>, <span class="number">344.661453357646</span>, <span class="number">352.6052561394447</span>, <span class="number">360.7230977832939</span>, <span class="number">367.4341949546102</span>, <span class="number">374.2683301971016</span>, <span class="number">382.4294372454979</span>, <span class="number">390.2649441873945</span>, <span class="number">396.8943625227564</span>, <span class="number">403.9965820568044</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//UTC+8年份数据</span></span><br><span class="line"><span class="keyword">type</span> UTCYD <span class="keyword">struct</span> &#123;</span><br><span class="line">	T  []time.Time</span><br><span class="line">	JD []<span class="keyword">float64</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//转换TDB为UTC时间</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TDBToUTC</span><span class="params">(yearData []<span class="keyword">float64</span>)</span> <span class="params">(utcYD *UTCYD)</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> f0 = yearData[<span class="number">0</span>]</span><br><span class="line">	<span class="keyword">var</span> tyd = <span class="built_in">new</span>(UTCYD)</span><br><span class="line">	<span class="keyword">var</span> tj time.Time</span><br><span class="line">	<span class="keyword">var</span> tarr []time.Time</span><br><span class="line">	<span class="keyword">var</span> jd []<span class="keyword">float64</span></span><br><span class="line">	<span class="keyword">for</span> j := <span class="number">0</span>; j &lt; <span class="built_in">len</span>(yearData); j++ &#123;</span><br><span class="line">		_jd := f0 + yearData[j]</span><br><span class="line">		tj = julian.JDToTime(_jd)</span><br><span class="line">		tarr = <span class="built_in">append</span>(tarr, tj)</span><br><span class="line">		tyd.T = tarr</span><br><span class="line">		jd = <span class="built_in">append</span>(jd, _jd)</span><br><span class="line">		tyd.JD = jd</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> &amp;UTCYD&#123;T: tarr, JD: jd&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">	tyd := TDBToUTC(yearData)</span><br><span class="line">	t := tyd.T</span><br><span class="line">	jd := tyd.JD</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">1</span>; i &lt; <span class="built_in">len</span>(t); i++ &#123;</span><br><span class="line">		t := t[i]</span><br><span class="line">		y := t.Year()</span><br><span class="line">		m := t.Month()</span><br><span class="line">		d := t.Day()</span><br><span class="line">		h := t.Hour() + <span class="number">8</span></span><br><span class="line">		<span class="keyword">if</span> h &gt;= <span class="number">24</span> &#123; <span class="comment">//UTC--&gt;UTC+8时间(24节气及月相(朔到下弦)和寿星万年历v5.10版本比起来相差上下一分钟左右)</span></span><br><span class="line">			h -= <span class="number">24</span></span><br><span class="line">			d += <span class="number">1</span></span><br><span class="line">		&#125;</span><br><span class="line">		min := t.Minute()</span><br><span class="line">		s := t.Second()</span><br><span class="line">		fmt.Printf(<span class="string">"jd:%f 年:%v 月:%d 日:%v--&gt;节气:%s h:%d min:%d s:%d\n"</span>, jd[i], y, m, d, Jqws[i], h, min, s)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p><a href="https://en.wikipedia.org/wiki/Barycentric_Dynamical_Time" target="_blank" rel="noopener">Barycentric_Dynamical_TimeTDB</a><br><a href="https://zh.wikipedia.org/wiki/%E5%8D%8F%E8%B0%83%E4%B8%96%E7%95%8C%E6%97%B6" target="_blank" rel="noopener">协调世界时UTC</a><br><a href="https://zh.wikipedia.org/wiki/%E5%9C%B0%E7%90%83%E6%99%82" target="_blank" rel="noopener">地球时TT</a><br><a href="https://zh.wikipedia.org/wiki/%E5%A4%A9%E6%96%87%E5%B8%B8%E6%95%B8" target="_blank" rel="noopener">天文常数</a></p>
+<hr>
+<p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2020/02/29/TDB2UTC-8/" data-id="ckivmllvt000jx720hr516pbj" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2020/02/29/TDB2UTC-8/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/" rel="tag">Go</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2020/03/03/%E6%A0%B9%E6%8D%AE%E6%B0%94%E6%9C%94%E6%8E%A8%E7%AE%97%E6%98%AF%E5%90%A6%E6%B6%A6%E6%9C%88/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          TDB推算润月
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/02/17/JulianToCalendar/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">儒略日与公历日互转</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title recent-posts">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/03/08/%E6%A3%80%E6%9F%A5Go%E5%AF%BC%E5%85%A5%E5%8C%85%E7%9A%84%E5%8D%B1%E9%99%A9%E6%80%A7/">检查Go导入包的危险性</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/05/%E5%9F%9F%E5%90%8D/">域名</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/03/Flames/">雙生紫焰Violet Flames</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/01/cmha/">承蒙厚爱</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/24/%E6%81%B6/">恶</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2020/02/29/TDB2UTC-8/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

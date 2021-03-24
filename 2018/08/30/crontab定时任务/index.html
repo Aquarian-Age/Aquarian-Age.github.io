@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>crontab定时任务 | AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="使用crontab定時啓動相關任務實現不同需求测试系统CentOS6.10 openSUSE15.0 两个不一样的管理系统  非systemd管理 CentOS 6.10版本测试记录   安装12# yum update# yum install crontabs  查看运行状态12# service crond statuscrond (pid  7705) is running...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="crontab定时任务">
+<meta property="og:url" content="https://aquarian-age.github.io/2018/08/30/crontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:description" content="使用crontab定時啓動相關任務實現不同需求测试系统CentOS6.10 openSUSE15.0 两个不一样的管理系统  非systemd管理 CentOS 6.10版本测试记录   安装12# yum update# yum install crontabs  查看运行状态12# service crond statuscrond (pid  7705) is running...">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-08-30T03:06:49.000Z">
+<meta property="article:modified_time" content="2019-06-01T16:20:59.722Z">
+<meta property="article:author" content="Liangzi">
+<meta property="article:tag" content="crontab">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-crontab定时任务" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/30/crontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" class="article-date">
+  <time datetime="2018-08-30T03:06:49.000Z" itemprop="datePublished">2018-08-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      crontab定时任务
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>使用crontab定時啓動相關任務實現不同需求<br>测试系统CentOS6.10 openSUSE15.0 两个不一样的管理系统</p>
+<hr>
+<h2 id="非systemd管理"><a href="#非systemd管理" class="headerlink" title="非systemd管理"></a>非systemd管理</h2><ul>
+<li>CentOS 6.10版本测试记录</li>
+</ul>
+<hr>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># yum update</span><br><span class="line"># yum install crontabs</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看运行状态<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># service crond status</span><br><span class="line">crond (pid  7705) is running...</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+</li>
+</ul>
+<h3 id="添加定时任务"><a href="#添加定时任务" class="headerlink" title="添加定时任务"></a>添加定时任务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># crontab -e</span><br><span class="line">crontab: installing new crontab</span><br><span class="line"></span><br><span class="line"># crontab -l</span><br><span class="line">*&#x2F;1 * * * * sh &#x2F;root&#x2F;test.sh</span><br><span class="line"></span><br><span class="line"># &#x2F;etc&#x2F;init.d&#x2F;crond restart</span><br><span class="line"></span><br><span class="line"># cat -n test.sh</span><br><span class="line">     1  #!&#x2F;bin&#x2F;sh</span><br><span class="line">     2  &#x2F;etc&#x2F;profile</span><br><span class="line">     3</span><br><span class="line">     4  &#x2F;bin&#x2F;echo &quot;测试每分钟执行是否可行&quot; &gt;&gt; &#x2F;root&#x2F;test</span><br></pre></td></tr></table></figure>
+<h3 id="清除现有任务"><a href="#清除现有任务" class="headerlink" title="清除现有任务"></a>清除现有任务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># crontab -r</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="添加新的定时任务"><a href="#添加新的定时任务" class="headerlink" title="添加新的定时任务"></a>添加新的定时任务</h3><ul>
+<li>每月1号12：00清空access.log文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># crontab -e</span><br><span class="line">crontab: installing new crontab</span><br><span class="line"># crontab -l</span><br><span class="line">0 12 1 * * sh &#x2F;root&#x2F;clean-var.sh</span><br><span class="line"></span><br><span class="line"># cat -n clean-var.sh</span><br><span class="line">     1  #!&#x2F;bin&#x2F;sh</span><br><span class="line">     2  &#x2F;etc&#x2F;profile</span><br><span class="line">     3</span><br><span class="line">     4  &#x2F;bin&#x2F;echo &#39; &#39; &gt; &#x2F;var&#x2F;log&#x2F;v2ray&#x2F;access.log</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># &#x2F;etc&#x2F;init.d&#x2F;crond restart</span><br><span class="line">停止 crond：                                               [确定]</span><br><span class="line">正在启动 crond：</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="systemd系统"><a href="#systemd系统" class="headerlink" title="systemd系统"></a>systemd系统</h2><ul>
+<li>opensSUSE15.0测试记录</li>
+</ul>
+<hr>
+<h3 id="查看服务状态-依据当前用户权限适当加sudo"><a href="#查看服务状态-依据当前用户权限适当加sudo" class="headerlink" title="查看服务状态(依据当前用户权限适当加sudo)"></a>查看服务状态(依据当前用户权限适当加sudo)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;systemctl status cron.service</span><br><span class="line">● cron.service - Command Scheduler</span><br><span class="line">   Loaded: loaded (&#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F;cron.service; enabled; vendor preset: enabled)</span><br><span class="line">   Active: active (running) since Wed 2018-08-29 22:17:24 CST; 12h ago</span><br><span class="line"> Main PID: 5500 (cron)</span><br><span class="line">    Tasks: 1 (limit: 4915)</span><br><span class="line">   CGroup: &#x2F;system.slice&#x2F;cron.service</span><br><span class="line">           └─5500 &#x2F;usr&#x2F;sbin&#x2F;cron -n</span><br></pre></td></tr></table></figure>
+<h3 id="添加新的定时任务-1"><a href="#添加新的定时任务-1" class="headerlink" title="添加新的定时任务"></a>添加新的定时任务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">~</span><br><span class="line">&gt;crontab -e</span><br><span class="line">no crontab for AAA - using an empty one</span><br><span class="line">crontab: installing new crontab</span><br></pre></td></tr></table></figure>
+<h3 id="列出添加的任务"><a href="#列出添加的任务" class="headerlink" title="列出添加的任务"></a>列出添加的任务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~</span><br><span class="line">&gt;crontab -l</span><br><span class="line"># DO NOT EDIT THIS FILE - edit the master and reinstall.</span><br><span class="line"># (&#x2F;tmp&#x2F;crontab.zdNKUR installed on Thu Aug 30 10:23:29 2018)</span><br><span class="line"># (Cronie version 4.2)</span><br><span class="line">*&#x2F;1 * * * * sh &#x2F;home&#x2F;AAA&#x2F;test.sh</span><br></pre></td></tr></table></figure>
+<h3 id="脚本内容"><a href="#脚本内容" class="headerlink" title="脚本内容"></a>脚本内容</h3><p>需要环境变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">~</span><br><span class="line">&gt;cat test.sh</span><br><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">source &#x2F;etc&#x2F;profile</span><br><span class="line">source &#x2F;home&#x2F;AAA&#x2F;.bashrc</span><br><span class="line">source &#x2F;home&#x2F;AAA&#x2F;.profile</span><br><span class="line"></span><br><span class="line">echo &quot;测试每分钟是否执行:&quot; $(date) &gt;&gt; test</span><br></pre></td></tr></table></figure><br>source /etc/profile 的方法不會在/var/mail/root/中出現報警提示<br>bash文檔提到加載環境變量也可以使用$include<br>$include /etc/profile會在/var/mail/root中出現錯誤提示 權限不足這個時候需要暫時提升一下權限到755<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line"></span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;chmod 755 &#x2F;etc&#x2F;profile</span><br><span class="line">$include &#x2F;etc&#x2F;profile</span><br><span class="line">腳本內容</span><br><span class="line"></span><br><span class="line"># 改回權限</span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;chmod 644 &#x2F;etc&#x2F;profile</span><br></pre></td></tr></table></figure></p>
+<h3 id="重启服务-1"><a href="#重启服务-1" class="headerlink" title="重启服务"></a>重启服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~</span><br><span class="line">四 8月 30|10:23|0:&gt;systemctl restart cron.service</span><br></pre></td></tr></table></figure>
+<h3 id="查看效果"><a href="#查看效果" class="headerlink" title="查看效果"></a>查看效果</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">四 8月 30|10:25|0:&gt;cat -n test</span><br><span class="line">     1  测试每分钟是否执行: 2018年 08月 30日 星期四 10:24:01 CST</span><br><span class="line">     2  测试每分钟是否执行: 2018年 08月 30日 星期四 10:25:01 CST</span><br><span class="line">     3  测试每分钟是否执行: 2018年 08月 30日 星期四 10:26:01 CST</span><br><span class="line">     4  测试每分钟是否执行: 2018年 08月 30日 星期四 10:27:01 CST</span><br></pre></td></tr></table></figure>
+<ul>
+<li>把需要执行的脚本都放到test.sh里面来执行 不影响原脚本环境变量</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li><strong>每次修改文件后需要重新加载服务才能生效</strong></li>
+<li><strong>脚本里面需要添加环境变量/etc/profile</strong></li>
+<li><strong>每个任务的环境变量依据实际情况添加</strong></li>
+</ul>
+<hr>
+<h2 id="man-5-crontab"><a href="#man-5-crontab" class="headerlink" title="man 5 crontab"></a><strong>man 5 crontab</strong></h2><ul>
+<li><p>cron(8) examines cron entries every minute.</p>
+<pre><code>The time and date fields are:
+
+       field          allowed values
+       -----          --------------
+       minute         0-59
+       hour           0-23
+       day of month   1-31
+       month          1-12 (or names, see below)
+       day of week    0-7 (0 or 7 is Sunday, or use names)
+</code></pre></li>
+<li><p>星号后也允许使用值，因此如果指定要每两小时运行一次的作业，则可以使用“* /2”。</p>
+</li>
+<li><p>步长值可与范围结合使用。 在带有/ <number>的范围之后，指定在该范围内跳过数字值。例如，可以在’hours’字段中使用“0-23 / 2”来指定其他所有的命令执行（替代） V7标准是“0,2,4,6,8,10,12,14,16,18,20,22”）。</p>
+</li>
+<li><p>名称也可用于“月”和“星期几”字段。使用特定日期或月份的前三个字母（大小写无关紧要）。不允许使用范围或名称列表。</p>
+</li>
+<li><p>如果所有者的uid为0（root），则可以将“ - ”作为crontab条目的第一个字符。这将阻止cron编写有关此命令执行的syslog消息。</p>
+</li>
+<li><p>“第六个”字段（行的其余部分）指定要运行的命令。该行的整个命令部分，直到换行符或“％”字符，将由/ bin / sh或由cronfile的SHELL变量中指定的shell执行。除非使用反斜杠（\）进行转义，否则命令中的“％”字符将被更改为换行符，并且第一个％之后的所有数据将作为标准输入发送到命令。</p>
+</li>
+<li><p>注意：命令执行的日期可以在以下两个字段中指定 - “日期”和“星期几”。如果两个字段都受到限制（即，不包含“<em>”字符），则当任一字段与当前时间匹配时，将运行该命令。例如，“30 4 1,15 </em> 5”将导致命令在每个月的1日和15日凌晨4:30运行，加上每个星期五。</p>
+</li>
+<li><p><strong>EXAMPLE CRON FILE</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># use &#x2F;bin&#x2F;sh to run commands, no matter what &#x2F;etc&#x2F;passwd says</span><br><span class="line">SHELL&#x3D;&#x2F;bin&#x2F;sh</span><br><span class="line"># mail any output to &#96;paul&#39;, no matter whose crontab this is</span><br><span class="line">MAILTO&#x3D;paul</span><br><span class="line">#</span><br><span class="line">CRON_TZ&#x3D;Japan</span><br><span class="line"># run five minutes after midnight, every day</span><br><span class="line">5 0 * * *       $HOME&#x2F;bin&#x2F;daily.job &gt;&gt; $HOME&#x2F;tmp&#x2F;out 2&gt;&amp;1</span><br><span class="line"># run at 2:15pm on the first of every month -- output mailed to paul</span><br><span class="line">15 14 1 * *     $HOME&#x2F;bin&#x2F;monthly</span><br><span class="line"># run at 10 pm on weekdays, annoy Joe</span><br><span class="line">0 22 * * 1-5    mail -s &quot;It&#39;s 10pm&quot; joe%Joe,%%Where are your kids?%</span><br><span class="line">23 0-23&#x2F;2 * * * echo &quot;run 23 minutes after midn, 2am, 4am ..., everyday&quot;</span><br><span class="line">5 4 * * sun     echo &quot;run at 5 after 4 every sunday&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/08/30/crontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" data-id="ckivmllw40013x720cxdo3f6r" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/08/30/crontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/crontab/" rel="tag">crontab</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2018/08/31/crontab-rclone%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          crontab+rclone自动同步
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/08/25/ssh%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">ssh安全防护</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#非systemd管理"><span class="toc-number">1.</span> <span class="toc-text">非systemd管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加定时任务"><span class="toc-number">1.2.</span> <span class="toc-text">添加定时任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#清除现有任务"><span class="toc-number">1.3.</span> <span class="toc-text">清除现有任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加新的定时任务"><span class="toc-number">1.4.</span> <span class="toc-text">添加新的定时任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重启服务"><span class="toc-number">1.5.</span> <span class="toc-text">重启服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#systemd系统"><span class="toc-number">2.</span> <span class="toc-text">systemd系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看服务状态-依据当前用户权限适当加sudo"><span class="toc-number">2.1.</span> <span class="toc-text">查看服务状态(依据当前用户权限适当加sudo)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加新的定时任务-1"><span class="toc-number">2.2.</span> <span class="toc-text">添加新的定时任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#列出添加的任务"><span class="toc-number">2.3.</span> <span class="toc-text">列出添加的任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#脚本内容"><span class="toc-number">2.4.</span> <span class="toc-text">脚本内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重启服务-1"><span class="toc-number">2.5.</span> <span class="toc-text">重启服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看效果"><span class="toc-number">2.6.</span> <span class="toc-text">查看效果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#man-5-crontab"><span class="toc-number">4.</span> <span class="toc-text">man 5 crontab</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2018/08/30/crontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

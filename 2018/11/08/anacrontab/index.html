@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>anacrontab | AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="對於每天關機的系統 使用crotab這是實時守護進程會錯過關機時間內的自定義內容anacrontab正好彌補了這個不足 添加定時任務1# vim &#x2F;etc&#x2F;anacrontab 123456789101112131415161718# &#x2F;etc&#x2F;anacrontab: configuration file for anacron# See anacron(8">
+<meta property="og:type" content="article">
+<meta property="og:title" content="anacrontab">
+<meta property="og:url" content="https://aquarian-age.github.io/2018/11/08/anacrontab/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:description" content="對於每天關機的系統 使用crotab這是實時守護進程會錯過關機時間內的自定義內容anacrontab正好彌補了這個不足 添加定時任務1# vim &#x2F;etc&#x2F;anacrontab 123456789101112131415161718# &#x2F;etc&#x2F;anacrontab: configuration file for anacron# See anacron(8">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-11-07T23:24:08.000Z">
+<meta property="article:modified_time" content="2019-06-01T16:20:59.286Z">
+<meta property="article:author" content="Liangzi">
+<meta property="article:tag" content="crontab">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-anacrontab" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/08/anacrontab/" class="article-date">
+  <time datetime="2018-11-07T23:24:08.000Z" itemprop="datePublished">2018-11-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      anacrontab
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>對於每天關機的系統 使用crotab這是實時守護進程會錯過關機時間內的自定義內容<br>anacrontab正好彌補了這個不足</p>
+<h3 id="添加定時任務"><a href="#添加定時任務" class="headerlink" title="添加定時任務"></a>添加定時任務</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># vim &#x2F;etc&#x2F;anacrontab</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># &#x2F;etc&#x2F;anacrontab: configuration file for anacron</span><br><span class="line"></span><br><span class="line"># See anacron(8) and anacrontab(5) for details.</span><br><span class="line"></span><br><span class="line">SHELL&#x3D;&#x2F;bin&#x2F;sh</span><br><span class="line">PATH&#x3D;&#x2F;sbin:&#x2F;bin:&#x2F;usr&#x2F;sbin:&#x2F;usr&#x2F;bin:&#x2F;root&#x2F;bin</span><br><span class="line">MAILTO&#x3D;root</span><br><span class="line"># the maximal random delay added to the base delay of the jobs</span><br><span class="line">RANDOM_DELAY&#x3D;3</span><br><span class="line"># the jobs will be started during the following hours only</span><br><span class="line">START_HOURS_RANGE&#x3D;1-24</span><br><span class="line"></span><br><span class="line">#period in days   delay in minutes   job-identifier   command</span><br><span class="line">1       2       rclone-doc      &#x2F;etc&#x2F;cron.daily&#x2F;rclone-script.sh        &#x2F;etc&#x2F;cron.daily</span><br><span class="line">1       5       BackupSystem    &#x2F;etc&#x2F;cron.daily&#x2F;backup-system.sh        &#x2F;etc&#x2F;cron.daily </span><br><span class="line">#1      1       cron.daily              nice &#x2F;usr&#x2F;lib&#x2F;cron&#x2F;run-crons &#x2F;etc&#x2F;cron.daily</span><br><span class="line">7       25      cron.weekly             nice &#x2F;usr&#x2F;lib&#x2F;cron&#x2F;run-crons &#x2F;etc&#x2F;cron.weekly</span><br><span class="line">@monthly 45     cron.monthly            nice &#x2F;usr&#x2F;lib&#x2F;cron&#x2F;run-crons &#x2F;etc&#x2F;cron.monthly</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>RANDOM_DELAY=3 开机延迟最大时间3分钟<br>RANDOM_DELAY + delay in minutes = 最终启动应用的最大延时间<br>1 每天执行<br>2 应用延迟时间<br>/etc/cron.daily/rclone-script.sh 腳本绝对路徑<br>/etc/cron.daily 腳本所在目錄<br>rclone-doc 任务别名 这个别名会出现在/var/spool/anacron/下面 测试的时候需要把对应文件里面的日期内容删掉<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">l &#x2F;var&#x2F;spool&#x2F;anacron&#x2F;</span><br><span class="line">total 20</span><br><span class="line">drwxr-xr-x  2 root root 4096 Nov 11 18:25 .&#x2F;</span><br><span class="line">drwxr-xr-x 16 root root 4096 Nov  6 05:54 ..&#x2F;</span><br><span class="line">-rw-------  1 root root    0 Nov 11 18:25 BackupSystem</span><br><span class="line">-rw-------  1 root root    0 Nov 11 18:15 cron.daily</span><br><span class="line">-rw-------  1 root root    9 Nov 11 11:07 cron.monthly</span><br><span class="line">-rw-------  1 root root    9 Nov  6 07:52 cron.weekly</span><br><span class="line">-rw-------  1 root root    9 Nov 11 18:07 rclone</span><br><span class="line">-rw-------  1 root root    0 Nov 11 18:24 rclone-doc</span><br></pre></td></tr></table></figure></p>
+<h3 id="添加定时任务的脚本"><a href="#添加定时任务的脚本" class="headerlink" title="添加定时任务的脚本"></a>添加定时任务的脚本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;cron.daily&#x2F;backup-system.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line"></span><br><span class="line">### 这个脚本由anacrontab启动</span><br><span class="line">### 实现目的是为了避免和cron冲突</span><br><span class="line"></span><br><span class="line"># 获取日期</span><br><span class="line">D&#x3D;$(date | awk &#39;&#123;print $3&#125;&#39;)</span><br><span class="line"></span><br><span class="line"># 獲取星期几</span><br><span class="line">d&#x3D;$(date | awk &#39;&#123;print $1&#125;&#39;)</span><br><span class="line"></span><br><span class="line"># 獲取小時</span><br><span class="line">h&#x3D;$(date +%H)</span><br><span class="line"></span><br><span class="line">### 检查语言环境</span><br><span class="line"># echo &quot;$LANG backup.sh&quot; &gt;&gt; &#x2F;home&#x2F;username&#x2F;logs&#x2F;lang.log</span><br><span class="line"></span><br><span class="line">#如果是星期五且開機時間在14:00點之前 那麼開機自動備份取消</span><br><span class="line">if [ $d &#x3D; &quot;Fri&quot; ] &amp;&amp; [ $h -lt 14 ]</span><br><span class="line">then</span><br><span class="line">        echo &quot;今天是$(date)等待rsync_backup_system.sh执行备份&quot; &gt;&gt; &#x2F;var&#x2F;log&#x2F;anacrontab.log </span><br><span class="line">elif [ $d !&#x3D; &quot;Fri&quot; ] &amp;&amp; [ $h -gt 14 ]</span><br><span class="line">then</span><br><span class="line">        echo &quot;今天是$(date)开机时间在14点之后会在这里执行rsync_backup_system.sh&quot; &gt;&gt; &#x2F;var&#x2F;log&#x2F;anacrontab.log</span><br><span class="line">        . &#x2F;root&#x2F;bin&#x2F;rsync_backup_system.sh</span><br><span class="line"></span><br><span class="line"># 如果是1号或者15号取消自动备份否则自动备份</span><br><span class="line">elif [ $D -eq 1 ] || [ $D -eq 15 ]</span><br><span class="line">then</span><br><span class="line">        echo &quot;今天是$(date)日期为1号或者15号等待rsync_backup_system.sh执行备份&quot; &gt;&gt; &#x2F;var&#x2F;log&#x2F;anacrontab.log</span><br><span class="line">elif [ $D -ne 1 ] || [ $D -ne 15 ]</span><br><span class="line">then</span><br><span class="line">        echo &quot;今天是$(date)执行rsync_backup_system.sh备份&quot; &gt;&gt; &#x2F;var&#x2F;log&#x2F;anacrontab.log</span><br><span class="line">        . &#x2F;root&#x2F;bin&#x2F;rsync_backup_system.sh</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+<h3 id="备份系统的脚本内容"><a href="#备份系统的脚本内容" class="headerlink" title="备份系统的脚本内容"></a>备份系统的脚本内容</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># vim bin&#x2F;rsync_backup_system.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">echo &quot; &quot; &gt;&gt; &#x2F;home&#x2F;username&#x2F;logs&#x2F;rsync_system.log</span><br><span class="line">echo &quot;**********$(date)开始备份......&quot; &gt;&gt; &#x2F;home&#x2F;username&#x2F;logs&#x2F;rsync_system.log 2&gt;&amp;1</span><br><span class="line"></span><br><span class="line"># -v參數去掉避免mail大量信息</span><br><span class="line">rsync -aptgorlHAXzP --delete-excluded --partial --log-file&#x3D;&#x2F;home&#x2F;username&#x2F;logs&#x2F;rsync_system.log &#x2F; &#x2F;run&#x2F;media&#x2F;username&#x2F;data&#x2F;system-backup&#x2F; --exclude&#x3D;&#123;&quot;&#x2F;usr&#x2F;src&#x2F;*&quot;,&quot;&#x2F;media&#x2F;*&quot;,&quot;&#x2F;sys&#x2F;*&quot;,&quot;&#x2F;proc&#x2F;*&quot;,&quot;&#x2F;mnt&#x2F;*&quot;,&quot;&#x2F;tmp&#x2F;*&quot;,&quot;&#x2F;run&#x2F;*&quot;,&quot;&#x2F;dev&#x2F;*&quot;,&quot;&#x2F;home&#x2F;*&quot;,&quot;&#x2F;var&#x2F;tmp&#x2F;*&quot;,&quot;&#x2F;var&#x2F;run&#x2F;*&quot;,&quot;&#x2F;var&#x2F;log&#x2F;*&quot;,&quot;&#x2F;var&#x2F;adm&#x2F;*&quot;,&quot;&#x2F;var&#x2F;cache&#x2F;*&quot;,&quot;&#x2F;opt&#x2F;*&quot;,&quot;&#x2F;usr&#x2F;share&#x2F;doc&#x2F;*&quot;&#125; &amp;&amp; echo &quot;$(date): 系统备份完毕...&quot; &gt;&gt; &#x2F;root&#x2F;messages-crontab 2&gt;&amp;1</span><br></pre></td></tr></table></figure>
+<h3 id="手动运行"><a href="#手动运行" class="headerlink" title="手动运行"></a>手动运行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># anacron -d</span><br><span class="line">Anacron started on 2018-11-11</span><br><span class="line">Checking against 0 with 31</span><br><span class="line">Will run job &#96;rclone-doc&#39; in 3 min.</span><br><span class="line">Will run job &#96;BackupSystem&#39; in 6 min.</span><br><span class="line">Job &#96;rclone-doc&#39; started</span><br><span class="line">Job &#96;rclone-doc&#39; terminated (mailing output)</span><br><span class="line">Job &#96;BackupSystem&#39; started</span><br><span class="line">Job &#96;BackupSystem&#39; terminated (mailing output)</span><br><span class="line">Normal exit (2 jobs run)</span><br></pre></td></tr></table></figure>
+<h3 id="網盤備份"><a href="#網盤備份" class="headerlink" title="網盤備份"></a>網盤備份</h3><ul>
+<li>配合rclone進行網盤備份 腳本內容基本一樣</li>
+<li>把配置文件軟鏈接到/root下面<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># ln -s &#x2F;home&#x2F;username&#x2F;.config&#x2F;rclone &#x2F;root&#x2F;.config&#x2F;</span><br><span class="line"># rclone config</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/11/08/anacrontab/" data-id="ckivmllvz000rx7204pkeg8ir" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/11/08/anacrontab/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/crontab/" rel="tag">crontab</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2018/11/17/deng/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          孤魂
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/11/07/oscbuild/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">osc构建简单软件</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#添加定時任務"><span class="toc-number">1.</span> <span class="toc-text">添加定時任務</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加定时任务的脚本"><span class="toc-number">2.</span> <span class="toc-text">添加定时任务的脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#备份系统的脚本内容"><span class="toc-number">3.</span> <span class="toc-text">备份系统的脚本内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#手动运行"><span class="toc-number">4.</span> <span class="toc-text">手动运行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#網盤備份"><span class="toc-number">5.</span> <span class="toc-text">網盤備份</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2018/11/08/anacrontab/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

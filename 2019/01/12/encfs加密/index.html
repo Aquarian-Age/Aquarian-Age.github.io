@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>encfs加密 | AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="创建加密 解密目录123456789101112131415161718192021222324252627282930~&#x2F;nfs_sharehostname@username 11 08:26 &gt;encfs ~&#x2F;nfs_share&#x2F;jiamidir ~&#x2F;nfs_share&#x2F;jiemidir目录&quot;&#x2F;home&#x2F;us">
+<meta property="og:type" content="article">
+<meta property="og:title" content="encfs加密">
+<meta property="og:url" content="https://aquarian-age.github.io/2019/01/12/encfs%E5%8A%A0%E5%AF%86/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:description" content="创建加密 解密目录123456789101112131415161718192021222324252627282930~&#x2F;nfs_sharehostname@username 11 08:26 &gt;encfs ~&#x2F;nfs_share&#x2F;jiamidir ~&#x2F;nfs_share&#x2F;jiemidir目录&quot;&#x2F;home&#x2F;us">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-01-12T01:18:52.000Z">
+<meta property="article:modified_time" content="2020-10-05T22:12:55.742Z">
+<meta property="article:author" content="Liangzi">
+<meta property="article:tag" content="openSUSE">
+<meta property="article:tag" content="加密">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-encfs加密" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/12/encfs%E5%8A%A0%E5%AF%86/" class="article-date">
+  <time datetime="2019-01-12T01:18:52.000Z" itemprop="datePublished">2019-01-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      encfs加密
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h3 id="创建加密-解密目录"><a href="#创建加密-解密目录" class="headerlink" title="创建加密 解密目录"></a>创建加密 解密目录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">~&#x2F;nfs_share</span><br><span class="line">hostname@username 11 08:26 &gt;encfs ~&#x2F;nfs_share&#x2F;jiamidir ~&#x2F;nfs_share&#x2F;jiemidir</span><br><span class="line">目录&quot;&#x2F;home&#x2F;username&#x2F;nfs_share&#x2F;jiamidir&#x2F;&quot; 不存在。要创建吗？(y,N) y</span><br><span class="line">目录&quot;&#x2F;home&#x2F;username&#x2F;nfs_share&#x2F;jiemidir&#x2F;&quot; 不存在。要创建吗？(y,N) y</span><br><span class="line">创建新的加密卷。</span><br><span class="line">请选择下面的其中一项：</span><br><span class="line"> 输入&quot;x&quot;进入专家配置模式，</span><br><span class="line"> 输入&quot;p&quot;进入预设置的极端模式，</span><br><span class="line"> 其它或空行，进入标准模式。</span><br><span class="line">?&gt; </span><br><span class="line"></span><br><span class="line">已选择标准模式。</span><br><span class="line"></span><br><span class="line">设置完成。欲创建的文件系统将</span><br><span class="line">有如下属性：</span><br><span class="line">文件系统加密： “ssl&#x2F;aes”, 版本 3:0:2</span><br><span class="line">文件名编码：&quot;nameio&#x2F;block&quot;，版本4:0:2</span><br><span class="line">密钥大小：192字节</span><br><span class="line">块大小：1024字节</span><br><span class="line">每个文件包含8个字节的文件头，其中包含独有的IV数据。</span><br><span class="line">文件名以IV链接模式编码。</span><br><span class="line">文件入口已通过密文。</span><br><span class="line"></span><br><span class="line">现在你需要为你的文件系统输入一个密码。</span><br><span class="line">你一定要将此密码记住，因为是绝对没有恢复措施的。</span><br><span class="line">但是，稍后你可以用encfsctl来改变密码。</span><br><span class="line"></span><br><span class="line">新的 Encfs 口令： </span><br><span class="line">确认Encfs 口令： </span><br><span class="line">~&#x2F;nfs_share</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="查看生成目录"><a href="#查看生成目录" class="headerlink" title="查看生成目录"></a>查看生成目录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">~&#x2F;nfs_share</span><br><span class="line">hostname@username 12 08:27 &gt;l</span><br><span class="line">总用量 0</span><br><span class="line">drwx------ 2 username users 25 1月  12 08:27 jiemidir</span><br><span class="line">drwx------ 2 username users 25 1月  12 08:27 jiamidir</span><br></pre></td></tr></table></figure>
+<h3 id="写入文件"><a href="#写入文件" class="headerlink" title="写入文件"></a>写入文件</h3><p>在解密目录内写入文件加密目录自动生成加密文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">~&#x2F;nfs_share</span><br><span class="line">hostname@username 70 08:51 &gt;vim jiemidir&#x2F;test.md</span><br><span class="line">~&#x2F;nfs_share</span><br><span class="line">hostname@username 71 08:51 &gt;tree</span><br><span class="line">.</span><br><span class="line">├── jiamidir</span><br><span class="line">│   └── QVeyykR7r,6botYwyqBSdkRe</span><br><span class="line">└── jiemidir</span><br><span class="line">    └── test.md</span><br></pre></td></tr></table></figure></p>
+<h3 id="卸载解密目录"><a href="#卸载解密目录" class="headerlink" title="卸载解密目录"></a>卸载解密目录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">~&#x2F;nfs_share</span><br><span class="line">hostname@username 72 08:51 &gt;fusermount -u jiemidir</span><br><span class="line">~&#x2F;nfs_share</span><br><span class="line">hostname@username 73 08:51 &gt;tree</span><br><span class="line">.</span><br><span class="line">├── jiamidir</span><br><span class="line">│   └── QVeyykR7r,6botYwyqBSdkRe</span><br><span class="line">└── jiemidir</span><br></pre></td></tr></table></figure>
+<h3 id="重新挂载写入文件"><a href="#重新挂载写入文件" class="headerlink" title="重新挂载写入文件"></a>重新挂载写入文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">~&#x2F;nfs_share</span><br><span class="line">hostname@username 74 08:51 &gt;encfs ~&#x2F;nfs_share&#x2F;jiamidir ~&#x2F;nfs_share&#x2F;jiemidir</span><br><span class="line">EncFS密码： </span><br><span class="line">~&#x2F;nfs_share</span><br><span class="line">hostname@username 75 08:53 &gt;tree</span><br><span class="line">.</span><br><span class="line">├── jiamidir</span><br><span class="line">│   └── QVeyykR7r,6botYwyqBSdkRe</span><br><span class="line">└── jiemidir</span><br><span class="line">    └── test.md</span><br><span class="line"></span><br><span class="line">2 directories, 2 files</span><br></pre></td></tr></table></figure>
+<p>所有操作都杂解密文件目录里面进行</p>
+<h3 id="显示加密文件信息"><a href="#显示加密文件信息" class="headerlink" title="显示加密文件信息"></a>显示加密文件信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">~&#x2F;nfs_share</span><br><span class="line">hostname@username 84 08:57 &gt;encfsctl jiamidir&#x2F;</span><br><span class="line"></span><br><span class="line">第6版配置；由 EncFS 1.9.2 创建 (校订 20100713)</span><br><span class="line">文件系统加密： “ssl&#x2F;aes”, 版本 3:0:0 (正在应用3:0:2)</span><br><span class="line">文件名编码：&quot;nameio&#x2F;block&quot;，版本4:0:0 (正在应用4:0:2)</span><br><span class="line">密钥大小：192字节</span><br><span class="line">Using PBKDF2, with 271681 iterations</span><br><span class="line">Salt Size: 160 bits</span><br><span class="line">块大小：1024字节</span><br><span class="line">每个文件包含8个字节的文件头，其中包含独有的IV数据。</span><br><span class="line">文件名以IV链接模式编码。</span><br><span class="line">文件入口已通过密文。</span><br></pre></td></tr></table></figure>
+<h3 id="改变密码"><a href="#改变密码" class="headerlink" title="改变密码"></a>改变密码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">~&#x2F;nfs_share</span><br><span class="line">hostname@username 89 08:59 &gt;encfsctl passwd jiamidir&#x2F;</span><br><span class="line">输入当前的Encfs密码</span><br><span class="line">EncFS密码： </span><br><span class="line">输入新的Encfs密码</span><br><span class="line">新的 Encfs 口令： </span><br><span class="line">确认Encfs 口令： </span><br><span class="line">卷密钥已成功更新。</span><br></pre></td></tr></table></figure>
+<h3 id="showcruft"><a href="#showcruft" class="headerlink" title="showcruft"></a>showcruft</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">~&#x2F;nfs_share</span><br><span class="line">hostname@username 90 08:59 &gt;encfsctl showcruft jiamidir</span><br><span class="line">EncFS密码： </span><br><span class="line">位于目录&#x2F;中： </span><br><span class="line">jiamidir&#x2F;&#x2F;.encfs6.xml</span><br><span class="line">jiamidir&#x2F;&#x2F;QVeyykR7r,6botYwyqBSdkRe</span><br><span class="line">jiamidir&#x2F;&#x2F;.directory</span><br><span class="line">发现 3 个无效文件</span><br></pre></td></tr></table></figure>
+<h3 id="KDE用户加密目录"><a href="#KDE用户加密目录" class="headerlink" title="KDE用户加密目录"></a>KDE用户加密目录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo zypper in plasma-vault</span><br></pre></td></tr></table></figure>
+<p>之后注销重新进入即可看到任务栏有个小锁 按照提示操作即可<br>或者参考这里的方法: <a href="https://linuxconfig.org/create-encrypted-folders-with-plasma-vault" target="_blank" rel="noopener">https://linuxconfig.org/create-encrypted-folders-with-plasma-vault</a></p>
+<p>有点鸡肋　不能修改密码　还是<a href="https://launchpad.net/gencfsm" target="_blank" rel="noopener">Gnome Encfs Manager</a>用着方便</p>
+<hr>
+<p><strong>NAME</strong><br>       encfsctl - administrative tool for working with EncFS filesystems</p>
+<p><strong>SYNOPSIS</strong><br>       encfsctl [command command_args]</p>
+<pre><code>encfsctl rootdir
+
+encfsctl info rootdir
+
+encfsctl passwd rootdir
+
+encfsctl showcruft rootdir
+
+encfsctl decode [--extpass=prog] rootdir [encoded name ...]
+
+encfsctl encode [--extpass=prog] rootdir [plaintext name ...]
+</code></pre><p><a href="https://github.com/vgough/encfs/blob/master/encfs/encfs.pod" target="_blank" rel="noopener">https://github.com/vgough/encfs/blob/master/encfs/encfs.pod</a></p>
+<hr>
+<h3 id="VeraCrypt"><a href="#VeraCrypt" class="headerlink" title="VeraCrypt"></a><a href="https://www.veracrypt.fr/en/Home.html" target="_blank" rel="noopener">VeraCrypt</a></h3><hr>
+<p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2019/01/12/encfs%E5%8A%A0%E5%AF%86/" data-id="ckivmllw50017x7208eir8lm8" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2019/01/12/encfs%E5%8A%A0%E5%AF%86/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8A%A0%E5%AF%86/" rel="tag">加密</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2019/01/14/jingxueyin/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          无题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/01/02/USB/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">USB多起动盘</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建加密-解密目录"><span class="toc-number">1.</span> <span class="toc-text">创建加密 解密目录</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#查看生成目录"><span class="toc-number">1.1.</span> <span class="toc-text">查看生成目录</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#写入文件"><span class="toc-number">2.</span> <span class="toc-text">写入文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#卸载解密目录"><span class="toc-number">3.</span> <span class="toc-text">卸载解密目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重新挂载写入文件"><span class="toc-number">4.</span> <span class="toc-text">重新挂载写入文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#显示加密文件信息"><span class="toc-number">5.</span> <span class="toc-text">显示加密文件信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#改变密码"><span class="toc-number">6.</span> <span class="toc-text">改变密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#showcruft"><span class="toc-number">7.</span> <span class="toc-text">showcruft</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#KDE用户加密目录"><span class="toc-number">8.</span> <span class="toc-text">KDE用户加密目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VeraCrypt"><span class="toc-number">9.</span> <span class="toc-text">VeraCrypt</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2019/01/12/encfs%E5%8A%A0%E5%AF%86/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>bbswitch禁用N卡 | AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="适用openSUSE系统 官方wiki repositories 安装bbswitch123sudo zypper ar -f http:&#x2F;&#x2F;download.opensuse.org&#x2F;repositories&#x2F;X11:&#x2F;Bumblebee&#x2F;openSUSE_Tumbleweed&#x2F;X11:Bumblebee.repo   bum">
+<meta property="og:type" content="article">
+<meta property="og:title" content="bbswitch禁用N卡">
+<meta property="og:url" content="https://aquarian-age.github.io/2018/10/28/bbswitch/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:description" content="适用openSUSE系统 官方wiki repositories 安装bbswitch123sudo zypper ar -f http:&#x2F;&#x2F;download.opensuse.org&#x2F;repositories&#x2F;X11:&#x2F;Bumblebee&#x2F;openSUSE_Tumbleweed&#x2F;X11:Bumblebee.repo   bum">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-10-27T19:45:25.000Z">
+<meta property="article:modified_time" content="2019-06-01T16:20:59.402Z">
+<meta property="article:author" content="Liangzi">
+<meta property="article:tag" content="openSUSE">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-bbswitch" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/28/bbswitch/" class="article-date">
+  <time datetime="2018-10-27T19:45:25.000Z" itemprop="datePublished">2018-10-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      bbswitch禁用N卡
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>适用openSUSE系统</p>
+<p><a href="https://zh.opensuse.org/index.php?title=SDB:Bumblebee&amp;variant=zh" target="_blank" rel="noopener">官方wiki</a></p>
+<p><a href="http://download.opensuse.org/repositories/" target="_blank" rel="noopener">repositories</a></p>
+<h3 id="安装bbswitch"><a href="#安装bbswitch" class="headerlink" title="安装bbswitch"></a>安装bbswitch</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo zypper ar -f http:&#x2F;&#x2F;download.opensuse.org&#x2F;repositories&#x2F;X11:&#x2F;Bumblebee&#x2F;openSUSE_Tumbleweed&#x2F;X11:Bumblebee.repo   bumblebee</span><br><span class="line">sudo zypper ref</span><br><span class="line">sudo zypper in bbswitch dkms bbswitch-kmp-default</span><br></pre></td></tr></table></figure>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>安装成功之后还需要配置，目的是让bbswitch正常工作</p>
+<h4 id="禁用英伟达开源驱动"><a href="#禁用英伟达开源驱动" class="headerlink" title="禁用英伟达开源驱动"></a>禁用英伟达开源驱动</h4><p>以root权限执行以下命令 禁用英伟达开源驱动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># echo &quot;blacklist nouveau&quot; &gt;&gt; &#x2F;etc&#x2F;modprobe.d&#x2F;50-blacklist.conf</span><br></pre></td></tr></table></figure><br><a id="more"></a></p>
+<h4 id="设置开机加载bbswitch模块"><a href="#设置开机加载bbswitch模块" class="headerlink" title="设置开机加载bbswitch模块"></a>设置开机加载bbswitch模块</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># echo &quot;bbswitch&quot; &gt;&gt; &#x2F;etc&#x2F;modules-load.d&#x2F;modules.conf</span><br></pre></td></tr></table></figure>
+<h4 id="设置bbswitch启动参数"><a href="#设置bbswitch启动参数" class="headerlink" title="设置bbswitch启动参数"></a>设置bbswitch启动参数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># echo &quot;options bbswitch load_state&#x3D;0&quot; &gt; &#x2F;etc&#x2F;modprobe.d&#x2F;50-bbswitch.conf</span><br></pre></td></tr></table></figure>
+<h3 id="重建initrd"><a href="#重建initrd" class="headerlink" title="重建initrd"></a>重建initrd</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># mkinitrd</span><br></pre></td></tr></table></figure>
+<h3 id="重启后运行"><a href="#重启后运行" class="headerlink" title="重启后运行"></a>重启后运行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># cat &#x2F;proc&#x2F;acpi&#x2F;bbswitch</span><br></pre></td></tr></table></figure>
+<h3 id="检测效果"><a href="#检测效果" class="headerlink" title="检测效果"></a>检测效果</h3><p>如果显示如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># cat &#x2F;proc&#x2F;acpi&#x2F;bbswitch</span><br><span class="line">0000:01:00.0 OFF</span><br></pre></td></tr></table></figure><br>说明独显已经成功关闭，你的笔记本电脑续航时间将会大幅提升！<br>当然，你也可以选择编译安装的方式安装以上软件。</p>
+<hr>
+<p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/10/28/bbswitch/" data-id="ckivmllw0000tx720gyebguwb" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/10/28/bbswitch/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2018/10/31/gongzufang/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          A4纸
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/10/27/xinhun/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">新婚祝福</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装bbswitch"><span class="toc-number">1.</span> <span class="toc-text">安装bbswitch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置"><span class="toc-number">2.</span> <span class="toc-text">配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#禁用英伟达开源驱动"><span class="toc-number">2.1.</span> <span class="toc-text">禁用英伟达开源驱动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置开机加载bbswitch模块"><span class="toc-number">2.2.</span> <span class="toc-text">设置开机加载bbswitch模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置bbswitch启动参数"><span class="toc-number">2.3.</span> <span class="toc-text">设置bbswitch启动参数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重建initrd"><span class="toc-number">3.</span> <span class="toc-text">重建initrd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重启后运行"><span class="toc-number">4.</span> <span class="toc-text">重启后运行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#检测效果"><span class="toc-number">5.</span> <span class="toc-text">检测效果</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2018/10/28/bbswitch/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

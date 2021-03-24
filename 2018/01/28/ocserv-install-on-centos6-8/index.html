@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ocserv-install-on-centos6.8 | AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="下载相关依赖及软件12cd yum install autoconf automake gcc libtasn1-devel zlib zlib-devel trousers trousers-devel gmp-devel gmp xz texinif libnl-devel libnl wrappers-libs tcp wrappers-devel tcp_wrappers dbus dbu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ocserv-install-on-centos6.8">
+<meta property="og:url" content="https://aquarian-age.github.io/2018/01/28/ocserv-install-on-centos6-8/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:description" content="下载相关依赖及软件12cd yum install autoconf automake gcc libtasn1-devel zlib zlib-devel trousers trousers-devel gmp-devel gmp xz texinif libnl-devel libnl wrappers-libs tcp wrappers-devel tcp_wrappers dbus dbu">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-01-28T15:25:17.000Z">
+<meta property="article:modified_time" content="2019-06-01T16:21:01.482Z">
+<meta property="article:author" content="Liangzi">
+<meta property="article:tag" content="VPS">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ocserv-install-on-centos6-8" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/28/ocserv-install-on-centos6-8/" class="article-date">
+  <time datetime="2018-01-28T15:25:17.000Z" itemprop="datePublished">2018-01-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ocserv-install-on-centos6.8
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h1 id="下载相关依赖及软件"><a href="#下载相关依赖及软件" class="headerlink" title="下载相关依赖及软件"></a>下载相关依赖及软件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd </span><br><span class="line">yum install autoconf automake gcc libtasn1-devel zlib zlib-devel trousers trousers-devel gmp-devel gmp xz texinif libnl-devel libnl wrappers-libs tcp wrappers-devel tcp_wrappers dbus dbus-devel ncurses-devel pam-devel readline-devel bison bison-devel flex gcc wget</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h1 id="下载编译安装nettle"><a href="#下载编译安装nettle" class="headerlink" title="下载编译安装nettle"></a>下载编译安装nettle</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">wget ftp:&#x2F;&#x2F;ftp.gnu.org&#x2F;gnu&#x2F;nettle&#x2F;nettle-2.7.1.tar.gz</span><br><span class="line">tar zxvf nettle-2.7.1.tar.gz </span><br><span class="line">cd nettle-2.7.1&#x2F;</span><br><span class="line">.&#x2F;configure --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;nettle</span><br><span class="line">make &amp;&amp; make install</span><br><span class="line">echo &#39;&#x2F;usr&#x2F;local&#x2F;nettle&#x2F;lib64&#x2F;&#39; &gt; &#x2F;etc&#x2F;ld.so.conf.d&#x2F;nettle.conf</span><br><span class="line">ldconfig</span><br><span class="line">cd</span><br></pre></td></tr></table></figure>
+<h1 id="下载编译安装gnutls"><a href="#下载编译安装gnutls" class="headerlink" title="下载编译安装gnutls"></a>下载编译安装gnutls</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">export NETTLE_CFLAGS&#x3D;&quot;-I&#x2F;usr&#x2F;local&#x2F;nettle&#x2F;include&#x2F;&quot;</span><br><span class="line">export NETTLE_LIBS&#x3D;&quot;-L&#x2F;usr&#x2F;local&#x2F;nettle&#x2F;lib64&#x2F; -lnettle&quot;</span><br><span class="line">export HOGWEED_LIBS&#x3D;&quot;-L&#x2F;usr&#x2F;local&#x2F;nettle&#x2F;lib64&#x2F; -lhogweed&quot;</span><br><span class="line">export HOGWEED_CFLAGS&#x3D;&quot;-I&#x2F;usr&#x2F;local&#x2F;nettle&#x2F;include&quot;</span><br><span class="line">wget ftp:&#x2F;&#x2F;ftp.gnutls.org&#x2F;gcrypt&#x2F;gnutls&#x2F;v3.3&#x2F;gnutls-3.3.9.tar.xz</span><br><span class="line">tar xvf gnutls-3.3.9.tar.xz </span><br><span class="line">cd gnutls-3.3.9&#x2F;</span><br><span class="line">.&#x2F;configure --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;gnutls</span><br><span class="line">make &amp;&amp; make install</span><br><span class="line">ln -s &#x2F;usr&#x2F;local&#x2F;gnutls&#x2F;bin&#x2F;certtool &#x2F;usr&#x2F;bin&#x2F;certtool</span><br><span class="line">echo &#39;&#x2F;usr&#x2F;local&#x2F;gnutls&#x2F;lib&#x2F;&#39; &gt; &#x2F;etc&#x2F;ld.so.conf.d&#x2F;gnutls.conf</span><br><span class="line">ldconfig</span><br><span class="line">cd</span><br></pre></td></tr></table></figure>
+<h1 id="安装bison与flex"><a href="#安装bison与flex" class="headerlink" title="安装bison与flex"></a>安装bison与flex</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">yum install bison flex</span><br><span class="line">wget https:&#x2F;&#x2F;www.infradead.org&#x2F;~tgr&#x2F;libnl&#x2F;files&#x2F;libnl-3.2.24.tar.gz</span><br><span class="line">tar xvf libnl-3.2.24.tar.gz</span><br><span class="line">cd libnl-3.2.24</span><br><span class="line">.&#x2F;configure --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;libnl</span><br><span class="line">make &amp;&amp; make install</span><br><span class="line">echo &#39;&#x2F;usr&#x2F;local&#x2F;libnl&#x2F;lib&#x2F;&#39; &gt; &#x2F;etc&#x2F;ld.so.conf.d&#x2F;libnl.conf</span><br><span class="line">ldconfig</span><br><span class="line">cd</span><br></pre></td></tr></table></figure>
+<h1 id="下载编译安装ocserv"><a href="#下载编译安装ocserv" class="headerlink" title="下载编译安装ocserv"></a>下载编译安装ocserv</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">export LIBNL3_CFLAGS&#x3D;&quot;-I&#x2F;usr&#x2F;local&#x2F;libnl&#x2F;include&#x2F;libnl3&quot;</span><br><span class="line">export LIBNL3_LIBS&#x3D;&quot;-L&#x2F;&#x2F;usr&#x2F;local&#x2F;libnl&#x2F;lib&#x2F; -lnl-3 -lnl-route-3&quot;</span><br><span class="line">export LIBGNUTLS_LIBS&#x3D;&quot;-L&#x2F;usr&#x2F;local&#x2F;gnutls&#x2F;lib&#x2F; -lgnutls&quot;</span><br><span class="line">export LIBGNUTLS_CFLAGS&#x3D;&quot;-I&#x2F;usr&#x2F;local&#x2F;gnutls&#x2F;include&#x2F;&quot;</span><br><span class="line">wget ftp:&#x2F;&#x2F;ftp.infradead.org&#x2F;pub&#x2F;ocserv&#x2F;ocserv-0.9.0.1.tar.xz</span><br><span class="line">tar xvf ocserv-0.9.0.1.tar.xz </span><br><span class="line">cd ocserv-0.9.0</span><br><span class="line">.&#x2F;configure --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;ocserv</span><br><span class="line">make &amp;&amp; make install</span><br><span class="line">echo &#39;export PATH&#x3D;$PATH:&#x2F;&#x2F;usr&#x2F;local&#x2F;ocserv&#x2F;sbin&#x2F;:&#x2F;usr&#x2F;local&#x2F;ocserv&#x2F;bin&#x2F;&#39; &gt;&gt; $HOME&#x2F;.bashrc </span><br><span class="line">source $HOME&#x2F;.bashrc</span><br><span class="line">cd</span><br></pre></td></tr></table></figure>
+<h1 id="配置软件"><a href="#配置软件" class="headerlink" title="配置软件"></a>配置软件</h1><h2 id="进入目录"><a href="#进入目录" class="headerlink" title="进入目录"></a>进入目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;etc&#x2F;ocserv&#x2F;</span><br><span class="line">cd &#x2F;etc&#x2F;ocserv&#x2F;</span><br></pre></td></tr></table></figure>
+<h2 id="创建CA私钥："><a href="#创建CA私钥：" class="headerlink" title="创建CA私钥："></a>创建CA私钥：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certtool --generate-privkey --outfile ca-key.pem</span><br></pre></td></tr></table></figure>
+<h2 id="创建CA模板："><a href="#创建CA模板：" class="headerlink" title="创建CA模板："></a>创建CA模板：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt; EOF &gt; ca.tmpl</span><br><span class="line">cn &#x3D; &quot;https:&#x2F;&#x2F;aquariaage.github.io&#x2F;&quot;</span><br><span class="line">organization &#x3D; &quot;https:&#x2F;&#x2F;aquariaage.github.io&#x2F;&quot;</span><br><span class="line">serial &#x3D; 1</span><br><span class="line">expiration_days &#x3D; 3650</span><br><span class="line">ca</span><br><span class="line">signing_key</span><br><span class="line">cert_signing_key</span><br><span class="line">crl_signing_key</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<h2 id="创建CA证书："><a href="#创建CA证书：" class="headerlink" title="创建CA证书："></a>创建CA证书：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certtool --generate-self-signed --load-privkey ca-key.pem --template ca.tmpl --outfile ca-cert.pem</span><br></pre></td></tr></table></figure>
+<h2 id="创建Server私钥："><a href="#创建Server私钥：" class="headerlink" title="创建Server私钥："></a>创建Server私钥：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certtool --generate-privkey --outfile server-key.pem</span><br></pre></td></tr></table></figure>
+<h2 id="Server证书模板："><a href="#Server证书模板：" class="headerlink" title="Server证书模板："></a>Server证书模板：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt; EOF &gt; server.tmpl</span><br><span class="line">cn &#x3D; &quot;https:&#x2F;&#x2F;aquariaage.github.io&#x2F;&quot;</span><br><span class="line">o &#x3D; &quot;https:&#x2F;&#x2F;aquariaage.github.io&#x2F;&quot;</span><br><span class="line">expiration_days &#x3D; 3650</span><br><span class="line">signing_key</span><br><span class="line">encryption_key </span><br><span class="line">tls_www_server</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<h2 id="Server证书："><a href="#Server证书：" class="headerlink" title="Server证书："></a>Server证书：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certtool --generate-certificate --load-privkey server-key.pem --load-ca-certificate ca-cert.pem --load-ca-privkey ca-key.pem --template server.tmpl --outfile server-cert.pem</span><br></pre></td></tr></table></figure>
+<h2 id="设置客户端密码登录"><a href="#设置客户端密码登录" class="headerlink" title="设置客户端密码登录"></a>设置客户端密码登录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ocpasswd -c &#x2F;etc&#x2F;ocserv&#x2F;passwd NAUX</span><br></pre></td></tr></table></figure>
+<h1 id="设置客户端密码登录-1"><a href="#设置客户端密码登录-1" class="headerlink" title="设置客户端密码登录"></a>设置客户端密码登录</h1><h2 id="证书登录："><a href="#证书登录：" class="headerlink" title="证书登录："></a>证书登录：</h2><h2 id="创建user私钥"><a href="#创建user私钥" class="headerlink" title="创建user私钥"></a>创建user私钥</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certtool --generate-privkey --outfile user-key.pem</span><br></pre></td></tr></table></figure>
+<h2 id="user模板"><a href="#user模板" class="headerlink" title="user模板"></a>user模板</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt; EOF &gt; user.tmpl</span><br><span class="line">cn &#x3D; &quot;XXX&quot;</span><br><span class="line">unit &#x3D; &quot;XXX&quot;</span><br><span class="line">expiration_days &#x3D; 365</span><br><span class="line">signing_key</span><br><span class="line">tls_www_client</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<h2 id="user证书"><a href="#user证书" class="headerlink" title="user证书"></a>user证书</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certtool --generate-certificate --load-privkey user-key.pem --load-ca-certificate ca-cert.pem --load-ca-privkey ca-key.pem --template user.tmpl --outfile user-cert.pem</span><br></pre></td></tr></table></figure>
+<h1 id="配置文件最终版本"><a href="#配置文件最终版本" class="headerlink" title="配置文件最终版本"></a>配置文件最终版本</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">[root@XXX ocserv]# cat -n ocserv.conf               </span><br><span class="line">     1  auth &#x3D; &quot;plain[&#x2F;etc&#x2F;ocserv&#x2F;passwd]&quot;</span><br><span class="line">     2  #证书认证 </span><br><span class="line">     3  #auth &#x3D; &quot;certificate&quot; </span><br><span class="line">     4  ca-cert &#x2F;etc&#x2F;ocserv&#x2F;ca-cert.pem</span><br><span class="line">     5  max-clients &#x3D; 16</span><br><span class="line">     6  max-same-clients &#x3D; 10</span><br><span class="line">     7  tcp-port &#x3D; 1115</span><br><span class="line">     8  udp-port &#x3D; 1115</span><br><span class="line">     9  keepalive &#x3D; 32400</span><br><span class="line">    10  try-mtu-discovery &#x3D; true</span><br><span class="line">    11  cisco-client-compat &#x3D; true</span><br><span class="line">    12  server-cert &#x3D; &#x2F;etc&#x2F;ocserv&#x2F;server-cert.pem</span><br><span class="line">    13  server-key &#x3D; &#x2F;etc&#x2F;ocserv&#x2F;server-key.pem</span><br><span class="line">    14  auth-timeout &#x3D; 40</span><br><span class="line">    15  pid-file &#x3D; &#x2F;var&#x2F;run&#x2F;ocserv.pid</span><br><span class="line">    16  socket-file &#x3D; &#x2F;var&#x2F;run&#x2F;ocserv-socket</span><br><span class="line">    17  run-as-user &#x3D; nobody</span><br><span class="line">    18  run-as-group &#x3D; daemon</span><br><span class="line">    19  device &#x3D; vpns</span><br><span class="line">    20  #ipv4-network &#x3D; AA.BB.CC.DD</span><br><span class="line">    21  #ipv4-netmask &#x3D; 255.255.255.0</span><br><span class="line">    22  ipv4-network &#x3D; 192.168.1.0</span><br><span class="line">    23  ipv4-netmask &#x3D; 255.255.255.0</span><br><span class="line">    24  dns &#x3D; 8.8.8.8</span><br><span class="line">    25  dns &#x3D; 8.8.4.4</span><br><span class="line">    26  #route &#x3D; AA.BB.CC.DD&#x2F;255.255.255.0</span><br></pre></td></tr></table></figure>
+<h1 id="iptable配置"><a href="#iptable配置" class="headerlink" title="iptable配置"></a>iptable配置</h1><h2 id="创建iptable模板"><a href="#创建iptable模板" class="headerlink" title="创建iptable模板"></a>创建iptable模板</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@XXX sysconfig]# iptables-save &gt; &#x2F;etc&#x2F;sysconfig&#x2F;iptables</span><br></pre></td></tr></table></figure>
+<h2 id="查看当前iptables配置"><a href="#查看当前iptables配置" class="headerlink" title="查看当前iptables配置"></a>查看当前iptables配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@XXX sysconfig]# iptables -L INPUT --line-numbers  </span><br><span class="line">Chain INPUT (policy ACCEPT)</span><br><span class="line">num  target     prot opt source               destination</span><br></pre></td></tr></table></figure>
+<h1 id="查看内核转发参数"><a href="#查看内核转发参数" class="headerlink" title="查看内核转发参数"></a>查看内核转发参数</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@XXX sysconfig]# cat -n &#x2F;etc&#x2F;sysctl.conf | grep &quot;net.ipv4.ip_forward&quot;</span><br><span class="line">     9  net.ipv4.ip_forward &#x3D; 0</span><br></pre></td></tr></table></figure>
+<h2 id="开启内核转发-重启失效"><a href="#开启内核转发-重启失效" class="headerlink" title="开启内核转发-重启失效"></a>开启内核转发-重启失效</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#39;s&#x2F;net.ipv4.ip_forward &#x3D; 0&#x2F;net.ipv4.ip_forward &#x3D; 1&#x2F;g&#39; &#x2F;etc&#x2F;sysctl.conf</span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+<h1 id="IP转发及SNAT："><a href="#IP转发及SNAT：" class="headerlink" title="IP转发及SNAT："></a>IP转发及SNAT：</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@XXX sysconfig]# echo &quot;echo 1 &gt; &#x2F;proc&#x2F;sys&#x2F;net&#x2F;ipv4&#x2F;ip_forward &quot; &gt;&gt; &#x2F;etc&#x2F;rc.local</span><br><span class="line"></span><br><span class="line">[root@XXX sysconfig]# ls -la &#x2F;etc&#x2F;rc.local </span><br><span class="line">lrwxrwxrwx. 1 root root 13 3月  13 2017 &#x2F;etc&#x2F;rc.local -&gt; rc.d&#x2F;rc.local</span><br><span class="line"></span><br><span class="line">[root@XXX sysconfig]# ls -la &#x2F;etc&#x2F;rc.d&#x2F;rc.local </span><br><span class="line">-rwxr-xr-x. 1 root root 306 1月  28 03:37 &#x2F;etc&#x2F;rc.d&#x2F;rc.local</span><br><span class="line"></span><br><span class="line">[root@XXX sysconfig]# cat &#x2F;etc&#x2F;rc.d&#x2F;rc.local </span><br><span class="line">\#!&#x2F;bin&#x2F;bash</span><br><span class="line">touch &#x2F;var&#x2F;lock&#x2F;subsys&#x2F;local</span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;setterm -blank 0 || true</span><br><span class="line"></span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;ssserver -s ::0 -p &#96;cat &#x2F;root&#x2F;.kiwivm-shadowsocks-port&#96; -k &#96;cat &#x2F;root&#x2F;.kiwivm-shadowsocks-password&#96; -m &#96;cat &#x2F;root&#x2F;.kiwivm-shadowsocks-encryption&#96; --user nobody --workers 2 -d start</span><br><span class="line">echo 1 &gt; &#x2F;proc&#x2F;sys&#x2F;net&#x2F;ipv4&#x2F;ip_forward</span><br></pre></td></tr></table></figure>
+<h1 id="设置iptables规则："><a href="#设置iptables规则：" class="headerlink" title="设置iptables规则："></a>设置iptables规则：</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[root@XXX sysconfig]# iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE</span><br><span class="line">[root@XXX sysconfig]# service iptables save</span><br><span class="line"></span><br><span class="line">[root@XXX sysconfig]# iptables -A INPUT -s AA.BB.CC.DD -p tcp -m tcp --dport 1115 -j ACCEPT</span><br><span class="line">[root@XXX sysconfig]# service iptables save</span><br><span class="line"></span><br><span class="line">iptables -A OUTPUT -s AA.BB.CC.DD -p tcp -m tcp --dport 1115 -j ACCEPT</span><br><span class="line">[root@XXX sysconfig]# service iptables save</span><br><span class="line"></span><br><span class="line">iptables -t nat -A POSTROUTING -s AA.BB.CC.DD -o eth0 -j MASQUERADE</span><br><span class="line">[root@XXX sysconfig]# service iptables save</span><br><span class="line"></span><br><span class="line">iptables -A FORWARD -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu</span><br><span class="line">[root@XXX sysconfig]# service iptables save</span><br><span class="line"></span><br><span class="line">iptables -A FORWARD -o vpns+ -j ACCEPT</span><br><span class="line">[root@XXX sysconfig]# service iptables save</span><br><span class="line"></span><br><span class="line">iptables -A FORWARD -i vpns+ -j ACCEPT</span><br><span class="line">[root@XXX sysconfig]# service iptables save</span><br><span class="line"></span><br><span class="line">[root@XXX sysconfig]# &#x2F;etc&#x2F;rc.d&#x2F;init.d&#x2F;iptables save</span><br></pre></td></tr></table></figure>
+<h2 id="查看iptable配置详细"><a href="#查看iptable配置详细" class="headerlink" title="查看iptable配置详细"></a>查看iptable配置详细</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">[root@XXX sysconfig]# cat -n iptables</span><br><span class="line">     1  # Generated by iptables-save v1.4.7 on Sun Jan 28 07:59:04 2018</span><br><span class="line">     2  *filter</span><br><span class="line">     3  :INPUT ACCEPT [27:1540]</span><br><span class="line">     4  :FORWARD ACCEPT [0:0]</span><br><span class="line">     5  :OUTPUT ACCEPT [10:22152]</span><br><span class="line">     6  -A INPUT -s AA.BB.CC.DD&#x2F;32 -p tcp -m tcp --dport 1115 -j ACCEPT </span><br><span class="line">     7  -A FORWARD -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu </span><br><span class="line">     8  -A FORWARD -o vpns+ -j ACCEPT </span><br><span class="line">     9  -A FORWARD -i vpns+ -j ACCEPT </span><br><span class="line">    10  -A OUTPUT -s AA.BB.CC.DD&#x2F;32 -p tcp -m tcp --dport 1115 -j ACCEPT </span><br><span class="line">    11  COMMIT</span><br><span class="line">    12  # Completed on Sun Jan 28 07:59:04 2018</span><br><span class="line">    13  # Generated by iptables-save v1.4.7 on Sun Jan 28 07:59:04 2018</span><br><span class="line">    14  *nat</span><br><span class="line">    15  :PREROUTING ACCEPT [0:0]</span><br><span class="line">    16  :INPUT ACCEPT [0:0]</span><br><span class="line">    17  :OUTPUT ACCEPT [0:0]</span><br><span class="line">    18  :POSTROUTING ACCEPT [0:0]</span><br><span class="line">    19  -A POSTROUTING -o eth0 -j MASQUERADE </span><br><span class="line">    20  -A POSTROUTING -s AA.BB.CC.DD&#x2F;32 -o eth0 -j MASQUERADE </span><br><span class="line">    21  COMMIT</span><br><span class="line">    22  # Completed on Sun Jan 28 07:59:04 2018</span><br></pre></td></tr></table></figure>
+<h1 id="查看监听端口"><a href="#查看监听端口" class="headerlink" title="查看监听端口"></a>查看监听端口</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@XXX sysconfig]# iptables -L -n</span><br><span class="line">Chain INPUT (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination         </span><br><span class="line">ACCEPT     tcp  --  AA.BB.CC.DD        0.0.0.0&#x2F;0           tcp dpt:1115 </span><br><span class="line"></span><br><span class="line">Chain FORWARD (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination         </span><br><span class="line">TCPMSS     tcp  --  0.0.0.0&#x2F;0            0.0.0.0&#x2F;0           tcp flags:0x06&#x2F;0x02 TCPMSS clamp to PMTU </span><br><span class="line">ACCEPT     all  --  0.0.0.0&#x2F;0            0.0.0.0&#x2F;0           </span><br><span class="line">ACCEPT     all  --  0.0.0.0&#x2F;0            0.0.0.0&#x2F;0           </span><br><span class="line"></span><br><span class="line">Chain OUTPUT (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination         </span><br><span class="line">ACCEPT     tcp  --  AA.BB.CC.DD        0.0.0.0&#x2F;0           tcp dpt:1115</span><br></pre></td></tr></table></figure>
+<h2 id="重启iptable服务"><a href="#重启iptable服务" class="headerlink" title="重启iptable服务"></a>重启iptable服务</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@XXX sysconfig]# service iptables restart</span><br><span class="line">iptables: Setting chains to policy ACCEPT: filter nat      [  OK  ]</span><br><span class="line">iptables: Flushing firewall rules:                         [  OK  ]</span><br><span class="line">iptables: Unloading modules:                               [  OK  ]</span><br><span class="line">iptables: Applying firewall rules:                         [  OK  ]</span><br><span class="line">[root@XXX sysconfig]#</span><br></pre></td></tr></table></figure>
+<h1 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@XXX ocserv]# ocserv -f -c &#x2F;etc&#x2F;ocserv&#x2F;ocserv.conf </span><br><span class="line">listening (TCP) on 0.0.0.0:1115...</span><br><span class="line">bind() failed: Address already in use</span><br><span class="line">listening (TCP) on [::]:1115...</span><br><span class="line">bind() failed: Address already in use</span><br><span class="line">Could not listen to any TCP or UNIX ports</span><br></pre></td></tr></table></figure>
+<h1 id="客户端：iftop监控日志"><a href="#客户端：iftop监控日志" class="headerlink" title="客户端：iftop监控日志"></a>客户端：iftop监控日志</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[?1049h[1;25r(B[m[4l[?7h[?1h&#x3D;[?25l[H[2J(B[0;7m Listening on wlan0 (B[m    12.5Kb[1;49H25.0Kb[1;74H37.5Kb[1;98H50.0Kb[117G62.5Kb[2;1H(0[0mmqqqqqqqqqqqqqqqqqqqqqqqvqqqqqqqqqqqqqqqqqqqqqqqvqqqqqqqqqqqqqqqqqqqqqqqqvqqqqqqqqqqqqqqqqqqqqqqqvqqqqqqqqqqqqqqqqqqqqqqqq(B[22;1H(0[0mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq(B[23;1H(0[0m(BTX:[23;17Hcum:[27G0B    peak:[44G0b[23;91Hrates:[103G0b[111G0b[119G0b</span><br><span class="line">[24dRX:[24;27H0B[24;44H0b[24;103H0b[111G0b[119G0b</span><br><span class="line">[25dTOTAL:[25;27H0B[25;44H0b[25;103H0b[111G0b[119G0b [1;24H[1K 1[25;122H[H(B[0;7m Press H or ? for help [25;122H(B[m[1;24H[1K 1[25;122H</span><br><span class="line">[3d192.168.0.107[3;49H&#x3D;&gt; AA.BB.CC.DD.16clouds.com[3;101H548b    110b     68b[4;49H&lt;&#x3D;[4;101H740b    148b     92b[23;25H137[23;42H544[23;101H548b    11[118G68[24;25H185[24;42H736[24;101H74[109G148[118G92[25;25H322[25;41H1.26Kb[25;100H1.26Kb   258b    161b [3;101H612b    232b    129[4;101H612b    270b    150[23;25H290[23;42H608[23;101H612b    232b    129[24;25H338[24;101H612b    270b    150[25;25H628[25;103H0Kb   502b    279b [25;1H[?12l[?25h[?1049l</span><br><span class="line">[?1l&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/01/28/ocserv-install-on-centos6-8/" data-id="ckivmllxy002nx7201amr6nt3" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/01/28/ocserv-install-on-centos6-8/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/" rel="tag">VPS</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2018/01/31/about/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          about me
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/27/proxychain4%E5%8E%BB%E6%8F%92%E4%BB%B6%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8A%E7%BD%91/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">proxychain4去插件全局代理浏览器上网</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#下载相关依赖及软件"><span class="toc-number">1.</span> <span class="toc-text">下载相关依赖及软件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#下载编译安装nettle"><span class="toc-number">2.</span> <span class="toc-text">下载编译安装nettle</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#下载编译安装gnutls"><span class="toc-number">3.</span> <span class="toc-text">下载编译安装gnutls</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装bison与flex"><span class="toc-number">4.</span> <span class="toc-text">安装bison与flex</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#下载编译安装ocserv"><span class="toc-number">5.</span> <span class="toc-text">下载编译安装ocserv</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置软件"><span class="toc-number">6.</span> <span class="toc-text">配置软件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#进入目录"><span class="toc-number">6.1.</span> <span class="toc-text">进入目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建CA私钥："><span class="toc-number">6.2.</span> <span class="toc-text">创建CA私钥：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建CA模板："><span class="toc-number">6.3.</span> <span class="toc-text">创建CA模板：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建CA证书："><span class="toc-number">6.4.</span> <span class="toc-text">创建CA证书：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建Server私钥："><span class="toc-number">6.5.</span> <span class="toc-text">创建Server私钥：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Server证书模板："><span class="toc-number">6.6.</span> <span class="toc-text">Server证书模板：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Server证书："><span class="toc-number">6.7.</span> <span class="toc-text">Server证书：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置客户端密码登录"><span class="toc-number">6.8.</span> <span class="toc-text">设置客户端密码登录</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#设置客户端密码登录-1"><span class="toc-number">7.</span> <span class="toc-text">设置客户端密码登录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#证书登录："><span class="toc-number">7.1.</span> <span class="toc-text">证书登录：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建user私钥"><span class="toc-number">7.2.</span> <span class="toc-text">创建user私钥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#user模板"><span class="toc-number">7.3.</span> <span class="toc-text">user模板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#user证书"><span class="toc-number">7.4.</span> <span class="toc-text">user证书</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置文件最终版本"><span class="toc-number">8.</span> <span class="toc-text">配置文件最终版本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#iptable配置"><span class="toc-number">9.</span> <span class="toc-text">iptable配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建iptable模板"><span class="toc-number">9.1.</span> <span class="toc-text">创建iptable模板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看当前iptables配置"><span class="toc-number">9.2.</span> <span class="toc-text">查看当前iptables配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#查看内核转发参数"><span class="toc-number">10.</span> <span class="toc-text">查看内核转发参数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#开启内核转发-重启失效"><span class="toc-number">10.1.</span> <span class="toc-text">开启内核转发-重启失效</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IP转发及SNAT："><span class="toc-number">11.</span> <span class="toc-text">IP转发及SNAT：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#设置iptables规则："><span class="toc-number">12.</span> <span class="toc-text">设置iptables规则：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#查看iptable配置详细"><span class="toc-number">12.1.</span> <span class="toc-text">查看iptable配置详细</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#查看监听端口"><span class="toc-number">13.</span> <span class="toc-text">查看监听端口</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#重启iptable服务"><span class="toc-number">13.1.</span> <span class="toc-text">重启iptable服务</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#启动服务"><span class="toc-number">14.</span> <span class="toc-text">启动服务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#客户端：iftop监控日志"><span class="toc-number">15.</span> <span class="toc-text">客户端：iftop监控日志</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2018/01/28/ocserv-install-on-centos6-8/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

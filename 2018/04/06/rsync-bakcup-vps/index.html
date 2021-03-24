@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>rsync备份 | AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="备份&#x2F;home123456789#!&#x2F;bin&#x2F;shecho &quot;备份home下的点文件目录&quot;echo &quot;删除回收站...&quot;rm -rf $HOME&#x2F;.local&#x2F;share&#x2F;Trash&#x2F;files&#x2F;*sleep 1echo &quot;开始备份...&quot;sudo rsync -aptgovrlHAXzP --delete-excluded --partial &#x2F;home&#x2F;XXX&#x2F; &#x2F;run&#x2F;media&#x2F;xuan">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rsync备份">
+<meta property="og:url" content="https://aquarian-age.github.io/2018/04/06/rsync-bakcup-vps/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:description" content="备份&#x2F;home123456789#!&#x2F;bin&#x2F;shecho &quot;备份home下的点文件目录&quot;echo &quot;删除回收站...&quot;rm -rf $HOME&#x2F;.local&#x2F;share&#x2F;Trash&#x2F;files&#x2F;*sleep 1echo &quot;开始备份...&quot;sudo rsync -aptgovrlHAXzP --delete-excluded --partial &#x2F;home&#x2F;XXX&#x2F; &#x2F;run&#x2F;media&#x2F;xuan">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-04-06T08:56:36.000Z">
+<meta property="article:modified_time" content="2020-10-05T22:21:18.833Z">
+<meta property="article:author" content="Liangzi">
+<meta property="article:tag" content="openSUSE">
+<meta property="article:tag" content="VPS">
+<meta property="article:tag" content="rsync">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-rsync-bakcup-vps" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/06/rsync-bakcup-vps/" class="article-date">
+  <time datetime="2018-04-06T08:56:36.000Z" itemprop="datePublished">2018-04-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      rsync备份
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h3 id="备份-home"><a href="#备份-home" class="headerlink" title="备份/home"></a>备份/home</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line">echo "备份home下的点文件目录"</span><br><span class="line"></span><br><span class="line">echo "删除回收站..."</span><br><span class="line">rm -rf $HOME/.local/share/Trash/files/*</span><br><span class="line">sleep 1</span><br><span class="line"></span><br><span class="line">echo "开始备份..."</span><br><span class="line">sudo rsync -aptgovrlHAXzP --delete-excluded --partial /home/XXX/ /run/media/xuan/data/home_XXX-backup/ --exclude=&#123;"Android/*","AndroidStudioProjects/*","brlcad/*","BurpSuiteFree/*","CloudMusic/*","downloads/*","draw/*","DS-5_v5.22.0/*","DS-5-Workspace/*","Embedded/*","ldra/*","leanote/*","logs/*","mongod-data/*","Music/*","nfs_share/*","node_modules/*","src/*","Stellarium/*","tftp/*","tools/*","Video/*","study/*","rpmbuild/*","VirtualBox\ VMs/*","work/*","Picture/*","桌面/*","blog/*","Documents/*",".npm/*",".wine/*",".android/avd/*",".cache/winetricks/*",".cache/netease-cloud-music/*",".cache/mozilla/*",".cache/wine/*"&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="备份"><a href="#备份" class="headerlink" title="备份/"></a>备份/</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"></span><br><span class="line">echo "rsync-backup-system..."</span><br><span class="line">sleep 1</span><br><span class="line"></span><br><span class="line">set -v</span><br><span class="line"></span><br><span class="line">sudo rsync -aptgovrlHAXzP --delete-excluded --partial / /run/media/XXX/data/system-backup/ --exclude=&#123;"/media/*","/sys/*","/proc/*","/mnt/*","/tmp/*","/run/*","/home/*","/var/tmp/*","/var/run/*","/var/log/*","/var/cache/*","/opt/*"&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="备份VPS"><a href="#备份VPS" class="headerlink" title="备份VPS"></a>备份VPS</h3><hr>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line">rsync -aptgovrlHAXzP -e "ssh -p BBBBB" --delete-excluded --exclude=&#123;"/media/*","/sys/*","/proc/*","/mnt/*","/tmp/*","/home/*","/var/run/*","/var/tmp/*"&#125; root@AA:AA:AA:AA:/ /run/media/AAA/data/rsync-vps-backup/</span><br></pre></td></tr></table></figure>
+<hr>
+<p><del>列出备份内容</del></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">~/backup</span><br><span class="line">五 4月 06|16:33|0:&gt;ls test-rsync-ssh-backup/</span><br><span class="line">anyconnect-linux64-4.5.03040-predeploy-k9.tar.gz</span><br></pre></td></tr></table></figure>
+<p><del>备份VPS根分区到本机指定目录</del></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync -avzl -e "ssh -p xxxxx" --exclude=&#123;"/media/*","/sys/*","/proc/*","/mnt/*","/tmp/*","/home/*"&#125; root@aa.bb.cc.dd:/ /run/media/aaa/data/rsync-vps-backup/</span><br></pre></td></tr></table></figure>
+<p><del>VPS非正常备份姿势</del></p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">~&#x2F;backup</span><br><span class="line">五 4月 06|16:33|0:&gt;sudo rsync -avzl -e &quot;ssh -p xxxx&quot; root@aa.bb.cc.dd:&#x2F;home&#x2F;share&#x2F; test-rsync-ssh-backup&#x2F;</span><br><span class="line">Permission denied (publickey,gssapi-keyex,gssapi-with-mic).</span><br><span class="line">rsync: connection unexpectedly closed (0 bytes received so far) [Receiver]</span><br><span class="line">rsync error: unexplained error (code 255) at io.c(235) [Receiver&#x3D;3.1.0]</span><br></pre></td></tr></table></figure>
+<p>这里因为使用了sudo默认到了root的RSA密钥 因为没有拷贝root密钥到vps所以报错了～～～</p>
+<p><del>本地文件备份</del><br><del>将以下文件写入.bashrc</del></p>
+<hr>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias rsync-backup-system='sudo rsync -aptgovrlHAXzP --delete --partial / /run/media/AAA/data/system-backup/ --exclude=&#123;"/media/*","/sys/*","/proc/*","/mnt/*","/tmp/*","/run/media/*","/home/*","/var/*","/opt/*"&#125;'</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias rsync-backup-home_AAA='rm -rf $HOME/.local/share/Trash/files/*;sudo rsync -aptgovrlHAXzP --delete --partial /home/AAA/ /run/media/AAA/data/home_AAA-backup/ --exclude=&#123;"Android/*","AndroidStudioProjects/*","brlcad/*","BurpSuiteFree/*","CloudMusic/*","downloads/*","draw/*","DS-5_v5.22.0/*","DS-5-Workspace/*","Embedded/*","ldra/*","leanote/*","logs/*","mongod-data/*","Music/*","nfs_share/*","node_modules/*","src/*","Stellarium/*","tftp/*","tools/*","video/*"&#125;'</span><br></pre></td></tr></table></figure>
+<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><p><a href="https://www.tecmint.com/rsync-local-remote-file-synchronization-commands/" target="_blank" rel="noopener">Rsync (Remote Sync): 10 Practical Examples of Rsync Command in Linux</a></p>
+<hr>
+<p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/04/06/rsync-bakcup-vps/" data-id="ckivmllwj002bx7209jw110u5" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/04/06/rsync-bakcup-vps/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/" rel="tag">VPS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rsync/" rel="tag">rsync</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2018/04/19/xxx/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          系统自毁
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/04/04/Back-up-dot-file/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">rclone网盘备份神器</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#备份-home"><span class="toc-number">1.</span> <span class="toc-text">备份&#x2F;home</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#备份"><span class="toc-number">2.</span> <span class="toc-text">备份&#x2F;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#备份VPS"><span class="toc-number">3.</span> <span class="toc-text">备份VPS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考："><span class="toc-number">4.</span> <span class="toc-text">参考：</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2018/04/06/rsync-bakcup-vps/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

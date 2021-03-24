@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Linux硬盘管理-laptop-mode-tools | AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Linux的硬盘管理在openSUSE上用的是laptop-mode-tools 需要的工具是hdparm安装ext4模块的管理工具1234567891011 日 1月 28|08:44|0:&gt;sudo zypper in laptop-mode-tools正在加载软件源数据...正在读取已安装的软件包...正在解决软件包依赖关系...将安装以下 1 个新软件包：  laptop-mode-">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux硬盘管理-laptop-mode-tools">
+<meta property="og:url" content="https://aquarian-age.github.io/2018/02/14/Linux-power-manager-laptop-mode-tools/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:description" content="Linux的硬盘管理在openSUSE上用的是laptop-mode-tools 需要的工具是hdparm安装ext4模块的管理工具1234567891011 日 1月 28|08:44|0:&gt;sudo zypper in laptop-mode-tools正在加载软件源数据...正在读取已安装的软件包...正在解决软件包依赖关系...将安装以下 1 个新软件包：  laptop-mode-">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-02-14T06:15:55.000Z">
+<meta property="article:modified_time" content="2019-06-01T16:21:00.442Z">
+<meta property="article:author" content="Liangzi">
+<meta property="article:tag" content="openSUSE">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Linux-power-manager-laptop-mode-tools" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/14/Linux-power-manager-laptop-mode-tools/" class="article-date">
+  <time datetime="2018-02-14T06:15:55.000Z" itemprop="datePublished">2018-02-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux硬盘管理-laptop-mode-tools
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h1 id="Linux的硬盘管理在openSUSE上用的是laptop-mode-tools-需要的工具是hdparm"><a href="#Linux的硬盘管理在openSUSE上用的是laptop-mode-tools-需要的工具是hdparm" class="headerlink" title="Linux的硬盘管理在openSUSE上用的是laptop-mode-tools 需要的工具是hdparm"></a>Linux的硬盘管理在openSUSE上用的是<a href="https://zh.opensuse.org/%E7%A1%AC%E7%9B%98_APM_%E8%AE%BE%E7%BD%AE" target="_blank" rel="noopener">laptop-mode-tools</a> 需要的工具是hdparm</h1><h2 id="安装ext4模块的管理工具"><a href="#安装ext4模块的管理工具" class="headerlink" title="安装ext4模块的管理工具"></a>安装ext4模块的管理工具</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> 日 1月 28|08:44|0:&gt;sudo zypper in laptop-mode-tools</span><br><span class="line">正在加载软件源数据...</span><br><span class="line">正在读取已安装的软件包...</span><br><span class="line">正在解决软件包依赖关系...</span><br><span class="line"></span><br><span class="line">将安装以下 1 个新软件包：</span><br><span class="line">  laptop-mode-tools</span><br><span class="line"></span><br><span class="line">1 个软件包将新装.</span><br><span class="line">总下载大小：80.5 KiB。已缓存：0 B。 操作完成后，将使用额外的 205.4 KiB。</span><br><span class="line">继续吗？ [y&#x2F;n&#x2F;...? 显示全部选项] (y): y</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h1 id="具体配置方法见文档："><a href="#具体配置方法见文档：" class="headerlink" title="具体配置方法见文档："></a>具体配置方法见文档：</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">日 1月 28|08:46|0:&gt;cat -n &#x2F;usr&#x2F;src&#x2F;linux&#x2F;Documentation&#x2F;laptops&#x2F;laptop-mode.txt | less</span><br></pre></td></tr></table></figure>
+<h2 id="查看硬盘信息-amp-amp-是否支持hdparm"><a href="#查看硬盘信息-amp-amp-是否支持hdparm" class="headerlink" title="查看硬盘信息&amp;&amp;是否支持hdparm"></a>查看硬盘信息&amp;&amp;是否支持hdparm</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo hdparm -I &#x2F;dev&#x2F;sdb</span><br><span class="line">sudo hdparm -y &#x2F;dev&#x2F;sdb</span><br><span class="line">issuing standby command（支持）</span><br></pre></td></tr></table></figure>
+<h2 id="查看服务是否开机启动："><a href="#查看服务是否开机启动：" class="headerlink" title="查看服务是否开机启动："></a>查看服务是否开机启动：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl list-unit-files | grep &quot;laptop*&quot;</span><br><span class="line">laptop-mode.service                        disabled</span><br></pre></td></tr></table></figure>
+<h2 id="设置开机启动："><a href="#设置开机启动：" class="headerlink" title="设置开机启动："></a>设置开机启动：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable laptop-mode.service</span><br><span class="line">[sudo] xuan 的密码：</span><br><span class="line">Created symlink from &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;multi-user.target.wants&#x2F;laptop-mode.service to &#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F;laptop-mode.service.</span><br></pre></td></tr></table></figure>
+<h2 id="查看当前APM："><a href="#查看当前APM：" class="headerlink" title="查看当前APM："></a>查看当前APM：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo hdparm -B &#x2F;dev&#x2F;sdb</span><br><span class="line">&#x2F;dev&#x2F;sdb:</span><br><span class="line"> APM_level      &#x3D; 96</span><br></pre></td></tr></table></figure>
+<h2 id="重新设置APM（需要在配置文件里面改）下面是修改之后的配置文件："><a href="#重新设置APM（需要在配置文件里面改）下面是修改之后的配置文件：" class="headerlink" title="重新设置APM（需要在配置文件里面改）下面是修改之后的配置文件："></a>重新设置APM（需要在配置文件里面改）下面是修改之后的配置文件：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo vim &#x2F;etc&#x2F;laptop-mode&#x2F;laptop-mode.conf</span><br><span class="line"> BATT_HD_POWERMGMT&#x3D;128</span><br><span class="line"> LM_AC_HD_POWERMGMT&#x3D;254</span><br><span class="line"> NOLM_AC_HD_POWERMGMT&#x3D;254</span><br></pre></td></tr></table></figure>
+<h2 id="重启服务："><a href="#重启服务：" class="headerlink" title="重启服务："></a>重启服务：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart laptop-mode.service</span><br></pre></td></tr></table></figure>
+<h2 id="当前设定："><a href="#当前设定：" class="headerlink" title="当前设定："></a>当前设定：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo hdparm -B &#x2F;dev&#x2F;sdb</span><br><span class="line">[sudo] xuan 的密码：</span><br><span class="line"></span><br><span class="line">&#x2F;dev&#x2F;sdb:</span><br><span class="line"> APM_level      &#x3D; 254</span><br></pre></td></tr></table></figure>
+<h2 id="当前服务状态："><a href="#当前服务状态：" class="headerlink" title="当前服务状态："></a>当前服务状态：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status laptop-mode.service </span><br><span class="line">● laptop-mode.service - Laptop Mode Tools</span><br><span class="line">   Loaded: loaded (&#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F;laptop-mode.service; enabled; vendor preset: disabled)</span><br><span class="line">   Active: active (exited) since 五 2018-02-16 10:14:23 CST; 1min 9s ago</span><br><span class="line">  Process: 1723 ExecStart&#x3D;&#x2F;usr&#x2F;sbin&#x2F;laptop_mode init auto (code&#x3D;exited, status&#x3D;0&#x2F;SUCCESS)</span><br><span class="line"> Main PID: 1723 (code&#x3D;exited, status&#x3D;0&#x2F;SUCCESS)</span><br><span class="line">    Tasks: 0 (limit: 512)</span><br><span class="line">   CGroup: &#x2F;system.slice&#x2F;laptop-mode.service</span><br><span class="line"></span><br><span class="line">2月 16 10:14:22 SUSE systemd[1]: Starting Laptop Mode Tools...</span><br><span class="line">2月 16 10:14:23 SUSE systemd[1]: Started Laptop Mode Tools.</span><br></pre></td></tr></table></figure>
+<h2 id="当前硬盘读取速度："><a href="#当前硬盘读取速度：" class="headerlink" title="当前硬盘读取速度："></a>当前硬盘读取速度：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo hdparm -t &#x2F;dev&#x2F;sdb</span><br><span class="line"></span><br><span class="line">&#x2F;dev&#x2F;sdb:</span><br><span class="line"> Timing buffered disk reads: 336 MB in  3.01 seconds &#x3D; 111.50 MB&#x2F;sec</span><br></pre></td></tr></table></figure>
+<p>=================================================================================</p>
+<h1 id="设置硬盘自动休息-超时-时间"><a href="#设置硬盘自动休息-超时-时间" class="headerlink" title="设置硬盘自动休息(超时)时间"></a>设置硬盘自动休息(超时)时间</h1><h2 id="查看硬盘状态："><a href="#查看硬盘状态：" class="headerlink" title="查看硬盘状态："></a>查看硬盘状态：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;sudo hdparm &#x2F;dev&#x2F;sdb5</span><br><span class="line"></span><br><span class="line">&#x2F;dev&#x2F;sdb5:</span><br><span class="line"> multcount     &#x3D;  0 (off)</span><br><span class="line"> IO_support    &#x3D;  1 (32-bit)</span><br><span class="line"> readonly      &#x3D;  0 (off)</span><br><span class="line"> readahead     &#x3D; 1024 (on)</span><br><span class="line"> geometry      &#x3D; 56065&#x2F;255&#x2F;63, sectors &#x3D; 419426304, start &#x3D; 419825664 </span><br></pre></td></tr></table></figure>
+<h2 id="设置超时时间（会在硬盘未活动后减慢运行速度）"><a href="#设置超时时间（会在硬盘未活动后减慢运行速度）" class="headerlink" title="设置超时时间（会在硬盘未活动后减慢运行速度）"></a>设置超时时间（会在硬盘未活动后减慢运行速度）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">日 1月 28|08:35|0:&gt;sudo hdparm -S 120 &#x2F;dev&#x2F;sdb3</span><br><span class="line"></span><br><span class="line">&#x2F;dev&#x2F;sdb3:</span><br><span class="line"> setting standby to 120 (10 minutes)</span><br><span class="line">~</span><br><span class="line">日 1月 28|08:39|0:&gt;sudo hdparm -S 120 &#x2F;dev&#x2F;sdb4</span><br><span class="line"></span><br><span class="line">&#x2F;dev&#x2F;sdb4:</span><br><span class="line"> setting standby to 120 (10 minutes)</span><br><span class="line">~</span><br><span class="line">日 1月 28|08:39|0:&gt;sudo hdparm -S 120 &#x2F;dev&#x2F;sdb5</span><br><span class="line"></span><br><span class="line">&#x2F;dev&#x2F;sdb5:</span><br><span class="line"> setting standby to 120 (10 minutes)</span><br></pre></td></tr></table></figure>
+<h1 id="参考：《SUSE-Linux-Enterprise-Desktop-12-SP2》29-3-硬盘的休眠"><a href="#参考：《SUSE-Linux-Enterprise-Desktop-12-SP2》29-3-硬盘的休眠" class="headerlink" title="参考：《SUSE Linux Enterprise Desktop 12 SP2》29.3 硬盘的休眠"></a>参考：《SUSE Linux Enterprise Desktop 12 SP2》29.3 硬盘的休眠</h1><h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><p><a href="https://zh.opensuse.org/%E7%A1%AC%E7%9B%98_APM_%E8%AE%BE%E7%BD%AE" target="_blank" rel="noopener">硬盘APM设置</a><br><a href="https://wiki.archlinux.org/index.php/Laptop_Mode_Tools_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29" target="_blank" rel="noopener">Laptop Mode Tools (简体中文)</a><br><a href="http://forum.ubuntu.org.cn/viewtopic.php?t=33119" target="_blank" rel="noopener">ubuntu 笔记本电源管理优化指南</a><br><a href="http://www.zhixing123.cn/ubuntu/26206_2.html" target="_blank" rel="noopener">ubuntu laptop-mode配置方法详解</a></p>
+<hr>
+<h2 id="版权声明-署名-非商业性使用-相同方式共享-3-0-中国大陆-CC-BY-NC-SA-3-0-CN"><a href="#版权声明-署名-非商业性使用-相同方式共享-3-0-中国大陆-CC-BY-NC-SA-3-0-CN" class="headerlink" title="版权声明: 署名-非商业性使用-相同方式共享 3.0 中国大陆 (CC BY-NC-SA 3.0 CN)"></a>版权声明: <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 3.0 中国大陆 (CC BY-NC-SA 3.0 CN)</a></h2><h1 id="laptop-mode-service-配置文件："><a href="#laptop-mode-service-配置文件：" class="headerlink" title="laptop-mode.service 配置文件："></a>laptop-mode.service 配置文件：</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br></pre></td><td class="code"><pre><span class="line">###############################################################################</span><br><span class="line">#</span><br><span class="line"># SEE THE NOTES ON THE SUSE PACKAGE BELOW THIS SECTION!</span><br><span class="line">#</span><br><span class="line"># Configuration for Laptop Mode Tools</span><br><span class="line"># -----------------------------------</span><br><span class="line">#</span><br><span class="line"># There is a &quot;system&quot; to the configuration setting names:</span><br><span class="line">#    CONTROL_something&#x3D;0&#x2F;1   Determines whether Laptop Mode Tools controls </span><br><span class="line">#                            something</span><br><span class="line">#    LM_something&#x3D;value      Value of &quot;something&quot; when laptop mode is active</span><br><span class="line">#    NOLM_something&#x3D;value    Value of &quot;something&quot; when laptop mode is NOT</span><br><span class="line">#                            active</span><br><span class="line">#    AC_something&#x3D;value      Value of &quot;something&quot; when the computer is running</span><br><span class="line">#                            on AC power</span><br><span class="line">#    BATT_something&#x3D;value    Value of &quot;something when the computer is running</span><br><span class="line">#                            on battery power</span><br><span class="line">#</span><br><span class="line"># There can be combinations of LM_&#x2F;NOLM_ and AC_&#x2F;BATT_ prefixes, but the</span><br><span class="line"># available prefixes are different for each setting. The available ones are </span><br><span class="line"># documented in the manual page, laptop-mode.conf(8). If there is no LM_&#x2F;</span><br><span class="line"># NOLM_ in a setting name, then the value is used independently of laptop</span><br><span class="line"># mode state, and similarly, if there is no AC_&#x2F;BATT_, then the value is used</span><br><span class="line"># independently of power state.</span><br><span class="line">#</span><br><span class="line"># Some options only work on ACPI systems. They are marked ACPI-ONLY.</span><br><span class="line">#</span><br><span class="line"># Note that this configuration file is a fragment of shell script: you</span><br><span class="line"># can use all the features of the shell scripting language to achieve your</span><br><span class="line"># desired configuration.</span><br><span class="line">#</span><br><span class="line"># </span><br><span class="line"># Modules</span><br><span class="line"># -------</span><br><span class="line">#</span><br><span class="line"># Laptop Mode Tools modules have separate configuration files, that can be</span><br><span class="line"># found in &#x2F;etc&#x2F;laptop-mode&#x2F;conf.d. Please look through these configuration</span><br><span class="line"># files as well, there are many useful power saving tools in there!</span><br><span class="line">#</span><br><span class="line">###############################################################################</span><br><span class="line">#                                                                                                                                                      </span><br><span class="line"># NOTES FOR THE SUSE PACKAGE:                                                                                                                          </span><br><span class="line"># ---------------------------                                                                                                                          </span><br><span class="line">#                                                                                                                                                      </span><br><span class="line"># i patched the main laptop_mode script, so that it has two additional                                                                                 </span><br><span class="line"># parameters: &quot;start&quot; and &quot;stop&quot;. If you call &quot;laptop_mode start&quot;, then it                                                                             </span><br><span class="line"># will force the &quot;on battery&quot; profile, if you call &quot;laptop_mode stop&quot; then it                                                                          </span><br><span class="line"># will force the &quot;on ac power&quot; profile.                                                                                                                </span><br><span class="line">#                                                                                                                                                      </span><br><span class="line"># If laptop-mode is enabled with &quot;&#x2F;etc&#x2F;init.d&#x2F;laptop-mode start&quot;, then                                                                                 </span><br><span class="line"># pm-utils will call &quot;laptop_mode start&quot;, when it is called via the HAL                                                                                </span><br><span class="line"># setLowPower method, and &quot;laptop_mode stop&quot; when this method is disabled.                                                                             </span><br><span class="line">#                                                                                                                                                      </span><br><span class="line">###############################################################################</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">###############################################################################</span><br><span class="line"># Enable&#x2F;Disable laptop-mode-tools execution</span><br><span class="line"># ------------------------------------------</span><br><span class="line"># Set it to 0 to completely disable laptop-mode-tools from running</span><br><span class="line">###############################################################################</span><br><span class="line">#</span><br><span class="line">ENABLE_LAPTOP_MODE_TOOLS&#x3D;1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">###############################################################################</span><br><span class="line"># Configuration debugging</span><br><span class="line"># -----------------------</span><br><span class="line">###############################################################################</span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># Set this to 1 if you want to see a lot of information when you start&#x2F;stop </span><br><span class="line"># laptop_mode.</span><br><span class="line">#</span><br><span class="line">VERBOSE_OUTPUT&#x3D;0</span><br><span class="line"></span><br><span class="line"># Set this to 1 if you want to log messages to syslog</span><br><span class="line">LOG_TO_SYSLOG&#x3D;1</span><br><span class="line"></span><br><span class="line"># Run in shell debug mode</span><br><span class="line"># Enable this if you would like to execute the entire laptop-mode-tools program</span><br><span class="line"># in shell debug mode. Warning: This will create a lot of text output</span><br><span class="line"># If you are debugging an individual module, perhaps you would want to enable</span><br><span class="line"># each module specific debug mode (available in module conf files)</span><br><span class="line">DEBUG&#x3D;0</span><br><span class="line"></span><br><span class="line">###############################################################################</span><br><span class="line"># When to enable laptop mode</span><br><span class="line"># --------------------------</span><br><span class="line">#</span><br><span class="line"># &quot;Laptop mode&quot; is the mode in which laptop mode tools makes the computer</span><br><span class="line"># consume less power. This includes the kernel &quot;laptop_mode&quot; feature, which</span><br><span class="line"># allows your hard drives to spin down, as well as various other settings which</span><br><span class="line"># can be tweaked by laptop mode tools. You can enable or disable all of these</span><br><span class="line"># settings using the CONTROL_... options further down in this config file.</span><br><span class="line">###############################################################################</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># Enable laptop mode when on battery power.</span><br><span class="line">#</span><br><span class="line">ENABLE_LAPTOP_MODE_ON_BATTERY&#x3D;1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># Enable laptop mode when on AC power.</span><br><span class="line">#</span><br><span class="line">ENABLE_LAPTOP_MODE_ON_AC&#x3D;1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># Enable laptop mode when the laptop&#39;s lid is closed, even when we&#39;re on AC</span><br><span class="line"># power? (ACPI-ONLY)</span><br><span class="line">#</span><br><span class="line">ENABLE_LAPTOP_MODE_WHEN_LID_CLOSED&#x3D;1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># Enable all simple zero-configuration auto modules</span><br><span class="line"># This option enables all simple modules (listed below) without requiring</span><br><span class="line"># the user to enable each module individually</span><br><span class="line">#</span><br><span class="line"># List of modules which can be automatically enabled with this setting are:</span><br><span class="line">#</span><br><span class="line"># ac97-powersave</span><br><span class="line">#cpufreq</span><br><span class="line"># dpms-standby</span><br><span class="line"># eee-superhe</span><br><span class="line"># ethernet</span><br><span class="line"># exec-commands</span><br><span class="line"># hal-polling</span><br><span class="line">hdparm</span><br><span class="line"># intel-hda-powersave</span><br><span class="line"># intel-sata-powermgmt</span><br><span class="line"># nmi-watchdog</span><br><span class="line"># pcie-aspm</span><br><span class="line"># runtime-pm</span><br><span class="line"># sched-mc-power-savings</span><br><span class="line"># sched-smt-power-savings</span><br><span class="line"># terminal-blanking</span><br><span class="line"># usb-autosuspend</span><br><span class="line"># wireless-ipw-power</span><br><span class="line"># wireless-iwl-power</span><br><span class="line"># wireless-power</span><br><span class="line">#</span><br><span class="line"># Set this to 1 to enable all simple zero-configuration auto modules listed above.</span><br><span class="line">#</span><br><span class="line"># NOTE: You can explicitly enable&#x2F;disable any of the above modules by changing their</span><br><span class="line"># values in the individual settings file</span><br><span class="line">#</span><br><span class="line">ENABLE_AUTO_MODULES&#x3D;1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">###############################################################################</span><br><span class="line"># When to enable data loss sensitive features</span><br><span class="line"># -------------------------------------------</span><br><span class="line">#</span><br><span class="line"># When data loss sensitive features are disabled, laptop mode tools acts as if</span><br><span class="line"># laptop mode were disabled, for those features only.</span><br><span class="line">#</span><br><span class="line"># Data loss sensitive features include:</span><br><span class="line"># - laptop_mode (i.e., delayed writes)</span><br><span class="line"># - hard drive write cache</span><br><span class="line">#</span><br><span class="line"># All of the options that follow can be set to 0 in order to prevent laptop</span><br><span class="line"># mode tools from using them to stop data loss sensitive features. Use this</span><br><span class="line"># when you have a battery that reports the wrong information, that confuses</span><br><span class="line"># laptop mode tools.</span><br><span class="line">#</span><br><span class="line"># Disabling data loss sensitive features is ACPI-ONLY, and it only works if</span><br><span class="line"># your battery gives off frequent ACPI events to indicate a change in battery</span><br><span class="line"># level.</span><br><span class="line">#</span><br><span class="line"># NOTE: If your battery does NOT give off battery events often enough, you can</span><br><span class="line"># enable the battery-level-polling module to make this work. Look at the</span><br><span class="line"># file &#x2F;etc&#x2F;laptop-mode&#x2F;conf.d&#x2F;battery-level-polling.conf for more information.</span><br><span class="line">#</span><br><span class="line">###############################################################################</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># Disable all data loss sensitive features when the battery level (in % of the</span><br><span class="line"># battery capacity) reaches this value.</span><br><span class="line">#</span><br><span class="line">MINIMUM_BATTERY_CHARGE_PERCENT&#x3D;3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># Disable data loss sensitive features when the battery reports its state</span><br><span class="line"># as &quot;critical&quot;.</span><br><span class="line">#</span><br><span class="line">DISABLE_LAPTOP_MODE_ON_CRITICAL_BATTERY_LEVEL&#x3D;1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># Ignore the alarm value reported by your batteries. In some instances a</span><br><span class="line"># a battery will report an abnormally high alarm value, resulting in data-loss</span><br><span class="line"># sensitive features being disabled prematurely.</span><br><span class="line">#</span><br><span class="line">DISABLE_BATTERY_ALARM_CHECK&#x3D;0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">###############################################################################</span><br><span class="line"># Controlled hard drives and partitions</span><br><span class="line"># -------------------------------------</span><br><span class="line">#</span><br><span class="line"># For spinning down your hard drives, laptop mode will remount file systems and</span><br><span class="line"># adjust hard drive spindown timeouts. These parameters specify which</span><br><span class="line"># devices and partitions are affected by laptop mode.</span><br><span class="line">###############################################################################</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># The drives that laptop mode controls.</span><br><span class="line"># Separate them by a space, e.g. HD&#x3D;&quot;&#x2F;dev&#x2F;hda &#x2F;dev&#x2F;hdb&quot;. The default is a</span><br><span class="line"># wildcard, which will get you all your IDE and SCSI&#x2F;SATA drives.</span><br><span class="line">#</span><br><span class="line">HD&#x3D;&quot;&#x2F;dev&#x2F;[hs]d[abcdefgh]&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># The partitions (or mount points) that laptop mode controls.</span><br><span class="line"># Separate the values by spaces. Use &quot;auto&quot; to indicate all partitions on drives</span><br><span class="line"># listed in HD. You can add things to &quot;auto&quot;, e.g. &quot;auto &#x2F;dev&#x2F;hdc3&quot;. You can</span><br><span class="line"># also specify mount points, e.g. &quot;&#x2F;mnt&#x2F;data&quot;.</span><br><span class="line">#</span><br><span class="line">PARTITIONS&#x3D;&quot;auto &#x2F;dev&#x2F;mapper&#x2F;*&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># If this is enabled, laptop mode tools will assume that SCSI drives are</span><br><span class="line"># really SATA drives that only _look_ like SCSI drives, and will use hdparm</span><br><span class="line"># to control them. Set this to 0 if you have &#x2F;dev&#x2F;sd devices and you want</span><br><span class="line"># laptop mode tools to use the &quot;sdparm&quot; command to control them. </span><br><span class="line">#</span><br><span class="line">ASSUME_SCSI_IS_SATA&#x3D;1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">###############################################################################</span><br><span class="line"># Hard drive behaviour settings</span><br><span class="line"># -----------------------------</span><br><span class="line">#</span><br><span class="line"># These settings specify how laptop mode tools will adjust the various</span><br><span class="line"># parameters of your hard drives and file systems.</span><br><span class="line">###############################################################################</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># Maximum time, in seconds, of work that you are prepared to lose when your</span><br><span class="line"># system crashes or power runs out. This is the maximum time that Laptop Mode</span><br><span class="line"># will keep unsaved data waiting in memory before spinning up your hard drive.</span><br><span class="line">#</span><br><span class="line">LM_BATT_MAX_LOST_WORK_SECONDS&#x3D;600</span><br><span class="line">LM_AC_MAX_LOST_WORK_SECONDS&#x3D;360</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># Should laptop mode tools control readahead?</span><br><span class="line">#</span><br><span class="line">CONTROL_READAHEAD&#x3D;1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># Read-ahead, in kilobytes. You can spin down the disk while playing MP3&#x2F;OGG</span><br><span class="line"># by setting the disk readahead to a reasonable size, e.g. 3072 (3 MB).</span><br><span class="line"># Effectively, the disk will read a complete MP3 at once, and will then spin </span><br><span class="line"># down while the MP3&#x2F;OGG is playing. Don&#39;t set this too high, because the </span><br><span class="line"># readahead is applied to _all_ files that are read from disk.</span><br><span class="line">#</span><br><span class="line">LM_READAHEAD&#x3D;3072</span><br><span class="line">NOLM_READAHEAD&#x3D;128</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># Should laptop mode tools add the &quot;noatime&quot; option to the mount options when </span><br><span class="line"># laptop mode is enabled?</span><br><span class="line">#</span><br><span class="line">CONTROL_NOATIME&#x3D;1</span><br><span class="line"></span><br><span class="line"># Should laptop use relatime instead of noatime? The &quot;relatime&quot; mount option has</span><br><span class="line"># more standards-compliant semantics, and allows more applications to work,</span><br><span class="line"># while retaining a low level of atime updates (i.e., disk writes).</span><br><span class="line">USE_RELATIME&#x3D;1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># Should laptop mode tools control the hard drive idle timeout settings?</span><br><span class="line">#</span><br><span class="line">CONTROL_HD_IDLE_TIMEOUT&#x3D;0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># Idle timeout values. (hdparm -S)</span><br><span class="line"># Default is 2 hours on AC (NOLM_HD_IDLE_TIMEOUT_SECONDS&#x3D;7200) and 20 seconds</span><br><span class="line"># for battery and for AC with laptop mode on.</span><br><span class="line">#</span><br><span class="line">LM_AC_HD_IDLE_TIMEOUT_SECONDS&#x3D;20</span><br><span class="line">LM_BATT_HD_IDLE_TIMEOUT_SECONDS&#x3D;20</span><br><span class="line">NOLM_HD_IDLE_TIMEOUT_SECONDS&#x3D;7200</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># Should laptop mode tools control the hard drive power management settings?</span><br><span class="line">#</span><br><span class="line"># Set to 0 to disable</span><br><span class="line">CONTROL_HD_POWERMGMT&#x3D;&quot;auto&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># Power management for HD (hdparm -B values)</span><br><span class="line">#</span><br><span class="line">BATT_HD_POWERMGMT&#x3D;128</span><br><span class="line">LM_AC_HD_POWERMGMT&#x3D;254</span><br><span class="line">NOLM_AC_HD_POWERMGMT&#x3D;254</span><br><span class="line"></span><br><span class="line">#以下三行是根据上面的信息自己定义的</span><br><span class="line">#BATT_HD_POWERMGMT&#x3D;128</span><br><span class="line">#LM_AC_HD_POWERMGMT&#x3D;128</span><br><span class="line">#NOLM_AC_HD_POWERMGMT&#x3D;128</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># Should laptop mode tools control the hard drive write cache settings?</span><br><span class="line">#</span><br><span class="line">CONTROL_HD_WRITECACHE&#x3D;1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># Write cache settings for HD (hdparm -W values)</span><br><span class="line">#</span><br><span class="line">NOLM_AC_HD_WRITECACHE&#x3D;1</span><br><span class="line">NOLM_BATT_HD_WRITECACHE&#x3D;1</span><br><span class="line">LM_HD_WRITECACHE&#x3D;1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">###############################################################################</span><br><span class="line"># Settings you probably don&#39;t want to touch</span><br><span class="line"># -----------------------------------------</span><br><span class="line">#</span><br><span class="line"># It is usually not necessary to change these parameters. They are included</span><br><span class="line"># for completeness&#39; sake.</span><br><span class="line">###############################################################################</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># Change mount options on partitions in PARTITIONS? You don&#39;t really want to</span><br><span class="line"># disable this. If you do, then your hard drives will probably not spin down</span><br><span class="line"># anymore.</span><br><span class="line">#</span><br><span class="line">CONTROL_MOUNT_OPTIONS&#x3D;1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># Dirty synchronous ratio.  At this percentage of dirty pages the process</span><br><span class="line"># which calls write() does its own writeback.</span><br><span class="line">#</span><br><span class="line">LM_DIRTY_RATIO&#x3D;60</span><br><span class="line">NOLM_DIRTY_RATIO&#x3D;20</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># Allowed dirty background ratio, in percent.  Once DIRTY_RATIO has been</span><br><span class="line"># exceeded, the kernel will wake pdflush which will then reduce the amount</span><br><span class="line"># of dirty memory to dirty_background_ratio.  Set this nice and low, so once</span><br><span class="line"># some writeout has commenced, we do a lot of it.</span><br><span class="line">#</span><br><span class="line">LM_DIRTY_BACKGROUND_RATIO&#x3D;1</span><br><span class="line">NOLM_DIRTY_BACKGROUND_RATIO&#x3D;10</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># kernel default settings -- don&#39;t touch these unless you know what you&#39;re </span><br><span class="line"># doing.</span><br><span class="line">#</span><br><span class="line">DEF_UPDATE&#x3D;5</span><br><span class="line">DEF_XFS_AGE_BUFFER&#x3D;15</span><br><span class="line">DEF_XFS_SYNC_INTERVAL&#x3D;30</span><br><span class="line">DEF_XFS_BUFD_INTERVAL&#x3D;1</span><br><span class="line">DEF_MAX_AGE&#x3D;30</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># This must be adjusted manually to the value of HZ in the running kernel</span><br><span class="line"># on 2.4, until the XFS people change their 2.4 external interfaces to work in</span><br><span class="line"># centisecs. This can be automated, but it&#39;s a work in progress that still</span><br><span class="line"># needs some fixes. On 2.6 kernels, XFS uses USER_HZ instead of HZ for</span><br><span class="line"># external interfaces, and that is currently always set to 100. So you don&#39;t</span><br><span class="line"># need to change this on 2.6.</span><br><span class="line">#</span><br><span class="line">XFS_HZ&#x3D;100</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># Seconds laptop mode has to to wait after the disk goes idle before doing</span><br><span class="line"># a sync.</span><br><span class="line">#</span><br><span class="line">LM_SECONDS_BEFORE_SYNC&#x3D;2</span><br></pre></td></tr></table></figure>
+<hr>
+<p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/02/14/Linux-power-manager-laptop-mode-tools/" data-id="ckivmlm0a0086x720fzmi39y6" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/02/14/Linux-power-manager-laptop-mode-tools/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2018/02/15/%E5%B0%8F%E8%AF%AD/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          小语1
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/31/about/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">about me</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux的硬盘管理在openSUSE上用的是laptop-mode-tools-需要的工具是hdparm"><span class="toc-number">1.</span> <span class="toc-text">Linux的硬盘管理在openSUSE上用的是laptop-mode-tools 需要的工具是hdparm</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装ext4模块的管理工具"><span class="toc-number">1.1.</span> <span class="toc-text">安装ext4模块的管理工具</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#具体配置方法见文档："><span class="toc-number">2.</span> <span class="toc-text">具体配置方法见文档：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#查看硬盘信息-amp-amp-是否支持hdparm"><span class="toc-number">2.1.</span> <span class="toc-text">查看硬盘信息&amp;&amp;是否支持hdparm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看服务是否开机启动："><span class="toc-number">2.2.</span> <span class="toc-text">查看服务是否开机启动：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置开机启动："><span class="toc-number">2.3.</span> <span class="toc-text">设置开机启动：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看当前APM："><span class="toc-number">2.4.</span> <span class="toc-text">查看当前APM：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重新设置APM（需要在配置文件里面改）下面是修改之后的配置文件："><span class="toc-number">2.5.</span> <span class="toc-text">重新设置APM（需要在配置文件里面改）下面是修改之后的配置文件：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重启服务："><span class="toc-number">2.6.</span> <span class="toc-text">重启服务：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#当前设定："><span class="toc-number">2.7.</span> <span class="toc-text">当前设定：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#当前服务状态："><span class="toc-number">2.8.</span> <span class="toc-text">当前服务状态：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#当前硬盘读取速度："><span class="toc-number">2.9.</span> <span class="toc-text">当前硬盘读取速度：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#设置硬盘自动休息-超时-时间"><span class="toc-number">3.</span> <span class="toc-text">设置硬盘自动休息(超时)时间</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#查看硬盘状态："><span class="toc-number">3.1.</span> <span class="toc-text">查看硬盘状态：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置超时时间（会在硬盘未活动后减慢运行速度）"><span class="toc-number">3.2.</span> <span class="toc-text">设置超时时间（会在硬盘未活动后减慢运行速度）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考：《SUSE-Linux-Enterprise-Desktop-12-SP2》29-3-硬盘的休眠"><span class="toc-number">4.</span> <span class="toc-text">参考：《SUSE Linux Enterprise Desktop 12 SP2》29.3 硬盘的休眠</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考："><span class="toc-number">5.</span> <span class="toc-text">参考：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#版权声明-署名-非商业性使用-相同方式共享-3-0-中国大陆-CC-BY-NC-SA-3-0-CN"><span class="toc-number">5.1.</span> <span class="toc-text">版权声明: 署名-非商业性使用-相同方式共享 3.0 中国大陆 (CC BY-NC-SA 3.0 CN)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#laptop-mode-service-配置文件："><span class="toc-number">6.</span> <span class="toc-text">laptop-mode.service 配置文件：</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2018/02/14/Linux-power-manager-laptop-mode-tools/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

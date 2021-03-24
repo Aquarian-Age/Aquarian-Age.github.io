@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>使用qemu创建虚拟机 | AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="安装指导资料 Use the following command to create a 10GB image file (You can change the size if you want but make sure it’s enough):1qemu-img create -f qcow2 android-marshmallow.img 10G You will notice that">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用qemu创建虚拟机">
+<meta property="og:url" content="https://aquarian-age.github.io/2018/04/01/qemu-%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:description" content="安装指导资料 Use the following command to create a 10GB image file (You can change the size if you want but make sure it’s enough):1qemu-img create -f qcow2 android-marshmallow.img 10G You will notice that">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-04-01T12:26:17.000Z">
+<meta property="article:modified_time" content="2019-06-01T16:21:01.890Z">
+<meta property="article:author" content="Liangzi">
+<meta property="article:tag" content="qemu">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-qemu-创建虚拟机" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/01/qemu-%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA/" class="article-date">
+  <time datetime="2018-04-01T12:26:17.000Z" itemprop="datePublished">2018-04-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      使用qemu创建虚拟机
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h2 id="安装指导资料"><a href="#安装指导资料" class="headerlink" title="安装指导资料"></a>安装指导资料</h2><hr>
+<h2 id="Use-the-following-command-to-create-a-10GB-image-file-You-can-change-the-size-if-you-want-but-make-sure-it’s-enough"><a href="#Use-the-following-command-to-create-a-10GB-image-file-You-can-change-the-size-if-you-want-but-make-sure-it’s-enough" class="headerlink" title="Use the following command to create a 10GB image file (You can change the size if you want but make sure it’s enough):"></a>Use the following command to create a 10GB image file (You can change the size if you want but make sure it’s enough):</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qemu-img create -f qcow2 android-marshmallow.img 10G</span><br></pre></td></tr></table></figure>
+<h2 id="You-will-notice-that-a-small-file-was-created-in-your-home-folder-it-won’t-be-10GB-in-size-but-QEMU-will-set-its-maximum-possible-size-up-to-10GB-only-this-is-to-save-unnecessary-used-disk-space"><a href="#You-will-notice-that-a-small-file-was-created-in-your-home-folder-it-won’t-be-10GB-in-size-but-QEMU-will-set-its-maximum-possible-size-up-to-10GB-only-this-is-to-save-unnecessary-used-disk-space" class="headerlink" title="You will notice that a small file was created in your home folder, it won’t be 10GB in size, but QEMU will set its maximum possible size up to 10GB only, this is to save unnecessary used disk space."></a>You will notice that a small file was created in your home folder, it won’t be 10GB in size, but QEMU will set its maximum possible size up to 10GB only, this is to save unnecessary used disk space.</h2><h2 id="If-you-don’t-like-to-use-QEMU-you-can-use-VirtualBox-it’s-a-complete-virtual-machine-solution-with-the-GUI-included"><a href="#If-you-don’t-like-to-use-QEMU-you-can-use-VirtualBox-it’s-a-complete-virtual-machine-solution-with-the-GUI-included" class="headerlink" title="If you don’t like to use QEMU, you can use VirtualBox, it’s a complete virtual machine solution with the GUI included:"></a>If you don’t like to use QEMU, you can use VirtualBox, it’s a complete virtual machine solution with the GUI included:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install virtualbox virtualbox-qt</span><br></pre></td></tr></table></figure>
+<h2 id="Download-Android-6-0-Marshmallow-for-x86the-name-of-the-file-android-x86-64-6-0-rc2-iso-with-the-file-you-downloaded"><a href="#Download-Android-6-0-Marshmallow-for-x86the-name-of-the-file-android-x86-64-6-0-rc2-iso-with-the-file-you-downloaded" class="headerlink" title="Download Android 6.0 Marshmallow for x86the name of the file android-x86_64-6.0-rc2.iso with the file you downloaded"></a><a href="http://www.android-x86.org/download" target="_blank" rel="noopener">Download Android 6.0 Marshmallow for x86</a>the name of the file android-x86_64-6.0-rc2.iso with the file you downloaded</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -c http:&#x2F;&#x2F;gigenet.dl.osdn.jp&#x2F;android-x86&#x2F;67834&#x2F;android-x86_64-7.1-r1.iso</span><br></pre></td></tr></table></figure>
+<h2 id="rpm-link-android-rpm"><a href="#rpm-link-android-rpm" class="headerlink" title="rpm link:android rpm"></a>rpm link:<a href="http://pumath.dl.osdn.jp/android-x86/67834/android-x86-7.1-r1.x86_64.rpm" target="_blank" rel="noopener">android rpm</a></h2><a id="more"></a>
+<h2 id="Start-Installing-Android-6-0-Marshmallow-on-Linux"><a href="#Start-Installing-Android-6-0-Marshmallow-on-Linux" class="headerlink" title="Start Installing Android 6.0 Marshmallow on Linux"></a>Start Installing Android 6.0 Marshmallow on Linux</h2><h2 id="Now-after-you-have-downloaded-the-release-you-want-successfully-we-can-start-running-it-on-QEMU-in-order-to-achieve-our-goal-if-your-downloaded-ISO-file-was-for-the-64-bit-architecture-run-the-following-command"><a href="#Now-after-you-have-downloaded-the-release-you-want-successfully-we-can-start-running-it-on-QEMU-in-order-to-achieve-our-goal-if-your-downloaded-ISO-file-was-for-the-64-bit-architecture-run-the-following-command" class="headerlink" title="Now after you have downloaded the release you want successfully, we can start running it on QEMU in order to achieve our goal, if your downloaded ISO file was for the 64-bit architecture, run the following command:"></a>Now after you have downloaded the release you want successfully, we can start running it on QEMU in order to achieve our goal, if your downloaded ISO file was for the 64-bit architecture, run the following command:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qemu-system-x86_64 -m 2048 -boot d -enable-kvm -smp 3 -net nic -net user -hda android-marshmallow.img -cdrom &#x2F;home&#x2F;mhsabbagh&#x2F;android-x86_64-6.0-rc2.iso</span><br></pre></td></tr></table></figure>
+<h2 id="If-it-was-for-the-32-bit-architecture-run-the-following-command"><a href="#If-it-was-for-the-32-bit-architecture-run-the-following-command" class="headerlink" title="If it was for the 32-bit architecture, run the following command:"></a>If it was for the 32-bit architecture, run the following command:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qemu-system-i386 -m 2048 -boot d -enable-kvm -smp 3 -net nic -net user -hda android-marshmallow.img -cdrom &#x2F;home&#x2F;mhsabbagh&#x2F;android-x86_64-6.0-rc2.iso</span><br></pre></td></tr></table></figure>
+<h2 id="QEMU使用KVM来提升虚拟机性能，如果不启用KVM会导致性能损失。要使用KVM，首先要检查硬件是否有虚拟化支持："><a href="#QEMU使用KVM来提升虚拟机性能，如果不启用KVM会导致性能损失。要使用KVM，首先要检查硬件是否有虚拟化支持：" class="headerlink" title="QEMU使用KVM来提升虚拟机性能，如果不启用KVM会导致性能损失。要使用KVM，首先要检查硬件是否有虚拟化支持："></a>QEMU使用KVM来提升虚拟机性能，如果不启用KVM会导致性能损失。要使用KVM，首先要检查硬件是否有虚拟化支持：</h2><h2 id="如果有输出则表示硬件有虚拟化支持。其次要检查kvm模块是否已经加载"><a href="#如果有输出则表示硬件有虚拟化支持。其次要检查kvm模块是否已经加载" class="headerlink" title="如果有输出则表示硬件有虚拟化支持。其次要检查kvm模块是否已经加载"></a>如果有输出则表示硬件有虚拟化支持。其次要检查kvm模块是否已经加载</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">三 3月 28|17:46|0:&gt; grep -E &#39;vmx|svm&#39; &#x2F;proc&#x2F;cpuinfo</span><br><span class="line">flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer xsave avx lahf_lm arat epb pln pts dtherm spec_ctrl stibp retpoline kaiser tpr_shadow vnmi flexpriority ept vpid xsaveopt</span><br><span class="line">flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer xsave avx lahf_lm arat epb pln pts dtherm spec_ctrl stibp retpoline kaiser tpr_shadow vnmi flexpriority ept vpid xsaveopt</span><br><span class="line">flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer xsave avx lahf_lm arat epb pln pts dtherm spec_ctrl stibp retpoline kaiser tpr_shadow vnmi flexpriority ept vpid xsaveopt</span><br><span class="line">flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer xsave avx lahf_lm arat epb pln pts dtherm spec_ctrl stibp retpoline kaiser tpr_shadow vnmi flexpriority ept vpid xsaveopt</span><br></pre></td></tr></table></figure>
+<h2 id="检查kvm模块是否已经加载-如果kvm-intel-kvm-amd、kvm模块被显示出来，则kvm模块已经加载"><a href="#检查kvm模块是否已经加载-如果kvm-intel-kvm-amd、kvm模块被显示出来，则kvm模块已经加载" class="headerlink" title="检查kvm模块是否已经加载 如果kvm_intel/kvm_amd、kvm模块被显示出来，则kvm模块已经加载"></a>检查kvm模块是否已经加载 如果kvm_intel/kvm_amd、kvm模块被显示出来，则kvm模块已经加载</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">三 3月 28|17:48|0:&gt; lsmod | grep kvm</span><br><span class="line">kvm_intel             180224  0 </span><br><span class="line">kvm                   606208  1 kvm_intel</span><br><span class="line">irqbypass              16384  1 kvm</span><br></pre></td></tr></table></figure>
+<h2 id="采用图形界面管理QEMU虚拟机需要安装virt-manager"><a href="#采用图形界面管理QEMU虚拟机需要安装virt-manager" class="headerlink" title="采用图形界面管理QEMU虚拟机需要安装virt-manager"></a>采用图形界面管理QEMU虚拟机需要安装virt-manager</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">三 3月 28|17:54|0:&gt; sudo zypper in virt-manager</span><br><span class="line">[sudo] xuan 的密码：</span><br><span class="line">正在加载软件源数据...</span><br><span class="line">正在读取已安装的软件包...</span><br><span class="line">正在解决软件包依赖关系...</span><br><span class="line"></span><br><span class="line">将安装以下 1 个应用程序：</span><br><span class="line">  &quot;Virtual Machine Manager&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="以普通用户启动虚拟机测试"><a href="#以普通用户启动虚拟机测试" class="headerlink" title="以普通用户启动虚拟机测试"></a>以普通用户启动虚拟机测试</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">三 3月 28|17:56|0:&gt; virt-manager </span><br><span class="line">~</span><br><span class="line">三 3月 28|17:57|0:&gt;</span><br><span class="line">(virt-manager:21321): Gtk-WARNING **: Theme parsing error: gtk.css:68:35: The style property GtkButton:child-displacement-x is deprecated and shouldn&#39;t be used anymore. It will be removed in a future version</span><br><span class="line"></span><br><span class="line">(virt-manager:21321): Gtk-WARNING **: Theme parsing error: gtk.css:69:35: The style property GtkButton:child-displacement-y is deprecated and shouldn&#39;t be used anymore. It will be removed in a future version</span><br><span class="line"></span><br><span class="line">(virt-manager:21321): Gtk-WARNING **: Theme parsing error: gtk.css:73:46: The style property GtkScrolledWindow:scrollbars-within-bevel is deprecated and shouldn&#39;t be used anymore. It will be removed in a future version</span><br></pre></td></tr></table></figure>
+<h2 id="实际安装过程"><a href="#实际安装过程" class="headerlink" title="实际安装过程"></a>实际安装过程</h2><h2 id="使用qemu-img创建虚拟机镜像。虚拟机镜像用来模拟虚拟机的硬盘，在启动虚拟机之前需要创建镜像文件。"><a href="#使用qemu-img创建虚拟机镜像。虚拟机镜像用来模拟虚拟机的硬盘，在启动虚拟机之前需要创建镜像文件。" class="headerlink" title="使用qemu-img创建虚拟机镜像。虚拟机镜像用来模拟虚拟机的硬盘，在启动虚拟机之前需要创建镜像文件。"></a>使用qemu-img创建虚拟机镜像。虚拟机镜像用来模拟虚拟机的硬盘，在启动虚拟机之前需要创建镜像文件。</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">三 3月 28|18:00|0:&gt; qemu-img create -f qcow2 ubunto.img 10G</span><br><span class="line">Formatting &#39;ubunto.img&#39;, fmt&#x3D;qcow2 size&#x3D;10737418240 encryption&#x3D;off cluster_size&#x3D;65536 lazy_refcounts&#x3D;off refcount_bits&#x3D;16</span><br><span class="line">~</span><br></pre></td></tr></table></figure>
+<h2 id="启动测试一下-因为ubunto-img中并未给虚拟机安装操作系统，所以会提示”No-bootable-device”，无可启动设备。"><a href="#启动测试一下-因为ubunto-img中并未给虚拟机安装操作系统，所以会提示”No-bootable-device”，无可启动设备。" class="headerlink" title="启动测试一下  因为ubunto.img中并未给虚拟机安装操作系统，所以会提示”No bootable device”，无可启动设备。"></a>启动测试一下  因为ubunto.img中并未给虚拟机安装操作系统，所以会提示”No bootable device”，无可启动设备。</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">三 3月 28|18:03|0:&gt; qemu-system-x86_64 ubunto.img </span><br><span class="line"></span><br><span class="line">(qemu-system-x86_64:24229): Gtk-WARNING **: Allocating size to GtkScrollbar 0x5560d8a331f0 without calling gtk_widget_get_preferred_width&#x2F;height(). How does the code know the size to allocate?</span><br></pre></td></tr></table></figure>
+<h2 id="准备操作系统镜像-可以从不同Linux发行版的官方网站上获取安装镜像"><a href="#准备操作系统镜像-可以从不同Linux发行版的官方网站上获取安装镜像" class="headerlink" title="准备操作系统镜像 可以从不同Linux发行版的官方网站上获取安装镜像"></a>准备操作系统镜像 可以从不同Linux发行版的官方网站上获取安装镜像</h2><h2 id="启动虚拟机安装操作系统"><a href="#启动虚拟机安装操作系统" class="headerlink" title="启动虚拟机安装操作系统"></a>启动虚拟机安装操作系统</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">三 3月 28|18:08|0:&gt; qemu-system-x86_64 -m 2048 -enable-kvm ubunto.img &#x2F;var&#x2F;ISO&#x2F;ubuntu-16.04-desktop-amd64.iso </span><br><span class="line">qemu-system-x86_64: -enable-kvm: drive with bus&#x3D;0, unit&#x3D;0 (index&#x3D;0) exists</span><br><span class="line">--------------------------------------------------------------------------</span><br><span class="line">三 3月 28|18:09|0:&gt; sudo qemu-system-x86_64 -m 2048 -enable-kvm ubunto.img &#x2F;var&#x2F;ISO&#x2F;ubuntu-16.04-desktop-amd64.iso </span><br><span class="line">[sudo] xuan 的密码：</span><br><span class="line">qemu-system-x86_64: -enable-kvm: drive with bus&#x3D;0, unit&#x3D;0 (index&#x3D;0) exists</span><br><span class="line">--------------------------------------------------------------------------</span><br><span class="line">三 3月 28|18:29|0:&gt; qemu-img info ubunto.img </span><br><span class="line">image: ubunto.img</span><br><span class="line">file format: qcow2</span><br><span class="line">virtual size: 10G (10737418240 bytes)</span><br><span class="line">disk size: 196K</span><br><span class="line">cluster_size: 65536</span><br><span class="line">Format specific information:</span><br><span class="line">    compat: 1.1</span><br><span class="line">    lazy refcounts: false</span><br><span class="line">	refcount bits: 16</span><br><span class="line">	corrupt: false</span><br></pre></td></tr></table></figure>
+<h2 id="重新创建映像"><a href="#重新创建映像" class="headerlink" title="重新创建映像"></a>重新创建映像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">三 3月 28|18:29|0:&gt; qemu-img create -f qcow2 ubuntu.qcow2 10G</span><br><span class="line">Formatting &#39;ubuntu.qcow2&#39;, fmt&#x3D;qcow2 size&#x3D;10737418240 encryption&#x3D;off cluster_size&#x3D;65536 lazy_refcounts&#x3D;off refcount_bits&#x3D;16</span><br><span class="line">~</span><br><span class="line">三 3月 28|18:32|0:&gt; qemu-img info ubuntu.qcow2 </span><br><span class="line">image: ubuntu.qcow2</span><br><span class="line">file format: qcow2</span><br><span class="line">virtual size: 10G (10737418240 bytes)</span><br><span class="line">disk size: 196K</span><br><span class="line">cluster_size: 65536</span><br><span class="line">Format specific information:</span><br><span class="line">    compat: 1.1</span><br><span class="line">    lazy refcounts: false</span><br><span class="line">	refcount bits: 16</span><br><span class="line">	corrupt: false</span><br><span class="line">--------------------------------------------------</span><br><span class="line">三 3月 28|18:32|0:&gt; qemu-system-x86_64 -m 2048 -enable-kvm ubuntu.qcow2 &#x2F;var&#x2F;ISO&#x2F;ubuntu-16.04-desktop-amd64.iso </span><br><span class="line">qemu-system-x86_64: -enable-kvm: drive with bus&#x3D;0, unit&#x3D;0 (index&#x3D;0) exists</span><br><span class="line">~</span><br><span class="line">三 3月 28|18:34|0:&gt; sudo qemu-system-x86_64 -m 2048 -enable-kvm ubuntu.qcow2 &#x2F;var&#x2F;ISO&#x2F;ubuntu-16.04-desktop-amd64.iso </span><br><span class="line">[sudo] xuan 的密码：</span><br><span class="line">qemu-system-x86_64: -enable-kvm: drive with bus&#x3D;0, unit&#x3D;0 (index&#x3D;0) exists</span><br></pre></td></tr></table></figure>
+<h2 id="以上方法出现错误的原因在于没有使用-cdrom参数-所以虚拟机找不到需要安装的原始映像iso文件"><a href="#以上方法出现错误的原因在于没有使用-cdrom参数-所以虚拟机找不到需要安装的原始映像iso文件" class="headerlink" title="以上方法出现错误的原因在于没有使用-cdrom参数 所以虚拟机找不到需要安装的原始映像iso文件"></a>以上方法出现错误的原因在于没有使用-cdrom参数 所以虚拟机找不到需要安装的原始映像iso文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">三 3月 28|18:13|0:&gt; qemu-img create -f qcow2 ubuntu.qcow2 10G</span><br><span class="line">Formatting &#39;ubuntu.qcow2&#39;, fmt&#x3D;qcow2 size&#x3D;10737418240 encryption&#x3D;off cluster_size&#x3D;65536 lazy_refcounts&#x3D;off refcount_bits&#x3D;16     </span><br><span class="line">~</span><br><span class="line">四 3月 29|07:49|0:&gt; qemu-system-x86_64 -m 2048 -enable-kvm ubuntu.qcow2 -cdrom &#x2F;var&#x2F;ISO&#x2F;ubuntu-16.04-desktop-amd64.iso </span><br><span class="line"></span><br><span class="line">(qemu-system-x86_64:23827): Gtk-WARNING **: Allocating size to GtkScrollbar 0x562d1e08b1d0 without calling gtk_widget_get_preferred_width&#x2F;height(). How does the code know the size to allocate?</span><br><span class="line"></span><br><span class="line">(qemu-system-x86_64:23827): Gtk-WARNING **: gtk_widget_size_allocate(): attempt to allocate widget with width -519488624 and height 400</span><br></pre></td></tr></table></figure>
+<h2 id="图形界面创建及启动虚拟机"><a href="#图形界面创建及启动虚拟机" class="headerlink" title="图形界面创建及启动虚拟机"></a>图形界面创建及启动虚拟机</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo zypper in virt-manager</span><br></pre></td></tr></table></figure>
+<h2 id="安装完成后用root用户启动virt-manager："><a href="#安装完成后用root用户启动virt-manager：" class="headerlink" title="安装完成后用root用户启动virt-manager："></a>安装完成后用root用户启动virt-manager：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$su -</span><br><span class="line">virt-manager</span><br></pre></td></tr></table></figure>
+<h2 id="创建android7映像"><a href="#创建android7映像" class="headerlink" title="创建android7映像"></a>创建android7映像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">~</span><br><span class="line">四 3月 29|13:13|0:&gt; qemu-img create -f qcow2 android7.img 10G</span><br><span class="line">Formatting &#39;android7.img&#39;, fmt&#x3D;qcow2 size&#x3D;10737418240 encryption&#x3D;off cluster_size&#x3D;65536 lazy_refcounts&#x3D;off refcount_bits&#x3D;16</span><br></pre></td></tr></table></figure>
+<h2 id="安装系统"><a href="#安装系统" class="headerlink" title="安装系统"></a>安装系统</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">四 3月 29|13:23|0:&gt; qemu-system-x86_64 -m 2048 -boot d -enable-kvm -smp 3 -net nic -net user -hda android7.img -cdrom .&#x2F;android-x86_64-7.1-r1.iso</span><br></pre></td></tr></table></figure>
+<h2 id="第一次启动前-需要链接谷歌-需要链接谷歌-需要链接谷歌"><a href="#第一次启动前-需要链接谷歌-需要链接谷歌-需要链接谷歌" class="headerlink" title="第一次启动前 需要链接谷歌 需要链接谷歌 需要链接谷歌"></a>第一次启动前 需要链接谷歌 需要链接谷歌 需要链接谷歌</h2><h2 id="运行系统"><a href="#运行系统" class="headerlink" title="运行系统"></a>运行系统</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qemu-system-x86_64 -m 2048 -boot d -enable-kvm -smp 3 -net nic -net user -hda android-marshmallow.img</span><br></pre></td></tr></table></figure>
+<h3 id="进入shell"><a href="#进入shell" class="headerlink" title="进入shell"></a>进入shell</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alt+右键头或者左键头（媒体播放那个箭头）</span><br></pre></td></tr></table></figure>
+<h3 id="设置网络-现在这个版本可以忽略这一步"><a href="#设置网络-现在这个版本可以忽略这一步" class="headerlink" title="设置网络 现在这个版本可以忽略这一步"></a>设置网络 现在这个版本可以忽略这一步</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ip a 查看当前网络设置</span><br><span class="line">dhcptool eth0 自动获取网络地址 目前这种方法不能联网</span><br><span class="line">ifconfig eth0 192.168.0.190 netmask 255.255.255.0</span><br></pre></td></tr></table></figure>
+<h2 id="又安装了个kali"><a href="#又安装了个kali" class="headerlink" title="又安装了个kali"></a>又安装了个kali</h2><h2 id="顺便把android的启动脚本也写了一下"><a href="#顺便把android的启动脚本也写了一下" class="headerlink" title="顺便把android的启动脚本也写了一下"></a>顺便把android的启动脚本也写了一下</h2><h2 id="android7"><a href="#android7" class="headerlink" title="android7"></a>android7</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line"></span><br><span class="line">cd $HOME&#x2F;tools&#x2F;qemu&#x2F;;</span><br><span class="line">qemu-system-x86_64 -m 2048 -boot d -enable-kvm -smp 3 -net nic -net user -hda android7.img &amp;</span><br></pre></td></tr></table></figure>
+<h2 id="kali"><a href="#kali" class="headerlink" title="kali"></a>kali</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line"></span><br><span class="line">cd $HOME&#x2F;tools&#x2F;qemu&#x2F;;</span><br><span class="line">qemu-system-x86_64 -m 2048 -boot d -enable-kvm -smp 3 -net nic -net user -hda kali.img &amp;</span><br></pre></td></tr></table></figure>
+<h2 id="做个软链接到-HOME-bin目录"><a href="#做个软链接到-HOME-bin目录" class="headerlink" title="做个软链接到$HOME/bin目录"></a>做个软链接到$HOME/bin目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln -s ~&#x2F;tools&#x2F;qemu&#x2F;start-android7.sh ~&#x2F;bin</span><br><span class="line">ln -s ~&#x2F;tools&#x2F;qemu&#x2F;start-kali-qemu.sh ~&#x2F;bin</span><br></pre></td></tr></table></figure>
+<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><h2 id="QemuLinuxWiki"><a href="#QemuLinuxWiki" class="headerlink" title="QemuLinuxWiki"></a><a href="https://wiki.qemu.org/Hosts/Linux" target="_blank" rel="noopener">QemuLinuxWiki</a></h2><h2 id="QEMU1-使用QEMU创建虚拟机-IBM中国Linux与虚拟化实验室"><a href="#QEMU1-使用QEMU创建虚拟机-IBM中国Linux与虚拟化实验室" class="headerlink" title="QEMU1: 使用QEMU创建虚拟机-IBM中国Linux与虚拟化实验室"></a><a href="https://www.ibm.com/developerworks/community/blogs/5144904d-5d75-45ed-9d2b-cf1754ee936a/entry/qemu1_%25e4%25bd%25bf%25e7%2594%25a8qemu%25e5%2588%259b%25e5%25bb%25ba%25e8%2599%259a%25e6%258b%259f%25e6%259c%25ba?lang=en" target="_blank" rel="noopener">QEMU1: 使用QEMU创建虚拟机-IBM中国Linux与虚拟化实验室</a></h2><h2 id="Install-Android-6-0-Marshmallow-on-Linux-to-Run-Apps-amp-Games"><a href="#Install-Android-6-0-Marshmallow-on-Linux-to-Run-Apps-amp-Games" class="headerlink" title="Install Android 6.0 Marshmallow on Linux to Run Apps &amp; Games"></a><a href="https://fosspost.org/tutorials/install-android-6-0-marshmallow-linux-run-apps-games" target="_blank" rel="noopener">Install Android 6.0 Marshmallow on Linux to Run Apps &amp; Games</a></h2><hr>
+<p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/04/01/qemu-%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA/" data-id="ckivmllxz002qx720475mebxh" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/04/01/qemu-%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qemu/" rel="tag">qemu</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2018/04/04/Back-up-dot-file/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          rclone网盘备份神器
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/27/openSUSE-42-3-%E7%BC%96%E8%AF%91gcc4-9-4-%E5%AE%89%E8%A3%85flameshot/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">openSUSE 42.3 编译gcc4.9.4 安装flameshot</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装指导资料"><span class="toc-number">1.</span> <span class="toc-text">安装指导资料</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Use-the-following-command-to-create-a-10GB-image-file-You-can-change-the-size-if-you-want-but-make-sure-it’s-enough"><span class="toc-number">2.</span> <span class="toc-text">Use the following command to create a 10GB image file (You can change the size if you want but make sure it’s enough):</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#You-will-notice-that-a-small-file-was-created-in-your-home-folder-it-won’t-be-10GB-in-size-but-QEMU-will-set-its-maximum-possible-size-up-to-10GB-only-this-is-to-save-unnecessary-used-disk-space"><span class="toc-number">3.</span> <span class="toc-text">You will notice that a small file was created in your home folder, it won’t be 10GB in size, but QEMU will set its maximum possible size up to 10GB only, this is to save unnecessary used disk space.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#If-you-don’t-like-to-use-QEMU-you-can-use-VirtualBox-it’s-a-complete-virtual-machine-solution-with-the-GUI-included"><span class="toc-number">4.</span> <span class="toc-text">If you don’t like to use QEMU, you can use VirtualBox, it’s a complete virtual machine solution with the GUI included:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Download-Android-6-0-Marshmallow-for-x86the-name-of-the-file-android-x86-64-6-0-rc2-iso-with-the-file-you-downloaded"><span class="toc-number">5.</span> <span class="toc-text">Download Android 6.0 Marshmallow for x86the name of the file android-x86_64-6.0-rc2.iso with the file you downloaded</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rpm-link-android-rpm"><span class="toc-number">6.</span> <span class="toc-text">rpm link:android rpm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Start-Installing-Android-6-0-Marshmallow-on-Linux"><span class="toc-number">7.</span> <span class="toc-text">Start Installing Android 6.0 Marshmallow on Linux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Now-after-you-have-downloaded-the-release-you-want-successfully-we-can-start-running-it-on-QEMU-in-order-to-achieve-our-goal-if-your-downloaded-ISO-file-was-for-the-64-bit-architecture-run-the-following-command"><span class="toc-number">8.</span> <span class="toc-text">Now after you have downloaded the release you want successfully, we can start running it on QEMU in order to achieve our goal, if your downloaded ISO file was for the 64-bit architecture, run the following command:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#If-it-was-for-the-32-bit-architecture-run-the-following-command"><span class="toc-number">9.</span> <span class="toc-text">If it was for the 32-bit architecture, run the following command:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#QEMU使用KVM来提升虚拟机性能，如果不启用KVM会导致性能损失。要使用KVM，首先要检查硬件是否有虚拟化支持："><span class="toc-number">10.</span> <span class="toc-text">QEMU使用KVM来提升虚拟机性能，如果不启用KVM会导致性能损失。要使用KVM，首先要检查硬件是否有虚拟化支持：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如果有输出则表示硬件有虚拟化支持。其次要检查kvm模块是否已经加载"><span class="toc-number">11.</span> <span class="toc-text">如果有输出则表示硬件有虚拟化支持。其次要检查kvm模块是否已经加载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#检查kvm模块是否已经加载-如果kvm-intel-kvm-amd、kvm模块被显示出来，则kvm模块已经加载"><span class="toc-number">12.</span> <span class="toc-text">检查kvm模块是否已经加载 如果kvm_intel&#x2F;kvm_amd、kvm模块被显示出来，则kvm模块已经加载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#采用图形界面管理QEMU虚拟机需要安装virt-manager"><span class="toc-number">13.</span> <span class="toc-text">采用图形界面管理QEMU虚拟机需要安装virt-manager</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#以普通用户启动虚拟机测试"><span class="toc-number">14.</span> <span class="toc-text">以普通用户启动虚拟机测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实际安装过程"><span class="toc-number">15.</span> <span class="toc-text">实际安装过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用qemu-img创建虚拟机镜像。虚拟机镜像用来模拟虚拟机的硬盘，在启动虚拟机之前需要创建镜像文件。"><span class="toc-number">16.</span> <span class="toc-text">使用qemu-img创建虚拟机镜像。虚拟机镜像用来模拟虚拟机的硬盘，在启动虚拟机之前需要创建镜像文件。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动测试一下-因为ubunto-img中并未给虚拟机安装操作系统，所以会提示”No-bootable-device”，无可启动设备。"><span class="toc-number">17.</span> <span class="toc-text">启动测试一下  因为ubunto.img中并未给虚拟机安装操作系统，所以会提示”No bootable device”，无可启动设备。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准备操作系统镜像-可以从不同Linux发行版的官方网站上获取安装镜像"><span class="toc-number">18.</span> <span class="toc-text">准备操作系统镜像 可以从不同Linux发行版的官方网站上获取安装镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动虚拟机安装操作系统"><span class="toc-number">19.</span> <span class="toc-text">启动虚拟机安装操作系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重新创建映像"><span class="toc-number">20.</span> <span class="toc-text">重新创建映像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#以上方法出现错误的原因在于没有使用-cdrom参数-所以虚拟机找不到需要安装的原始映像iso文件"><span class="toc-number">21.</span> <span class="toc-text">以上方法出现错误的原因在于没有使用-cdrom参数 所以虚拟机找不到需要安装的原始映像iso文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图形界面创建及启动虚拟机"><span class="toc-number">22.</span> <span class="toc-text">图形界面创建及启动虚拟机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装完成后用root用户启动virt-manager："><span class="toc-number">23.</span> <span class="toc-text">安装完成后用root用户启动virt-manager：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建android7映像"><span class="toc-number">24.</span> <span class="toc-text">创建android7映像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装系统"><span class="toc-number">25.</span> <span class="toc-text">安装系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第一次启动前-需要链接谷歌-需要链接谷歌-需要链接谷歌"><span class="toc-number">26.</span> <span class="toc-text">第一次启动前 需要链接谷歌 需要链接谷歌 需要链接谷歌</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行系统"><span class="toc-number">27.</span> <span class="toc-text">运行系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#进入shell"><span class="toc-number">27.1.</span> <span class="toc-text">进入shell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置网络-现在这个版本可以忽略这一步"><span class="toc-number">27.2.</span> <span class="toc-text">设置网络 现在这个版本可以忽略这一步</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#又安装了个kali"><span class="toc-number">28.</span> <span class="toc-text">又安装了个kali</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#顺便把android的启动脚本也写了一下"><span class="toc-number">29.</span> <span class="toc-text">顺便把android的启动脚本也写了一下</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#android7"><span class="toc-number">30.</span> <span class="toc-text">android7</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#kali"><span class="toc-number">31.</span> <span class="toc-text">kali</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#做个软链接到-HOME-bin目录"><span class="toc-number">32.</span> <span class="toc-text">做个软链接到$HOME&#x2F;bin目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考："><span class="toc-number">33.</span> <span class="toc-text">参考：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#QemuLinuxWiki"><span class="toc-number">34.</span> <span class="toc-text">QemuLinuxWiki</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#QEMU1-使用QEMU创建虚拟机-IBM中国Linux与虚拟化实验室"><span class="toc-number">35.</span> <span class="toc-text">QEMU1: 使用QEMU创建虚拟机-IBM中国Linux与虚拟化实验室</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Install-Android-6-0-Marshmallow-on-Linux-to-Run-Apps-amp-Games"><span class="toc-number">36.</span> <span class="toc-text">Install Android 6.0 Marshmallow on Linux to Run Apps &amp; Games</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2018/04/01/qemu-%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

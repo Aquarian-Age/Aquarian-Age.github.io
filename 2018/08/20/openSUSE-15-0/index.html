@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>openSUSE | AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="KDE桌面环境">
+<meta property="og:type" content="article">
+<meta property="og:title" content="openSUSE">
+<meta property="og:url" content="https://aquarian-age.github.io/2018/08/20/openSUSE-15-0/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:description" content="KDE桌面环境">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-08-20T04:12:05.000Z">
+<meta property="article:modified_time" content="2020-09-25T13:13:15.481Z">
+<meta property="article:author" content="Liangzi">
+<meta property="article:tag" content="openSUSE">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-openSUSE-15-0" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/20/openSUSE-15-0/" class="article-date">
+  <time datetime="2018-08-20T04:12:05.000Z" itemprop="datePublished">2018-08-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      openSUSE
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>KDE桌面环境</p>
+<a id="more"></a>
+<h3 id="bbswitch"><a href="#bbswitch" class="headerlink" title="bbswitch"></a>bbswitch</h3><p>禁用双显卡的独立显卡<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="built_in">set</span> -v</span><br><span class="line"></span><br><span class="line"><span class="comment"># zypper ar -f http://download.opensuse.org/repositories/X11:/Bumblebee/openSUSE_Leap_42.1/ blumblebee</span></span><br><span class="line"><span class="comment"># zypper ref</span></span><br><span class="line">zypper <span class="keyword">in</span> bbswitch dkms bbswitch-kmp-default</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"blacklist nouveau"</span> &gt;&gt; /etc/modprobe.d/50-blacklist.conf</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"bbswitch"</span> &gt;&gt; /etc/modules-load.d/modules.conf</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"options bbswitch load_state=0"</span> &gt; /etc/modprobe.d/50-bbswitch.conf</span><br><span class="line">mkinitrd</span><br></pre></td></tr></table></figure><br>重启<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo prime-select intel</span><br></pre></td></tr></table></figure></p>
+<h3 id="修改DNS为静态解析"><a href="#修改DNS为静态解析" class="headerlink" title="修改DNS为静态解析"></a>修改DNS为静态解析</h3><p>更改配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim &#x2F;etc&#x2F;sysconfig&#x2F;network&#x2F;config</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>把106行的<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># NETCONFIG_DNS_POLICY&#x3D;&quot;auto&quot;</span><br></pre></td></tr></table></figure></li>
+<li>改为<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NETCONFIG_DNS_POLICY&#x3D;&quot;&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p>更改 resolv.conf</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim &#x2F;etc&#x2F;resolv.conf</span><br></pre></td></tr></table></figure>
+<p>在<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">### Please remove (at least) this line when you modify the file!</span><br><span class="line">search SUSE.suse</span><br></pre></td></tr></table></figure><br>下面添加如下内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nameserver 223.5.5.5</span><br></pre></td></tr></table></figure></p>
+<p>简单粗暴的方法<br>使用命令强制更改<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chattr +i &#x2F;etc&#x2F;resolv.conf</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="禁用KDE的baloo文件索引功能"><a href="#禁用KDE的baloo文件索引功能" class="headerlink" title="禁用KDE的baloo文件索引功能"></a>禁用KDE的baloo文件索引功能</h3><p>查看索引状态<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">balooctl status</span><br><span class="line">Baloo 文件索引器正在运行</span><br><span class="line">索引器状态：空闲</span><br><span class="line">已索引 198230 / 198230 文件</span><br><span class="line">Current size of index is 1.92 GiB</span><br></pre></td></tr></table></figure></p>
+<p>列出配置选项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">balooctl config list</span><br><span class="line">下列配置选项可以列出：</span><br><span class="line"></span><br><span class="line">  hidden                   控制 Baloo 是否索引隐藏文件和文件夹</span><br><span class="line">  contentIndexing          控制 baloo 是否索引文件内容</span><br><span class="line">  includeFolders           列出 Baloo 索引的文件夹</span><br><span class="line">  excludeFolders           列出 Baloo 不索引的文件夹</span><br><span class="line">  excludeFilters           列出用于排除文件的过滤器</span><br><span class="line">  excludeMimetypes         列出用于排除文件的文件类型</span><br><span class="line">balooctl config list includeFolders</span><br><span class="line">&#x2F;home&#x2F;xxx</span><br></pre></td></tr></table></figure></p>
+<p>禁用索引功能<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">balooctl disable</span><br><span class="line">Disabling the File Indexer</span><br></pre></td></tr></table></figure></p>
+<p>其他功能参考<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">balooctl --help</span><br></pre></td></tr></table></figure></p>
+<h3 id="禁用akonadi服务"><a href="#禁用akonadi服务" class="headerlink" title="禁用akonadi服务"></a>禁用akonadi服务</h3><p>修改StartServer=true 为 StartServer=false<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;.config&#x2F;akonadi</span><br><span class="line"></span><br><span class="line">cat akonadiserverrc</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[Debug]</span><br><span class="line">Tracer&#x3D;null</span><br><span class="line"></span><br><span class="line">[%General]</span><br><span class="line">Driver&#x3D;QMYSQL</span><br><span class="line"></span><br><span class="line">[QMYSQL]</span><br><span class="line">Host&#x3D;</span><br><span class="line">Name&#x3D;akonadi</span><br><span class="line">Options&#x3D;&quot;UNIX_SOCKET&#x3D;&#x2F;tmp&#x2F;akonadi-xxx.d----&#x2F;mysql.socket&quot;</span><br><span class="line">ServerPath&#x3D;&#x2F;usr&#x2F;sbin&#x2F;mysqld</span><br><span class="line">StartServer&#x3D;false</span><br></pre></td></tr></table></figure>
+<p>官方wiki方法</p>
+<ul>
+<li><p>Akonadi框架为应用程序提供中心数据库来统一保存、索引和获取用户的个人信息。这包括邮件、联系人、日历、事件、日志、闹钟和笔记等。在 SC 4.4 中，KAddressBook 成为首个使用 Akonadi框架的程序。在SC4.7中，KMail,KOrganizer,KJots等也开始更新使用Akonadi。此外，一些等离子部件也使用 Akonadi保存和获取日历事件、笔记等。</p>
+</li>
+<li><p>在当前，下面的应用程序能够使用Akonadi框架集中存储和访问用户数据。进入它们的页面可以了解更多信息。</p>
+</li>
+</ul>
+<h3 id="控制Akonadi服务器"><a href="#控制Akonadi服务器" class="headerlink" title="控制Akonadi服务器"></a>控制Akonadi服务器</h3><ul>
+<li>启动 Akonadi 服务器：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">akonadictl start</span><br></pre></td></tr></table></figure></li>
+<li>停止Akonadi 服务器：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">akonadictl stop</span><br></pre></td></tr></table></figure></li>
+<li>重新启动正在运行的 Akonadi 服务器，<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">akonadictl restart</span><br></pre></td></tr></table></figure></li>
+<li>查询 Akonadi 服务器的状态：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">akonadictl status</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>禁止启动</p>
+<ul>
+<li>只要使用Akonadi的应用程序请求访问服务，Akonadi服务器就会自动启动。</li>
+<li>To disable the Akonadi subsystem, shut down the running Akonadi server from the control module or the command line:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">akonadictl stop</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>官方wiki<br><a href="https://userbase.kde.org/Akonadi/zh-cn" target="_blank" rel="noopener">https://userbase.kde.org/Akonadi/zh-cn</a></p>
+<hr>
+<p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/08/20/openSUSE-15-0/" data-id="ckivmllwg0022x720b7lh55r7" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/08/20/openSUSE-15-0/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2018/08/21/GPG%E6%A0%A1%E9%AA%8C%E6%96%87%E4%BB%B6%E7%9A%84%E5%AE%8C%E6%95%B4%E6%80%A7/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          GPG校验文件的完整性
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/08/11/iconv%E7%BC%96%E7%A0%81%E8%BD%AC%E6%8D%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">iconv编码转换</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#bbswitch"><span class="toc-number">1.</span> <span class="toc-text">bbswitch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改DNS为静态解析"><span class="toc-number">2.</span> <span class="toc-text">修改DNS为静态解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#禁用KDE的baloo文件索引功能"><span class="toc-number">3.</span> <span class="toc-text">禁用KDE的baloo文件索引功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#禁用akonadi服务"><span class="toc-number">4.</span> <span class="toc-text">禁用akonadi服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#控制Akonadi服务器"><span class="toc-number">5.</span> <span class="toc-text">控制Akonadi服务器</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2018/08/20/openSUSE-15-0/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

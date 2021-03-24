@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>duit-chinese-font | AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="duit是一个纯Go写的GUIplan9提供了242个字体配置文件12find &#x2F;usr&#x2F;local&#x2F;plan9&#x2F; -name &quot;*.font&quot; | wc -l242对中文支持友好的基本等于零　自己找了个字体unifont.tgz B站视频">
+<meta property="og:type" content="article">
+<meta property="og:title" content="duit-chinese-font">
+<meta property="og:url" content="https://aquarian-age.github.io/2020/06/23/duit-chinese-font/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:description" content="duit是一个纯Go写的GUIplan9提供了242个字体配置文件12find &#x2F;usr&#x2F;local&#x2F;plan9&#x2F; -name &quot;*.font&quot; | wc -l242对中文支持友好的基本等于零　自己找了个字体unifont.tgz B站视频">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-06-22T16:14:12.000Z">
+<meta property="article:modified_time" content="2020-10-05T22:04:28.808Z">
+<meta property="article:author" content="Liangzi">
+<meta property="article:tag" content="Go">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-duit-chinese-font" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/23/duit-chinese-font/" class="article-date">
+  <time datetime="2020-06-22T16:14:12.000Z" itemprop="datePublished">2020-06-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      duit-chinese-font
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p><a href="https://github.com/mjl-/duit" target="_blank" rel="noopener">duit</a>是一个纯Go写的GUI<br><a href="https://9fans.github.io/plan9port/" target="_blank" rel="noopener">plan9</a>提供了242个字体配置文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find /usr/<span class="built_in">local</span>/plan9/ -name <span class="string">"*.font"</span> | wc -l</span><br><span class="line">242</span><br></pre></td></tr></table></figure><br>对中文支持友好的基本等于零　自己找了个字体<br><a href="http://mirtchovski.com/p9/unifont/unifont.tgz" target="_blank" rel="noopener">unifont.tgz</a></p>
+<p><a href="https://www.bilibili.com/video/BV1Jt4y197pD/" target="_blank" rel="noopener">B站视频</a></p>
+<a id="more"></a>
+<h3 id="设置字体"><a href="#设置字体" class="headerlink" title="设置字体"></a>设置字体</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">init</span><span class="params">()</span></span> &#123;</span><br><span class="line">	path, err := filepath.Abs(<span class="string">"./font/unifont.font"</span>)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatal(err)</span><br><span class="line">	&#125;</span><br><span class="line">	os.Setenv(<span class="string">"font"</span>, path) <span class="comment">//设置中文字体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>解压字体文件和编译好的二进制文件放到同级目录　在任何位置都可以正常运行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls</span><br><span class="line">chineseFont  chinese-font.go  font</span><br></pre></td></tr></table></figure></p>
+<h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"image"</span></span><br><span class="line">	<span class="string">"log"</span></span><br><span class="line">	<span class="string">"os"</span></span><br><span class="line">	<span class="string">"path/filepath"</span></span><br><span class="line">	<span class="string">"time"</span></span><br><span class="line"></span><br><span class="line">	<span class="string">"github.com/mjl-/duit"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化环境变量</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">init</span><span class="params">()</span></span> &#123;</span><br><span class="line">	path, err := filepath.Abs(<span class="string">"./font/unifont.font"</span>)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatal(err)</span><br><span class="line">	&#125;</span><br><span class="line">	os.Setenv(<span class="string">"font"</span>, path) <span class="comment">//设置中文字体</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">	dui, err := duit.NewDUI(<span class="string">"测试中文"</span>, <span class="literal">nil</span>)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatal(err)</span><br><span class="line">	&#125;</span><br><span class="line">	status := &amp;duit.Label&#123;Text: <span class="string">"登录状态:状态演示..."</span>&#125;</span><br><span class="line">	username := &amp;duit.Field&#123;&#125;</span><br><span class="line">	password := &amp;duit.Field&#123;Password: <span class="literal">true</span>&#125;</span><br><span class="line">	login := &amp;duit.Button&#123;</span><br><span class="line">		Text:     <span class="string">"登录"</span>,</span><br><span class="line">		Colorset: &amp;dui.Primary,</span><br><span class="line">		Click: <span class="function"><span class="keyword">func</span><span class="params">()</span> <span class="params">(e duit.Event)</span></span> &#123;</span><br><span class="line">			status.Text = <span class="string">"status: logging in ..."</span></span><br><span class="line">			dui.MarkLayout(status)</span><br><span class="line"></span><br><span class="line">			<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">				time.Sleep(<span class="number">1</span> * time.Second)</span><br><span class="line">				dui.Call &lt;- <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">					status.Text = <span class="string">"status: logged in"</span></span><br><span class="line">					password.Text = <span class="string">""</span></span><br><span class="line">					dui.MarkLayout(<span class="literal">nil</span>) <span class="comment">// we're lazy, update all of the UI</span></span><br><span class="line">				&#125;</span><br><span class="line">			&#125;()</span><br><span class="line">			<span class="keyword">return</span></span><br><span class="line">		&#125;,</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	dui.Top.UI = &amp;duit.Box&#123;</span><br><span class="line">		Padding: duit.SpaceXY(<span class="number">6</span>, <span class="number">4</span>), <span class="comment">// inset from the window</span></span><br><span class="line">		Margin:  image.Pt(<span class="number">6</span>, <span class="number">4</span>),     <span class="comment">// space between kids in this box</span></span><br><span class="line"></span><br><span class="line">		Kids: duit.NewKids(</span><br><span class="line">			status,</span><br><span class="line">			&amp;duit.Grid&#123;</span><br><span class="line">				Columns: <span class="number">2</span>,</span><br><span class="line">				Padding: []duit.Space&#123;</span><br><span class="line">					&#123;Right: <span class="number">6</span>, Top: <span class="number">4</span>, Bottom: <span class="number">4</span>&#125;,</span><br><span class="line">					&#123;Left: <span class="number">6</span>, Top: <span class="number">4</span>, Bottom: <span class="number">4</span>&#125;,</span><br><span class="line">				&#125;,</span><br><span class="line">				Valign: []duit.Valign&#123;duit.ValignMiddle, duit.ValignMiddle&#125;,</span><br><span class="line">				Kids: duit.NewKids(</span><br><span class="line">					&amp;duit.Label&#123;Text: <span class="string">"用户名"</span>&#125;,</span><br><span class="line">					username,</span><br><span class="line">					&amp;duit.Label&#123;Text: <span class="string">"密码"</span>&#125;,</span><br><span class="line">					password,</span><br><span class="line">				),</span><br><span class="line">			&#125;,</span><br><span class="line">			login,</span><br><span class="line">		),</span><br><span class="line">	&#125;</span><br><span class="line">	dui.Render()</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> &#123;</span><br><span class="line">		<span class="keyword">select</span> &#123;</span><br><span class="line">		<span class="keyword">case</span> e := &lt;-dui.Inputs:</span><br><span class="line">			dui.Input(e)</span><br><span class="line">		<span class="keyword">case</span> warn, ok := &lt;-dui.Error:</span><br><span class="line">			<span class="keyword">if</span> !ok &#123;</span><br><span class="line">				<span class="keyword">return</span></span><br><span class="line">			&#125;</span><br><span class="line">			log.Printf(<span class="string">"duit: %s\n"</span>, warn)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2020/06/23/duit-chinese-font/" data-id="ckivmllw50016x720dfogbhxg" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2020/06/23/duit-chinese-font/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/" rel="tag">Go</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2020/06/28/%E7%B3%BB%E7%BB%9F%E5%8D%87%E7%BA%A7%E5%BC%95%E8%B5%B7%E7%9A%84%E9%93%BE%E6%8E%A5%E5%BA%93%E9%97%AE%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          系统升级引起的链接库问题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/06/16/Go%E7%9F%A2%E9%87%8F%E5%9B%BE%E8%BD%AC%E6%8D%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Go矢量图转换</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置字体"><span class="toc-number">1.</span> <span class="toc-text">设置字体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源码"><span class="toc-number">2.</span> <span class="toc-text">源码</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2020/06/23/duit-chinese-font/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

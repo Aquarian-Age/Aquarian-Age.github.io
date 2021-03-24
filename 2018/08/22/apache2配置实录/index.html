@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>apache2配置实录 | AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="某站点拉了一段VIP视频解析的源码 README.md里面没有说明具体的编译方法 也没看到编译好的版本问了作者 说是把源码放到服务器目录就可以了 源码里面看到了php然后就是网上各种的搜…….最后基本确定是要配置一下apache2的服务器了  安装相应软件包1sudo zypper in apache2-devel yast2-http-server  列出已安装的包123456789101112">
+<meta property="og:type" content="article">
+<meta property="og:title" content="apache2配置实录">
+<meta property="og:url" content="https://aquarian-age.github.io/2018/08/22/apache2%E9%85%8D%E7%BD%AE%E5%AE%9E%E5%BD%95/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:description" content="某站点拉了一段VIP视频解析的源码 README.md里面没有说明具体的编译方法 也没看到编译好的版本问了作者 说是把源码放到服务器目录就可以了 源码里面看到了php然后就是网上各种的搜…….最后基本确定是要配置一下apache2的服务器了  安装相应软件包1sudo zypper in apache2-devel yast2-http-server  列出已安装的包123456789101112">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-08-22T00:41:01.000Z">
+<meta property="article:modified_time" content="2021-02-21T21:13:00.196Z">
+<meta property="article:author" content="Liangzi">
+<meta property="article:tag" content="openSUSE">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-apache2配置实录" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/22/apache2%E9%85%8D%E7%BD%AE%E5%AE%9E%E5%BD%95/" class="article-date">
+  <time datetime="2018-08-22T00:41:01.000Z" itemprop="datePublished">2018-08-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      apache2配置实录
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>某站点拉了一段VIP视频解析的源码 README.md里面没有说明具体的编译方法 也没看到编译好的版本<br>问了作者 说是把源码放到服务器目录就可以了 源码里面看到了php<br>然后就是网上各种的搜…….<br>最后基本确定是要配置一下apache2的服务器了</p>
+<hr>
+<h3 id="安装相应软件包"><a href="#安装相应软件包" class="headerlink" title="安装相应软件包"></a>安装相应软件包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo zypper in apache2-devel yast2-http-server</span><br></pre></td></tr></table></figure>
+<ul>
+<li>列出已安装的包<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">zypper se -i apache</span><br><span class="line">正在加载软件源数据...</span><br><span class="line">正在读取已安装的软件包...</span><br><span class="line"></span><br><span class="line">S  | 名称                      | 摘要                                             | 类型  </span><br><span class="line">---+---------------------------+--------------------------------------------------+-------</span><br><span class="line">i+ | ant-apache-bcel           | Optional apache bcel tasks for ant               | 软件包</span><br><span class="line">i+ | ant-apache-bsf            | Optional apache bsf tasks for ant                | 软件包</span><br><span class="line">i+ | ant-apache-log4j          | Optional apache log4j tasks for ant              | 软件包</span><br><span class="line">i+ | ant-apache-oro            | Optional apache oro tasks for ant                | 软件包</span><br><span class="line">i+ | ant-apache-regexp         | Optional apache regexp tasks for ant             | 软件包</span><br><span class="line">i+ | ant-apache-resolver       | Optional apache resolver tasks for ant           | 软件包</span><br><span class="line">i+ | apache-commons-logging    | Apache Commons Logging                           | 软件包</span><br><span class="line">i  | apache-rpm-macros-control | Apache RPM Macros                                | 软件包</span><br><span class="line">i+ | apache2                   | The Apache Web Server Version 2.4                | 软件包</span><br><span class="line">i+ | apache2-devel             | Apache 2 Header and Include Files                | 软件包</span><br><span class="line">i+ | apache2-mod_php7          | PHP7 module for the Apache 2.x webserver         | 软件包</span><br><span class="line">i+ | apache2-prefork           | Apache 2 &quot;prefork&quot; MPM (Multi-Processing Module) | 软件包</span><br><span class="line">i+ | apache2-utils             | Apache 2 utilities                               | 软件包</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>用rpm搜索apache2的包<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep apache2</span><br><span class="line">apache2-prefork-2.4.33-lp150.2.3.1.x86_64</span><br><span class="line">apache2-mod_php7-7.2.5-lp150.2.9.1.x86_64</span><br><span class="line">apache2-utils-2.4.33-lp150.2.3.1.x86_64</span><br><span class="line">apache2-2.4.33-lp150.2.3.1.x86_64</span><br><span class="line">apache2-devel-2.4.33-lp150.2.3.1.x86_64</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="查看apache2ctl配置信息"><a href="#查看apache2ctl配置信息" class="headerlink" title="查看apache2ctl配置信息"></a>查看apache2ctl配置信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">sudo &#x2F;usr&#x2F;sbin&#x2F;apache2ctl -V</span><br><span class="line"></span><br><span class="line">Server version: Apache&#x2F;2.4.33 (Linux&#x2F;SUSE)</span><br><span class="line">Server built:   2018-08-17 16:21:35.000000000 +0000</span><br><span class="line">Server&#39;s Module Magic Number: 20120211:76</span><br><span class="line">Server loaded:  APR 1.6.3, APR-UTIL 1.6.1</span><br><span class="line">Compiled using: APR 1.6.3, APR-UTIL 1.6.1</span><br><span class="line">Architecture:   64-bit</span><br><span class="line">Server MPM:     prefork</span><br><span class="line">  threaded:     no</span><br><span class="line">    forked:     yes (variable process count)</span><br><span class="line">Server compiled with....</span><br><span class="line"> -D APR_HAS_SENDFILE</span><br><span class="line"> -D APR_HAS_MMAP</span><br><span class="line"> -D APR_HAVE_IPV6 (IPv4-mapped addresses enabled)</span><br><span class="line"> -D APR_USE_PROC_PTHREAD_SERIALIZE</span><br><span class="line"> -D APR_USE_PTHREAD_SERIALIZE</span><br><span class="line"> -D SINGLE_LISTEN_UNSERIALIZED_ACCEPT</span><br><span class="line"> -D APR_HAS_OTHER_CHILD</span><br><span class="line"> -D AP_HAVE_RELIABLE_PIPED_LOGS</span><br><span class="line"> -D DYNAMIC_MODULE_LIMIT&#x3D;256</span><br><span class="line"> -D HTTPD_ROOT&#x3D;&quot;&#x2F;srv&#x2F;www&quot;</span><br><span class="line"> -D SUEXEC_BIN&#x3D;&quot;&#x2F;usr&#x2F;sbin&#x2F;suexec&quot;</span><br><span class="line"> -D DEFAULT_PIDLOG&#x3D;&quot;&#x2F;run&#x2F;httpd.pid&quot;</span><br><span class="line"> -D DEFAULT_SCOREBOARD&#x3D;&quot;logs&#x2F;apache_runtime_status&quot;</span><br><span class="line"> -D DEFAULT_ERRORLOG&#x3D;&quot;&#x2F;var&#x2F;log&#x2F;apache2&#x2F;error_log&quot;</span><br><span class="line"> -D AP_TYPES_CONFIG_FILE&#x3D;&quot;&#x2F;etc&#x2F;apache2&#x2F;mime.types&quot;</span><br><span class="line"> -D SERVER_CONFIG_FILE&#x3D;&quot;&#x2F;etc&#x2F;apache2&#x2F;httpd.conf&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看软件版本<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apache2ctl -v</span><br><span class="line">Server version: Apache&#x2F;2.4.33 (Linux&#x2F;SUSE)</span><br><span class="line">Server built:   2018-08-17 16:21:35.000000000 +0000</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="查看httpd配置信息"><a href="#查看httpd配置信息" class="headerlink" title="查看httpd配置信息"></a>查看httpd配置信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">sudo httpd -V</span><br><span class="line">Server version: Apache&#x2F;2.4.33 (Linux&#x2F;SUSE)</span><br><span class="line">Server built:   2018-08-17 16:21:35.000000000 +0000</span><br><span class="line">Server&#39;s Module Magic Number: 20120211:76</span><br><span class="line">Server loaded:  APR 1.6.3, APR-UTIL 1.6.1</span><br><span class="line">Compiled using: APR 1.6.3, APR-UTIL 1.6.1</span><br><span class="line">Architecture:   64-bit</span><br><span class="line">Server MPM:     prefork</span><br><span class="line">  threaded:     no</span><br><span class="line">    forked:     yes (variable process count)</span><br><span class="line">Server compiled with....</span><br><span class="line"> -D APR_HAS_SENDFILE</span><br><span class="line"> -D APR_HAS_MMAP</span><br><span class="line"> -D APR_HAVE_IPV6 (IPv4-mapped addresses enabled)</span><br><span class="line"> -D APR_USE_PROC_PTHREAD_SERIALIZE</span><br><span class="line"> -D APR_USE_PTHREAD_SERIALIZE</span><br><span class="line"> -D SINGLE_LISTEN_UNSERIALIZED_ACCEPT</span><br><span class="line"> -D APR_HAS_OTHER_CHILD</span><br><span class="line"> -D AP_HAVE_RELIABLE_PIPED_LOGS</span><br><span class="line"> -D DYNAMIC_MODULE_LIMIT&#x3D;256</span><br><span class="line"> -D HTTPD_ROOT&#x3D;&quot;&#x2F;srv&#x2F;www&quot;</span><br><span class="line"> -D SUEXEC_BIN&#x3D;&quot;&#x2F;usr&#x2F;sbin&#x2F;suexec&quot;</span><br><span class="line"> -D DEFAULT_PIDLOG&#x3D;&quot;&#x2F;run&#x2F;httpd.pid&quot;</span><br><span class="line"> -D DEFAULT_SCOREBOARD&#x3D;&quot;logs&#x2F;apache_runtime_status&quot;</span><br><span class="line"> -D DEFAULT_ERRORLOG&#x3D;&quot;&#x2F;var&#x2F;log&#x2F;apache2&#x2F;error_log&quot;</span><br><span class="line"> -D AP_TYPES_CONFIG_FILE&#x3D;&quot;&#x2F;etc&#x2F;apache2&#x2F;mime.types&quot;</span><br><span class="line"> -D SERVER_CONFIG_FILE&#x3D;&quot;&#x2F;etc&#x2F;apache2&#x2F;httpd.conf&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看软件版本<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo httpd -v</span><br><span class="line">Server version: Apache&#x2F;2.4.33 (Linux&#x2F;SUSE)</span><br><span class="line">Server built:   2018-08-17 16:21:35.000000000 +0000</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="列出当前模块"><a href="#列出当前模块" class="headerlink" title="列出当前模块"></a>列出当前模块</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo a2enmod -l</span><br><span class="line"></span><br><span class="line">actions alias auth_basic authn_file authz_host authz_groupfile authz_core authz_user autoindex cgi dir env expires include log_config mime negotiation setenvif ssl socache_shmcb userdir reqtimeout authn_core php7 version</span><br></pre></td></tr></table></figure>
+<ul>
+<li>添加模块的话使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo a2enmod 模块名称(比如php7)</span><br></pre></td></tr></table></figure></li>
+<li>添加之后重启服务<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo &#x2F;usr&#x2F;sbin&#x2F;apache2ctl restart</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="Virtual-Hosts配置"><a href="#Virtual-Hosts配置" class="headerlink" title="Virtual Hosts配置"></a>Virtual Hosts配置</h3><ul>
+<li>生成配置文件</li>
+<li><p>添加配置文件对应的网站目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;etc&#x2F;apache2&#x2F;vhosts.d</span><br><span class="line">sudo cp vhost.template dev-server.conf</span><br><span class="line">sudo mkdir -p &#x2F;srv&#x2F;www&#x2F;vhosts&#x2F;dev-server.conf&#x2F;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改配置文件(/etc/apache2/vhosts.d/dev-server.conf)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br></pre></td><td class="code"><pre><span class="line">cat dev-server.conf</span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># VirtualHost template</span><br><span class="line"># Note: to use the template, rename it to &#x2F;etc&#x2F;apache2&#x2F;vhost.d&#x2F;yourvhost.conf. </span><br><span class="line"># Files must have the .conf suffix to be loaded.</span><br><span class="line">#</span><br><span class="line"># See &#x2F;usr&#x2F;share&#x2F;doc&#x2F;packages&#x2F;apache2&#x2F;README.QUICKSTART for further hints </span><br><span class="line"># about virtual hosts.</span><br><span class="line">#</span><br><span class="line"># Almost any Apache directive may go into a VirtualHost container.</span><br><span class="line"># The first VirtualHost section is used for requests without a known</span><br><span class="line"># server name.</span><br><span class="line">#</span><br><span class="line">&lt;VirtualHost *:80&gt;</span><br><span class="line">    # ServerAdmin 这里和配置文件同名对应</span><br><span class="line">    ServerAdmin webmaster@dev-server.com</span><br><span class="line">    # ServerName 这里和配置文件同名对应</span><br><span class="line">    ServerName dev-server.com</span><br><span class="line"></span><br><span class="line">    # DocumentRoot: The directory out of which you will serve your</span><br><span class="line">    # documents. By default, all requests are taken from this directory, but</span><br><span class="line">    # symbolic links and aliases may be used to point to other locations.</span><br><span class="line">    # DocumentRoot 这里和配置文件同名对应</span><br><span class="line">    DocumentRoot &#x2F;srv&#x2F;www&#x2F;vhosts&#x2F;dev-server.com</span><br><span class="line"></span><br><span class="line">    # if not specified, the global error log is used 这里和配置文件同名对应以方便多个配置文件的单独排查</span><br><span class="line">    ErrorLog &#x2F;var&#x2F;log&#x2F;apache2&#x2F;dev-server.com-error_log</span><br><span class="line">    CustomLog &#x2F;var&#x2F;log&#x2F;apache2&#x2F;dev-server.com-access_log combined</span><br><span class="line"></span><br><span class="line">    # don&#39;t loose time with IP address lookups</span><br><span class="line">    HostnameLookups Off</span><br><span class="line"></span><br><span class="line">    # needed for named virtual hosts</span><br><span class="line">    UseCanonicalName Off</span><br><span class="line"></span><br><span class="line">    # configures the footer on server-generated documents</span><br><span class="line">    ServerSignature On</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    # Optionally, include *.conf files from &#x2F;etc&#x2F;apache2&#x2F;conf.d&#x2F;</span><br><span class="line">    #</span><br><span class="line">    # For example, to allow execution of PHP scripts:</span><br><span class="line">    #</span><br><span class="line">    # Include &#x2F;etc&#x2F;apache2&#x2F;conf.d&#x2F;php5.conf</span><br><span class="line">    #</span><br><span class="line">    # or, to include all configuration snippets added by packages:</span><br><span class="line">    # Include &#x2F;etc&#x2F;apache2&#x2F;conf.d&#x2F;*.conf</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    # ScriptAlias: This controls which directories contain server scripts.</span><br><span class="line">    # ScriptAliases are essentially the same as Aliases, except that</span><br><span class="line">    # documents in the realname directory are treated as applications and</span><br><span class="line">    # run by the server when requested rather than as documents sent to the client.</span><br><span class="line">    # The same rules about trailing &quot;&#x2F;&quot; apply to ScriptAlias directives as to</span><br><span class="line">    # Alias.</span><br><span class="line">    #</span><br><span class="line">    ScriptAlias &#x2F;cgi-bin&#x2F; &quot;&#x2F;srv&#x2F;www&#x2F;vhosts&#x2F;dummy-host.example.com&#x2F;cgi-bin&#x2F;&quot;</span><br><span class="line"></span><br><span class="line">    # &quot;&#x2F;srv&#x2F;www&#x2F;cgi-bin&quot; should be changed to whatever your ScriptAliased</span><br><span class="line">    # CGI directory exists, if you have one, and where ScriptAlias points to.</span><br><span class="line">    #这里和配置文件同名对应</span><br><span class="line">    &lt;Directory &quot;&#x2F;srv&#x2F;www&#x2F;vhosts&#x2F;dev-server.com&#x2F;cgi-bin&quot;&gt;</span><br><span class="line">        AllowOverride None</span><br><span class="line">        Options +ExecCGI -Includes</span><br><span class="line">        &lt;IfModule !mod_access_compat.c&gt;</span><br><span class="line">            Require all granted</span><br><span class="line">        &lt;&#x2F;IfModule&gt;</span><br><span class="line">        &lt;IfModule mod_access_compat.c&gt;</span><br><span class="line">            Order allow,deny</span><br><span class="line">            Allow from all</span><br><span class="line">        &lt;&#x2F;IfModule&gt;</span><br><span class="line">    &lt;&#x2F;Directory&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    # UserDir: The name of the directory that is appended onto a user&#39;s home</span><br><span class="line">    # directory if a ~user request is received.</span><br><span class="line">    #</span><br><span class="line">    # To disable it, simply remove userdir from the list of modules in APACHE_MODULES</span><br><span class="line">    # in &#x2F;etc&#x2F;sysconfig&#x2F;apache2.</span><br><span class="line">    #</span><br><span class="line">    &lt;IfModule mod_userdir.c&gt;</span><br><span class="line">        # Note that the name of the user directory (&quot;public_html&quot;) cannot simply be</span><br><span class="line">        # changed here, since it is a compile time setting. The apache package</span><br><span class="line">        # would have to be rebuilt. You could work around by deleting</span><br><span class="line">        # &#x2F;usr&#x2F;sbin&#x2F;suexec, but then all scripts from the directories would be</span><br><span class="line">        # executed with the UID of the webserver.</span><br><span class="line">        UserDir public_html</span><br><span class="line">        # The actual configuration of the directory is in</span><br><span class="line">        # &#x2F;etc&#x2F;apache2&#x2F;mod_userdir.conf.</span><br><span class="line">        Include &#x2F;etc&#x2F;apache2&#x2F;mod_userdir.conf</span><br><span class="line">        # You can, however, change the ~ if you find it awkward, by mapping e.g.</span><br><span class="line">        # http:&#x2F;&#x2F;www.example.com&#x2F;users&#x2F;karl-heinz&#x2F; --&gt; &#x2F;home&#x2F;karl-heinz&#x2F;public_html&#x2F;</span><br><span class="line">        #AliasMatch ^&#x2F;users&#x2F;([a-zA-Z0-9-_.]*)&#x2F;?(.*) &#x2F;home&#x2F;$1&#x2F;public_html&#x2F;$2</span><br><span class="line">    &lt;&#x2F;IfModule&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    #</span><br><span class="line">    # This should be changed to whatever you set DocumentRoot to.</span><br><span class="line">    #这里和配置文件同名对应</span><br><span class="line">    &lt;Directory &quot;&#x2F;srv&#x2F;www&#x2F;vhosts&#x2F;dev-server.com&quot;&gt;</span><br><span class="line"></span><br><span class="line">        #</span><br><span class="line">        # Possible values for the Options directive are &quot;None&quot;, &quot;All&quot;,</span><br><span class="line">        # or any combination of:</span><br><span class="line">        #   Indexes Includes FollowSymLinks SymLinksifOwnerMatch ExecCGI MultiViews</span><br><span class="line">        #</span><br><span class="line">        # Note that &quot;MultiViews&quot; must be named *explicitly* --- &quot;Options All&quot;</span><br><span class="line">        # doesn&#39;t give it to you.</span><br><span class="line">        #</span><br><span class="line">        # The Options directive is both complicated and important.  Please see</span><br><span class="line">        # http:&#x2F;&#x2F;httpd.apache.org&#x2F;docs&#x2F;2.4&#x2F;mod&#x2F;core.html#options</span><br><span class="line">        # for more information.</span><br><span class="line">        #</span><br><span class="line">        Options Indexes FollowSymLinks</span><br><span class="line"></span><br><span class="line">        #</span><br><span class="line">        # AllowOverride controls what directives may be placed in .htaccess files.</span><br><span class="line">        # It can be &quot;All&quot;, &quot;None&quot;, or any combination of the keywords:</span><br><span class="line">        #   Options FileInfo AuthConfig Limit</span><br><span class="line">        #</span><br><span class="line">        AllowOverride None</span><br><span class="line"></span><br><span class="line">        #</span><br><span class="line">        # Controls who can get stuff from this server.</span><br><span class="line">        #</span><br><span class="line">        &lt;IfModule !mod_access_compat.c&gt;</span><br><span class="line">            Require all granted</span><br><span class="line">        &lt;&#x2F;IfModule&gt;</span><br><span class="line">        &lt;IfModule mod_access_compat.c&gt;</span><br><span class="line">            Order allow,deny</span><br><span class="line">            Allow from all</span><br><span class="line">        &lt;&#x2F;IfModule&gt;</span><br><span class="line"></span><br><span class="line">    &lt;&#x2F;Directory&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;VirtualHost&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;etc&#x2F;apache2&#x2F;vhosts.d</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="添加主机支持"><a href="#添加主机支持" class="headerlink" title="添加主机支持"></a>添加主机支持</h3><ul>
+<li><p>查看本机ip地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip addr</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加对应配置文件的主机支持</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo vim &#x2F;etc&#x2F;hosts</span><br><span class="line"></span><br><span class="line"># ServerName for &#x2F;etc&#x2F;apache2&#x2F;vhosts.d&#x2F;vhost.conf</span><br><span class="line">127.0.0.1   dev-server localhost.localdomain localhost </span><br><span class="line">192.168.1.109 dev-server.com dev-serve</span><br><span class="line">192.168.1.109 dev-server.com</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加ServerName到/etc/apache2/httpd.conf </p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo vim &#x2F;etc&#x2F;apache2&#x2F;httpd.conf </span><br><span class="line"></span><br><span class="line">ServerName localhost</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="赋予网站目录X权限以防止-Access-forbidden-Error-403的出现"><a href="#赋予网站目录X权限以防止-Access-forbidden-Error-403的出现" class="headerlink" title="赋予网站目录X权限以防止 Access forbidden! Error 403的出现"></a>赋予网站目录X权限以防止 Access forbidden! Error 403的出现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;etc&#x2F;apache2&#x2F;vhosts.d</span><br><span class="line">&gt;sudo chmod -R 755 &#x2F;srv&#x2F;www&#x2F;vhosts&#x2F;dev-server.com&#x2F;</span><br><span class="line"></span><br><span class="line">&gt;l &#x2F;srv&#x2F;www&#x2F;vhosts&#x2F;</span><br><span class="line">总用量 4</span><br><span class="line">drwxr-xr-x 2 root root 4096 8月  22 04:30 dev-server.com</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这里 l=ls -ltr</li>
+</ul>
+<hr>
+<h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo &#x2F;usr&#x2F;sbin&#x2F;apache2ctl start</span><br></pre></td></tr></table></figure>
+<ul>
+<li>以systemd方式启动服务<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start apache2.service</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="复制源码到网站目录"><a href="#复制源码到网站目录" class="headerlink" title="复制源码到网站目录"></a>复制源码到网站目录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp -ax &#x2F;home&#x2F;xxx&#x2F;src&#x2F;VipVideoResolution&#x2F;* dev-server.com&#x2F;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>重启服务<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo &#x2F;usr&#x2F;sbin&#x2F;apache2ctl start</span><br></pre></td></tr></table></figure></li>
+<li>浏览器输入dev-server.com可以正常访问了</li>
+</ul>
+<hr>
+<h3 id="踩到的坑"><a href="#踩到的坑" class="headerlink" title="踩到的坑"></a>踩到的坑</h3><ul>
+<li>对于一个对php一窍不通的人士 只是了解一点的Linux基础 这算是坑吧</li>
+</ul>
+<ol>
+<li><p>Job for apache2.service failed because the control process exited with error code.See “systemctl  status apache2.service” and “journalctl  -xe” for details.</p>
+<p><strong>没有配置上来就运行服务造成的</strong></p>
+<p>​</p>
+</li>
+<li><p>AH00526: Syntax error on line 14 of /etc/apache2/conf.d/nagios.conf:Invalid command ‘&lt;IfVersion’, perhaps misspelled or defined by a module not included in the server configuration</p>
+<p><strong>这个是没有安装httpd服务的锅?装上之后没有了</strong> </p>
+<p>​</p>
+</li>
+<li><p>AH00557: httpd-prefork: apr_sockaddr_info_get() failed for SUSE.suse AH00558: httpd-prefork: Could not reliably determine the server’s fully qualified domain name, using 127.0.0.1. Set the ‘ServerName’ directive globally to suppress this message</p>
+<p><strong>这里基本都是配置文件的原因</strong></p>
+<p>​</p>
+</li>
+<li><p>Access forbidden! Error 403</p>
+<p>Access forbidden!<br>You don’t have permission to access the requested directory. There is either no index document or the directory is read-protected.</p>
+</li>
+</ol>
+<p>If you think this is a server error, please contact the webmaster.</p>
+<p>Error 403<br>localhost<br>Apache</p>
+<p><strong>/srv/www/vhosts/dev-server.com/ 目录没有可执行权限造成的</strong></p>
+<hr>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="http://en.opensuse.org/SDB:Apache_installation" target="_blank" rel="noopener">Quickstart guide: http://en.opensuse.org/SDB:Apache_installation</a></p>
+<p><a href="https://webmasters.stackexchange.com/questions/29033/apr-sockaddr-info-get-failed#33160" target="_blank" rel="noopener">apr-sockaddr-info-get-failed: https://webmasters.stackexchange.com/questions/29033/apr-sockaddr-info-get-failed#33160</a></p>
+<p><a href="https://linux.101hacks.com/unix/httpd-apr-sockaddr-info-get-error/" target="_blank" rel="noopener">ServerNmae: https://linux.101hacks.com/unix/httpd-apr-sockaddr-info-get-error/</a></p>
+<hr>
+<p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/08/22/apache2%E9%85%8D%E7%BD%AE%E5%AE%9E%E5%BD%95/" data-id="ckivmllxw002hx72011cp2372" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/08/22/apache2%E9%85%8D%E7%BD%AE%E5%AE%9E%E5%BD%95/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2018/08/24/ssh%E5%AF%86%E9%92%A5%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%AE%89%E5%85%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          ssh密钥认证与安全
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/08/21/GPG%E6%A0%A1%E9%AA%8C%E6%96%87%E4%BB%B6%E7%9A%84%E5%AE%8C%E6%95%B4%E6%80%A7/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">GPG校验文件的完整性</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装相应软件包"><span class="toc-number">1.</span> <span class="toc-text">安装相应软件包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看apache2ctl配置信息"><span class="toc-number">2.</span> <span class="toc-text">查看apache2ctl配置信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看httpd配置信息"><span class="toc-number">3.</span> <span class="toc-text">查看httpd配置信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#列出当前模块"><span class="toc-number">4.</span> <span class="toc-text">列出当前模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Virtual-Hosts配置"><span class="toc-number">5.</span> <span class="toc-text">Virtual Hosts配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加主机支持"><span class="toc-number">6.</span> <span class="toc-text">添加主机支持</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#赋予网站目录X权限以防止-Access-forbidden-Error-403的出现"><span class="toc-number">7.</span> <span class="toc-text">赋予网站目录X权限以防止 Access forbidden! Error 403的出现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动服务"><span class="toc-number">8.</span> <span class="toc-text">启动服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#复制源码到网站目录"><span class="toc-number">9.</span> <span class="toc-text">复制源码到网站目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#踩到的坑"><span class="toc-number">10.</span> <span class="toc-text">踩到的坑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考链接"><span class="toc-number">11.</span> <span class="toc-text">参考链接</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2018/08/22/apache2%E9%85%8D%E7%BD%AE%E5%AE%9E%E5%BD%95/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

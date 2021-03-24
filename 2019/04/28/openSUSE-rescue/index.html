@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>openSUSE-rescue | AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="这是搬运论坛里面的内容 装deepin-wine-qq 提示缺少glibc-xxx 网上下载了一个 dpkg -i之后shell提示&#x2F;bin&#x2F;bash崩溃重启无法关机 强制关机后系统无法启动 内核启动不了系统安装盘进救援模式对比了一下&#x2F;lib &#x2F;lib64 发现&#x2F;lib&#x2F;里面多了个x86_64-linux-gnu &#x2F;lib64里面的ld-*部分又链接到了&#x2F;lib里面的x86_64-linux-gn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="openSUSE-rescue">
+<meta property="og:url" content="https://aquarian-age.github.io/2019/04/28/openSUSE-rescue/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:description" content="这是搬运论坛里面的内容 装deepin-wine-qq 提示缺少glibc-xxx 网上下载了一个 dpkg -i之后shell提示&#x2F;bin&#x2F;bash崩溃重启无法关机 强制关机后系统无法启动 内核启动不了系统安装盘进救援模式对比了一下&#x2F;lib &#x2F;lib64 发现&#x2F;lib&#x2F;里面多了个x86_64-linux-gnu &#x2F;lib64里面的ld-*部分又链接到了&#x2F;lib里面的x86_64-linux-gn">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-04-28T14:17:49.000Z">
+<meta property="article:modified_time" content="2020-10-05T22:16:59.669Z">
+<meta property="article:author" content="Liangzi">
+<meta property="article:tag" content="openSUSE">
+<meta property="article:tag" content="网络">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-openSUSE-rescue" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/28/openSUSE-rescue/" class="article-date">
+  <time datetime="2019-04-28T14:17:49.000Z" itemprop="datePublished">2019-04-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      openSUSE-rescue
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p><strong>这是搬运论坛里面的内容</strong></p>
+<p>装deepin-wine-qq 提示缺少glibc-xxx 网上下载了一个 dpkg -i之后shell提示/bin/bash崩溃<br>重启无法关机 强制关机后系统无法启动 内核启动不了系统<br>安装盘进救援模式对比了一下/lib /lib64 发现/lib/里面多了个x86_64-linux-gnu /lib64里面的ld-*部分又链接到了/lib里面的x86_64-linux-gnu里面而且这个刚装的版本是2.28 系统本身最高到2.26 </p>
+<p>用备份文件恢复了一下 瞬间好了…<br>以防万一下面的内容从论坛搬运过来留着备用了…</p>
+<a id="more"></a>
+<h3 id="联网"><a href="#联网" class="headerlink" title="联网"></a>联网</h3><p>在 rescue 下，先 ping baidu.com 看看能不能连上网。不能上网就先运行 yast，网络设置，把网络弄上。</p>
+<h3 id="查看无线网卡的设备名"><a href="#查看无线网卡的设备名" class="headerlink" title="查看无线网卡的设备名"></a>查看无线网卡的设备名</h3><p>ip a</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000            </span><br><span class="line">    link&#x2F;loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00                                              </span><br><span class="line">    inet 127.0.0.1&#x2F;8 scope host lo                                                                     </span><br><span class="line">       valid_lft forever preferred_lft forever                                                         </span><br><span class="line">    inet6 ::1&#x2F;128 scope host                                                                           </span><br><span class="line">       valid_lft forever preferred_lft forever                                                         </span><br><span class="line">2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP group default qlen 1000  </span><br><span class="line">    link&#x2F;ether 60:a4:4c:73:da:3b brd ff:ff:ff:ff:ff:ff                                                 </span><br><span class="line">    inet 192.168.1.109&#x2F;24 brd 192.168.1.255 scope global noprefixroute dynamic eth0                    </span><br><span class="line">       valid_lft 4664sec preferred_lft 4664sec                                                         </span><br><span class="line">    inet6 fe80::62a4:4cff:fe73:da3b&#x2F;64 scope link noprefixroute </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">3: wlan0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000</span><br><span class="line">    link&#x2F;ether 6c:71:d9:1b:c4:b5 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 192.168.1.110&#x2F;24 brd 192.168.1.255 scope global noprefixroute dynamic wlan0</span><br><span class="line">       valid_lft 4667sec preferred_lft 4667sec</span><br><span class="line">    inet6 fe80::3738:e570:bd6e:8d4c&#x2F;64 scope link noprefixroute </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br></pre></td></tr></table></figure>
+<h3 id="然后查看可用的NetworkManager连接"><a href="#然后查看可用的NetworkManager连接" class="headerlink" title="然后查看可用的NetworkManager连接"></a>然后查看可用的NetworkManager连接</h3><p>su<br>nmcli con show<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">nmcli con show</span><br><span class="line">NAME                            UUID                                  TYPE      DEVICE </span><br><span class="line">1101                            909fe38a-b8e2-4b68-9c1c-431fae269514  wifi      wlan0  </span><br><span class="line">Wired connection 1              2fbd9c16-aa4c-4885-a1bb-c6bd5d252d92  ethernet  eth0   </span><br><span class="line">22--5                           0488b2fb-8ac9-4860-8cb1-9ed109994268  wifi      --        </span><br><span class="line">BlackBerry Mobile Hotspot 7757  69b5faf7-1dfa-4d24-8855-edf435c67264  wifi      --     </span><br><span class="line">ExamNet                         cd1a556b-df10-42f8-87ca-f82f352582b7  wifi      --       </span><br><span class="line">HTC Portable Hotspot 830B       4e9d05d7-557a-4571-9adf-46175cd6e299  wifi      --     </span><br><span class="line">SUSE-802-11-wireless            b17086d5-0ca0-4aff-8a63-d6eb14711c2f  wifi      --     </span><br><span class="line">TP-LINK_28E0                    81cade9a-e7ef-40e2-9faa-71b10bf94c0b  wifi      --     </span><br><span class="line">TP-LINK_448C14                  0da51fd4-e165-4fc2-a6e3-187a2f3958ce  wifi      --     </span><br><span class="line">Thaithot                        51cf5247-8d14-40f5-96d1-ea664d5776ec  wifi      --     </span><br><span class="line">WiWide-BurgerKing               9dcc7210-a3f6-4d6c-a6c6-763555791f55  wifi      --     </span><br><span class="line">Wiwide_25F6                     465cfca4-50fe-4184-b338-134967472b67  wifi      --          </span><br><span class="line">sybg                            421e786e-f18d-4aa9-aa73-4673a78be320  wifi      --</span><br></pre></td></tr></table></figure></p>
+<h3 id="联网-1"><a href="#联网-1" class="headerlink" title="联网"></a>联网</h3><p>要是这里面有你之前的连接，无线连网的命令就是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmcli con up uuid 909fe38a-b8e2-4b68-9c1c-431fae269514</span><br></pre></td></tr></table></figure><br>这里我连接的是无线，有线就用另一个 uuid 即可</p>
+<p>要是没有连接，新建无线连接用这个命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmcli dev wifi connect &lt;SSID&gt; password &lt;password&gt;</span><br></pre></td></tr></table></figure></p>
+<p>新建有线连接用这个命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmcli con add type ethernet con-name &lt;SSID&gt; ifname enp3s0</span><br></pre></td></tr></table></figure></p>
+<p>要是静态连接，在上面的命令后面添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip4 192.168.1.50&#x2F;24 gw4 192.168.1.1</span><br></pre></td></tr></table></figure></p>
+<p>连接创建好后，假如要修改 dns<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmcli con mod &lt;SSID&gt; ipv4.dns “8.8.8.8 8.8.4.4”</span><br></pre></td></tr></table></figure></p>
+<p><strong>然后 nmcli con down <SSID> 再重新 up 一下就可以</strong></p>
+<hr>
+<h3 id="系统救援-挂载点以自己系统的具体位置为准"><a href="#系统救援-挂载点以自己系统的具体位置为准" class="headerlink" title="系统救援(挂载点以自己系统的具体位置为准)"></a>系统救援(挂载点以自己系统的具体位置为准)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mount &#x2F;dev&#x2F;sda4 &#x2F;mnt</span><br><span class="line">mount &#x2F;dev&#x2F;sda2 &#x2F;mnt&#x2F;boot&#x2F;efi</span><br><span class="line"># mount &#x2F;dev&#x2F;sdb3 &#x2F;mnt&#x2F;var</span><br><span class="line">mount &#x2F;dev&#x2F;sdb4 &#x2F;mnt&#x2F;opt</span><br><span class="line">mount &#x2F;dev&#x2F;sdb5 &#x2F;mnt&#x2F;home</span><br><span class="line"></span><br><span class="line">mount -t proc proc &#x2F;mnt&#x2F;proc</span><br><span class="line">mount --rbind &#x2F;sys &#x2F;mnt&#x2F;sys</span><br><span class="line">mount --rbind &#x2F;dev &#x2F;mnt&#x2F;dev</span><br><span class="line">chroot &#x2F;mnt &#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">grub2-mkconfig -o &#x2F;boot&#x2F;grub2&#x2F;grub.cfg</span><br><span class="line">grub2-install &#x2F;dev&#x2F;sda</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="重装-grub2"><a href="#重装-grub2" class="headerlink" title="重装 grub2"></a>重装 grub2</h3><p>grub2-install –target=x86_64-efi /dev/sda7<br>grub2-mkconfig -o /boot/grub2/grub.cfg</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://forum.suse.org.cn/t/topic/9759/44" target="_blank" rel="noopener">https://forum.suse.org.cn/t/topic/9759/44</a></p>
+<hr>
+<p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2019/04/28/openSUSE-rescue/" data-id="ckivmllwh0025x7206orkdrlj" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2019/04/28/openSUSE-rescue/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2019/05/07/ssh%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          ssh自动拷贝公钥
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/04/25/chromiun-play-video/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">chromiun添加解码器</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#联网"><span class="toc-number">1.</span> <span class="toc-text">联网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看无线网卡的设备名"><span class="toc-number">2.</span> <span class="toc-text">查看无线网卡的设备名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#然后查看可用的NetworkManager连接"><span class="toc-number">3.</span> <span class="toc-text">然后查看可用的NetworkManager连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#联网-1"><span class="toc-number">4.</span> <span class="toc-text">联网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#系统救援-挂载点以自己系统的具体位置为准"><span class="toc-number">5.</span> <span class="toc-text">系统救援(挂载点以自己系统的具体位置为准)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重装-grub2"><span class="toc-number">6.</span> <span class="toc-text">重装 grub2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">7.</span> <span class="toc-text">参考</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2019/04/28/openSUSE-rescue/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

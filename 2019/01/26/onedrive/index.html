@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>OneDrive-Linux | AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="項目主頁: https:&#x2F;&#x2F;github.com&#x2F;skilion&#x2F;onedriveopenSUSE12sudo zypper addrepo --check --refresh --name &quot;D&quot; http:&#x2F;&#x2F;download.opensuse.org&#x2F;repositories&#x2F;devel:&#x2F;languages:&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OneDrive-Linux">
+<meta property="og:url" content="https://aquarian-age.github.io/2019/01/26/onedrive/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:description" content="項目主頁: https:&#x2F;&#x2F;github.com&#x2F;skilion&#x2F;onedriveopenSUSE12sudo zypper addrepo --check --refresh --name &quot;D&quot; http:&#x2F;&#x2F;download.opensuse.org&#x2F;repositories&#x2F;devel:&#x2F;languages:&#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-01-26T01:42:20.000Z">
+<meta property="article:modified_time" content="2019-06-01T16:21:01.522Z">
+<meta property="article:author" content="Liangzi">
+<meta property="article:tag" content="openSUSE">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-onedrive" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/26/onedrive/" class="article-date">
+  <time datetime="2019-01-26T01:42:20.000Z" itemprop="datePublished">2019-01-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      OneDrive-Linux
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>項目主頁: <a href="https://github.com/skilion/onedrive" target="_blank" rel="noopener">https://github.com/skilion/onedrive</a><br>openSUSE<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo zypper addrepo --check --refresh --name &quot;D&quot; http:&#x2F;&#x2F;download.opensuse.org&#x2F;repositories&#x2F;devel:&#x2F;languages:&#x2F;D&#x2F;openSUSE_Leap_15.0&#x2F;devel:languages:D.repo</span><br><span class="line">sudo zypper in dmd phobos-devel phobos-devel-static libcurl-devel sqlite3-devel libnotify-devel</span><br></pre></td></tr></table></figure></p>
+<h3 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;skilion&#x2F;onedrive.git</span><br><span class="line">cd onedrive</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="自定義配置文件"><a href="#自定義配置文件" class="headerlink" title="自定義配置文件"></a>自定義配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~&#x2F;.config&#x2F;onedrive</span><br><span class="line">cp .&#x2F;config ~&#x2F;.config&#x2F;onedrive&#x2F;config</span><br></pre></td></tr></table></figure>
+<h3 id="初次配置並同步"><a href="#初次配置並同步" class="headerlink" title="初次配置並同步"></a>初次配置並同步</h3><p>創建同步目錄<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd </span><br><span class="line">mkdir OneDrive</span><br></pre></td></tr></table></figure></p>
+<p>onedrive –synchronize<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;login.microsoftonline.com&#x2F;common&#x2F;oauth2&#x2F;v2.0&#x2F;authorize?client_id&#x3D;22c49a0d-d21c-4792-aed1-8f163c982546&amp;scope&#x3D;files.readwrite%20files.readwrite.all%20offline_access&amp;response_type&#x3D;code&amp;redirect_uri&#x3D;https:&#x2F;&#x2F;login.microsoftonline.com&#x2F;common&#x2F;oauth2&#x2F;nativeclient</span><br><span class="line"></span><br><span class="line">Enter the response uri:</span><br></pre></td></tr></table></figure><br>把上面地址複製到瀏覽器打開 輸入用戶名密碼會出來一個對應的API地址複製此地址 粘貼到Enter the response uri:</p>
+<h3 id="開機自動啓動"><a href="#開機自動啓動" class="headerlink" title="開機自動啓動"></a>開機自動啓動</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl --user enable onedrive</span><br><span class="line">systemctl --user start onedrive</span><br><span class="line">systemctl --user status onedrive</span><br></pre></td></tr></table></figure>
+<h3 id="查看日誌"><a href="#查看日誌" class="headerlink" title="查看日誌"></a>查看日誌</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">journalctl --user-unit onedrive -f</span><br></pre></td></tr></table></figure>
+<h3 id="多用戶登錄"><a href="#多用戶登錄" class="headerlink" title="多用戶登錄"></a>多用戶登錄</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">onedrive --monitor --confdir&#x3D;&quot;~&#x2F;.config&#x2F;onedrivePersonal&quot; &amp;</span><br><span class="line">onedrive --monitor --confdir&#x3D;&quot;~&#x2F;.config&#x2F;onedriveWork&quot; &amp;</span><br></pre></td></tr></table></figure>
+<h3 id="卸載"><a href="#卸載" class="headerlink" title="卸載"></a>卸載</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo make uninstall</span><br><span class="line"># delete the application state</span><br><span class="line">rm -rf .config&#x2F;onedrive</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="rpm包"><a href="#rpm包" class="headerlink" title="rpm包"></a>rpm包</h3><p>rpm包不包含说明文件(README) 建议自己构建<br>某度網盤: <a href="https://pan.baidu.com/s/19zQO0eWd14i0JfQtQ3b7dg" target="_blank" rel="noopener">https://pan.baidu.com/s/19zQO0eWd14i0JfQtQ3b7dg </a><br>Yandex:    <a href="https://yadi.sk/d/1ck4Dgp_Pjtdtw" target="_blank" rel="noopener">https://yadi.sk/d/1ck4Dgp_Pjtdtw</a></p>
+<hr>
+<h3 id="README"><a href="#README" class="headerlink" title="README"></a>README</h3><p>OneDrive Free Client<br>A complete tool to interact with OneDrive on Linux. Built following the UNIX philosophy.</p>
+<h4 id="Features"><a href="#Features" class="headerlink" title="Features:"></a>Features:</h4><ul>
+<li>State caching</li>
+<li>Real-Time file monitoring with Inotify</li>
+<li>Resumable uploads</li>
+<li>Support OneDrive for Business (part of Office 365)</li>
+<li>Shared folders (OneDrive Personal)</li>
+<li>SharePoint / Office 365 Shared Libraries (refer to README.Office365.md to configure)</li>
+<li>Notifications</li>
+</ul>
+<h4 id="What’s-missing"><a href="#What’s-missing" class="headerlink" title="What’s missing:"></a>What’s missing:</h4><ul>
+<li>While local changes are uploaded right away, remote changes are delayed</li>
+<li>No GUI</li>
+</ul>
+<h4 id="Build-Requirements"><a href="#Build-Requirements" class="headerlink" title="Build Requirements"></a>Build Requirements</h4><ul>
+<li>Build environment must have at least 1GB of memory &amp; 1GB swap space</li>
+<li><a href="http://curl.haxx.se/libcurl/" target="_blank" rel="noopener">libcurl</a></li>
+<li><a href="https://www.sqlite.org/" target="_blank" rel="noopener">SQLite 3</a></li>
+<li><a href="http://dlang.org/download.html" target="_blank" rel="noopener">Digital Mars D Compiler (DMD)</a></li>
+</ul>
+<h4 id="Dependencies-Ubuntu-Debian-x86-64"><a href="#Dependencies-Ubuntu-Debian-x86-64" class="headerlink" title="Dependencies: Ubuntu/Debian - x86_64"></a>Dependencies: Ubuntu/Debian - x86_64</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install build-essential</span><br><span class="line">sudo apt install libcurl4-openssl-dev</span><br><span class="line">sudo apt install libsqlite3-dev</span><br><span class="line">curl -fsS https:&#x2F;&#x2F;dlang.org&#x2F;install.sh | bash -s dmd</span><br></pre></td></tr></table></figure>
+<p>For notifications the following is necessary:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install libnotify-dev</span><br></pre></td></tr></table></figure></p>
+<h4 id="Dependencies-Ubuntu-i386-i686"><a href="#Dependencies-Ubuntu-i386-i686" class="headerlink" title="Dependencies: Ubuntu - i386 / i686"></a>Dependencies: Ubuntu - i386 / i686</h4><p><strong>Note:</strong> Validated with <code>Linux ubuntu-i386-vm 4.13.0-36-generic #40~16.04.1-Ubuntu SMP Fri Feb 16 23:26:51 UTC 2018 i686 i686 i686 GNU/Linux</code> and DMD 2.081.1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install build-essential</span><br><span class="line">sudo apt install libcurl4-openssl-dev</span><br><span class="line">sudo apt install libsqlite3-dev</span><br><span class="line">curl -fsS https:&#x2F;&#x2F;dlang.org&#x2F;install.sh | bash -s dmd</span><br></pre></td></tr></table></figure><br>For notifications the following is necessary:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install libnotify-dev</span><br></pre></td></tr></table></figure></p>
+<h4 id="Dependencies-Debian-i386-i686"><a href="#Dependencies-Debian-i386-i686" class="headerlink" title="Dependencies: Debian - i386 / i686"></a>Dependencies: Debian - i386 / i686</h4><p><strong>Note:</strong> Validated with <code>Linux debian-i386 4.9.0-7-686-pae #1 SMP Debian 4.9.110-1 (2018-07-05) i686 GNU/Linux</code> and LDC - the LLVM D compiler (1.8.0).</p>
+<p>First install development dependencies as per below:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install build-essential</span><br><span class="line">sudo apt install libcurl4-openssl-dev</span><br><span class="line">sudo apt install libsqlite3-dev</span><br><span class="line">sudo apt install git</span><br></pre></td></tr></table></figure><br>Second, install the LDC compiler as per below:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mkdir ldc &amp;&amp; cd ldc</span><br><span class="line">wget http:&#x2F;&#x2F;ftp.us.debian.org&#x2F;debian&#x2F;pool&#x2F;main&#x2F;l&#x2F;ldc&#x2F;ldc_1.8.0-3_i386.deb</span><br><span class="line">wget http:&#x2F;&#x2F;ftp.us.debian.org&#x2F;debian&#x2F;pool&#x2F;main&#x2F;l&#x2F;ldc&#x2F;libphobos2-ldc-shared-dev_1.8.0-3_i386.deb</span><br><span class="line">wget http:&#x2F;&#x2F;ftp.us.debian.org&#x2F;debian&#x2F;pool&#x2F;main&#x2F;l&#x2F;ldc&#x2F;libphobos2-ldc-shared78_1.8.0-3_i386.deb</span><br><span class="line">wget http:&#x2F;&#x2F;ftp.us.debian.org&#x2F;debian&#x2F;pool&#x2F;main&#x2F;l&#x2F;llvm-toolchain-5.0&#x2F;libllvm5.0_5.0.1-2~bpo9+1_i386.deb</span><br><span class="line">wget http:&#x2F;&#x2F;ftp.us.debian.org&#x2F;debian&#x2F;pool&#x2F;main&#x2F;n&#x2F;ncurses&#x2F;libtinfo6_6.1+20180714-1_i386.deb</span><br><span class="line">sudo dpkg -i .&#x2F;*.deb</span><br></pre></td></tr></table></figure><br>For notifications the following is necessary:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install libnotify-dev</span><br></pre></td></tr></table></figure></p>
+<h4 id="Dependencies-Fedora-lt-Version-18-CentOS-RHEL"><a href="#Dependencies-Fedora-lt-Version-18-CentOS-RHEL" class="headerlink" title="Dependencies: Fedora &lt; Version 18 / CentOS / RHEL"></a>Dependencies: Fedora &lt; Version 18 / CentOS / RHEL</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo yum groupinstall &#39;Development Tools&#39;</span><br><span class="line">sudo yum install libcurl-devel</span><br><span class="line">sudo yum install sqlite-devel</span><br><span class="line">curl -fsS https:&#x2F;&#x2F;dlang.org&#x2F;install.sh | bash -s dmd</span><br></pre></td></tr></table></figure>
+<p>For notifications the following is necessary:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install libnotify-devel</span><br></pre></td></tr></table></figure></p>
+<h4 id="Dependencies-Fedora-gt-Version-18"><a href="#Dependencies-Fedora-gt-Version-18" class="headerlink" title="Dependencies: Fedora &gt; Version 18"></a>Dependencies: Fedora &gt; Version 18</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf groupinstall &#39;Development Tools&#39;</span><br><span class="line">sudo dnf install libcurl-devel</span><br><span class="line">sudo dnf install sqlite-devel</span><br><span class="line">curl -fsS https:&#x2F;&#x2F;dlang.org&#x2F;install.sh | bash -s dmd</span><br></pre></td></tr></table></figure>
+<p>For notifications the following is necessary:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install libnotify-devel</span><br></pre></td></tr></table></figure></p>
+<h4 id="Dependencies-Arch-Linux"><a href="#Dependencies-Arch-Linux" class="headerlink" title="Dependencies: Arch Linux"></a>Dependencies: Arch Linux</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S curl sqlite dmd</span><br></pre></td></tr></table></figure>
+<p>For notifications the following is necessary:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S libnotify</span><br></pre></td></tr></table></figure></p>
+<h4 id="Dependencies-Raspbian-ARMHF"><a href="#Dependencies-Raspbian-ARMHF" class="headerlink" title="Dependencies: Raspbian (ARMHF)"></a>Dependencies: Raspbian (ARMHF)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libcurl4-openssl-dev</span><br><span class="line">sudo apt-get install libsqlite3-dev</span><br><span class="line">wget https:&#x2F;&#x2F;github.com&#x2F;ldc-developers&#x2F;ldc&#x2F;releases&#x2F;download&#x2F;v1.11.0&#x2F;ldc2-1.11.0-linux-armhf.tar.xz</span><br><span class="line">tar -xvf ldc2-1.11.0-linux-armhf.tar.xz</span><br></pre></td></tr></table></figure>
+<p>For notifications the following is necessary:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install libnotify-dev</span><br></pre></td></tr></table></figure></p>
+<h4 id="Dependencies-Debian-ARM64"><a href="#Dependencies-Debian-ARM64" class="headerlink" title="Dependencies: Debian (ARM64)"></a>Dependencies: Debian (ARM64)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libcurl4-openssl-dev</span><br><span class="line">sudo apt-get install libsqlite3-dev</span><br><span class="line">wget https:&#x2F;&#x2F;github.com&#x2F;ldc-developers&#x2F;ldc&#x2F;releases&#x2F;download&#x2F;v1.11.0&#x2F;ldc2-1.11.0-linux-aarch64.tar.xz</span><br><span class="line">tar -xvf ldc2-1.11.0-linux-aarch64.tar.xz</span><br></pre></td></tr></table></figure>
+<p>For notifications the following is necessary:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install libnotify-dev</span><br></pre></td></tr></table></figure></p>
+<h4 id="Dependencies-Gentoo"><a href="#Dependencies-Gentoo" class="headerlink" title="Dependencies: Gentoo"></a>Dependencies: Gentoo</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo emerge app-portage&#x2F;layman</span><br><span class="line">sudo layman -a dlang</span><br></pre></td></tr></table></figure>
+<p>Add ebuild from contrib/gentoo to a local overlay to use.</p>
+<p>For notifications the following is necessary:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo emerge x11-libs&#x2F;libnotify</span><br></pre></td></tr></table></figure></p>
+<h4 id="Dependencies-OpenSuSE-Leap-15-0"><a href="#Dependencies-OpenSuSE-Leap-15-0" class="headerlink" title="Dependencies: OpenSuSE Leap 15.0"></a>Dependencies: OpenSuSE Leap 15.0</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo zypper addrepo --check --refresh --name &quot;D&quot; http:&#x2F;&#x2F;download.opensuse.org&#x2F;repositories&#x2F;devel:&#x2F;languages:&#x2F;D&#x2F;openSUSE_Leap_15.0&#x2F;devel:languages:D.repo</span><br><span class="line">sudo zypper install git libcurl-devel sqlite3-devel D:dmd D:libphobos2-0_81 D:phobos-devel D:phobos-devel-static</span><br></pre></td></tr></table></figure>
+<p>For notifications the following is necessary:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo zypper install libnotify-devel</span><br></pre></td></tr></table></figure></p>
+<p>Compilation &amp; Installation</p>
+<h4 id="Building-using-DMD-Reference-Compiler"><a href="#Building-using-DMD-Reference-Compiler" class="headerlink" title="Building using DMD Reference Compiler:"></a>Building using DMD Reference Compiler:</h4><p>Before cloning and compiling, if you have installed DMD via curl for your OS, you will need to activate DMD as per example below:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Run &#96;source ~&#x2F;dlang&#x2F;dmd-2.081.1&#x2F;activate&#96; in your shell to use dmd-2.081.1.</span><br><span class="line">This will setup PATH, LIBRARY_PATH, LD_LIBRARY_PATH, DMD, DC, and PS1.</span><br><span class="line">Run &#96;deactivate&#96; later on to restore your environment.</span><br></pre></td></tr></table></figure><br>Without performing this step, the compilation process will fail.</p>
+<p><strong>Note:</strong> Depending on your DMD version, substitute <code>2.081.1</code> above with your DMD version that is installed.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;abraunegg&#x2F;onedrive.git</span><br><span class="line">cd onedrive</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+<h4 id="Build-options"><a href="#Build-options" class="headerlink" title="Build options"></a>Build options</h4><p>By passing <code>NOTIFICATIONS=1</code> to the <code>make</code> call, notifications via<br>libnotify are enabled. Necessary libraries are<br><code>gmodule-2.0</code>, <code>glib-2.0</code>, and <code>notify</code>. If these libraries are<br>named differently on the build system, the make variable<br><code>DFLAGSNOTIFICATIONS</code> can be adjusted.</p>
+<h4 id="Building-using-a-different-compiler-for-example-LDC"><a href="#Building-using-a-different-compiler-for-example-LDC" class="headerlink" title="Building using a different compiler (for example LDC):"></a>Building using a different compiler (for example <a href="https://wiki.dlang.org/LDC" target="_blank" rel="noopener">LDC</a>):</h4><h5 id="Debian-i386-i686"><a href="#Debian-i386-i686" class="headerlink" title="Debian - i386 / i686"></a>Debian - i386 / i686</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;abraunegg&#x2F;onedrive.git</span><br><span class="line">cd onedrive</span><br><span class="line">make DC&#x3D;&#x2F;usr&#x2F;bin&#x2F;ldmd2</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+<h5 id="ARMHF-Architecture"><a href="#ARMHF-Architecture" class="headerlink" title="ARMHF Architecture"></a>ARMHF Architecture</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;abraunegg&#x2F;onedrive.git</span><br><span class="line">cd onedrive</span><br><span class="line">make DC&#x3D;~&#x2F;ldc2-1.11.0-linux-armhf&#x2F;bin&#x2F;ldmd2</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+<h5 id="ARM64-Architecture"><a href="#ARM64-Architecture" class="headerlink" title="ARM64 Architecture"></a>ARM64 Architecture</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;abraunegg&#x2F;onedrive.git</span><br><span class="line">cd onedrive</span><br><span class="line">make DC&#x3D;~&#x2F;ldc2-1.11.0-linux-aarch64&#x2F;bin&#x2F;ldmd2</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+<h5 id="Docker-onedrive-monitor"><a href="#Docker-onedrive-monitor" class="headerlink" title="Docker onedrive monitor"></a>Docker onedrive monitor</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Update onedriveDir with correct existing OneDrive directory path</span><br><span class="line">onedriveDir&#x3D;&quot;$&#123;HOME&#125;&#x2F;OneDrive&quot;</span><br><span class="line"></span><br><span class="line">firstRun&#x3D;&#39;-d&#39;</span><br><span class="line">docker pull driveone&#x2F;onedrive</span><br><span class="line">docker inspect onedrive_conf &gt; &#x2F;dev&#x2F;null || &#123; docker volume create onedrive_conf; firstRun&#x3D;&#39;-it&#39;; &#125;</span><br><span class="line">docker inspect onedrive &gt; &#x2F;dev&#x2F;null &amp;&amp; docker rm -f onedrive</span><br><span class="line">docker run $firstRun --restart unless-stopped --name onedrive -v onedrive_conf:&#x2F;onedrive&#x2F;conf -v &quot;$&#123;onedriveDir&#125;:&#x2F;onedrive&#x2F;data&quot; driveone&#x2F;onedrive</span><br></pre></td></tr></table></figure>
+<p>Using the client</p>
+<h4 id="Upgrading-from-‘skilion’-client"><a href="#Upgrading-from-‘skilion’-client" class="headerlink" title="Upgrading from ‘skilion’ client"></a>Upgrading from ‘skilion’ client</h4><p>The ‘skilion’ version contains a significant number of defect’s in how the local sync state is managed. When upgrading from the ‘skilion’ version to this version, it is advisable to stop any service / onedrive process from running and then remove any <code>items.sqlite3</code> file from your configuration directory (<code>~/.config/onedrive/</code>) as this will force the creation of a new local cache file.</p>
+<h4 id="First-run-zap"><a href="#First-run-zap" class="headerlink" title="First run :zap:"></a>First run :zap:</h4><p>After installing the application you must run it at least once from the terminal to authorize it.</p>
+<p>You will be asked to open a specific link using your web browser where you will have to login into your Microsoft Account and give the application the permission to access your files. After giving the permission, you will be redirected to a blank page. Copy the URI of the blank page into the application.</p>
+<h4 id="Show-your-configuration"><a href="#Show-your-configuration" class="headerlink" title="Show your configuration"></a>Show your configuration</h4><p>To validate your configuration the application will use, utilise the following:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">onedrive --display-config</span><br></pre></td></tr></table></figure><br>This will display all the pertinent runtime interpretation of the options and configuration you are using. This is helpful to validate the client will perform the operations your asking without performing a sync. Example output is as follows:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Config path                         &#x3D; &#x2F;home&#x2F;alex&#x2F;.config&#x2F;onedrive</span><br><span class="line">Config file found in config path    &#x3D; false</span><br><span class="line">Config option &#39;sync_dir&#39;            &#x3D; &#x2F;home&#x2F;alex&#x2F;OneDrive</span><br><span class="line">Config option &#39;skip_file&#39;           &#x3D; ~*</span><br><span class="line">Config option &#39;skip_symlinks&#39;       &#x3D; false</span><br><span class="line">Config option &#39;monitor_interval&#39;    &#x3D; 45</span><br><span class="line">Config option &#39;log_dir&#39;             &#x3D; &#x2F;var&#x2F;log&#x2F;onedrive&#x2F;</span><br><span class="line">Selective sync configured           &#x3D; false</span><br></pre></td></tr></table></figure></p>
+<h4 id="Performing-a-sync"><a href="#Performing-a-sync" class="headerlink" title="Performing a sync"></a>Performing a sync</h4><p>By default all files are downloaded in <code>~/OneDrive</code>. After authorizing the application, a sync of your data can be performed by running:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">onedrive --synchronize</span><br></pre></td></tr></table></figure><br>This will synchronize files from your OneDrive account to your <code>~/OneDrive</code> local directory.</p>
+<p>If you prefer to use your local files as stored in <code>~/OneDrive</code> as the ‘source of truth’ use the following sync command:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">onedrive --synchronize --local-first</span><br></pre></td></tr></table></figure></p>
+<h4 id="Performing-a-selective-directory-sync"><a href="#Performing-a-selective-directory-sync" class="headerlink" title="Performing a selective directory sync"></a>Performing a selective directory sync</h4><p>In some cases it may be desirable to sync a single directory under ~/OneDrive without having to change your client configuration. To do this use the following command:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">onedrive --synchronize --single-directory &#39;&lt;dir_name&gt;&#39;</span><br></pre></td></tr></table></figure></p>
+<p>Example: If the full path is <code>~/OneDrive/mydir</code>, the command would be <code>onedrive --synchronize --single-directory &#39;mydir&#39;</code></p>
+<h4 id="Performing-a-‘one-way’-download-sync"><a href="#Performing-a-‘one-way’-download-sync" class="headerlink" title="Performing a ‘one-way’ download sync"></a>Performing a ‘one-way’ download sync</h4><p>In some cases it may be desirable to ‘download only’ from OneDrive. To do this use the following command:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">onedrive --synchronize --download-only</span><br></pre></td></tr></table></figure></p>
+<h4 id="Performing-a-‘one-way’-upload-sync"><a href="#Performing-a-‘one-way’-upload-sync" class="headerlink" title="Performing a ‘one-way’ upload sync"></a>Performing a ‘one-way’ upload sync</h4><p>In some cases it may be desirable to ‘upload only’ to OneDrive. To do this use the following command:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">onedrive --synchronize --upload-only</span><br></pre></td></tr></table></figure></p>
+<h4 id="Increasing-logging-level"><a href="#Increasing-logging-level" class="headerlink" title="Increasing logging level"></a>Increasing logging level</h4><p>When running a sync it may be desirable to see additional information as to the progress and operation of the client. To do this, use the following command:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">onedrive --synchronize --verbose</span><br></pre></td></tr></table></figure></p>
+<h4 id="Client-Activity-Log"><a href="#Client-Activity-Log" class="headerlink" title="Client Activity Log"></a>Client Activity Log</h4><p>When running onedrive all actions can be logged to a separate log file. This can be enabled by using the <code>--enable-logging</code> flag. By default, log files will be written to <code>/var/log/onedrive/</code></p>
+<p><strong>Note:</strong> You will need to ensure your user has the applicable permissions to write to this directory or the following warning will be printed:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Unable to access &#x2F;var&#x2F;log&#x2F;onedrive&#x2F;</span><br><span class="line">Please manually create &#39;&#x2F;var&#x2F;log&#x2F;onedrive&#x2F;&#39; and set appropriate permissions to allow write access</span><br><span class="line">The requested client activity log will instead be located in the users home directory</span><br></pre></td></tr></table></figure></p>
+<p>All logfiles will be in the format of <code>%username%.onedrive.log</code>, where <code>%username%</code> represents the user who ran the client.</p>
+<p><strong>Note:</strong><br>To use a different log directory rather than the default above, add the following as a configuration option to <code>~/.config/onedrive/config</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">log_dir &#x3D; &quot;&#x2F;path&#x2F;to&#x2F;location&#x2F;&quot;</span><br></pre></td></tr></table></figure><br>Trailing slash required</p>
+<p>An example of the log file is below:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">2018-Apr-07 17:09:32.1162837 Loading config ...</span><br><span class="line">2018-Apr-07 17:09:32.1167908 No config file found, using defaults</span><br><span class="line">2018-Apr-07 17:09:32.1170626 Initializing the OneDrive API ...</span><br><span class="line">2018-Apr-07 17:09:32.5359143 Opening the item database ...</span><br><span class="line">2018-Apr-07 17:09:32.5515295 All operations will be performed in: &#x2F;root&#x2F;OneDrive</span><br><span class="line">2018-Apr-07 17:09:32.5518387 Initializing the Synchronization Engine ...</span><br><span class="line">2018-Apr-07 17:09:36.6701351 Applying changes of Path ID: &lt;redacted&gt;</span><br><span class="line">2018-Apr-07 17:09:37.4434282 Adding OneDrive Root to the local database</span><br><span class="line">2018-Apr-07 17:09:37.4478342 The item is already present</span><br><span class="line">2018-Apr-07 17:09:37.4513752 The item is already present</span><br><span class="line">2018-Apr-07 17:09:37.4550062 The item is already present</span><br><span class="line">2018-Apr-07 17:09:37.4586444 The item is already present</span><br><span class="line">2018-Apr-07 17:09:37.7663571 Adding OneDrive Root to the local database</span><br><span class="line">2018-Apr-07 17:09:37.7739451 Fetching details for OneDrive Root</span><br><span class="line">2018-Apr-07 17:09:38.0211861 OneDrive Root exists in the database</span><br><span class="line">2018-Apr-07 17:09:38.0215375 Uploading differences of .</span><br><span class="line">2018-Apr-07 17:09:38.0220464 Processing &lt;redacted&gt;</span><br><span class="line">2018-Apr-07 17:09:38.0224884 The directory has not changed</span><br><span class="line">2018-Apr-07 17:09:38.0229369 Processing &lt;redacted&gt;</span><br><span class="line">2018-Apr-07 17:09:38.02338 The directory has not changed</span><br><span class="line">2018-Apr-07 17:09:38.0237678 Processing &lt;redacted&gt;</span><br><span class="line">2018-Apr-07 17:09:38.0242285 The directory has not changed</span><br><span class="line">2018-Apr-07 17:09:38.0245977 Processing &lt;redacted&gt;</span><br><span class="line">2018-Apr-07 17:09:38.0250788 The directory has not changed</span><br><span class="line">2018-Apr-07 17:09:38.0254657 Processing &lt;redacted&gt;</span><br><span class="line">2018-Apr-07 17:09:38.0259923 The directory has not changed</span><br><span class="line">2018-Apr-07 17:09:38.0263547 Uploading new items of .</span><br><span class="line">2018-Apr-07 17:09:38.5708652 Applying changes of Path ID: &lt;redacted&gt;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Uninstall"><a href="#Uninstall" class="headerlink" title="Uninstall"></a>Uninstall</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo make uninstall</span><br><span class="line"><span class="comment"># delete the application state</span></span><br><span class="line">rm -rf ~/.config/onedrive</span><br></pre></td></tr></table></figure>
+<p>If you are using the <code>--confdir option</code>, substitute <code>~/.config/onedrive</code> above for that directory.</p>
+<p>If you want to just delete the application key, but keep the items database:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -f ~&#x2F;.config&#x2F;onedrive&#x2F;refresh_token</span><br></pre></td></tr></table></figure></p>
+<h4 id="Additional-Configuration"><a href="#Additional-Configuration" class="headerlink" title="Additional Configuration"></a>Additional Configuration</h4><p>Additional configuration is optional.<br>If you want to change the defaults, you can copy and edit the included config file into your <code>~/.config/onedrive</code> directory:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~/.config/onedrive</span><br><span class="line">cp ./config ~/.config/onedrive/config</span><br><span class="line">nano ~/.config/onedrive/config</span><br></pre></td></tr></table></figure><br>This file does not get created by default, and should only be created if you want to change the ‘default’ operational parameters.</p>
+<p>Available options:</p>
+<ul>
+<li><code>sync_dir</code>: directory where the files will be synced</li>
+<li><code>skip_file</code>: any files or directories that match this pattern will be skipped during sync</li>
+<li><code>skip_symlinks</code>: any files or directories that are symlinked will be skipped during sync</li>
+<li><code>monitor_interval</code>: time interval in seconds by which the monitor process will process local and remote changes</li>
+</ul>
+<h4 id="sync-dir"><a href="#sync-dir" class="headerlink" title="sync_dir"></a>sync_dir</h4><p>Example: <code>sync_dir=&quot;~/MyDirToSync&quot;</code></p>
+<p><strong>Please Note:</strong><br>Proceed with caution here when changing the default sync dir from ~/OneDrive to ~/MyDirToSync</p>
+<p>The issue here is around how the client stores the sync_dir path in the database. If the config file is missing, or you don’t use the <code>--syncdir</code> parameter - what will happen is the client will default back to <code>~/OneDrive</code> and ‘think’ that either all your data has been deleted - thus delete the content on OneDrive, or will start downloading all data from OneDrive into the default location.</p>
+<h4 id="skip-file"><a href="#skip-file" class="headerlink" title="skip_file"></a>skip_file</h4><p>Example: <code>skip_file = &quot;.*|~*|Desktop|Documents/OneNote*|Documents/IISExpress|Documents/SQL Server Management Studio|Documents/Visual Studio*|Documents/config.xlaunch|Documents/WindowsPowerShell&quot;</code></p>
+<p>Patterns are case insensitive. <code>*</code> and <code>?</code> <a href="https://technet.microsoft.com/en-us/library/bb490639.aspx" target="_blank" rel="noopener">wildcards characters</a> are supported. Use <code>|</code> to separate multiple patterns.</p>
+<p><strong>Note:</strong> after changing <code>skip_file</code>, you must perform a full re-synchronization by adding <code>--resync</code> to your existing command line - for example: <code>onedrive --synchronize --resync</code></p>
+<h4 id="skip-symlinks"><a href="#skip-symlinks" class="headerlink" title="skip_symlinks"></a>skip_symlinks</h4><p>Example: <code>skip_symlinks = &quot;true&quot;</code></p>
+<p>Setting this to <code>&quot;true&quot;</code> will skip all symlinks while syncing.</p>
+<h4 id="monitor-interval"><a href="#monitor-interval" class="headerlink" title="monitor_interval"></a>monitor_interval</h4><p>Example: <code>monitor_interval = &quot;300&quot;</code></p>
+<p>The monitor interval is defined as the wait time ‘between’ sync’s when running in monitor mode. By default without configuration, the monitor_interval is set to 45 seconds. Setting this value to 300 will run the sync process every 5 minutes.</p>
+<h4 id="Selective-sync"><a href="#Selective-sync" class="headerlink" title="Selective sync"></a>Selective sync</h4><p>Selective sync allows you to sync only specific files and directories.<br>To enable selective sync create a file named <code>sync_list</code> in <code>~/.config/onedrive</code>.<br>Each line of the file represents a relative path from your <code>sync_dir</code>. All files and directories not matching any line of the file will be skipped during all operations.<br>Here is an example of <code>sync_list</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Backup</span><br><span class="line">Documents&#x2F;latest_report.docx</span><br><span class="line">Work&#x2F;ProjectX</span><br><span class="line">notes.txt</span><br><span class="line">Blender</span><br><span class="line">Cinema Soc</span><br><span class="line">Codes</span><br><span class="line">Textbooks</span><br><span class="line">Year 2</span><br></pre></td></tr></table></figure><br><strong>Note:</strong> after changing the sync_list, you must perform a full re-synchronization by adding <code>--resync</code> to your existing command line - for example: <code>onedrive --synchronize --resync</code></p>
+<h4 id="Shared-folders"><a href="#Shared-folders" class="headerlink" title="Shared folders"></a>Shared folders</h4><p>Folders shared with you can be synced by adding them to your OneDrive. To do that open your Onedrive, go to the Shared files list, right click on the folder you want to sync and then click on “Add to my OneDrive”.</p>
+<h4 id="OneDrive-service-running-as-root-user"><a href="#OneDrive-service-running-as-root-user" class="headerlink" title="OneDrive service running as root user"></a>OneDrive service running as root user</h4><p>There are two ways that onedrive can be used as a service</p>
+<ul>
+<li>via init.d</li>
+<li>via systemd</li>
+</ul>
+<p><strong>Note:</strong> If using the service files, you may need to increase the <code>fs.inotify.max_user_watches</code> value on your system to handle the number of files in the directory you are monitoring as the initial value may be too low.</p>
+<p><strong>init.d</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chkconfig onedrive on</span><br><span class="line">service onedrive start</span><br></pre></td></tr></table></figure>
+<p>To see the logs run:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -f &#x2F;var&#x2F;log&#x2F;onedrive&#x2F;&lt;username&gt;.onedrive.log</span><br></pre></td></tr></table></figure><br>To change what ‘user’ the client runs under (by default root), manually edit the init.d service file and modify <code>daemon --user root onedrive_service.sh</code> for the correct user.</p>
+<p><strong>systemd - Arch, Ubuntu, Debian, OpenSuSE, Fedora</strong><br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl --user <span class="built_in">enable</span> onedrive</span><br><span class="line">systemctl --user start onedrive</span><br></pre></td></tr></table></figure></p>
+<p>To see the logs run:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">journalctl --user-unit onedrive -f</span><br></pre></td></tr></table></figure></p>
+<p><strong>systemd - Red Hat Enterprise Linux, CentOS Linux</strong><br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> onedrive</span><br><span class="line">systemctl start onedrive</span><br></pre></td></tr></table></figure></p>
+<p>To see the logs run:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">journalctl onedrive -f</span><br></pre></td></tr></table></figure></p>
+<h4 id="OneDrive-service-running-as-a-non-root-user-via-systemd"><a href="#OneDrive-service-running-as-a-non-root-user-via-systemd" class="headerlink" title="OneDrive service running as a non-root user via systemd"></a>OneDrive service running as a non-root user via systemd</h4><p>In some cases it is desirable to run the OneDrive client as a service, but not running as the ‘root’ user. In this case, follow the directions below to configure the service for a non-root user.</p>
+<ol>
+<li>As the user, who will be running the service, run the application in standalone mode, authorize the application for use &amp; validate that the synchronization is working as expected:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">onedrive --synchronize --verbose</span><br></pre></td></tr></table></figure></li>
+<li><p>Once the application is validated and working for your user, as the ‘root’ user, where <username> is your username from step 1 above.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable onedrive@&lt;username&gt;.service</span><br><span class="line">systemctl start onedrive@&lt;username&gt;.service</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>To view the status of the service running for the user, use the following:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status onedrive@username.service</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="Using-multiple-OneDrive-accounts"><a href="#Using-multiple-OneDrive-accounts" class="headerlink" title="Using multiple OneDrive accounts"></a>Using multiple OneDrive accounts</h4><p>You can run multiple instances of the application by specifying a different config directory in order to handle multiple OneDrive accounts. For example, if you have a work and a personal account, you can run the onedrive command using the –confdir parameter. Here is an example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">onedrive --synchronize --verbose --confdir&#x3D;&quot;~&#x2F;.config&#x2F;onedrivePersonal&quot; &amp;</span><br><span class="line">onedrive --synchronize --verbose --confdir&#x3D;&quot;~&#x2F;.config&#x2F;onedriveWork&quot; &amp;</span><br></pre></td></tr></table></figure>
+<p>or<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">onedrive --monitor --verbose --confdir&#x3D;&quot;~&#x2F;.config&#x2F;onedrivePersonal&quot; &amp;</span><br><span class="line">onedrive --monitor --verbose --confdir&#x3D;&quot;~&#x2F;.config&#x2F;onedriveWork&quot; &amp;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>--synchronize</code> does a one-time sync</li>
+<li><code>--monitor</code> keeps the application running and monitoring for changes both local and remote</li>
+<li><code>&amp;</code> puts the application in background and leaves the terminal interactive</li>
+</ul>
+<p><strong>Automatic syncing of both OneDrive accounts</strong></p>
+<p>In order to automatically start syncing your OneDrive accounts, you will need to create a service file for each account. From the <code>~/onedrive</code> folder:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp onedrive.service onedrive-work.service</span><br></pre></td></tr></table></figure><br>And edit the line beginning with <code>ExecStart</code> so that the command mirrors the one you used above:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ExecStart&#x3D;&#x2F;usr&#x2F;local&#x2F;bin&#x2F;onedrive --monitor --confdir&#x3D;&quot;&#x2F;path&#x2F;to&#x2F;config&#x2F;dir&quot;</span><br></pre></td></tr></table></figure><br>Then you can safely run these commands:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl --user enable onedrive-work</span><br><span class="line">systemctl --user start onedrive-work</span><br></pre></td></tr></table></figure><br>Repeat these steps for each OneDrive account that you wish to use.</p>
+<h3 id="Extra"><a href="#Extra" class="headerlink" title="Extra"></a>Extra</h3><h4 id="Reporting-issues"><a href="#Reporting-issues" class="headerlink" title="Reporting issues"></a>Reporting issues</h4><p>If you encounter any bugs you can report them here on Github. Before filing an issue be sure to:</p>
+<ol>
+<li>Check the version of the application you are using <code>onedrive --version</code></li>
+<li>Run the application in verbose mode <code>onedrive --verbose</code></li>
+<li>Have the log of the error (preferably uploaded on an external website such as <a href="https://pastebin.com/" target="_blank" rel="noopener">pastebin</a>)</li>
+<li>Collect any information that you may think it is relevant to the error<ul>
+<li>The steps to trigger the error</li>
+<li>What have you already done to try solve it</li>
+<li>…</li>
+</ul>
+</li>
+</ol>
+<h4 id="All-available-commands"><a href="#All-available-commands" class="headerlink" title="All available commands:"></a>All available commands:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">Usage: onedrive [OPTION]...</span><br><span class="line"></span><br><span class="line">no option                      No sync and exit</span><br><span class="line">           --check-for-nomount Check for the presence of .nosync in the syncdir root. If found, do not perform sync.</span><br><span class="line">                     --confdir Set the directory used to store the configuration files</span><br><span class="line">            --create-directory Create a directory on OneDrive - no sync will be performed.</span><br><span class="line">       --destination-directory Destination directory for renamed or move on OneDrive - no sync will be performed.</span><br><span class="line">                 --debug-https Debug OneDrive HTTPS communication.</span><br><span class="line">       --disable-notifications Do not use desktop notifications in monitor mode.</span><br><span class="line">              --display-config Display what options the client will use as currently configured - no sync will be performed.</span><br><span class="line">-d             --download-only Only download remote changes</span><br><span class="line">   --disable-upload-validation Disable upload validation when uploading to OneDrive</span><br><span class="line">              --enable-logging Enable client activity to a separate log file</span><br><span class="line">           --get-O365-drive-id Query and return the Office 365 Drive ID for a given Office 365 SharePoint Shared Library</span><br><span class="line">                 --local-first Synchronize from the local directory source first, before downloading changes from OneDrive.</span><br><span class="line">                      --logout Logout the current user</span><br><span class="line">-m                   --monitor Keep monitoring for local and remote changes</span><br><span class="line">            --no-remote-delete Do not delete local file &#39;deletes&#39; from OneDrive when using --upload-only</span><br><span class="line">                 --print-token Print the access token, useful for debugging</span><br><span class="line">                      --resync Forget the last saved state, perform a full sync</span><br><span class="line">            --remove-directory Remove a directory on OneDrive - no sync will be performed.</span><br><span class="line">            --single-directory Specify a single local directory within the OneDrive root to sync.</span><br><span class="line">               --skip-symlinks Skip syncing of symlinks</span><br><span class="line">            --source-directory Source directory to rename or move on OneDrive - no sync will be performed.</span><br><span class="line">                     --syncdir Set the directory used to sync the files that are synced</span><br><span class="line">                 --synchronize Perform a synchronization</span><br><span class="line">                 --upload-only Only upload to OneDrive, do not sync changes from OneDrive locally</span><br><span class="line">-v                   --verbose Print more details, useful for debugging (repeat for extra debugging)</span><br><span class="line">                     --version Print the version and exit</span><br><span class="line">-h                      --help This help information.</span><br></pre></td></tr></table></figure>
+<h4 id="File-naming"><a href="#File-naming" class="headerlink" title="File naming"></a>File naming</h4><p>The files and directories in the synchronization directory must follow the <a href="https://msdn.microsoft.com/en-us/library/aa365247" target="_blank" rel="noopener">Windows naming conventions</a>.<br>The application will crash for example if you have two files with the same name but different case. This is expected behavior and won’t be fixed.</p>
+<hr>
+<p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2019/01/26/onedrive/" data-id="ckivmlm1700e5x720azpodkwj" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2019/01/26/onedrive/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2019/01/31/shangzhengzhishu/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          上证指数-2019
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/01/14/jingxueyin/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">无题</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安裝"><span class="toc-number">1.</span> <span class="toc-text">安裝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定義配置文件"><span class="toc-number">2.</span> <span class="toc-text">自定義配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初次配置並同步"><span class="toc-number">3.</span> <span class="toc-text">初次配置並同步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#開機自動啓動"><span class="toc-number">4.</span> <span class="toc-text">開機自動啓動</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看日誌"><span class="toc-number">5.</span> <span class="toc-text">查看日誌</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多用戶登錄"><span class="toc-number">6.</span> <span class="toc-text">多用戶登錄</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#卸載"><span class="toc-number">7.</span> <span class="toc-text">卸載</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rpm包"><span class="toc-number">8.</span> <span class="toc-text">rpm包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#README"><span class="toc-number">9.</span> <span class="toc-text">README</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Features"><span class="toc-number">9.1.</span> <span class="toc-text">Features:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#What’s-missing"><span class="toc-number">9.2.</span> <span class="toc-text">What’s missing:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Build-Requirements"><span class="toc-number">9.3.</span> <span class="toc-text">Build Requirements</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Dependencies-Ubuntu-Debian-x86-64"><span class="toc-number">9.4.</span> <span class="toc-text">Dependencies: Ubuntu&#x2F;Debian - x86_64</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Dependencies-Ubuntu-i386-i686"><span class="toc-number">9.5.</span> <span class="toc-text">Dependencies: Ubuntu - i386 &#x2F; i686</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Dependencies-Debian-i386-i686"><span class="toc-number">9.6.</span> <span class="toc-text">Dependencies: Debian - i386 &#x2F; i686</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Dependencies-Fedora-lt-Version-18-CentOS-RHEL"><span class="toc-number">9.7.</span> <span class="toc-text">Dependencies: Fedora &lt; Version 18 &#x2F; CentOS &#x2F; RHEL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Dependencies-Fedora-gt-Version-18"><span class="toc-number">9.8.</span> <span class="toc-text">Dependencies: Fedora &gt; Version 18</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Dependencies-Arch-Linux"><span class="toc-number">9.9.</span> <span class="toc-text">Dependencies: Arch Linux</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Dependencies-Raspbian-ARMHF"><span class="toc-number">9.10.</span> <span class="toc-text">Dependencies: Raspbian (ARMHF)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Dependencies-Debian-ARM64"><span class="toc-number">9.11.</span> <span class="toc-text">Dependencies: Debian (ARM64)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Dependencies-Gentoo"><span class="toc-number">9.12.</span> <span class="toc-text">Dependencies: Gentoo</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Dependencies-OpenSuSE-Leap-15-0"><span class="toc-number">9.13.</span> <span class="toc-text">Dependencies: OpenSuSE Leap 15.0</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Building-using-DMD-Reference-Compiler"><span class="toc-number">9.14.</span> <span class="toc-text">Building using DMD Reference Compiler:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Build-options"><span class="toc-number">9.15.</span> <span class="toc-text">Build options</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Building-using-a-different-compiler-for-example-LDC"><span class="toc-number">9.16.</span> <span class="toc-text">Building using a different compiler (for example LDC):</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Debian-i386-i686"><span class="toc-number">9.16.1.</span> <span class="toc-text">Debian - i386 &#x2F; i686</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ARMHF-Architecture"><span class="toc-number">9.16.2.</span> <span class="toc-text">ARMHF Architecture</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ARM64-Architecture"><span class="toc-number">9.16.3.</span> <span class="toc-text">ARM64 Architecture</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Docker-onedrive-monitor"><span class="toc-number">9.16.4.</span> <span class="toc-text">Docker onedrive monitor</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Upgrading-from-‘skilion’-client"><span class="toc-number">9.17.</span> <span class="toc-text">Upgrading from ‘skilion’ client</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#First-run-zap"><span class="toc-number">9.18.</span> <span class="toc-text">First run :zap:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Show-your-configuration"><span class="toc-number">9.19.</span> <span class="toc-text">Show your configuration</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Performing-a-sync"><span class="toc-number">9.20.</span> <span class="toc-text">Performing a sync</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Performing-a-selective-directory-sync"><span class="toc-number">9.21.</span> <span class="toc-text">Performing a selective directory sync</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Performing-a-‘one-way’-download-sync"><span class="toc-number">9.22.</span> <span class="toc-text">Performing a ‘one-way’ download sync</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Performing-a-‘one-way’-upload-sync"><span class="toc-number">9.23.</span> <span class="toc-text">Performing a ‘one-way’ upload sync</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Increasing-logging-level"><span class="toc-number">9.24.</span> <span class="toc-text">Increasing logging level</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Client-Activity-Log"><span class="toc-number">9.25.</span> <span class="toc-text">Client Activity Log</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Uninstall"><span class="toc-number">9.26.</span> <span class="toc-text">Uninstall</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Additional-Configuration"><span class="toc-number">9.27.</span> <span class="toc-text">Additional Configuration</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sync-dir"><span class="toc-number">9.28.</span> <span class="toc-text">sync_dir</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#skip-file"><span class="toc-number">9.29.</span> <span class="toc-text">skip_file</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#skip-symlinks"><span class="toc-number">9.30.</span> <span class="toc-text">skip_symlinks</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#monitor-interval"><span class="toc-number">9.31.</span> <span class="toc-text">monitor_interval</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Selective-sync"><span class="toc-number">9.32.</span> <span class="toc-text">Selective sync</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Shared-folders"><span class="toc-number">9.33.</span> <span class="toc-text">Shared folders</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OneDrive-service-running-as-root-user"><span class="toc-number">9.34.</span> <span class="toc-text">OneDrive service running as root user</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OneDrive-service-running-as-a-non-root-user-via-systemd"><span class="toc-number">9.35.</span> <span class="toc-text">OneDrive service running as a non-root user via systemd</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Using-multiple-OneDrive-accounts"><span class="toc-number">9.36.</span> <span class="toc-text">Using multiple OneDrive accounts</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Extra"><span class="toc-number">10.</span> <span class="toc-text">Extra</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Reporting-issues"><span class="toc-number">10.1.</span> <span class="toc-text">Reporting issues</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#All-available-commands"><span class="toc-number">10.2.</span> <span class="toc-text">All available commands:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#File-naming"><span class="toc-number">10.3.</span> <span class="toc-text">File naming</span></a></li></ol></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2019/01/26/onedrive/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

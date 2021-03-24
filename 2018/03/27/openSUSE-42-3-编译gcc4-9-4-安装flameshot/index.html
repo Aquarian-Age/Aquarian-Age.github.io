@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>openSUSE 42.3 编译gcc4.9.4 安装flameshot | AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="下载GCC官方FTP自动选择速度较快的镜像站 1234567891011cd gcc-4.9.4&#x2F;tar xvf gcc-4.9.4.tar.gz -C ~&#x2F;src&#x2F;cd ~&#x2F;src&#x2F;gcc-4.9.4&#x2F;.&#x2F;configure vim READMEsh .&#x2F;contrib&#x2F;download_prerequis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="openSUSE 42.3 编译gcc4.9.4 安装flameshot">
+<meta property="og:url" content="https://aquarian-age.github.io/2018/03/27/openSUSE-42-3-%E7%BC%96%E8%AF%91gcc4-9-4-%E5%AE%89%E8%A3%85flameshot/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:description" content="下载GCC官方FTP自动选择速度较快的镜像站 1234567891011cd gcc-4.9.4&#x2F;tar xvf gcc-4.9.4.tar.gz -C ~&#x2F;src&#x2F;cd ~&#x2F;src&#x2F;gcc-4.9.4&#x2F;.&#x2F;configure vim READMEsh .&#x2F;contrib&#x2F;download_prerequis">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-03-27T14:07:44.000Z">
+<meta property="article:modified_time" content="2019-06-01T16:21:01.602Z">
+<meta property="article:author" content="Liangzi">
+<meta property="article:tag" content="openSUSE">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-openSUSE-42-3-编译gcc4-9-4-安装flameshot" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/27/openSUSE-42-3-%E7%BC%96%E8%AF%91gcc4-9-4-%E5%AE%89%E8%A3%85flameshot/" class="article-date">
+  <time datetime="2018-03-27T14:07:44.000Z" itemprop="datePublished">2018-03-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      openSUSE 42.3 编译gcc4.9.4 安装flameshot
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h1 id="下载GCC"><a href="#下载GCC" class="headerlink" title="下载GCC"></a>下载GCC</h1><p><a href="ftp://ftp.gnu.org/gnu/gcc/gcc-4.9.4/gcc-4.9.4.tar.gz">官方FTP</a><br><a href="http://ftpmirror.gnu.org" target="_blank" rel="noopener">自动选择速度较快的镜像站</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cd gcc-4.9.4&#x2F;</span><br><span class="line">tar xvf gcc-4.9.4.tar.gz -C ~&#x2F;src&#x2F;</span><br><span class="line">cd ~&#x2F;src&#x2F;gcc-4.9.4&#x2F;</span><br><span class="line">.&#x2F;configure </span><br><span class="line">vim README</span><br><span class="line">sh .&#x2F;contrib&#x2F;download_prerequisites</span><br><span class="line">..</span><br><span class="line">mkdir buidl-gcc-4.9.4</span><br><span class="line">cd buidl-gcc-4.9.4&#x2F;</span><br><span class="line">..&#x2F;gcc-4.9.4&#x2F;configure --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&#x2F; --enable-checking&#x3D;release --enable-languages&#x3D;c,c++ --disable-multilib</span><br><span class="line">make -j4</span><br></pre></td></tr></table></figure>
+<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><h1 id="编译后输出信息"><a href="#编译后输出信息" class="headerlink" title="编译后输出信息"></a>编译后输出信息</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ktrace.a&#x2F;mmap.o </span><br><span class="line">libtool: link: ranlib .libs&#x2F;libtsan.a</span><br><span class="line">libtool: link: rm -fr .libs&#x2F;libtsan.lax</span><br><span class="line">libtool: link: ( cd &quot;.libs&quot; &amp;&amp; rm -f &quot;libtsan.la&quot; &amp;&amp; ln -s &quot;..&#x2F;libtsan.la&quot; &quot;libtsan.la&quot; )</span><br><span class="line">make[4]: Leaving directory &#39;&#x2F;home&#x2F;xuan&#x2F;src&#x2F;buidl-gcc-4.9.4&#x2F;x86_64-unknown-linux-gnu&#x2F;libsanitizer&#x2F;tsan&#39;</span><br><span class="line">make[4]: Entering directory &#39;&#x2F;home&#x2F;xuan&#x2F;src&#x2F;buidl-gcc-4.9.4&#x2F;x86_64-unknown-linux-gnu&#x2F;libsanitizer&#39;</span><br><span class="line">true &quot;AR_FLAGS&#x3D;rc&quot; &quot;CC_FOR_BUILD&#x3D;gcc&quot; &quot;CFLAGS&#x3D;-g -O2&quot; &quot;CXXFLAGS&#x3D;-g -O2 -D_GNU_SOURCE&quot; &quot;CFLAGS_FOR_BUILD&#x3D;-g -O2&quot; &quot;CFLAGS_FOR_TARGET&#x3D;-g -O2&quot; &quot;INSTALL&#x3D;&#x2F;usr&#x2F;bin&#x2F;install -c&quot; &quot;INSTALL_DATA&#x3D;&#x2F;usr&#x2F;bin&#x2F;install -c -m 644&quot; &quot;INSTALL_PROGRAM&#x3D;&#x2F;usr&#x2F;bin&#x2F;install -c&quot; &quot;INSTALL_SCRIPT&#x3D;&#x2F;usr&#x2F;bin&#x2F;install -c&quot; &quot;JC1FLAGS&#x3D;&quot; &quot;LDFLAGS&#x3D;&quot; &quot;LIBCFLAGS&#x3D;-g -O2&quot; &quot;LIBCFLAGS_FOR_TARGET&#x3D;-g -O2&quot; &quot;MAKE&#x3D;make&quot; &quot;MAKEINFO&#x3D;makeinfo --split-size&#x3D;5000000 --split-size&#x3D;5000000   &quot; &quot;PICFLAG&#x3D;&quot; &quot;PICFLAG_FOR_TARGET&#x3D;&quot; &quot;SHELL&#x3D;&#x2F;bin&#x2F;sh&quot; &quot;RUNTESTFLAGS&#x3D;&quot; &quot;exec_prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&quot; &quot;infodir&#x3D;&#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&#x2F;share&#x2F;info&quot; &quot;libdir&#x3D;&#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&#x2F;lib64&quot; &quot;prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&quot; &quot;includedir&#x3D;&#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&#x2F;include&quot; &quot;AR&#x3D;ar&quot; &quot;AS&#x3D;&#x2F;home&#x2F;xuan&#x2F;src&#x2F;buidl-gcc-4.9.4&#x2F;.&#x2F;gcc&#x2F;as&quot; &quot;LD&#x3D;&#x2F;home&#x2F;xuan&#x2F;src&#x2F;buidl-gcc-4.9.4&#x2F;.&#x2F;gcc&#x2F;collect-ld&quot; &quot;LIBCFLAGS&#x3D;-g -O2&quot; &quot;NM&#x3D;&#x2F;home&#x2F;xuan&#x2F;src&#x2F;buidl-gcc-4.9.4&#x2F;.&#x2F;gcc&#x2F;nm&quot; &quot;PICFLAG&#x3D;&quot; &quot;RANLIB&#x3D;ranlib&quot; &quot;DESTDIR&#x3D;&quot; DO&#x3D;all multi-do # make</span><br><span class="line">make[4]: Leaving directory &#39;&#x2F;home&#x2F;xuan&#x2F;src&#x2F;buidl-gcc-4.9.4&#x2F;x86_64-unknown-linux-gnu&#x2F;libsanitizer&#39;</span><br><span class="line">make[3]: Leaving directory &#39;&#x2F;home&#x2F;xuan&#x2F;src&#x2F;buidl-gcc-4.9.4&#x2F;x86_64-unknown-linux-gnu&#x2F;libsanitizer&#39;</span><br><span class="line">make[2]: Leaving directory &#39;&#x2F;home&#x2F;xuan&#x2F;src&#x2F;buidl-gcc-4.9.4&#x2F;x86_64-unknown-linux-gnu&#x2F;libsanitizer&#39;</span><br><span class="line">make[1]: Leaving directory &#39;&#x2F;home&#x2F;xuan&#x2F;src&#x2F;buidl-gcc-4.9.4&#39;</span><br></pre></td></tr></table></figure>
+<h1 id="——————————————————————"><a href="#——————————————————————" class="headerlink" title="——————————————————————"></a>——————————————————————</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">sudo make install</span><br><span class="line"></span><br><span class="line">Libraries have been installed in:</span><br><span class="line">   &#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&#x2F;lib64&#x2F;..&#x2F;lib64</span><br><span class="line"></span><br><span class="line">If you ever happen to want to link against installed libraries</span><br><span class="line">in a given directory, LIBDIR, you must either use libtool, and</span><br><span class="line">specify the full pathname of the library, or use the &#96;-LLIBDIR&#39;</span><br><span class="line">flag during linking and do at least one of the following:</span><br><span class="line">   - add LIBDIR to the &#96;LD_LIBRARY_PATH&#39; environment variable</span><br><span class="line">     during execution</span><br><span class="line">   - add LIBDIR to the &#96;LD_RUN_PATH&#39; environment variable</span><br><span class="line">     during linking</span><br><span class="line">   - use the &#96;-Wl,-rpath -Wl,LIBDIR&#39; linker flag</span><br><span class="line">   - have your system administrator add LIBDIR to &#96;&#x2F;etc&#x2F;ld.so.conf&#39;</span><br><span class="line"></span><br><span class="line">See any operating system documentation about shared libraries for</span><br><span class="line">more information, such as the ld(1) and ld.so(8) manual pages.</span><br><span class="line">----------------------------------------------------------------------</span><br><span class="line">test -z &quot;&#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&#x2F;share&#x2F;info&quot; || &#x2F;usr&#x2F;bin&#x2F;mkdir -p &quot;&#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&#x2F;share&#x2F;info&quot;</span><br><span class="line"> &#x2F;usr&#x2F;bin&#x2F;install -c -m 644 .&#x2F;libitm.info &#39;&#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&#x2F;share&#x2F;info&#39;</span><br><span class="line"> install-info --info-dir&#x3D;&#39;&#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&#x2F;share&#x2F;info&#39; &#39;&#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&#x2F;share&#x2F;info&#x2F;libitm.info&#39;</span><br><span class="line">make[4]: Leaving directory &#39;&#x2F;home&#x2F;xuan&#x2F;src&#x2F;buidl-gcc-4.9.4&#x2F;x86_64-unknown-linux-gnu&#x2F;libitm&#39;</span><br><span class="line">make[3]: Leaving directory &#39;&#x2F;home&#x2F;xuan&#x2F;src&#x2F;buidl-gcc-4.9.4&#x2F;x86_64-unknown-linux-gnu&#x2F;libitm&#39;</span><br><span class="line">make[2]: Leaving directory &#39;&#x2F;home&#x2F;xuan&#x2F;src&#x2F;buidl-gcc-4.9.4&#x2F;x86_64-unknown-linux-gnu&#x2F;libitm&#39;</span><br><span class="line">make[2]: Entering directory &#39;&#x2F;home&#x2F;xuan&#x2F;src&#x2F;buidl-gcc-4.9.4&#x2F;x86_64-unknown-linux-gnu&#x2F;libatomic&#39;</span><br><span class="line">Making install in testsuite</span><br><span class="line">make[3]: Entering directory &#39;&#x2F;home&#x2F;xuan&#x2F;src&#x2F;buidl-gcc-4.9.4&#x2F;x86_64-unknown-linux-gnu&#x2F;libatomic&#x2F;testsuite&#39;</span><br><span class="line">make[4]: Entering directory &#39;&#x2F;home&#x2F;xuan&#x2F;src&#x2F;buidl-gcc-4.9.4&#x2F;x86_64-unknown-linux-gnu&#x2F;libatomic&#x2F;testsuite&#39;</span><br><span class="line">make[4]: Nothing to be done for &#39;install-exec-am&#39;.</span><br><span class="line">make[4]: Nothing to be done for &#39;install-data-am&#39;.</span><br><span class="line">make[4]: Leaving directory &#39;&#x2F;home&#x2F;xuan&#x2F;src&#x2F;buidl-gcc-4.9.4&#x2F;x86_64-unknown-linux-gnu&#x2F;libatomic&#x2F;testsuite&#39;</span><br><span class="line">make[3]: Leaving directory &#39;&#x2F;home&#x2F;xuan&#x2F;src&#x2F;buidl-gcc-4.9.4&#x2F;x86_64-unknown-linux-gnu&#x2F;libatomic&#x2F;testsuite&#39;</span><br><span class="line">make[3]: Entering directory &#39;&#x2F;home&#x2F;xuan&#x2F;src&#x2F;buidl-gcc-4.9.4&#x2F;x86_64-unknown-linux-gnu&#x2F;libatomic&#39;</span><br><span class="line">true  DO&#x3D;all multi-do # make</span><br><span class="line">make[4]: Entering directory &#39;&#x2F;home&#x2F;xuan&#x2F;src&#x2F;buidl-gcc-4.9.4&#x2F;x86_64-unknown-linux-gnu&#x2F;libatomic&#39;</span><br><span class="line">true  DO&#x3D;install multi-do # make</span><br><span class="line">test -z &quot;&#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&#x2F;lib64&#x2F;..&#x2F;lib64&quot; || &#x2F;usr&#x2F;bin&#x2F;mkdir -p &quot;&#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&#x2F;lib64&#x2F;..&#x2F;lib64&quot;</span><br><span class="line"> &#x2F;bin&#x2F;sh .&#x2F;libtool   --mode&#x3D;install &#x2F;usr&#x2F;bin&#x2F;install -c   libatomic.la &#39;&#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&#x2F;lib64&#x2F;..&#x2F;lib64&#39;</span><br><span class="line">libtool: install: &#x2F;usr&#x2F;bin&#x2F;install -c .libs&#x2F;libatomic.so.1.1.0 &#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&#x2F;lib64&#x2F;..&#x2F;lib64&#x2F;libatomic.so.1.1.0</span><br><span class="line">libtool: install: (cd &#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&#x2F;lib64&#x2F;..&#x2F;lib64 &amp;&amp; &#123; ln -s -f libatomic.so.1.1.0 libatomic.so.1 || &#123; rm -f libatomic.so.1 &amp;&amp; ln -s libatomic.so.1.1.0 libatomic.so.1; &#125;; &#125;)</span><br><span class="line">libtool: install: (cd &#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&#x2F;lib64&#x2F;..&#x2F;lib64 &amp;&amp; &#123; ln -s -f libatomic.so.1.1.0 libatomic.so || &#123; rm -f libatomic.so &amp;&amp; ln -s libatomic.so.1.1.0 libatomic.so; &#125;; &#125;)</span><br><span class="line">libtool: install: &#x2F;usr&#x2F;bin&#x2F;install -c .libs&#x2F;libatomic.lai &#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&#x2F;lib64&#x2F;..&#x2F;lib64&#x2F;libatomic.la</span><br><span class="line">libtool: install: &#x2F;usr&#x2F;bin&#x2F;install -c .libs&#x2F;libatomic.a &#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&#x2F;lib64&#x2F;..&#x2F;lib64&#x2F;libatomic.a</span><br><span class="line">libtool: install: chmod 644 &#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&#x2F;lib64&#x2F;..&#x2F;lib64&#x2F;libatomic.a</span><br><span class="line">libtool: install: ranlib &#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&#x2F;lib64&#x2F;..&#x2F;lib64&#x2F;libatomic.a</span><br><span class="line">libtool: finish: PATH&#x3D;&quot;&#x2F;usr&#x2F;sbin:&#x2F;usr&#x2F;bin:&#x2F;sbin:&#x2F;bin:&#x2F;sbin&quot; ldconfig -n &#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&#x2F;lib64&#x2F;..&#x2F;lib64</span><br><span class="line">----------------------------------------------------------------------</span><br><span class="line">Libraries have been installed in:</span><br><span class="line">   &#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&#x2F;lib64&#x2F;..&#x2F;lib64</span><br><span class="line"></span><br><span class="line">If you ever happen to want to link against installed libraries</span><br><span class="line">in a given directory, LIBDIR, you must either use libtool, and</span><br><span class="line">specify the full pathname of the library, or use the &#96;-LLIBDIR&#39;</span><br><span class="line">flag during linking and do at least one of the following:</span><br><span class="line">   - add LIBDIR to the &#96;LD_LIBRARY_PATH&#39; environment variable</span><br><span class="line">     during execution</span><br><span class="line">   - add LIBDIR to the &#96;LD_RUN_PATH&#39; environment variable</span><br><span class="line">     during linking</span><br><span class="line">   - use the &#96;-Wl,-rpath -Wl,LIBDIR&#39; linker flag</span><br><span class="line">   - have your system administrator add LIBDIR to &#96;&#x2F;etc&#x2F;ld.so.conf&#39;</span><br><span class="line"></span><br><span class="line">See any operating system documentation about shared libraries for</span><br><span class="line">more information, such as the ld(1) and ld.so(8) manual pages.</span><br><span class="line">----------------------------------------------------------------------</span><br><span class="line">make[4]: Nothing to be done for &#39;install-data-am&#39;.</span><br><span class="line">make[4]: Leaving directory &#39;&#x2F;home&#x2F;xuan&#x2F;src&#x2F;buidl-gcc-4.9.4&#x2F;x86_64-unknown-linux-gnu&#x2F;libatomic&#39;</span><br><span class="line">make[3]: Leaving directory &#39;&#x2F;home&#x2F;xuan&#x2F;src&#x2F;buidl-gcc-4.9.4&#x2F;x86_64-unknown-linux-gnu&#x2F;libatomic&#39;</span><br><span class="line">make[2]: Leaving directory &#39;&#x2F;home&#x2F;xuan&#x2F;src&#x2F;buidl-gcc-4.9.4&#x2F;x86_64-unknown-linux-gnu&#x2F;libatomic&#39;</span><br><span class="line">make[1]: Leaving directory &#39;&#x2F;home&#x2F;xuan&#x2F;src&#x2F;buidl-gcc-4.9.4&#39;</span><br></pre></td></tr></table></figure>
+<h1 id="设置环境变量-优先使用指定版本的GCC"><a href="#设置环境变量-优先使用指定版本的GCC" class="headerlink" title="设置环境变量 优先使用指定版本的GCC"></a>设置环境变量 优先使用指定版本的GCC</h1><h2 id="-1"><a href="#-1" class="headerlink" title=""></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">二 3月 27|08:21|0:&gt;vim ~&#x2F;.bashrc</span><br><span class="line">export PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&#x2F;bin:$PATH</span><br></pre></td></tr></table></figure></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">~&#x2F;src&#x2F;buidl-gcc-4.9.4</span><br><span class="line">二 3月 27|08:22|0:&gt;source ~&#x2F;.bashrc</span><br><span class="line">~&#x2F;src&#x2F;buidl-gcc-4.9.4</span><br><span class="line">二 3月 27|08:22|0:&gt;gcc -v</span><br><span class="line">使用内建 specs。</span><br><span class="line">COLLECT_GCC&#x3D;gcc</span><br><span class="line">COLLECT_LTO_WRAPPER&#x3D;&#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&#x2F;lib&#x2F;gcc&#x2F;x86_64-unknown-linux-gnu&#x2F;4.9.4&#x2F;lto-wrapper</span><br><span class="line">目标：x86_64-unknown-linux-gnu</span><br><span class="line">配置为：..&#x2F;gcc-4.9.4&#x2F;configure --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&#x2F; --enable-checking&#x3D;release --enable-languages&#x3D;c,c++ --disable-multilib</span><br><span class="line">线程模型：posix</span><br><span class="line">gcc 版本 4.9.4 (GCC)</span><br></pre></td></tr></table></figure>
+<h1 id="找到libstdc-so-拷贝至-usr-lib64-，运行命令ldconfig"><a href="#找到libstdc-so-拷贝至-usr-lib64-，运行命令ldconfig" class="headerlink" title="找到libstdc++.so 拷贝至/usr/lib64/，运行命令ldconfig"></a>找到libstdc++.so 拷贝至/usr/lib64/，运行命令ldconfig</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">~&#x2F;src&#x2F;buidl-gcc-4.9.4</span><br><span class="line">二 3月 27|08:26|0:&gt;ls x86_64-unknown-linux-gnu&#x2F;libstdc++-v3&#x2F;src&#x2F;.libs&#x2F;</span><br><span class="line">compatibility-atomic-c++0x.o  compatibility-debug_list-2.o  libstdc++.a                   libstdc++.lai</span><br><span class="line">compatibility-c++0x.o         compatibility-debug_list.o    libstdc++convenience.a        libstdc++.so</span><br><span class="line">compatibility-chrono.o        compatibility.o               libstdc++convenience.la       libstdc++.so.6</span><br><span class="line">compatibility-condvar.o       compatibility-thread-c++0x.o  libstdc++.la                  libstdc++.so.6.0.20</span><br><span class="line"></span><br><span class="line">二 3月 27|08:26|0:&gt;ls x86_64-unknown-linux-gnu&#x2F;libstdc++-v3&#x2F;src&#x2F;.libs&#x2F;libstdc++.so.6.0.20</span><br><span class="line">x86_64-unknown-linux-gnu&#x2F;libstdc++-v3&#x2F;src&#x2F;.libs&#x2F;libstdc++.so.6.0.20</span><br></pre></td></tr></table></figure>
+<h1 id="拷贝libstdc-so-6-0-20至-usr-lib64"><a href="#拷贝libstdc-so-6-0-20至-usr-lib64" class="headerlink" title="拷贝libstdc++.so.6.0.20至/usr/lib64/"></a>拷贝libstdc++.so.6.0.20至/usr/lib64/</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~&#x2F;src&#x2F;buidl-gcc-4.9.4</span><br><span class="line">二 3月 27|08:29|0:&gt;sudo cp x86_64-unknown-linux-gnu&#x2F;libstdc++-v3&#x2F;src&#x2F;.libs&#x2F;libstdc++.so.6.0.20 &#x2F;usr&#x2F;lib64&#x2F;</span><br><span class="line">[sudo] xuan 的密码：</span><br><span class="line"></span><br><span class="line">二 3月 27|08:32|0:&gt;ll &#x2F;usr&#x2F;lib64&#x2F;libstdc++.so.6.0.20</span><br><span class="line">-rwxr-xr-x 1 root root 6735688 3月  27 08:30 &#x2F;usr&#x2F;lib64&#x2F;libstdc++.so.6.0.20</span><br></pre></td></tr></table></figure>
+<h1 id="运行ldconfig"><a href="#运行ldconfig" class="headerlink" title="运行ldconfig"></a>运行ldconfig</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~&#x2F;src&#x2F;buidl-gcc-4.9.4</span><br><span class="line">二 3月 27|08:30|0:&gt;sudo ldconfig</span><br></pre></td></tr></table></figure>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">~&#x2F;src&#x2F;buidl-gcc-4.9.4</span><br><span class="line">二 3月 27|08:32|0:&gt;gcc -v</span><br><span class="line">使用内建 specs。</span><br><span class="line">COLLECT_GCC&#x3D;gcc</span><br><span class="line">COLLECT_LTO_WRAPPER&#x3D;&#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&#x2F;lib&#x2F;gcc&#x2F;x86_64-unknown-linux-gnu&#x2F;4.9.4&#x2F;lto-wrapper</span><br><span class="line">目标：x86_64-unknown-linux-gnu</span><br><span class="line">配置为：..&#x2F;gcc-4.9.4&#x2F;configure --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&#x2F; --enable-checking&#x3D;release --enable-languages&#x3D;c,c++ --disable-multilib</span><br><span class="line">线程模型：posix</span><br><span class="line">gcc 版本 4.9.4 (GCC)</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a><a href="http://caosiyang.github.io/2016/05/04/installing-gcc/" target="_blank" rel="noopener">参考</a></h1><h1 id="编译flameshot软件需要GCC版本大于等于4-9以上-本次编译使用gcc-4-9-4"><a href="#编译flameshot软件需要GCC版本大于等于4-9以上-本次编译使用gcc-4-9-4" class="headerlink" title="编译flameshot软件需要GCC版本大于等于4.9以上 本次编译使用gcc-4.9.4"></a>编译flameshot软件需要GCC版本大于等于4.9以上 本次编译使用gcc-4.9.4</h1><h1 id="source-link"><a href="#source-link" class="headerlink" title="source-link"></a><a href="https://github.com/lupoDharkael/flameshot" target="_blank" rel="noopener">source-link</a></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">二 3月 27|16:48|0:&gt;gcc -v</span><br><span class="line">使用内建 specs。</span><br><span class="line">COLLECT_GCC&#x3D;gcc</span><br><span class="line">COLLECT_LTO_WRAPPER&#x3D;&#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&#x2F;lib&#x2F;gcc&#x2F;x86_64-unknown-linux-gnu&#x2F;4.9.4&#x2F;lto-wrapper</span><br><span class="line">目标：x86_64-unknown-linux-gnu</span><br><span class="line">配置为：..&#x2F;gcc-4.9.4&#x2F;configure --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&#x2F; --enable-checking&#x3D;release --enable-languages&#x3D;c,c++ --disable-multilib</span><br><span class="line">线程模型：posix</span><br><span class="line">gcc 版本 4.9.4 (GCC)</span><br></pre></td></tr></table></figure>
+<h1 id="生成Makefile-amp-amp-编译"><a href="#生成Makefile-amp-amp-编译" class="headerlink" title="生成Makefile &amp;&amp; 编译"></a>生成Makefile &amp;&amp; 编译</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd tools&#x2F;flameshot&#x2F;</span><br><span class="line">qmake-qt5 </span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+<h1 id="测试软件"><a href="#测试软件" class="headerlink" title="测试软件"></a>测试软件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">~&#x2F;tools&#x2F;flameshot</span><br><span class="line">二 3月 27|16:32|0:&gt;.&#x2F;flameshot --help</span><br><span class="line">Usage: .&#x2F;flameshot [flameshot-options] [arguments]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  -h, --help     Displays this help</span><br><span class="line">  -v, --version  Displays version information</span><br><span class="line"></span><br><span class="line">Arguments:</span><br><span class="line">  gui            Start a manual capture in GUI mode.</span><br><span class="line">  full           Capture the entire desktop.</span><br><span class="line">  config         Configure flameshot.</span><br><span class="line">~&#x2F;tools&#x2F;flameshot</span><br><span class="line">二 3月 27|16:32|0:&gt;.&#x2F;flameshot gui</span><br></pre></td></tr></table></figure>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">~&#x2F;tools&#x2F;flameshot</span><br><span class="line">二 3月 27|16:32|0:&gt;sudo make install</span><br><span class="line">[sudo] xuan 的密码：</span><br><span class="line">install -m 755 -p flameshot &#x2F;usr&#x2F;local&#x2F;bin&#x2F;flameshot</span><br><span class="line">install -m 644 -p &#x2F;home&#x2F;xuan&#x2F;tools&#x2F;flameshot&#x2F;img&#x2F;flameshot.png &#x2F;usr&#x2F;local&#x2F;share&#x2F;icons&#x2F;</span><br><span class="line">install -m 644 -p &#x2F;home&#x2F;xuan&#x2F;tools&#x2F;flameshot&#x2F;docs&#x2F;desktopEntry&#x2F;package&#x2F;flameshot.desktop &#x2F;usr&#x2F;local&#x2F;share&#x2F;applications&#x2F;</span><br><span class="line">install -m 644 -p &#x2F;home&#x2F;xuan&#x2F;tools&#x2F;flameshot&#x2F;translations&#x2F;Internationalization_es.qm &#x2F;usr&#x2F;local&#x2F;share&#x2F;flameshot&#x2F;translations&#x2F;</span><br><span class="line">install -m 644 -p &#x2F;home&#x2F;xuan&#x2F;tools&#x2F;flameshot&#x2F;translations&#x2F;Internationalization_ca.qm &#x2F;usr&#x2F;local&#x2F;share&#x2F;flameshot&#x2F;translations&#x2F;</span><br><span class="line">install -m 644 -p &#x2F;home&#x2F;xuan&#x2F;tools&#x2F;flameshot&#x2F;translations&#x2F;Internationalization_ru.qm &#x2F;usr&#x2F;local&#x2F;share&#x2F;flameshot&#x2F;translations&#x2F;</span><br><span class="line">install -m 644 -p &#x2F;home&#x2F;xuan&#x2F;tools&#x2F;flameshot&#x2F;translations&#x2F;Internationalization_zh_CN.qm &#x2F;usr&#x2F;local&#x2F;share&#x2F;flameshot&#x2F;translations&#x2F;</span><br><span class="line">install -m 644 -p &#x2F;home&#x2F;xuan&#x2F;tools&#x2F;flameshot&#x2F;translations&#x2F;Internationalization_zh_TW.qm &#x2F;usr&#x2F;local&#x2F;share&#x2F;flameshot&#x2F;translations&#x2F;</span><br><span class="line">install -m 644 -p &#x2F;home&#x2F;xuan&#x2F;tools&#x2F;flameshot&#x2F;translations&#x2F;Internationalization_tr.qm &#x2F;usr&#x2F;local&#x2F;share&#x2F;flameshot&#x2F;translations&#x2F;</span><br><span class="line">install -m 644 -p &#x2F;home&#x2F;xuan&#x2F;tools&#x2F;flameshot&#x2F;translations&#x2F;Internationalization_ka.qm &#x2F;usr&#x2F;local&#x2F;share&#x2F;flameshot&#x2F;translations&#x2F;</span><br><span class="line">install -m 644 -p &#x2F;home&#x2F;xuan&#x2F;tools&#x2F;flameshot&#x2F;translations&#x2F;Internationalization_fr.qm &#x2F;usr&#x2F;local&#x2F;share&#x2F;flameshot&#x2F;translations&#x2F;</span><br><span class="line">install -m 644 -p &#x2F;home&#x2F;xuan&#x2F;tools&#x2F;flameshot&#x2F;translations&#x2F;Internationalization_pl.qm &#x2F;usr&#x2F;local&#x2F;share&#x2F;flameshot&#x2F;translations&#x2F;</span><br><span class="line">install -m 644 -p &#x2F;home&#x2F;xuan&#x2F;tools&#x2F;flameshot&#x2F;dbus&#x2F;make&#x2F;org.dharkael.Flameshot.service &#x2F;usr&#x2F;local&#x2F;share&#x2F;dbus-1&#x2F;services&#x2F;</span><br><span class="line">install -m 644 -p &#x2F;home&#x2F;xuan&#x2F;tools&#x2F;flameshot&#x2F;dbus&#x2F;org.dharkael.Flameshot.xml &#x2F;usr&#x2F;local&#x2F;share&#x2F;dbus-1&#x2F;interfaces&#x2F;</span><br><span class="line">install -m 644 -p &#x2F;home&#x2F;xuan&#x2F;tools&#x2F;flameshot&#x2F;docs&#x2F;bash-completion&#x2F;flameshot &#x2F;usr&#x2F;local&#x2F;share&#x2F;bash-completion&#x2F;completions&#x2F;</span><br><span class="line">install -m 644 -p &#x2F;home&#x2F;xuan&#x2F;tools&#x2F;flameshot&#x2F;docs&#x2F;appdata&#x2F;flameshot.appdata.xml &#x2F;usr&#x2F;local&#x2F;share&#x2F;metainfo&#x2F;</span><br><span class="line">~&#x2F;tools&#x2F;flameshot</span><br><span class="line">二 3月 27|16:34|0:&gt;which flameshot </span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;bin&#x2F;flameshot</span><br></pre></td></tr></table></figure>
+<h1 id="添加到开始菜单启动项"><a href="#添加到开始菜单启动项" class="headerlink" title="添加到开始菜单启动项"></a>添加到开始菜单启动项</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp &#x2F;home&#x2F;xuan&#x2F;tools&#x2F;flameshot&#x2F;snap&#x2F;gui&#x2F;flameshot.desktop &#x2F;home&#x2F;xuan&#x2F;.local&#x2F;share&#x2F;applications&#x2F;</span><br></pre></td></tr></table></figure>
+<h2 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Icon&#x3D;$&#123;SNAP&#125;&#x2F;meta&#x2F;gui&#x2F;flameshot.png</span><br></pre></td></tr></table></figure>
+<h2 id="为"><a href="#为" class="headerlink" title="为"></a>为</h2><h2 id="-2"><a href="#-2" class="headerlink" title=""></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Icon&#x3D;&#x2F;home&#x2F;xuan&#x2F;tools&#x2F;flameshot&#x2F;snap&#x2F;gui&#x2F;flameshot.png</span><br></pre></td></tr></table></figure></h2><p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/03/27/openSUSE-42-3-%E7%BC%96%E8%AF%91gcc4-9-4-%E5%AE%89%E8%A3%85flameshot/" data-id="ckivmllxy002ox720gd676j75" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/03/27/openSUSE-42-3-%E7%BC%96%E8%AF%91gcc4-9-4-%E5%AE%89%E8%A3%85flameshot/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2018/04/01/qemu-%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          使用qemu创建虚拟机
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/26/openSUSE-42-3-%E5%AE%9E%E7%8E%B0IP%E8%BD%AC%E5%8F%91%E4%B8%94%E9%87%8D%E5%90%AF%E4%B8%8D%E5%A4%B1%E6%95%88/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">openSUSE 42.3 实现IP转发且重启不失效</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#下载GCC"><span class="toc-number">1.</span> <span class="toc-text">下载GCC</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.1.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#编译后输出信息"><span class="toc-number">2.</span> <span class="toc-text">编译后输出信息</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#——————————————————————"><span class="toc-number">3.</span> <span class="toc-text">——————————————————————</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#设置环境变量-优先使用指定版本的GCC"><span class="toc-number">4.</span> <span class="toc-text">设置环境变量 优先使用指定版本的GCC</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#-1"><span class="toc-number">4.1.</span> <span class="toc-text">1
+2
+二 3月 27|08:21|0:&gt;vim ~&#x2F;.bashrc
+export PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;gcc-4.9.4&#x2F;bin:$PATH
+</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#找到libstdc-so-拷贝至-usr-lib64-，运行命令ldconfig"><span class="toc-number">5.</span> <span class="toc-text">找到libstdc++.so 拷贝至&#x2F;usr&#x2F;lib64&#x2F;，运行命令ldconfig</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#拷贝libstdc-so-6-0-20至-usr-lib64"><span class="toc-number">6.</span> <span class="toc-text">拷贝libstdc++.so.6.0.20至&#x2F;usr&#x2F;lib64&#x2F;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#运行ldconfig"><span class="toc-number">7.</span> <span class="toc-text">运行ldconfig</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#测试"><span class="toc-number">8.</span> <span class="toc-text">测试</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">9.</span> <span class="toc-text">参考</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#编译flameshot软件需要GCC版本大于等于4-9以上-本次编译使用gcc-4-9-4"><span class="toc-number">10.</span> <span class="toc-text">编译flameshot软件需要GCC版本大于等于4.9以上 本次编译使用gcc-4.9.4</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#source-link"><span class="toc-number">11.</span> <span class="toc-text">source-link</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#生成Makefile-amp-amp-编译"><span class="toc-number">12.</span> <span class="toc-text">生成Makefile &amp;&amp; 编译</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#测试软件"><span class="toc-number">13.</span> <span class="toc-text">测试软件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装"><span class="toc-number">14.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加到开始菜单启动项"><span class="toc-number">15.</span> <span class="toc-text">添加到开始菜单启动项</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#修改"><span class="toc-number">15.1.</span> <span class="toc-text">修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为"><span class="toc-number">15.2.</span> <span class="toc-text">为</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-2"><span class="toc-number">15.3.</span> <span class="toc-text">1
+Icon&#x3D;&#x2F;home&#x2F;xuan&#x2F;tools&#x2F;flameshot&#x2F;snap&#x2F;gui&#x2F;flameshot.png
+</span></a></li></ol></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2018/03/27/openSUSE-42-3-%E7%BC%96%E8%AF%91gcc4-9-4-%E5%AE%89%E8%A3%85flameshot/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

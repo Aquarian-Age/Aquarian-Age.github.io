@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ext4-disable-journal | AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="安装iotopsudo zypper –no-refresh in -y iotop  sudo iotop -a   查找实际进程1lsof | grep jbd2 12345678910lsof: WARNING: can&#39;t stat() tracefs file system &#x2F;sys&#x2F;kernel&#x2F;debug&#x2F;tracing      Ou">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ext4-disable-journal">
+<meta property="og:url" content="https://aquarian-age.github.io/2018/10/23/ext4-disable-journal/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:description" content="安装iotopsudo zypper –no-refresh in -y iotop  sudo iotop -a   查找实际进程1lsof | grep jbd2 12345678910lsof: WARNING: can&#39;t stat() tracefs file system &#x2F;sys&#x2F;kernel&#x2F;debug&#x2F;tracing      Ou">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://wx4.sinaimg.cn/mw690/56e62e01gy1fwhpdozy69j21kw16o7wj.jpg">
+<meta property="og:image" content="http://wx1.sinaimg.cn/mw690/56e62e01gy1fwhpdv50xpj21kw16ob2b.jpg">
+<meta property="og:image" content="http://wx1.sinaimg.cn/mw690/56e62e01gy1fwhpdv50xpj21kw16ob2b.jpg">
+<meta property="article:published_time" content="2018-10-22T21:23:42.000Z">
+<meta property="article:modified_time" content="2020-10-05T22:14:18.231Z">
+<meta property="article:author" content="Liangzi">
+<meta property="article:tag" content="openSUSE">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://wx4.sinaimg.cn/mw690/56e62e01gy1fwhpdozy69j21kw16o7wj.jpg">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ext4-disable-journal" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/23/ext4-disable-journal/" class="article-date">
+  <time datetime="2018-10-22T21:23:42.000Z" itemprop="datePublished">2018-10-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ext4-disable-journal
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h3 id="安装iotop"><a href="#安装iotop" class="headerlink" title="安装iotop"></a>安装iotop</h3><p>sudo zypper –no-refresh in -y iotop </p>
+<p>sudo iotop -a </p>
+<hr>
+<h3 id="查找实际进程"><a href="#查找实际进程" class="headerlink" title="查找实际进程"></a>查找实际进程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof | grep jbd2</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">lsof: WARNING: can&#39;t stat() tracefs file system &#x2F;sys&#x2F;kernel&#x2F;debug&#x2F;tracing</span><br><span class="line">      Output information may be incomplete.</span><br><span class="line">jbd2&#x2F;sda4   366                       root  cwd   unknown                                         &#x2F;proc&#x2F;366&#x2F;cwd (readlink: Permission denied)</span><br><span class="line">jbd2&#x2F;sda4   366                       root  rtd   unknown                                         &#x2F;proc&#x2F;366&#x2F;root (readlink: Permission denied)</span><br><span class="line">jbd2&#x2F;sda4   366                       root  txt   unknown                                         &#x2F;proc&#x2F;366&#x2F;exe (readlink: Permission denied)</span><br><span class="line">jbd2&#x2F;sda4   366                       root NOFD                                                   &#x2F;proc&#x2F;366&#x2F;fd (opendir: Permission denied)</span><br><span class="line">jbd2&#x2F;sdb3  1377                       root  cwd   unknown                                         &#x2F;proc&#x2F;1377&#x2F;cwd (readlink: Permission denied)</span><br><span class="line">jbd2&#x2F;sdb3  1377                       root  rtd   unknown                                         &#x2F;proc&#x2F;1377&#x2F;root (readlink: Permission denied)</span><br><span class="line">jbd2&#x2F;sdb3  1377                       root  txt   unknown                                         &#x2F;proc&#x2F;1377&#x2F;exe (readlink: Permission denied)</span><br><span class="line">jbd2&#x2F;sdb3  1377                       root NOFD                                                   &#x2F;proc&#x2F;1377&#x2F;fd (opendir: Permission denied)</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="查看文件系统是否启用日志功能"><a href="#查看文件系统是否启用日志功能" class="headerlink" title="查看文件系统是否启用日志功能"></a>查看文件系统是否启用日志功能</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo dumpe2fs &#x2F;dev&#x2F;sda4 | grep &quot;Filesystem&quot;</span><br><span class="line">dumpe2fs 1.43.8 (1-Jan-2018)</span><br><span class="line">Filesystem volume name:   &lt;none&gt;</span><br><span class="line">Filesystem UUID:          2cc2fc0f-1421-456c-8255-4344598a2c5f</span><br><span class="line">Filesystem magic number:  0xEF53</span><br><span class="line">Filesystem revision #:    1 (dynamic)</span><br><span class="line">Filesystem features:      has_journal ext_attr resize_inode dir_index filetype needs_recovery extent flex_bg sparse_super large_file huge_file uninit_bg dir_nlink extra_isize</span><br><span class="line">Filesystem flags:         signed_directory_hash </span><br><span class="line">Filesystem state:         clean</span><br><span class="line">Filesystem OS type:       Linux</span><br><span class="line">Filesystem created:       Mon Dec 19 07:08:20 2016</span><br></pre></td></tr></table></figure>
+<p>Filesystem features:      has_journal 启用</p>
+<p><img src="http://wx4.sinaimg.cn/mw690/56e62e01gy1fwhpdozy69j21kw16o7wj.jpg" alt="tty1"></p>
+<hr>
+<h3 id="禁用日志功能"><a href="#禁用日志功能" class="headerlink" title="禁用日志功能"></a>禁用日志功能</h3><p>对于根文件系统需要在安装盘（刻录的U盘）中进行</p>
+<h4 id="删除has-journal选项"><a href="#删除has-journal选项" class="headerlink" title="删除has_journal选项"></a>删除has_journal选项</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tune2fs -O ^has_journal &#x2F;dev&#x2F;sda4</span><br></pre></td></tr></table></figure>
+<p><img src="http://wx1.sinaimg.cn/mw690/56e62e01gy1fwhpdv50xpj21kw16ob2b.jpg" alt="tty1"></p>
+<h4 id="fsck检查"><a href="#fsck检查" class="headerlink" title="fsck检查"></a>fsck检查</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">e2fsck -f &#x2F;dev&#x2F;sda4</span><br></pre></td></tr></table></figure>
+<p><img src="http://wx1.sinaimg.cn/mw690/56e62e01gy1fwhpdv50xpj21kw16ob2b.jpg" alt="tty1"></p>
+<h4 id="验证修改是否生效"><a href="#验证修改是否生效" class="headerlink" title="验证修改是否生效"></a>验证修改是否生效</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo dumpe2fs &#x2F;dev&#x2F;sda4 | grep &quot;Filesystem features&quot;</span><br><span class="line">dumpe2fs 1.43.8 (1-Jan-2018)</span><br><span class="line">Filesystem features:      ext_attr resize_inode dir_index filetype extent flex_bg sparse_super large_file huge_file uninit_bg dir_nlink extra_isize</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="重新开启"><a href="#重新开启" class="headerlink" title="重新开启"></a>重新开启</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tune2fs -O has_journal &#x2F;dev&#x2F;sda4</span><br></pre></td></tr></table></figure>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://segmentfault.com/a/1190000013515410" target="_blank" rel="noopener">https://segmentfault.com/a/1190000013515410</a><br><a href="http://fenidik.blogspot.com/2010/03/ext4-disable-journal.html" target="_blank" rel="noopener">http://fenidik.blogspot.com/2010/03/ext4-disable-journal.html</a></p>
+<hr>
+<p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/10/23/ext4-disable-journal/" data-id="ckivmllw6001ax7208xcafpne" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/10/23/ext4-disable-journal/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2018/10/23/grep%E6%90%9C%E7%B4%A2%E9%9D%9Eutf-8%E5%AD%97%E7%AC%A6/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          grep搜索非utf-8字符
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/10/21/Chakra/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Chakra</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装iotop"><span class="toc-number">1.</span> <span class="toc-text">安装iotop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查找实际进程"><span class="toc-number">2.</span> <span class="toc-text">查找实际进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看文件系统是否启用日志功能"><span class="toc-number">3.</span> <span class="toc-text">查看文件系统是否启用日志功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#禁用日志功能"><span class="toc-number">4.</span> <span class="toc-text">禁用日志功能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#删除has-journal选项"><span class="toc-number">4.1.</span> <span class="toc-text">删除has_journal选项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fsck检查"><span class="toc-number">4.2.</span> <span class="toc-text">fsck检查</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#验证修改是否生效"><span class="toc-number">4.3.</span> <span class="toc-text">验证修改是否生效</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重新开启"><span class="toc-number">5.</span> <span class="toc-text">重新开启</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">6.</span> <span class="toc-text">参考</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2018/10/23/ext4-disable-journal/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

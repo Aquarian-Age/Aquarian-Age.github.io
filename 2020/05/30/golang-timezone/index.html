@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Go的timezone兼容windows | AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="time 编译到bin文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Go的timezone兼容windows">
+<meta property="og:url" content="https://aquarian-age.github.io/2020/05/30/golang-timezone/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:description" content="time 编译到bin文件">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-29T21:17:30.000Z">
+<meta property="article:modified_time" content="2021-01-12T13:26:47.596Z">
+<meta property="article:author" content="Liangzi">
+<meta property="article:tag" content="Go">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-golang-timezone" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/30/golang-timezone/" class="article-date">
+  <time datetime="2020-05-29T21:17:30.000Z" itemprop="datePublished">2020-05-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Go的timezone兼容windows
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>time 编译到bin文件<br><a id="more"></a></p>
+<p>农历择吉的GUI部分基本写完了，Linux系统编译运行正常．Windows系统编译之后发现闰月数字异常．<br>核心代码里面最终定位到了是时间本地化之后产生的原因．</p>
+<p>编译成.exe格式文件wine xx.exe　源代码里面会执行timezone的本地化时间．windows系统没有这个包，导致时间解析异常．．．．</p>
+<p>这个问题在Go的<a href="https://github.com/golang/go/issues/21881#issuecomment-370125690" target="_blank" rel="noopener">issues</a>里面也提到了，<a href="https://4d63.com/tz/" target="_blank" rel="noopener">解决方法</a>同样也有人做出来了．</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> utils</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"math"</span></span><br><span class="line">	<span class="string">"os"</span></span><br><span class="line">	<span class="string">"time"</span></span><br><span class="line"></span><br><span class="line">	<span class="string">"4d63.com/tz"</span> <span class="comment">//兼容非没有Go time.Time包的系统</span></span><br><span class="line"></span><br><span class="line">	jl <span class="string">"github.com/soniakeys/meeus/v3/julian"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">//转为为本地时间(Asia/Shanghai)</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">JdToLocalTime</span><span class="params">(jd <span class="keyword">float64</span>)</span> <span class="title">time</span>.<span class="title">Time</span></span> &#123;</span><br><span class="line">	s := localTime(jd)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">const</span> shortForm = <span class="string">"2006-01-02"</span> <span class="comment">//2006-01-02 固定格式的数字</span></span><br><span class="line">	t, err := time.Parse(shortForm, s)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		os.Exit(<span class="number">0</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Printf(<span class="string">"%v\n"</span>, s)</span><br><span class="line">	<span class="keyword">return</span> t</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//转为为本地时间(Asia/Shanghai)</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">localTime</span><span class="params">(jd <span class="keyword">float64</span>)</span> <span class="title">string</span></span> &#123;</span><br><span class="line">	utc := jl.JDToTime(jd)</span><br><span class="line">	local := utc</span><br><span class="line">	location, err := tz.LoadLocation(<span class="string">"Asia/Shanghai"</span>) <span class="comment">//windows系统的兼容方法</span></span><br><span class="line">	<span class="keyword">if</span> err == <span class="literal">nil</span> &#123;</span><br><span class="line">		local = local.In(location)</span><br><span class="line">	&#125;</span><br><span class="line">	s := local.Format(<span class="string">"2006-01-02"</span>)</span><br><span class="line">	<span class="keyword">return</span> s</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面的本地化时间方法是相对简单的，在JdToLocalTime函数中直接return localTime(jd)<br>然而实际上在闰月判断和月份的节气比较上是没办法使用的．<br>    local := utc<br>    location, err := tz.LoadLocation(“Asia/Shanghai”) //windows系统的兼容方法<br>    if err == nil {<br>        local = local.In(location)<br>    }<br>    return  local</p>
+<hr>
+<p>Go官方给出的<a href="https://tip.golang.org/pkg/time/tzdata/" target="_blank" rel="noopener">方法</a>是导入time/tzdata</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> Package tzdata provides an embedded copy of the timezone database. If this package is imported anywhere in the program, then if the time package cannot find tzdata files on the system, it will use this embedded information.</span><br><span class="line"></span><br><span class="line">Importing this package will increase the size of a program by about 800 KB.</span><br><span class="line"></span><br><span class="line">This package should normally be imported by a program&#39;s main package, not by a library. Libraries normally shouldn&#39;t decide whether to include the timezone database in a program.</span><br><span class="line"></span><br><span class="line">This package will be automatically imported if you build with -tags timetzdata.</span><br></pre></td></tr></table></figure>
+<p><code>time/tzdata</code>这是个<code>新包</code>最新更新日期是Apr 15 2020 …现在要用得自己拉源码编译了．．．．</p>
+<p><a href="https://go-review.googlesource.com/c/go/+/228101/" target="_blank" rel="noopener">go-review</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">time&#x2F;tzdata: new package</span><br><span class="line"></span><br><span class="line">Importing the time&#x2F;tzdata package will embed a copy of the IANA</span><br><span class="line">timezone database into the program. This will let the program work</span><br><span class="line">correctly when the timezone database is not available on the system.</span><br><span class="line">It will increase the size of the binary by about 800K.</span><br><span class="line"></span><br><span class="line">You can also build a program with -tags timetzdata to embed the</span><br><span class="line">timezone database in the program being built.</span><br><span class="line"></span><br><span class="line">This is a roll forward of CL 224588 which was rolled back due to</span><br><span class="line">test failures. In this version, the test is in the time package,</span><br><span class="line">not the time&#x2F;tzdata package. That lets us compare the zip file</span><br><span class="line">to the time&#x2F;tzdata package, ensuring that we are looking at similar</span><br><span class="line">versions of tzdata information.</span><br><span class="line"></span><br><span class="line">Fixes #21881</span><br><span class="line">Fixes #38013</span><br><span class="line">Fixes #38017</span><br><span class="line"></span><br><span class="line">Change-Id: I916d9d8473abe201b897cdc2bbd9168df4ad671c</span><br><span class="line">Reviewed-on: https:&#x2F;&#x2F;go-review.googlesource.com&#x2F;c&#x2F;go&#x2F;+&#x2F;228101</span><br><span class="line">Run-TryBot: Ian Lance Taylor &lt;iant@golang.org&gt;</span><br><span class="line">TryBot-Result: Gobot Gobot &lt;gobot@golang.org&gt;</span><br><span class="line">Reviewed-by: Tobias Klauser &lt;tobias.klauser@gmail.com&gt;</span><br><span class="line">Reviewed-by: Dmitri Shuralyov &lt;dmitshur@golang.org&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><p>2021-01-12<br>试了一下感觉还行 编译的时候加个tag就可以了</p>
+<p>GOOS=windows GOARCH=amd64 go build -o getmachineNumber.exe -tags timetzdata -ldflags=”-s -w” getMachN.go </p>
+<hr>
+<p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2020/05/30/golang-timezone/" data-id="ckivmllw9001ix7205oy2fr44" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2020/05/30/golang-timezone/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/" rel="tag">Go</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2020/06/16/Go%E7%9F%A2%E9%87%8F%E5%9B%BE%E8%BD%AC%E6%8D%A2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Go矢量图转换
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/26/WebSocket-Tls/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">WebSocket</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#更新"><span class="toc-number">1.</span> <span class="toc-text">更新</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2020/05/30/golang-timezone/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

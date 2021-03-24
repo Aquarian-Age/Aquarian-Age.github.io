@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CentOS6.8源码安装Mysql5.6.40 | AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="源码安装mysql5.6.40 下载源码12wget http:&#x2F;&#x2F;dev.mysql.com&#x2F;get&#x2F;Downloads&#x2F;MySQL-5.6&#x2F;mysql-5.6.40-linux-glibc2.12-x86_64.tar.gztar xvf mysql-5.6.40-linux-glibc2.12-x86_64.tar.gz 创建组12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS6.8源码安装Mysql5.6.40">
+<meta property="og:url" content="https://aquarian-age.github.io/2018/06/30/CentOS6-8%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85Mysql5-6-40/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:description" content="源码安装mysql5.6.40 下载源码12wget http:&#x2F;&#x2F;dev.mysql.com&#x2F;get&#x2F;Downloads&#x2F;MySQL-5.6&#x2F;mysql-5.6.40-linux-glibc2.12-x86_64.tar.gztar xvf mysql-5.6.40-linux-glibc2.12-x86_64.tar.gz 创建组12">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-06-30T05:25:49.000Z">
+<meta property="article:modified_time" content="2019-06-01T16:20:59.434Z">
+<meta property="article:author" content="Liangzi">
+<meta property="article:tag" content="VPS">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-CentOS6-8源码安装Mysql5-6-40" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/30/CentOS6-8%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85Mysql5-6-40/" class="article-date">
+  <time datetime="2018-06-30T05:25:49.000Z" itemprop="datePublished">2018-06-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CentOS6.8源码安装Mysql5.6.40
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h3 id="源码安装mysql5-6-40"><a href="#源码安装mysql5-6-40" class="headerlink" title="源码安装mysql5.6.40"></a>源码安装mysql5.6.40</h3><ul>
+<li>下载源码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;dev.mysql.com&#x2F;get&#x2F;Downloads&#x2F;MySQL-5.6&#x2F;mysql-5.6.40-linux-glibc2.12-x86_64.tar.gz</span><br><span class="line">tar xvf mysql-5.6.40-linux-glibc2.12-x86_64.tar.gz</span><br></pre></td></tr></table></figure></li>
+<li>创建组<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(12:24 上午) [root@XXX &#x2F;]# cd &#x2F;</span><br><span class="line"></span><br><span class="line">(12:23 上午) [root@XXX &#x2F;]# groupadd -g 306 mysql</span><br><span class="line">groupadd：“mysql”组已存在</span><br><span class="line">(12:24 上午) [root@XXX &#x2F;]# useradd -g 306 -u 306 -s&#x2F;sbin&#x2F;nologin -M mysql</span><br><span class="line">useradd：“306”组不存在</span><br><span class="line">(12:24 上午) [root@XXX &#x2F;]# id mysql</span><br><span class="line">uid&#x3D;27(mysql) gid&#x3D;27(mysql) 组&#x3D;27(mysql)</span><br></pre></td></tr></table></figure></li>
+<li><p>修改属主属组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(12:26 上午) [root@XXX &#x2F;]# mkdir -pv &#x2F;data&#x2F;mysql</span><br><span class="line">mkdir: 已创建目录 &quot;&#x2F;data&quot;</span><br><span class="line">mkdir: 已创建目录 &quot;&#x2F;data&#x2F;mysql&quot;</span><br><span class="line">(12:27 上午) [root@XXX &#x2F;]# mkdir &#x2F;usr&#x2F;local&#x2F;mysql</span><br><span class="line">(12:27 上午) [root@XXX &#x2F;]# cp -ax &#x2F;home&#x2F;mysql-5.6.40-linux-glibc2.12-x86_64&#x2F;* &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;</span><br><span class="line">(12:28 上午) [root@XXX &#x2F;]# chown -R mysql.mysql &#x2F;usr&#x2F;local&#x2F;mysql</span><br><span class="line">(12:29 上午) [root@XXX &#x2F;]# chown -R mysql.mysql &#x2F;data&#x2F;mysql</span><br><span class="line">(12:29 上午) [root@XXX &#x2F;]# cp &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;support-files&#x2F;my-default.cnf &#x2F;etc&#x2F;my.cnf</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+</li>
+<li><p>修改配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(12:30 上午) [root@XXX &#x2F;]# vim &#x2F;etc&#x2F;my.cnf</span><br><span class="line">[root@Paul mysql]# vim &#x2F;etc&#x2F;my.cnf</span><br><span class="line">basedir &#x3D; &#x2F;usr&#x2F;local&#x2F;mysql</span><br><span class="line">datadir &#x3D; &#x2F;data&#x2F;mysql</span><br><span class="line">port &#x3D; 3306</span><br><span class="line">socket &#x3D; &#x2F;tmp&#x2F;mysql.sock</span><br><span class="line">log-err &#x3D; &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;data&#x2F;error.log</span><br><span class="line">pid-file &#x3D; &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;data&#x2F;mysql.pid</span><br></pre></td></tr></table></figure></li>
+<li>初始化数据库(如果没有在/usr/local/mysql/目录下面执行的话 需要添加–datadir=/data/mysql参数)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(12:35 上午) [root@XXX &#x2F;]# &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;scripts&#x2F;mysql_install_db --user&#x3D;mysql --datadir&#x3D;&#x2F;data&#x2F;mysql</span><br><span class="line">FATAL ERROR: Could not find .&#x2F;bin&#x2F;my_print_defaults</span><br><span class="line"></span><br><span class="line">If you compiled from source, you need to run &#39;make install&#39; to</span><br><span class="line">copy the software into the correct location ready for operation.</span><br><span class="line"></span><br><span class="line">If you are using a binary release, you must either be at the top</span><br><span class="line">level of the extracted archive, or pass the --basedir option</span><br><span class="line">pointing to that location.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">(12:35 上午) [root@XXX &#x2F;]# &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;scripts&#x2F;mysql_install_db --user&#x3D;mysql --datadir&#x3D;&#x2F;data&#x2F;mysql --basedir&#x3D;&#x2F;usr&#x2F;local&#x2F;mysql</span><br><span class="line"></span><br><span class="line">Installing MySQL system tables...2018-06-30 00:38:11 0 [Warning] Using unique option prefix log-err instead of log_error is deprecated and will be removed in a future release. Please use the full name instead.</span><br><span class="line">2018-06-30 00:38:11 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).</span><br><span class="line">2018-06-30 00:38:11 0 [Note] Ignoring --secure-file-priv value as server is running with --bootstrap.</span><br><span class="line">2018-06-30 00:38:11 0 [Note] &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;bin&#x2F;mysqld (mysqld 5.6.40) starting as process 11570 ...</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line">Filling help tables...2018-06-30 00:38:13 0 [Warning] Using unique option prefix log-err instead of log_error is deprecated and will be removed in a future release. Please use the full name instead.</span><br><span class="line">2018-06-30 00:38:13 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).</span><br><span class="line">2018-06-30 00:38:13 0 [Note] Ignoring --secure-file-priv value as server is running with --bootstrap.</span><br><span class="line">2018-06-30 00:38:13 0 [Note] &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;bin&#x2F;mysqld (mysqld 5.6.40) starting as process 11592 ...</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line">To start mysqld at boot time you have to copy</span><br><span class="line">support-files&#x2F;mysql.server to the right place for your system</span><br><span class="line"></span><br><span class="line">PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !</span><br><span class="line">To do so, start the server, then issue the following commands:</span><br><span class="line"></span><br><span class="line">  &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;bin&#x2F;mysqladmin -u root password &#39;new-password&#39;</span><br><span class="line">  &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;bin&#x2F;mysqladmin -u root -h XXX password &#39;new-password&#39;</span><br><span class="line"></span><br><span class="line">Alternatively you can run:</span><br><span class="line"></span><br><span class="line">  &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;bin&#x2F;mysql_secure_installation</span><br><span class="line"></span><br><span class="line">which will also give you the option of removing the test</span><br><span class="line">databases and anonymous user created by default.  This is</span><br><span class="line">strongly recommended for production servers.</span><br><span class="line"></span><br><span class="line">See the manual for more instructions.</span><br><span class="line"></span><br><span class="line">You can start the MySQL daemon with:</span><br><span class="line"></span><br><span class="line">  cd . ; &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;bin&#x2F;mysqld_safe &amp;</span><br><span class="line"></span><br><span class="line">You can test the MySQL daemon with mysql-test-run.pl</span><br><span class="line"></span><br><span class="line">  cd mysql-test ; perl mysql-test-run.pl</span><br><span class="line"></span><br><span class="line">Please report any problems at http:&#x2F;&#x2F;bugs.mysql.com&#x2F;</span><br><span class="line"></span><br><span class="line">The latest information about MySQL is available on the web at</span><br><span class="line"></span><br><span class="line">  http:&#x2F;&#x2F;www.mysql.com</span><br><span class="line"></span><br><span class="line">Support MySQL by buying support&#x2F;licenses at http:&#x2F;&#x2F;shop.mysql.com</span><br><span class="line"></span><br><span class="line">New default config file was created as &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;my.cnf and</span><br><span class="line">will be used by default by the server when you start it.</span><br><span class="line">You may edit this file to change server settings</span><br><span class="line"></span><br><span class="line">WARNING: Default config file &#x2F;etc&#x2F;my.cnf exists on the system</span><br><span class="line">This file will be read by default by the MySQL server</span><br><span class="line">If you do not want to use this, either remove it, or use the</span><br><span class="line">--defaults-file argument to mysqld_safe when starting the server</span><br></pre></td></tr></table></figure></li>
+<li>配置mysqld服务<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(12:38 上午) [root@XXX &#x2F;]# cp &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;support-files&#x2F;mysql.server &#x2F;etc&#x2F;rc.d&#x2F;init.d&#x2F;mysqld</span><br><span class="line">(12:40 上午) [root@XXX &#x2F;]# chmod +x &#x2F;etc&#x2F;rc.d&#x2F;init.d&#x2F;mysqld</span><br><span class="line">(12:41 上午) [root@XXX &#x2F;]# chkconfig mysqld on</span><br><span class="line">(12:41 上午) [root@XXX &#x2F;]# echo &quot;&#x2F;usr&#x2F;local&#x2F;mysql&#x2F;lib&quot; &gt; &#x2F;etc&#x2F;ld.so.conf.d&#x2F;mysql.conf</span><br><span class="line">(12:43 上午) [root@XXX &#x2F;]# ln -sv &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;include &#x2F;usr&#x2F;include&#x2F;mysqld</span><br><span class="line">&quot;&#x2F;usr&#x2F;include&#x2F;mysqld&quot; -&gt; &quot;&#x2F;usr&#x2F;local&#x2F;mysql&#x2F;include&quot;</span><br></pre></td></tr></table></figure></li>
+<li>设置mysql环境变量<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">(12:43 上午) [root@XXX &#x2F;]# echo &quot;export PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;mysql&#x2F;bin:$PATH&quot; &gt; &#x2F;etc&#x2F;profile.d&#x2F;mysql.sh</span><br><span class="line">(12:44 上午) [root@XXX &#x2F;]# source &#x2F;etc&#x2F;profile.d&#x2F;mysql.sh</span><br><span class="line">(12:47 上午) [root@XXX &#x2F;]# path</span><br><span class="line">&#x2F;opt&#x2F;Composer&#x2F;</span><br><span class="line">&#x2F;opt&#x2F;node-v8.11.2&#x2F;bin&#x2F;</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;mysql&#x2F;bin</span><br><span class="line">&#x2F;opt&#x2F;Composer&#x2F;</span><br><span class="line">&#x2F;opt&#x2F;node-v8.11.2&#x2F;bin&#x2F;</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;sbin</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;bin</span><br><span class="line">&#x2F;sbin</span><br><span class="line">&#x2F;bin</span><br><span class="line">&#x2F;usr&#x2F;sbin</span><br><span class="line">&#x2F;usr&#x2F;bin</span><br><span class="line">&#x2F;&#x2F;usr&#x2F;local&#x2F;ocserv&#x2F;sbin&#x2F;</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;ocserv&#x2F;bin&#x2F;</span><br><span class="line">&#x2F;root&#x2F;bin</span><br></pre></td></tr></table></figure></li>
+<li>启动mysqld服务<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(12:52 上午) [root@XXX &#x2F;]# service mysqld start</span><br><span class="line">Starting MySQL.Logging to &#39;&#x2F;data&#x2F;mysql&#x2F;XXX.err&#39;.</span><br><span class="line">. SUCCESS!</span><br></pre></td></tr></table></figure></li>
+<li>检查启动状态进程<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(12:52 上午) [root@XXX &#x2F;]# ps aux | grep mysql</span><br><span class="line">root     11671  0.0  0.0  11496   108 pts&#x2F;0    S    00:52   0:00 &#x2F;bin&#x2F;sh &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;bin&#x2F;mysqld_safe --datadir&#x3D;&#x2F;data&#x2F;mysql --pid-file&#x3D;&#x2F;usr&#x2F;local&#x2F;mysql&#x2F;data&#x2F;mysql.pid</span><br><span class="line">mysql    11860  3.6 79.2 1302072 409076 pts&#x2F;0  Sl   00:52   0:01 &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;bin&#x2F;mysqld --basedir&#x3D;&#x2F;usr&#x2F;local&#x2F;mysql --datadir&#x3D;&#x2F;data&#x2F;mysql --plugin-dir&#x3D;&#x2F;usr&#x2F;local&#x2F;mysql&#x2F;lib&#x2F;plugin --user&#x3D;mysql --log-error&#x3D;XXX.err --pid-file&#x3D;&#x2F;usr&#x2F;local&#x2F;mysql&#x2F;data&#x2F;mysql.pid --socket&#x3D;&#x2F;tmp&#x2F;mysql.sock --port&#x3D;3306</span><br><span class="line">root     11887  0.0  0.3 103392  1988 pts&#x2F;0    S+   00:52   0:00 grep mysql</span><br></pre></td></tr></table></figure></li>
+<li>检查开机启动项目<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(12:52 上午) [root@XXX &#x2F;]# chkconfig --list | grep mysqld</span><br><span class="line">mysqld          0:关闭  1:关闭  2:启用  3:启用  4:启用  5:启用  6:关闭</span><br></pre></td></tr></table></figure></li>
+<li>停止服务<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(12:57 上午) [root@XXX &#x2F;]# service mysqld stop</span><br><span class="line">Shutting down MySQL.. SUCCESS!</span><br></pre></td></tr></table></figure>
+这个东西是真消耗内存。。。。<h3 id="还是把属主属组改回root了"><a href="#还是把属主属组改回root了" class="headerlink" title="还是把属主属组改回root了"></a>还是把属主属组改回root了</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chown -R root.root &#x2F;usr&#x2F;local&#x2F;mysql</span><br><span class="line">chown -R root.root &#x2F;data&#x2F;mysql</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;mysql&#x2F;scripts&#x2F;mysql_install_db --user&#x3D;root --datadir&#x3D;&#x2F;data&#x2F;mysql --basedir&#x3D;&#x2F;usr&#x2F;local&#x2F;mysql</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="http://blog.51cto.com/437549/2114513" target="_blank" rel="noopener">http://blog.51cto.com/437549/2114513</a></li>
+</ul>
+<hr>
+<p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/06/30/CentOS6-8%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85Mysql5-6-40/" data-id="ckivmllvn0008x72004w3dysg" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/06/30/CentOS6-8%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85Mysql5-6-40/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/" rel="tag">VPS</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2018/07/07/ssh%E5%AF%86%E9%92%A5%E7%99%BB%E5%BD%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          ssh密钥登录
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/06/13/openSUSE15-0%E5%AE%89%E8%A3%85Xblog/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">openSUSE15.0安装Xblog</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#源码安装mysql5-6-40"><span class="toc-number">1.</span> <span class="toc-text">源码安装mysql5.6.40</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#还是把属主属组改回root了"><span class="toc-number">2.</span> <span class="toc-text">还是把属主属组改回root了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2018/06/30/CentOS6-8%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85Mysql5-6-40/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

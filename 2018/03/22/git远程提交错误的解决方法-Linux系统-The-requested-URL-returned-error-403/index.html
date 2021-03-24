@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>git远程提交错误 | AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="error信息:12345四 3月 22|19:20|0:&gt;git push -u origin master Pass a valid window to KWallet::Wallet::openWallet().Pass a valid window to KWallet::Wallet::openWallet().remote: Permission to Aquarian-Age&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git远程提交错误">
+<meta property="og:url" content="https://aquarian-age.github.io/2018/03/22/git%E8%BF%9C%E7%A8%8B%E6%8F%90%E4%BA%A4%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-Linux%E7%B3%BB%E7%BB%9F-The-requested-URL-returned-error-403/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:description" content="error信息:12345四 3月 22|19:20|0:&gt;git push -u origin master Pass a valid window to KWallet::Wallet::openWallet().Pass a valid window to KWallet::Wallet::openWallet().remote: Permission to Aquarian-Age&amp;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-03-22T14:02:18.000Z">
+<meta property="article:modified_time" content="2021-02-11T20:46:05.415Z">
+<meta property="article:author" content="Liangzi">
+<meta property="article:tag" content="openSUSE">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-git远程提交错误的解决方法-Linux系统-The-requested-URL-returned-error-403" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/22/git%E8%BF%9C%E7%A8%8B%E6%8F%90%E4%BA%A4%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-Linux%E7%B3%BB%E7%BB%9F-The-requested-URL-returned-error-403/" class="article-date">
+  <time datetime="2018-03-22T14:02:18.000Z" itemprop="datePublished">2018-03-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      git远程提交错误
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h4 id="error信息"><a href="#error信息" class="headerlink" title="error信息:"></a>error信息:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">四 3月 22|19:20|0:&gt;git push -u origin master </span><br><span class="line">Pass a valid window to KWallet::Wallet::openWallet().</span><br><span class="line">Pass a valid window to KWallet::Wallet::openWallet().</span><br><span class="line">remote: Permission to Aquarian-Age&#x2F;bucklespring.git denied to l----6.</span><br><span class="line">fatal: unable to access &#39;https:&#x2F;&#x2F;github.com&#x2F;Aquarian-Age&#x2F;bucklespring.git&#x2F;&#39;: The requested URL returned error: 403</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="查看远程地址："><a href="#查看远程地址：" class="headerlink" title="查看远程地址："></a>查看远程地址：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">四 3月 22|21:06|0:&gt;git remote -v</span><br><span class="line">origin  https:&#x2F;&#x2F;github.com&#x2F;Aquarian-Age&#x2F;bucklespring.git (fetch)</span><br><span class="line">origin  https:&#x2F;&#x2F;github.com&#x2F;Aquarian-Age&#x2F;bucklespring.git (push)</span><br></pre></td></tr></table></figure>
+<h4 id="查看配置信息："><a href="#查看配置信息：" class="headerlink" title="查看配置信息："></a>查看配置信息：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">四 3月 22|21:17|0:&gt;git config --list</span><br><span class="line">user.name&#x3D;A--ge</span><br><span class="line">user.email&#x3D;x------@g--l.com</span><br><span class="line">color.ui&#x3D;auto</span><br><span class="line">http.cookiefile&#x3D;&#x2F;home&#x2F;---&#x2F;.gitcookies</span><br><span class="line">http.postbuffer&#x3D;524288000</span><br><span class="line">core.repositoryformatversion&#x3D;0</span><br><span class="line">core.filemode&#x3D;true</span><br><span class="line">core.bare&#x3D;false</span><br><span class="line">core.logallrefupdates&#x3D;true</span><br><span class="line">user.name&#x3D;A---n-Age</span><br><span class="line">user.email&#x3D;x-----@g--l.com</span><br><span class="line">gui.wmstate&#x3D;normal</span><br><span class="line">gui.geometry&#x3D;802x395+255+117 161 179</span><br></pre></td></tr></table></figure>
+<h4 id="修改提交目录下的-git-config文件内容-把地址写成ssh格式"><a href="#修改提交目录下的-git-config文件内容-把地址写成ssh格式" class="headerlink" title="修改提交目录下的.git/config文件内容 把地址写成ssh格式"></a>修改提交目录下的.git/config文件内容 把地址写成ssh格式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[remote &quot;origin&quot;]</span><br><span class="line">url &#x3D; ssh:&#x2F;&#x2F;git@github.com&#x2F;Aquarian-Age&#x2F;bucklespring.git</span><br></pre></td></tr></table></figure>
+<h4 id="复制以前添加的公钥到-HOME-ssh-目录"><a href="#复制以前添加的公钥到-HOME-ssh-目录" class="headerlink" title="复制以前添加的公钥到$HOME/.ssh/目录"></a>复制以前添加的公钥到$HOME/.ssh/目录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">略....</span><br></pre></td></tr></table></figure>
+<h4 id="添加ssh认证公钥（这个公钥是之前已添加过的公钥-现在只是复制到了-ssh-目录下面）"><a href="#添加ssh认证公钥（这个公钥是之前已添加过的公钥-现在只是复制到了-ssh-目录下面）" class="headerlink" title="添加ssh认证公钥（这个公钥是之前已添加过的公钥 现在只是复制到了.ssh/目录下面）"></a>添加ssh认证公钥（这个公钥是之前已添加过的公钥 现在只是复制到了.ssh/目录下面）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">四 3月 22|21:02|0:&gt;ssh-add ~&#x2F;.ssh&#x2F;first_rsa.pub </span><br><span class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span><br><span class="line">@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @</span><br><span class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span><br><span class="line">Permissions 0644 for &#39;&#x2F;home&#x2F;xuan&#x2F;.ssh&#x2F;first_rsa.pub&#39; are too open.</span><br><span class="line">It is required that your private key files are NOT accessible by others.</span><br><span class="line">This private key will be ignored.</span><br></pre></td></tr></table></figure>
+<h4 id="添加多个公钥分别认证的配置文件"><a href="#添加多个公钥分别认证的配置文件" class="headerlink" title="添加多个公钥分别认证的配置文件"></a>添加多个公钥分别认证的配置文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">~&#x2F;.ssh</span><br><span class="line">四 3月 22|21:43|0:&gt;cat config </span><br><span class="line"># coding </span><br><span class="line">Host github.com</span><br><span class="line">User x------0@----.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~&#x2F;.ssh&#x2F;first_rsa &#x2F;&#x2F;这里不能写成first_rsa.pub会报错</span><br><span class="line"></span><br><span class="line"># coding </span><br><span class="line"># https:&#x2F;&#x2F;coding.net&#x2F;help&#x2F;doc&#x2F;account&#x2F;ssh-key.html</span><br><span class="line">Host github.com</span><br><span class="line">User x--------@---.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~&#x2F;.ssh&#x2F;id_rsa &#x2F;&#x2F;这里不能写成first_rsa.pub会报错</span><br></pre></td></tr></table></figure>
+<h4 id="添加多个SSH公钥"><a href="#添加多个SSH公钥" class="headerlink" title="添加多个SSH公钥"></a>添加多个SSH公钥</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add ~&#x2F;.ssh&#x2F;first_rsa.pub</span><br></pre></td></tr></table></figure>
+<h4 id="写成first-rsa-pub后的报错信息："><a href="#写成first-rsa-pub后的报错信息：" class="headerlink" title="写成first_rsa.pub后的报错信息："></a>写成first_rsa.pub后的报错信息：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">四 3月 22|21:41|0:&gt;git push </span><br><span class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span><br><span class="line">@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @</span><br><span class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span><br><span class="line">Permissions 0644 for &#39;&#x2F;home&#x2F;xuan&#x2F;.ssh&#x2F;first_rsa.pub&#39; are too open.</span><br><span class="line">It is required that your private key files are NOT accessible by others.</span><br><span class="line">This private key will be ignored.</span><br><span class="line">Load key &quot;&#x2F;home&#x2F;xuan&#x2F;.ssh&#x2F;first_rsa.pub&quot;: bad permissions</span><br><span class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span><br><span class="line">@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @</span><br><span class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span><br><span class="line">Permissions 0644 for &#39;&#x2F;home&#x2F;xuan&#x2F;.ssh&#x2F;id_rsa.pub&#39; are too open.</span><br><span class="line">It is required that your private key files are NOT accessible by others.</span><br><span class="line">This private key will be ignored.</span><br><span class="line">Load key &quot;&#x2F;home&#x2F;xuan&#x2F;.ssh&#x2F;id_rsa.pub&quot;: bad permissions</span><br><span class="line">Permission denied (publickey).</span><br><span class="line">fatal: 无法读取远程仓库。</span><br></pre></td></tr></table></figure>
+<h4 id="重新push"><a href="#重新push" class="headerlink" title="重新push:"></a>重新push:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">四 3月 22|21:42|0:&gt;git push -u origin master </span><br><span class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span><br><span class="line">@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @</span><br><span class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span><br><span class="line">Permissions 0755 for &#39;&#x2F;home&#x2F;xuan&#x2F;.ssh&#x2F;first_rsa&#39; are too open.</span><br><span class="line">It is required that your private key files are NOT accessible by others.</span><br><span class="line">This private key will be ignored.</span><br><span class="line">Load key &quot;&#x2F;home&#x2F;xuan&#x2F;.ssh&#x2F;first_rsa&quot;: bad permissions</span><br><span class="line">对象计数中: 5, 完成.</span><br><span class="line">Delta compression using up to 4 threads.</span><br><span class="line">压缩对象中: 100% (5&#x2F;5), 完成.</span><br><span class="line">写入对象中: 100% (5&#x2F;5), 919 bytes | 919.00 KiB&#x2F;s, 完成.</span><br><span class="line">Total 5 (delta 3), reused 0 (delta 0)</span><br><span class="line">remote: Resolving deltas: 100% (3&#x2F;3), completed with 2 local objects.</span><br><span class="line">To ssh:&#x2F;&#x2F;github.com&#x2F;Aquarian-Age&#x2F;bucklespring.git</span><br><span class="line">   38eccbb..8c18b28  master -&gt; master</span><br><span class="line">   分支 master 设置为跟踪来自 origin 的远程分支 master。</span><br></pre></td></tr></table></figure>
+<p>   <a href="https://stackoverflow.com/questions/7438313/pushing-to-git-returning-error-code-403-fatal-http-request-failed" target="_blank" rel="noopener">参考1:Pushing to Git returning Error Code 403 fatal: HTTP request failed
+   </a><br>   <a href="https://coding.net/help/doc/account/ssh-key.html" target="_blank" rel="noopener">参考2:配置 SSH 公钥访问代码仓库</a></p>
+<hr>
+<p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/03/22/git%E8%BF%9C%E7%A8%8B%E6%8F%90%E4%BA%A4%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-Linux%E7%B3%BB%E7%BB%9F-The-requested-URL-returned-error-403/" data-id="ckivmllw9001hx720955cg1y6" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/03/22/git%E8%BF%9C%E7%A8%8B%E6%8F%90%E4%BA%A4%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-Linux%E7%B3%BB%E7%BB%9F-The-requested-URL-returned-error-403/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/26/openSUSE-42-3-%E5%AE%9E%E7%8E%B0IP%E8%BD%AC%E5%8F%91%E4%B8%94%E9%87%8D%E5%90%AF%E4%B8%8D%E5%A4%B1%E6%95%88/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          openSUSE 42.3 实现IP转发且重启不失效
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/16/%E6%98%A8%E6%97%A5%E5%B0%8F%E8%AF%AD/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">小语0</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#error信息"><span class="toc-number">1.</span> <span class="toc-text">error信息:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查看远程地址："><span class="toc-number">2.</span> <span class="toc-text">查看远程地址：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查看配置信息："><span class="toc-number">3.</span> <span class="toc-text">查看配置信息：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改提交目录下的-git-config文件内容-把地址写成ssh格式"><span class="toc-number">4.</span> <span class="toc-text">修改提交目录下的.git&#x2F;config文件内容 把地址写成ssh格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#复制以前添加的公钥到-HOME-ssh-目录"><span class="toc-number">5.</span> <span class="toc-text">复制以前添加的公钥到$HOME&#x2F;.ssh&#x2F;目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#添加ssh认证公钥（这个公钥是之前已添加过的公钥-现在只是复制到了-ssh-目录下面）"><span class="toc-number">6.</span> <span class="toc-text">添加ssh认证公钥（这个公钥是之前已添加过的公钥 现在只是复制到了.ssh&#x2F;目录下面）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#添加多个公钥分别认证的配置文件"><span class="toc-number">7.</span> <span class="toc-text">添加多个公钥分别认证的配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#添加多个SSH公钥"><span class="toc-number">8.</span> <span class="toc-text">添加多个SSH公钥</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#写成first-rsa-pub后的报错信息："><span class="toc-number">9.</span> <span class="toc-text">写成first_rsa.pub后的报错信息：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#重新push"><span class="toc-number">10.</span> <span class="toc-text">重新push:</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2018/03/22/git%E8%BF%9C%E7%A8%8B%E6%8F%90%E4%BA%A4%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-Linux%E7%B3%BB%E7%BB%9F-The-requested-URL-returned-error-403/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

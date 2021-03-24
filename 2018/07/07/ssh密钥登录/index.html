@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ssh密钥登录 | AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="登录VPS修改权限默认值 ssh -p 你的远程端口 root@你的远程ip地址 vim &#x2F;etc&#x2F;ssh&#x2F;sshd_config12345PubkeyAuthentication yes #允许公钥认证AuthorizedKeysFile      .ssh&#x2F;authorized_keys #保存公钥认证文件自动登录PasswordAuthentication no　 #不允许密码方式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ssh密钥登录">
+<meta property="og:url" content="https://aquarian-age.github.io/2018/07/07/ssh%E5%AF%86%E9%92%A5%E7%99%BB%E5%BD%95/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:description" content="登录VPS修改权限默认值 ssh -p 你的远程端口 root@你的远程ip地址 vim &#x2F;etc&#x2F;ssh&#x2F;sshd_config12345PubkeyAuthentication yes #允许公钥认证AuthorizedKeysFile      .ssh&#x2F;authorized_keys #保存公钥认证文件自动登录PasswordAuthentication no　 #不允许密码方式">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-07-07T06:14:09.000Z">
+<meta property="article:modified_time" content="2019-06-01T16:21:02.566Z">
+<meta property="article:author" content="Liangzi">
+<meta property="article:tag" content="openSUSE">
+<meta property="article:tag" content="ssh">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ssh密钥登录" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/07/ssh%E5%AF%86%E9%92%A5%E7%99%BB%E5%BD%95/" class="article-date">
+  <time datetime="2018-07-07T06:14:09.000Z" itemprop="datePublished">2018-07-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ssh密钥登录
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h3 id="登录VPS修改权限默认值"><a href="#登录VPS修改权限默认值" class="headerlink" title="登录VPS修改权限默认值"></a>登录VPS修改权限默认值</h3><ul>
+<li>ssh -p 你的远程端口 root@你的远程ip地址</li>
+<li>vim /etc/ssh/sshd_config<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PubkeyAuthentication yes #允许公钥认证</span><br><span class="line"></span><br><span class="line">AuthorizedKeysFile      .ssh&#x2F;authorized_keys #保存公钥认证文件自动登录</span><br><span class="line"></span><br><span class="line">PasswordAuthentication no　 #不允许密码方式的登录</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># &#x2F;etc&#x2F;init.d&#x2F;sshd restart</span><br><span class="line">停止 sshd：                                                [确定]</span><br><span class="line">正在启动 sshd：                                            [确定]</span><br><span class="line"></span><br><span class="line"> # ps -aux | grep &quot;sshd&quot;</span><br><span class="line">Warning: bad syntax, perhaps a bogus &#39;-&#39;? See &#x2F;usr&#x2F;share&#x2F;doc&#x2F;procps-3.2.8&#x2F;FAQ</span><br><span class="line">root      2664  0.0  1.2 102144  6524 ?        Ss   14:57   0:00 sshd: root@pts&#x2F;0</span><br><span class="line">root      2745  0.0  0.4  66296  2580 ?        Ss   15:14   0:00 &#x2F;usr&#x2F;sbin&#x2F;sshd</span><br><span class="line">root      2748  0.0  0.3 103388  2040 pts&#x2F;0    S+   15:15   0:00 grep sshd</span><br></pre></td></tr></table></figure>
+<ul>
+<li>断开远程链接或者重新开启一个新的shell窗口</li>
+</ul>
+<hr>
+<a id="more"></a>
+<h3 id="使用SSH-COPY-ID命令复制本地公钥到远程VPS主机中"><a href="#使用SSH-COPY-ID命令复制本地公钥到远程VPS主机中" class="headerlink" title="使用SSH-COPY-ID命令复制本地公钥到远程VPS主机中"></a>使用SSH-COPY-ID命令复制本地公钥到远程VPS主机中</h3><ul>
+<li>进入本机生成ssh密钥的用户主目录<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id root@你的vps地址 -p xxxxx</span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;ssh-copy-id: INFO: Source of key(s) to be installed: &quot;&#x2F;home&#x2F;XXX&#x2F;.ssh&#x2F;id_rsa.pub&quot;</span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed</span><br><span class="line">&#x2F;usr&#x2F;bin&#x2F;ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys</span><br><span class="line">root@你的vps地址&#39;s password:</span><br><span class="line"></span><br><span class="line">Number of key(s) added: 1</span><br><span class="line"></span><br><span class="line">Now try logging into the machine, with:   &quot;ssh -p &#39;xxxxx&#39; &#39;root@你的vps地址&#39;&quot;</span><br><span class="line">and check to make sure that only the key(s) you wanted were added.</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="登录远程主机查看上传的公钥"><a href="#登录远程主机查看上传的公钥" class="headerlink" title="登录远程主机查看上传的公钥"></a>登录远程主机查看上传的公钥</h3><ul>
+<li>公钥上传成功登录后会在cat -n /root/.ssh/known_hosts 里面出现远程主机的公钥信息<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> # pwd</span><br><span class="line">&#x2F;root&#x2F;.ssh</span><br><span class="line"> # ls -l</span><br><span class="line">总用量 4</span><br><span class="line">-rw------- 1 root root 404 1月  24 14:35 authorized_keys</span><br><span class="line"> # cat -n authorized_keys</span><br><span class="line">     1  ssh-rsa AA----------a.com</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<ul>
+<li>对比远程上传公钥和本地公钥<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">四 1月 25|03:42|1:&gt;cat -n ssss.pub</span><br><span class="line">     1  ssh-rsa AA------------.com</span><br><span class="line">     2  ssh-rsa AA------------.com</span><br><span class="line">~</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="更改公钥的权限"><a href="#更改公钥的权限" class="headerlink" title="更改公钥的权限"></a>更改公钥的权限</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod u-w .ssh&#x2F;authorized_keys</span><br><span class="line">chattr +i .ssh&#x2F;authorized_keys</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="更改目录权限"><a href="#更改目录权限" class="headerlink" title="更改目录权限"></a>更改目录权限</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chmod u+rwx .ssh&#x2F;</span><br><span class="line">chmod g-x .ssh&#x2F;</span><br><span class="line">chmod o-x .ssh&#x2F;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="使用密钥登录测试"><a href="#使用密钥登录测试" class="headerlink" title="使用密钥登录测试"></a>使用密钥登录测试</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> ssh -p xxxxx root@你的vps地址</span><br><span class="line"> # exit</span><br><span class="line">logout</span><br><span class="line">Connection to 你的vps地址 closed.</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="scp远程传输文件"><a href="#scp远程传输文件" class="headerlink" title="scp远程传输文件"></a>scp远程传输文件</h3><ul>
+<li>以ipv4传输 压缩本地目录文件的同时递归复制到远程主机 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -rC4 -P 远程端口 .&#x2F;* root@远程地址:&#x2F;home&#x2F;India-music&#x2F;</span><br></pre></td></tr></table></figure>
+<h3 id="禁止ping"><a href="#禁止ping" class="headerlink" title="禁止ping"></a>禁止ping</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;net.ipv4.icmp_echo_ignore_all&#x3D;1&quot; &gt;&gt; &#x2F;etc&#x2F;systcl.conf</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="http://www.cnblogs.com/lykyl/archive/2011/03/10/1980304.html" target="_blank" rel="noopener">http://www.cnblogs.com/lykyl/archive/2010/03/10/1980304.html</a></li>
+</ul>
+<hr>
+<p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/07/07/ssh%E5%AF%86%E9%92%A5%E7%99%BB%E5%BD%95/" data-id="ckivmlly2002yx7208zhn8uho" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/07/07/ssh%E5%AF%86%E9%92%A5%E7%99%BB%E5%BD%95/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2018/07/22/frp%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          frp实现内网穿透
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/06/30/CentOS6-8%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85Mysql5-6-40/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">CentOS6.8源码安装Mysql5.6.40</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#登录VPS修改权限默认值"><span class="toc-number">1.</span> <span class="toc-text">登录VPS修改权限默认值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重启服务"><span class="toc-number">2.</span> <span class="toc-text">重启服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用SSH-COPY-ID命令复制本地公钥到远程VPS主机中"><span class="toc-number">3.</span> <span class="toc-text">使用SSH-COPY-ID命令复制本地公钥到远程VPS主机中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#登录远程主机查看上传的公钥"><span class="toc-number">4.</span> <span class="toc-text">登录远程主机查看上传的公钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更改公钥的权限"><span class="toc-number">5.</span> <span class="toc-text">更改公钥的权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更改目录权限"><span class="toc-number">6.</span> <span class="toc-text">更改目录权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用密钥登录测试"><span class="toc-number">7.</span> <span class="toc-text">使用密钥登录测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scp远程传输文件"><span class="toc-number">8.</span> <span class="toc-text">scp远程传输文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#禁止ping"><span class="toc-number">9.</span> <span class="toc-text">禁止ping</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">10.</span> <span class="toc-text">参考</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2018/07/07/ssh%E5%AF%86%E9%92%A5%E7%99%BB%E5%BD%95/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>vspd-linux | AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="STEP 1.0: install default kernel and rebootyast -i kernel-default123456789yast -i kernel-defaultDEPRECATED. Use zypper directly: zypper --non-interactive install kernel-defaultLoading repository data.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vspd-linux">
+<meta property="og:url" content="https://aquarian-age.github.io/2019/03/27/vspd-linux/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:description" content="STEP 1.0: install default kernel and rebootyast -i kernel-default123456789yast -i kernel-defaultDEPRECATED. Use zypper directly: zypper --non-interactive install kernel-defaultLoading repository data.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-03-27T02:15:33.000Z">
+<meta property="article:modified_time" content="2019-06-01T16:21:02.990Z">
+<meta property="article:author" content="Liangzi">
+<meta property="article:tag" content="openSUSE">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-vspd-linux" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/27/vspd-linux/" class="article-date">
+  <time datetime="2019-03-27T02:15:33.000Z" itemprop="datePublished">2019-03-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vspd-linux
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h3 id="STEP-1-0-install-default-kernel-and-reboot"><a href="#STEP-1-0-install-default-kernel-and-reboot" class="headerlink" title="STEP 1.0: install default kernel and reboot"></a>STEP 1.0: install default kernel and reboot</h3><p>yast -i kernel-default<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">yast -i kernel-default</span><br><span class="line">DEPRECATED. Use zypper directly: zypper --non-interactive install kernel-default</span><br><span class="line">Loading repository data...</span><br><span class="line">Reading installed packages...</span><br><span class="line">&#39;kernel-default&#39; is already installed.</span><br><span class="line">No update candidate for &#39;kernel-default-4.12.14-lp150.12.48.1.x86_64&#39;. The highest available version is already installed.</span><br><span class="line">Resolving package dependencies...</span><br><span class="line"></span><br><span class="line">Nothing to do.</span><br></pre></td></tr></table></figure><br>reboot</p>
+<a id="more"></a>
+<h3 id="STEP-1-1-set-up-kernel-sources-for-external-modules"><a href="#STEP-1-1-set-up-kernel-sources-for-external-modules" class="headerlink" title="STEP 1.1: set up kernel sources for external modules"></a>STEP 1.1: set up kernel sources for external modules</h3><p>yast -i kernel-source<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">yast -i kernel-source</span><br><span class="line">DEPRECATED. Use zypper directly: zypper --non-interactive install kernel-source</span><br><span class="line">Loading repository data...</span><br><span class="line">Reading installed packages...</span><br><span class="line">&#39;kernel-source&#39; is already installed.</span><br><span class="line">No update candidate for &#39;kernel-source-4.12.14-lp150.12.48.1.noarch&#39;. The highest available version is already installed.</span><br><span class="line">Resolving package dependencies...</span><br><span class="line"></span><br><span class="line">Nothing to do.</span><br></pre></td></tr></table></figure></p>
+<p>yast -i kernel-syms<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">yast -i kernel-syms</span><br><span class="line">DEPRECATED. Use zypper directly: zypper --non-interactive install kernel-syms</span><br><span class="line">Loading repository data...</span><br><span class="line">Reading installed packages...</span><br><span class="line">&#39;kernel-syms&#39; is already installed.</span><br><span class="line">No update candidate for &#39;kernel-syms-4.12.14-lp150.12.48.1.x86_64&#39;. The highest available version is already installed.</span><br><span class="line">Resolving package dependencies...</span><br><span class="line"></span><br><span class="line">Nothing to do.</span><br></pre></td></tr></table></figure></p>
+<h3 id="STEP-1-2-prepare-linux-source-tree"><a href="#STEP-1-2-prepare-linux-source-tree" class="headerlink" title="STEP 1.2: prepare linux source tree"></a>STEP 1.2: prepare linux source tree</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">liangzi:&#x2F;usr&#x2F;src ### ls</span><br><span class="line">kernel-modules             linux-4.12.14-lp150.12.45-obj  linux-obj</span><br><span class="line">linux                      linux-4.12.14-lp150.12.48      packages</span><br><span class="line">linux-4.12.14-lp150.12.45  linux-4.12.14-lp150.12.48-obj  vboxhost-5.1.28</span><br><span class="line">liangzi:&#x2F;usr&#x2F;src ### l linux</span><br><span class="line">lrwxrwxrwx 1 root root 25 Feb 23 20:19 linux -&gt; linux-4.12.14-lp150.12.48&#x2F;</span><br><span class="line"></span><br><span class="line">liangzi:&#x2F;usr&#x2F;src ### cp -f .&#x2F;linux-obj&#x2F;&#96;uname -i&#96;&#x2F;default&#x2F;.config .&#x2F;linux&#x2F;</span><br><span class="line">liangzi:&#x2F;usr&#x2F;src ### cp -f .&#x2F;linux-obj&#x2F;&#96;uname -i&#96;&#x2F;default&#x2F;Module.symvers .&#x2F;linux&#x2F;</span><br><span class="line">liangzi:&#x2F;usr&#x2F;src ### ln -s .&#x2F;linux .&#x2F;linux-&#96;uname -r&#96;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="openSUSE15-0"><a href="#openSUSE15-0" class="headerlink" title="openSUSE15.0"></a>openSUSE15.0</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">uname -a</span><br><span class="line">Linux liangzi.local 4.12.14-lp150.12.48-default #1 SMP Tue Feb 12 14:01:48 UTC 2019 (268f014) x86_64 x86_64 x86_64 GNU&#x2F;Linux</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">liangzi:&#x2F;usr&#x2F;src # ls -l</span><br><span class="line">total 28</span><br><span class="line">drwxr-xr-x  3 root root 4096 Oct 25 14:30 kernel-modules</span><br><span class="line">lrwxrwxrwx  1 root root   25 Feb 23 20:19 linux -&gt; linux-4.12.14-lp150.12.48</span><br><span class="line">drwxr-xr-x 24 root root 4096 Jan 21 08:01 linux-4.12.14-lp150.12.45</span><br><span class="line">drwxr-xr-x  3 root root 4096 Jan 21 08:01 linux-4.12.14-lp150.12.45-obj</span><br><span class="line">drwxr-xr-x 24 root root 4096 Mar 27 09:32 linux-4.12.14-lp150.12.48</span><br><span class="line">lrwxrwxrwx  1 root root    7 Mar 27 09:32 linux-4.12.14-lp150.12.48-default -&gt; .&#x2F;linux</span><br><span class="line">drwxr-xr-x  3 root root 4096 Feb 23 20:20 linux-4.12.14-lp150.12.48-obj</span><br><span class="line">drwxr-xr-x  3 root root 4096 Feb 13 18:02 linux-obj</span><br><span class="line">drwxr-xr-x  8 root root 4096 Jun  8  2018 packages</span><br><span class="line">lrwxrwxrwx  1 root root   34 Sep 13  2017 vboxhost-5.1.28 -&gt; &#x2F;usr&#x2F;share&#x2F;virtualbox&#x2F;src&#x2F;vboxhost</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="STEP-1-3-finilize"><a href="#STEP-1-3-finilize" class="headerlink" title="STEP 1.3: finilize"></a>STEP 1.3: finilize</h3><p>cd /usr/src/linux/</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make oldconfig &amp;&amp; make modules_prepare</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line">  HOSTCC  scripts&#x2F;basic&#x2F;fixdep</span><br><span class="line">  HOSTCC  scripts&#x2F;kconfig&#x2F;conf.o</span><br><span class="line">  SHIPPED scripts&#x2F;kconfig&#x2F;zconf.tab.c</span><br><span class="line">  SHIPPED scripts&#x2F;kconfig&#x2F;zconf.lex.c</span><br><span class="line">  SHIPPED scripts&#x2F;kconfig&#x2F;zconf.hash.c</span><br><span class="line">  HOSTCC  scripts&#x2F;kconfig&#x2F;zconf.tab.o</span><br><span class="line">  HOSTLD  scripts&#x2F;kconfig&#x2F;conf</span><br><span class="line">scripts&#x2F;kconfig&#x2F;conf  --oldconfig Kconfig</span><br><span class="line">#</span><br><span class="line">### configuration written to .config</span><br><span class="line">#</span><br><span class="line">scripts&#x2F;kconfig&#x2F;conf  --silentoldconfig Kconfig</span><br><span class="line">  SYSTBL  arch&#x2F;x86&#x2F;include&#x2F;generated&#x2F;asm&#x2F;syscalls_32.h</span><br><span class="line">  SYSHDR  arch&#x2F;x86&#x2F;include&#x2F;generated&#x2F;asm&#x2F;unistd_32_ia32.h</span><br><span class="line">  SYSHDR  arch&#x2F;x86&#x2F;include&#x2F;generated&#x2F;asm&#x2F;unistd_64_x32.h</span><br><span class="line">  SYSTBL  arch&#x2F;x86&#x2F;include&#x2F;generated&#x2F;asm&#x2F;syscalls_64.h</span><br><span class="line">  HYPERCALLS arch&#x2F;x86&#x2F;include&#x2F;generated&#x2F;asm&#x2F;xen-hypercalls.h</span><br><span class="line">  SYSHDR  arch&#x2F;x86&#x2F;include&#x2F;generated&#x2F;uapi&#x2F;asm&#x2F;unistd_32.h</span><br><span class="line">  SYSHDR  arch&#x2F;x86&#x2F;include&#x2F;generated&#x2F;uapi&#x2F;asm&#x2F;unistd_64.h</span><br><span class="line">  SYSHDR  arch&#x2F;x86&#x2F;include&#x2F;generated&#x2F;uapi&#x2F;asm&#x2F;unistd_x32.h</span><br><span class="line">  HOSTCC  scripts&#x2F;basic&#x2F;bin2c</span><br><span class="line">  HOSTCC  arch&#x2F;x86&#x2F;tools&#x2F;relocs_32.o</span><br><span class="line">  HOSTCC  arch&#x2F;x86&#x2F;tools&#x2F;relocs_64.o</span><br><span class="line">  HOSTCC  arch&#x2F;x86&#x2F;tools&#x2F;relocs_common.o</span><br><span class="line">  HOSTLD  arch&#x2F;x86&#x2F;tools&#x2F;relocs</span><br><span class="line">  CHK     include&#x2F;config&#x2F;kernel.release</span><br><span class="line">  UPD     include&#x2F;config&#x2F;kernel.release</span><br><span class="line">  WRAP    arch&#x2F;x86&#x2F;include&#x2F;generated&#x2F;asm&#x2F;clkdev.h</span><br><span class="line">  WRAP    arch&#x2F;x86&#x2F;include&#x2F;generated&#x2F;asm&#x2F;dma-contiguous.h</span><br><span class="line">  WRAP    arch&#x2F;x86&#x2F;include&#x2F;generated&#x2F;asm&#x2F;early_ioremap.h</span><br><span class="line">  WRAP    arch&#x2F;x86&#x2F;include&#x2F;generated&#x2F;asm&#x2F;mcs_spinlock.h</span><br><span class="line">  WRAP    arch&#x2F;x86&#x2F;include&#x2F;generated&#x2F;asm&#x2F;mm-arch-hooks.h</span><br><span class="line">  CHK     include&#x2F;generated&#x2F;uapi&#x2F;linux&#x2F;version.h</span><br><span class="line">  UPD     include&#x2F;generated&#x2F;uapi&#x2F;linux&#x2F;version.h</span><br><span class="line">  CHK     include&#x2F;generated&#x2F;utsrelease.h</span><br><span class="line">  UPD     include&#x2F;generated&#x2F;utsrelease.h</span><br><span class="line">  CHK     include&#x2F;generated&#x2F;uapi&#x2F;linux&#x2F;suse_version.h</span><br><span class="line">  UPD     include&#x2F;generated&#x2F;uapi&#x2F;linux&#x2F;suse_version.h</span><br><span class="line">  CC      arch&#x2F;x86&#x2F;purgatory&#x2F;purgatory.o</span><br><span class="line">  AS      arch&#x2F;x86&#x2F;purgatory&#x2F;stack.o</span><br><span class="line">  AS      arch&#x2F;x86&#x2F;purgatory&#x2F;setup-x86_64.o</span><br><span class="line">  CC      arch&#x2F;x86&#x2F;purgatory&#x2F;sha256.o</span><br><span class="line">  AS      arch&#x2F;x86&#x2F;purgatory&#x2F;entry64.o</span><br><span class="line">  CC      arch&#x2F;x86&#x2F;purgatory&#x2F;string.o</span><br><span class="line">  LD      arch&#x2F;x86&#x2F;purgatory&#x2F;purgatory.ro</span><br><span class="line">  BIN2C   arch&#x2F;x86&#x2F;purgatory&#x2F;kexec-purgatory.c</span><br><span class="line">  CC      kernel&#x2F;bounds.s</span><br><span class="line">  CHK     include&#x2F;generated&#x2F;bounds.h</span><br><span class="line">  UPD     include&#x2F;generated&#x2F;bounds.h</span><br><span class="line">  CHK     include&#x2F;generated&#x2F;timeconst.h</span><br><span class="line">  UPD     include&#x2F;generated&#x2F;timeconst.h</span><br><span class="line">  CC      arch&#x2F;x86&#x2F;kernel&#x2F;asm-offsets.s</span><br><span class="line">  CHK     include&#x2F;generated&#x2F;asm-offsets.h</span><br><span class="line">  UPD     include&#x2F;generated&#x2F;asm-offsets.h</span><br><span class="line">  CALL    scripts&#x2F;checksyscalls.sh</span><br><span class="line">  DESCEND  objtool</span><br><span class="line">  HOSTCC   &#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48&#x2F;tools&#x2F;objtool&#x2F;fixdep.o</span><br><span class="line">  HOSTLD   &#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48&#x2F;tools&#x2F;objtool&#x2F;fixdep-in.o</span><br><span class="line">  LINK     &#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48&#x2F;tools&#x2F;objtool&#x2F;fixdep</span><br><span class="line">  CC       &#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48&#x2F;tools&#x2F;objtool&#x2F;exec-cmd.o</span><br><span class="line">  CC       &#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48&#x2F;tools&#x2F;objtool&#x2F;help.o</span><br><span class="line">  CC       &#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48&#x2F;tools&#x2F;objtool&#x2F;pager.o</span><br><span class="line">  CC       &#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48&#x2F;tools&#x2F;objtool&#x2F;parse-options.o</span><br><span class="line">  CC       &#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48&#x2F;tools&#x2F;objtool&#x2F;run-command.o</span><br><span class="line">  CC       &#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48&#x2F;tools&#x2F;objtool&#x2F;sigchain.o</span><br><span class="line">  CC       &#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48&#x2F;tools&#x2F;objtool&#x2F;subcmd-config.o</span><br><span class="line">  LD       &#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48&#x2F;tools&#x2F;objtool&#x2F;libsubcmd-in.o</span><br><span class="line">  AR       &#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48&#x2F;tools&#x2F;objtool&#x2F;libsubcmd.a</span><br><span class="line">  GEN      &#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48&#x2F;tools&#x2F;objtool&#x2F;arch&#x2F;x86&#x2F;lib&#x2F;inat-tables.c</span><br><span class="line">  CC       &#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48&#x2F;tools&#x2F;objtool&#x2F;arch&#x2F;x86&#x2F;decode.o</span><br><span class="line">  LD       &#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48&#x2F;tools&#x2F;objtool&#x2F;arch&#x2F;x86&#x2F;objtool-in.o</span><br><span class="line">  CC       &#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48&#x2F;tools&#x2F;objtool&#x2F;builtin-check.o</span><br><span class="line">  CC       &#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48&#x2F;tools&#x2F;objtool&#x2F;builtin-orc.o</span><br><span class="line">  CC       &#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48&#x2F;tools&#x2F;objtool&#x2F;check.o</span><br><span class="line">  CC       &#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48&#x2F;tools&#x2F;objtool&#x2F;orc_gen.o</span><br><span class="line">  CC       &#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48&#x2F;tools&#x2F;objtool&#x2F;orc_dump.o</span><br><span class="line">  CC       &#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48&#x2F;tools&#x2F;objtool&#x2F;elf.o</span><br><span class="line">  CC       &#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48&#x2F;tools&#x2F;objtool&#x2F;special.o</span><br><span class="line">  CC       &#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48&#x2F;tools&#x2F;objtool&#x2F;objtool.o</span><br><span class="line">  CC       &#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48&#x2F;tools&#x2F;objtool&#x2F;libstring.o</span><br><span class="line">  CC       &#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48&#x2F;tools&#x2F;objtool&#x2F;str_error_r.o</span><br><span class="line">  LD       &#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48&#x2F;tools&#x2F;objtool&#x2F;objtool-in.o</span><br><span class="line">  LINK     &#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48&#x2F;tools&#x2F;objtool&#x2F;objtool</span><br><span class="line">  HOSTCC  scripts&#x2F;genksyms&#x2F;genksyms.o</span><br><span class="line">  SHIPPED scripts&#x2F;genksyms&#x2F;parse.tab.c</span><br><span class="line">  HOSTCC  scripts&#x2F;genksyms&#x2F;parse.tab.o</span><br><span class="line">  SHIPPED scripts&#x2F;genksyms&#x2F;lex.lex.c</span><br><span class="line">  SHIPPED scripts&#x2F;genksyms&#x2F;keywords.hash.c</span><br><span class="line">  SHIPPED scripts&#x2F;genksyms&#x2F;parse.tab.h</span><br><span class="line">  HOSTCC  scripts&#x2F;genksyms&#x2F;lex.lex.o</span><br><span class="line">  HOSTLD  scripts&#x2F;genksyms&#x2F;genksyms</span><br><span class="line">  CC      scripts&#x2F;mod&#x2F;empty.o</span><br><span class="line">  HOSTCC  scripts&#x2F;mod&#x2F;mk_elfconfig</span><br><span class="line">  MKELF   scripts&#x2F;mod&#x2F;elfconfig.h</span><br><span class="line">  HOSTCC  scripts&#x2F;mod&#x2F;modpost.o</span><br><span class="line">  CC      scripts&#x2F;mod&#x2F;devicetable-offsets.s</span><br><span class="line">  CHK     scripts&#x2F;mod&#x2F;devicetable-offsets.h</span><br><span class="line">  UPD     scripts&#x2F;mod&#x2F;devicetable-offsets.h</span><br><span class="line">  HOSTCC  scripts&#x2F;mod&#x2F;file2alias.o</span><br><span class="line">  HOSTCC  scripts&#x2F;mod&#x2F;sumversion.o</span><br><span class="line">  HOSTLD  scripts&#x2F;mod&#x2F;modpost</span><br><span class="line">  HOSTCC  scripts&#x2F;mod&#x2F;ksym-provides.o</span><br><span class="line">  HOSTLD  scripts&#x2F;mod&#x2F;ksym-provides</span><br><span class="line">  HOSTCC  scripts&#x2F;selinux&#x2F;genheaders&#x2F;genheaders</span><br><span class="line">  HOSTCC  scripts&#x2F;selinux&#x2F;mdp&#x2F;mdp</span><br><span class="line">  HOSTCC  scripts&#x2F;kallsyms</span><br><span class="line">  HOSTCC  scripts&#x2F;conmakehash</span><br><span class="line">  HOSTCC  scripts&#x2F;recordmcount</span><br><span class="line">  HOSTCC  scripts&#x2F;sortextable</span><br><span class="line">  HOSTCC  scripts&#x2F;asn1_compiler</span><br></pre></td></tr></table></figure>
+<h3 id="STEP-2-0-install-VSPDL-RPM-or-tar-if-you-wish"><a href="#STEP-2-0-install-VSPDL-RPM-or-tar-if-you-wish" class="headerlink" title="STEP 2.0 install VSPDL RPM (or tar if you wish)"></a>STEP 2.0 install VSPDL RPM (or tar if you wish)</h3><p>yast -i /path/vspd-1.50-rsmu.i586.rpm<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DEPRECATED. Use zypper directly: zypper --non-interactive install &#x2F;path&#x2F;vspd-1.50-rsmu.i586.rpm</span><br><span class="line">Loading repository data...</span><br><span class="line">Reading installed packages...</span><br><span class="line">&#39;vspd &#x3D; 0:1.50-rsmu&#39; is already installed.</span><br><span class="line">No update candidate for &#39;vspd-1.50-rsmu.i586&#39;. The highest available version is already installed.</span><br><span class="line">Resolving package dependencies...</span><br><span class="line"></span><br><span class="line">Nothing to do.</span><br></pre></td></tr></table></figure></p>
+<h3 id="STEP-3-0-install-VSPDL"><a href="#STEP-3-0-install-VSPDL" class="headerlink" title="STEP 3.0 install VSPDL"></a>STEP 3.0 install VSPDL</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br></pre></td><td class="code"><pre><span class="line">liangzi:&#x2F;usr&#x2F;src&#x2F;linux ### cd &#x2F;usr&#x2F;local&#x2F;vspd-1.50-dist&#x2F;</span><br><span class="line">liangzi:&#x2F;usr&#x2F;local&#x2F;vspd-1.50-dist ### l</span><br><span class="line">total 332</span><br><span class="line">drwxr-xr-x  7 xuan users   4096 Mar 27 09:40 .&#x2F;</span><br><span class="line">drwxr-xr-x 21 root root    4096 Mar 27 09:41 ..&#x2F;</span><br><span class="line">-rw-r--r--  1 xuan users   3903 Jun  1  2018 README</span><br><span class="line">drwxr-xr-x  2 xuan users   4096 Mar 27 09:40 bin&#x2F;</span><br><span class="line">-rwx------  1 xuan users 297462 Jun  1  2018 configure*</span><br><span class="line">drwxr-xr-x  2 xuan users   4096 Mar 27 09:40 etc&#x2F;</span><br><span class="line">-rwx------  1 xuan users   3312 Jun  1  2018 install.sh*</span><br><span class="line">drwxr-xr-x  3 xuan users   4096 Mar 27 09:40 lib&#x2F;</span><br><span class="line">-rwx------  1 xuan users   1296 Jun  1  2018 remove.sh*</span><br><span class="line">drwxr-xr-x  2 xuan users   4096 Mar 27 09:40 sbin&#x2F;</span><br><span class="line">drwxr-xr-x  3 xuan users   4096 Mar 27 09:40 share&#x2F;</span><br><span class="line">liangzi:&#x2F;usr&#x2F;local&#x2F;vspd-1.50-dist ### .&#x2F;install.sh &#x2F;usr&#x2F;local&#x2F;vspd</span><br><span class="line">installing to &#x2F;usr&#x2F;local&#x2F;vspd</span><br><span class="line">configure: loading site script &#x2F;usr&#x2F;share&#x2F;site&#x2F;x86_64-unknown-linux-gnu</span><br><span class="line">checking for target KERNEL... ok</span><br><span class="line">checking for target KERNEL name... linux</span><br><span class="line">checking for target KERNEL version... 4.12.14-lp150.12.48-default</span><br><span class="line">checking for target KERNEL sub-version... 4.12</span><br><span class="line">checking for target KERNEL path... &#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48-default</span><br><span class="line">checking for target MAKE_ARGS... make &quot;-C &#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48-default SUBDIRS&#x3D;$PWD modules&quot;</span><br><span class="line">checking for DEVFS... checking for UDEV... ok</span><br><span class="line">********************* checking for required programms ******************</span><br><span class="line">checking for gcc... gcc</span><br><span class="line">checking whether the C compiler works... yes</span><br><span class="line">checking for C compiler default output file name... a.out</span><br><span class="line">checking for suffix of executables... </span><br><span class="line">checking whether we are cross compiling... no</span><br><span class="line">checking for suffix of object files... o</span><br><span class="line">checking whether we are using the GNU C compiler... yes</span><br><span class="line">checking whether gcc accepts -g... yes</span><br><span class="line">checking for gcc option to accept ISO C89... none needed</span><br><span class="line">checking for install... &#x2F;usr&#x2F;bin&#x2F;install</span><br><span class="line">checking for cp... &#x2F;usr&#x2F;bin&#x2F;cp</span><br><span class="line">****************** checking for required header files ******************</span><br><span class="line">checking how to run the C preprocessor... gcc -E</span><br><span class="line">checking for grep that handles long lines and -e... &#x2F;usr&#x2F;bin&#x2F;grep</span><br><span class="line">checking for egrep... &#x2F;usr&#x2F;bin&#x2F;grep -E</span><br><span class="line">checking for ANSI C header files... yes</span><br><span class="line">checking for sys&#x2F;types.h... yes</span><br><span class="line">checking for sys&#x2F;stat.h... yes</span><br><span class="line">checking for stdlib.h... yes</span><br><span class="line">checking for string.h... yes</span><br><span class="line">checking for memory.h... yes</span><br><span class="line">checking for strings.h... yes</span><br><span class="line">checking for inttypes.h... yes</span><br><span class="line">checking for stdint.h... yes</span><br><span class="line">checking for unistd.h... yes</span><br><span class="line">checking ctype.h usability... yes</span><br><span class="line">checking ctype.h presence... yes</span><br><span class="line">checking for ctype.h... yes</span><br><span class="line">*********************** checking for functions *************************</span><br><span class="line">checking for strerror... yes</span><br><span class="line">************************ current settings ******************************</span><br><span class="line">CC: gcc</span><br><span class="line">CXX version: gcc (SUSE Linux) 7.3.1 20180323 [gcc-7-branch revision 258812]</span><br><span class="line">Copyright (C) 2017 Free Software Foundation, Inc.</span><br><span class="line">This is free software; see the source for copying conditions.  There is NO</span><br><span class="line">warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span><br><span class="line">CXXFLAGS:  </span><br><span class="line">EXTRA_DEFINES: </span><br><span class="line">EXTRA_SOURCES: </span><br><span class="line">Using kernel: linux</span><br><span class="line">Using kernel version: 4.12.14-lp150.12.48-default</span><br><span class="line">Using kernel sub-version: 4.12</span><br><span class="line">Using kernel headers&#x2F;sources path: &#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48-default</span><br><span class="line">********************** making config.h and Makefile ********************</span><br><span class="line">configure: creating .&#x2F;config.status</span><br><span class="line">config.status: creating lib&#x2F;src&#x2F;_makewrapper</span><br><span class="line">configure: creating .&#x2F;config.status</span><br><span class="line">config.status: creating lib&#x2F;src&#x2F;_makewrapper</span><br><span class="line">config.status: creating lib&#x2F;src&#x2F;Makefile</span><br><span class="line">configure: creating .&#x2F;config.status</span><br><span class="line">config.status: creating lib&#x2F;src&#x2F;_makewrapper</span><br><span class="line">config.status: creating lib&#x2F;src&#x2F;Makefile</span><br><span class="line">config.status: creating lib&#x2F;src&#x2F;linux&#x2F;Makefile-4</span><br><span class="line">configure: creating .&#x2F;config.status</span><br><span class="line">config.status: creating lib&#x2F;src&#x2F;_makewrapper</span><br><span class="line">config.status: creating lib&#x2F;src&#x2F;Makefile</span><br><span class="line">config.status: creating lib&#x2F;src&#x2F;linux&#x2F;Makefile-4</span><br><span class="line">config.status: creating bin&#x2F;vspd.sh</span><br><span class="line">configure: creating .&#x2F;config.status</span><br><span class="line">config.status: creating lib&#x2F;src&#x2F;_makewrapper</span><br><span class="line">config.status: creating lib&#x2F;src&#x2F;Makefile</span><br><span class="line">config.status: creating lib&#x2F;src&#x2F;linux&#x2F;Makefile-4</span><br><span class="line">config.status: creating bin&#x2F;vspd.sh</span><br><span class="line">config.status: creating bin&#x2F;vspm.sh</span><br><span class="line">configure: creating .&#x2F;config.status</span><br><span class="line">config.status: creating lib&#x2F;src&#x2F;_makewrapper</span><br><span class="line">config.status: creating lib&#x2F;src&#x2F;Makefile</span><br><span class="line">config.status: creating lib&#x2F;src&#x2F;linux&#x2F;Makefile-4</span><br><span class="line">config.status: creating bin&#x2F;vspd.sh</span><br><span class="line">config.status: creating bin&#x2F;vspm.sh</span><br><span class="line">config.status: creating etc&#x2F;vspd.conf</span><br><span class="line">compiling the vspm kernel module ...</span><br><span class="line">make: Entering directory &#39;&#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48&#39;</span><br><span class="line">  CC [M]  &#x2F;usr&#x2F;local&#x2F;vspd-1.50-dist&#x2F;lib&#x2F;src&#x2F;vspm.o</span><br><span class="line">  Building modules, stage 2.</span><br><span class="line">  MODPOST 1 modules</span><br><span class="line">  CC      &#x2F;usr&#x2F;local&#x2F;vspd-1.50-dist&#x2F;lib&#x2F;src&#x2F;vspm.mod.o</span><br><span class="line">  LD [M]  &#x2F;usr&#x2F;local&#x2F;vspd-1.50-dist&#x2F;lib&#x2F;src&#x2F;vspm.ko</span><br><span class="line">make: Leaving directory &#39;&#x2F;usr&#x2F;src&#x2F;linux-4.12.14-lp150.12.48&#39;</span><br><span class="line">installing ...</span><br><span class="line">installing vspm ...</span><br><span class="line">installing vspd ...</span><br><span class="line">setting runlevels for vspm and vspd ...</span><br><span class="line"></span><br><span class="line">Note: This output shows SysV services only and does not include native</span><br><span class="line">systemd services. SysV configuration data might be overridden by native</span><br><span class="line">systemd configuration.</span><br><span class="line"></span><br><span class="line">If you want to list systemd services use &#39;systemctl list-unit-files&#39;.</span><br><span class="line">To see services enabled on particular target use</span><br><span class="line">&#39;systemctl list-dependencies [target]&#39;.</span><br><span class="line"></span><br><span class="line">vspm                      0:off  1:off  2:off  3:on   4:off  5:on   6:off</span><br><span class="line"></span><br><span class="line">Note: This output shows SysV services only and does not include native</span><br><span class="line">systemd services. SysV configuration data might be overridden by native</span><br><span class="line">systemd configuration.</span><br><span class="line"></span><br><span class="line">If you want to list systemd services use &#39;systemctl list-unit-files&#39;.</span><br><span class="line">To see services enabled on particular target use</span><br><span class="line">&#39;systemctl list-dependencies [target]&#39;.</span><br><span class="line"></span><br><span class="line">vspd                      0:off  1:off  2:off  3:on   4:off  5:on   6:off</span><br><span class="line">------------</span><br><span class="line">DONE. See docs for details</span><br></pre></td></tr></table></figure>
+<h3 id="STEP-4-0-optional"><a href="#STEP-4-0-optional" class="headerlink" title="STEP 4.0 (optional)"></a>STEP 4.0 (optional)</h3><p>depmod</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">liangzi:&#x2F;usr&#x2F;local&#x2F;vspd&#x2F;bin ### systemctl list-dependencies vspd</span><br><span class="line">vspd.service</span><br><span class="line">liangzi:&#x2F;usr&#x2F;local&#x2F;vspd&#x2F;bin ### systemctl list-dependencies vspm</span><br><span class="line">vspm.service</span><br></pre></td></tr></table></figure>
+<p><a href="http://tibbo.com/support/downloads/vspdl.html" target="_blank" rel="noopener">参考:</a></p>
+<hr>
+<p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2019/03/27/vspd-linux/" data-id="ckivmlm0b008bx7205cek4js5" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2019/03/27/vspd-linux/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2019/03/28/cha/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          茶
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/26/WSL-mount-USB/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">WSL-mount-USB</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#STEP-1-0-install-default-kernel-and-reboot"><span class="toc-number">1.</span> <span class="toc-text">STEP 1.0: install default kernel and reboot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STEP-1-1-set-up-kernel-sources-for-external-modules"><span class="toc-number">2.</span> <span class="toc-text">STEP 1.1: set up kernel sources for external modules</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STEP-1-2-prepare-linux-source-tree"><span class="toc-number">3.</span> <span class="toc-text">STEP 1.2: prepare linux source tree</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#openSUSE15-0"><span class="toc-number">4.</span> <span class="toc-text">openSUSE15.0</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STEP-1-3-finilize"><span class="toc-number">5.</span> <span class="toc-text">STEP 1.3: finilize</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STEP-2-0-install-VSPDL-RPM-or-tar-if-you-wish"><span class="toc-number">6.</span> <span class="toc-text">STEP 2.0 install VSPDL RPM (or tar if you wish)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STEP-3-0-install-VSPDL"><span class="toc-number">7.</span> <span class="toc-text">STEP 3.0 install VSPDL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STEP-4-0-optional"><span class="toc-number">8.</span> <span class="toc-text">STEP 4.0 (optional)</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2019/03/27/vspd-linux/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

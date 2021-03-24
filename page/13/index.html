@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="AquarianAge">
+<meta property="og:url" content="https://aquarian-age.github.io/page/13/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Liangzi">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-frp实现内网穿透" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/22/frp%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" class="article-date">
+  <time datetime="2018-07-22T04:40:43.000Z" itemprop="datePublished">2018-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/22/frp%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">frp实现内网穿透</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="proxy-error-no-such-domain"><a href="#proxy-error-no-such-domain" class="headerlink" title="proxy error: no such domain"></a>proxy error: no such domain</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[W] [newhttp.go:202] http: proxy error: no such domain</span><br></pre></td></tr></table></figure>
+<ul>
+<li>服务器端口出现这个错误提示 是因为本地配置的客户端文件(frpc.ini)内容缺少默认域名解析地址 添加进去即可 没有默认域名就填写服务器IP地址<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">server_addr &#x3D; 你的服务器ip地址</span><br><span class="line">server_port &#x3D; 7000</span><br><span class="line"></span><br><span class="line">[web]</span><br><span class="line">type &#x3D; http</span><br><span class="line">local_port &#x3D; 你的博客&#x2F;网站默认端口</span><br><span class="line"># custom_domains &#x3D; AquarianAge.me</span><br><span class="line">custom_domains &#x3D; 你的服务器ip地址</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2018/07/22/frp%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/07/22/frp%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" data-id="ckivmllw8001ex7206fkgckbu" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/07/22/frp%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" rel="tag">内网穿透</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-ssh密钥登录" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/07/ssh%E5%AF%86%E9%92%A5%E7%99%BB%E5%BD%95/" class="article-date">
+  <time datetime="2018-07-07T06:14:09.000Z" itemprop="datePublished">2018-07-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/07/ssh%E5%AF%86%E9%92%A5%E7%99%BB%E5%BD%95/">ssh密钥登录</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="登录VPS修改权限默认值"><a href="#登录VPS修改权限默认值" class="headerlink" title="登录VPS修改权限默认值"></a>登录VPS修改权限默认值</h3><ul>
+<li>ssh -p 你的远程端口 root@你的远程ip地址</li>
+<li>vim /etc/ssh/sshd_config<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PubkeyAuthentication yes #允许公钥认证</span><br><span class="line"></span><br><span class="line">AuthorizedKeysFile      .ssh&#x2F;authorized_keys #保存公钥认证文件自动登录</span><br><span class="line"></span><br><span class="line">PasswordAuthentication no　 #不允许密码方式的登录</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># &#x2F;etc&#x2F;init.d&#x2F;sshd restart</span><br><span class="line">停止 sshd：                                                [确定]</span><br><span class="line">正在启动 sshd：                                            [确定]</span><br><span class="line"></span><br><span class="line"> # ps -aux | grep &quot;sshd&quot;</span><br><span class="line">Warning: bad syntax, perhaps a bogus &#39;-&#39;? See &#x2F;usr&#x2F;share&#x2F;doc&#x2F;procps-3.2.8&#x2F;FAQ</span><br><span class="line">root      2664  0.0  1.2 102144  6524 ?        Ss   14:57   0:00 sshd: root@pts&#x2F;0</span><br><span class="line">root      2745  0.0  0.4  66296  2580 ?        Ss   15:14   0:00 &#x2F;usr&#x2F;sbin&#x2F;sshd</span><br><span class="line">root      2748  0.0  0.3 103388  2040 pts&#x2F;0    S+   15:15   0:00 grep sshd</span><br></pre></td></tr></table></figure>
+<ul>
+<li>断开远程链接或者重新开启一个新的shell窗口</li>
+</ul>
+<hr>
+        
+          <p class="article-more-link">
+            <a href="/2018/07/07/ssh%E5%AF%86%E9%92%A5%E7%99%BB%E5%BD%95/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/07/07/ssh%E5%AF%86%E9%92%A5%E7%99%BB%E5%BD%95/" data-id="ckivmlly2002yx7208zhn8uho" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/07/07/ssh%E5%AF%86%E9%92%A5%E7%99%BB%E5%BD%95/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-CentOS6-8源码安装Mysql5-6-40" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/30/CentOS6-8%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85Mysql5-6-40/" class="article-date">
+  <time datetime="2018-06-30T05:25:49.000Z" itemprop="datePublished">2018-06-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/30/CentOS6-8%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85Mysql5-6-40/">CentOS6.8源码安装Mysql5.6.40</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="源码安装mysql5-6-40"><a href="#源码安装mysql5-6-40" class="headerlink" title="源码安装mysql5.6.40"></a>源码安装mysql5.6.40</h3><ul>
+<li>下载源码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;dev.mysql.com&#x2F;get&#x2F;Downloads&#x2F;MySQL-5.6&#x2F;mysql-5.6.40-linux-glibc2.12-x86_64.tar.gz</span><br><span class="line">tar xvf mysql-5.6.40-linux-glibc2.12-x86_64.tar.gz</span><br></pre></td></tr></table></figure></li>
+<li>创建组<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(12:24 上午) [root@XXX &#x2F;]# cd &#x2F;</span><br><span class="line"></span><br><span class="line">(12:23 上午) [root@XXX &#x2F;]# groupadd -g 306 mysql</span><br><span class="line">groupadd：“mysql”组已存在</span><br><span class="line">(12:24 上午) [root@XXX &#x2F;]# useradd -g 306 -u 306 -s&#x2F;sbin&#x2F;nologin -M mysql</span><br><span class="line">useradd：“306”组不存在</span><br><span class="line">(12:24 上午) [root@XXX &#x2F;]# id mysql</span><br><span class="line">uid&#x3D;27(mysql) gid&#x3D;27(mysql) 组&#x3D;27(mysql)</span><br></pre></td></tr></table></figure></li>
+<li><p>修改属主属组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(12:26 上午) [root@XXX &#x2F;]# mkdir -pv &#x2F;data&#x2F;mysql</span><br><span class="line">mkdir: 已创建目录 &quot;&#x2F;data&quot;</span><br><span class="line">mkdir: 已创建目录 &quot;&#x2F;data&#x2F;mysql&quot;</span><br><span class="line">(12:27 上午) [root@XXX &#x2F;]# mkdir &#x2F;usr&#x2F;local&#x2F;mysql</span><br><span class="line">(12:27 上午) [root@XXX &#x2F;]# cp -ax &#x2F;home&#x2F;mysql-5.6.40-linux-glibc2.12-x86_64&#x2F;* &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;</span><br><span class="line">(12:28 上午) [root@XXX &#x2F;]# chown -R mysql.mysql &#x2F;usr&#x2F;local&#x2F;mysql</span><br><span class="line">(12:29 上午) [root@XXX &#x2F;]# chown -R mysql.mysql &#x2F;data&#x2F;mysql</span><br><span class="line">(12:29 上午) [root@XXX &#x2F;]# cp &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;support-files&#x2F;my-default.cnf &#x2F;etc&#x2F;my.cnf</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2018/06/30/CentOS6-8%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85Mysql5-6-40/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/06/30/CentOS6-8%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85Mysql5-6-40/" data-id="ckivmllvn0008x72004w3dysg" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/06/30/CentOS6-8%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85Mysql5-6-40/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/" rel="tag">VPS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-openSUSE15-0安装Xblog" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/13/openSUSE15-0%E5%AE%89%E8%A3%85Xblog/" class="article-date">
+  <time datetime="2018-06-13T02:29:51.000Z" itemprop="datePublished">2018-06-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/13/openSUSE15-0%E5%AE%89%E8%A3%85Xblog/">openSUSE15.0安装Xblog</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="安装软件包"><a href="#安装软件包" class="headerlink" title="安装软件包"></a>安装软件包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo zypper <span class="keyword">in</span> apache2-mod_php7 php-composer php7 php7-ctype php7-dom php7-fileinfo php7-gd php7-iconv php7-json php7-mbstring php7-mysql php7-openssl php7-pdo php7-phar php7-sqlite php7-tokenizer php7-xmlreader php7-xmlwriter php7-zlib</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2018/06/13/openSUSE15-0%E5%AE%89%E8%A3%85Xblog/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/06/13/openSUSE15-0%E5%AE%89%E8%A3%85Xblog/" data-id="ckivmllwh0024x720h3360fle" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/06/13/openSUSE15-0%E5%AE%89%E8%A3%85Xblog/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-流氓app" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/09/%E6%B5%81%E6%B0%93app/" class="article-date">
+  <time datetime="2018-06-09T07:58:22.000Z" itemprop="datePublished">2018-06-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/09/%E6%B5%81%E6%B0%93app/">流氓app</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        The article has been encrypted, please enter your password to view.<br>
+        
+          <p class="article-more-link">
+            <a href="/2018/06/09/%E6%B5%81%E6%B0%93app/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/06/09/%E6%B5%81%E6%B0%93app/" data-id="ckivmllyz005gx7201m8vffi4" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/06/09/%E6%B5%81%E6%B0%93app/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B0%8F%E8%AF%AD/" rel="tag">小语</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-HTC-U-Ultra那些事儿" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/02/HTC-U-Ultra%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" class="article-date">
+  <time datetime="2018-06-02T11:44:25.000Z" itemprop="datePublished">2018-06-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/02/HTC-U-Ultra%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/">HTC U Ultra那些事儿</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这个机器唯一让我不喜欢的一点就是屏幕太耗电了<br>一个2k的LCD屏幕竟然只是个3000毫安的电池<br>也怪当初买的急 不懂这些。。。。。。。<br>这里手机折腾的一些记录心得吧 闲的无聊<br>1.手机官解bl.<br>2.刷第三方recovery.<br>3.获得root权限。<br>4.S-ON.</p>
+<hr>
+<h3 id="刷入第三方ROM"><a href="#刷入第三方ROM" class="headerlink" title="刷入第三方ROM"></a>刷入第三方ROM</h3><ul>
+<li>链接:<a href="https://forum.xda-developers.com/u-ultra/development/rom-leedroid-ultra-v1-0-0-apr-18th-fast-t3591645" target="_blank" rel="noopener">https://forum.xda-developers.com/u-ultra/development/rom-leedroid-ultra-v1-0-0-apr-18th-fast-t3591645</a></li>
+<li>ROM下载地址:<a href="http://www.leedroid.co.uk/" target="_blank" rel="noopener">http://www.leedroid.co.uk/</a></li>
+<li>刷机方法上面链接里面有(刷机前记得校验MD5)</li>
+<li>官解bl地址:<a href="http://www.htcdev.com/" target="_blank" rel="noopener">http://www.htcdev.com/</a></li>
+<li><a href="http://bbs.htcui.com/forum.php?mod=viewthread&amp;tid=1218&amp;extra=page%3D1" target="_blank" rel="noopener">解鎖刷機方法</a></li>
+<li>recovery下载地址:<a href="https://dl.twrp.me/oce/" target="_blank" rel="noopener">https://dl.twrp.me/oce/</a></li>
+</ul>
+<hr>
+        
+          <p class="article-more-link">
+            <a href="/2018/06/02/HTC-U-Ultra%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/06/02/HTC-U-Ultra%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" data-id="ckivmlm090084x720au579lfz" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/06/02/HTC-U-Ultra%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%89%8B%E6%9C%BA/" rel="tag">手机</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-KDE桌面环境用Dolphin访问手机空间" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/30/KDE%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E7%94%A8Dolphin%E8%AE%BF%E9%97%AE%E6%89%8B%E6%9C%BA%E7%A9%BA%E9%97%B4/" class="article-date">
+  <time datetime="2018-05-30T07:14:42.000Z" itemprop="datePublished">2018-05-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/30/KDE%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E7%94%A8Dolphin%E8%AE%BF%E9%97%AE%E6%89%8B%E6%9C%BA%E7%A9%BA%E9%97%B4/">KDE桌面环境用Dolphin访问手机空间</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="列出手机的信息"><a href="#列出手机的信息" class="headerlink" title="列出手机的信息"></a>列出手机的信息</h3><ul>
+<li>倒数第二行:ID 0bb4:0f87<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">lsusb</span><br><span class="line">Bus 002 Device 002: ID 8087:0024 Intel Corp. Integrated Rate Matching Hub</span><br><span class="line">Bus 002 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub</span><br><span class="line">Bus 001 Device 003: ID 1bcf:2883 Sunplus Innovation Technology Inc.</span><br><span class="line">Bus 001 Device 002: ID 8087:0024 Intel Corp. Integrated Rate Matching Hub</span><br><span class="line">Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub</span><br><span class="line">Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub</span><br><span class="line">Bus 003 Device 003: ID 15d9:0a4e Trust International B.V.</span><br><span class="line">Bus 003 Device 004: ID 0bb4:0f87 HTC (High Tech Computer Corp.)</span><br><span class="line">Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub</span><br></pre></td></tr></table></figure></li>
+<li>dmesg 查看详细信息:New USB device found, idVendor=0bb4, idProduct=0f87<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">dmesg | tail -n 15</span><br><span class="line">[   14.240087] wlan0: associate with 8c:f2:28:f4:22:00 (try 1&#x2F;3)</span><br><span class="line">[   14.245141] wlan0: RX AssocResp from 8c:f2:28:f4:22:00 (capab&#x3D;0x421 status&#x3D;0 aid&#x3D;16)</span><br><span class="line">[   14.245163] wlan0: AP has invalid WMM params (CWmin&#x2F;max&#x3D;15&#x2F;1023 for ACI 0), using defaults</span><br><span class="line">[   14.245263] wlan0: associated</span><br><span class="line">[   14.245316] IPv6: ADDRCONF(NETDEV_CHANGE): wlan0: link becomes ready</span><br><span class="line">[  267.678087] usb 3-1: reset high-speed USB device number 2 using xhci_hcd</span><br><span class="line">[  267.953974] usb 3-1: reset high-speed USB device number 2 using xhci_hcd</span><br><span class="line">[  288.861922] usb 3-1: reset high-speed USB device number 2 using xhci_hcd</span><br><span class="line">[  289.622139] usb 3-1: USB disconnect, device number 2</span><br><span class="line">[  294.061465] usb 3-1: new high-speed USB device number 4 using xhci_hcd</span><br><span class="line">[  294.211270] usb 3-1: New USB device found, idVendor&#x3D;0bb4, idProduct&#x3D;0f87</span><br><span class="line">[  294.211278] usb 3-1: New USB device strings: Mfr&#x3D;1, Product&#x3D;2, SerialNumber&#x3D;3</span><br><span class="line">[  294.211283] usb 3-1: Product: Android Phone</span><br><span class="line">[  294.211287] usb 3-1: Manufacturer: HTC</span><br><span class="line">[  294.211291] usb 3-1: SerialNumber: FA79J1700722</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2018/05/30/KDE%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E7%94%A8Dolphin%E8%AE%BF%E9%97%AE%E6%89%8B%E6%9C%BA%E7%A9%BA%E9%97%B4/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/05/30/KDE%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E7%94%A8Dolphin%E8%AE%BF%E9%97%AE%E6%89%8B%E6%9C%BA%E7%A9%BA%E9%97%B4/" data-id="ckivmllvq000dx7208hbh49lf" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/05/30/KDE%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E7%94%A8Dolphin%E8%AE%BF%E9%97%AE%E6%89%8B%E6%9C%BA%E7%A9%BA%E9%97%B4/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-修改EFI默认启动的操作系统" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/24/%E4%BF%AE%E6%94%B9EFI%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8%E7%9A%84%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="article-date">
+  <time datetime="2018-05-24T12:10:00.000Z" itemprop="datePublished">2018-05-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/24/%E4%BF%AE%E6%94%B9EFI%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8%E7%9A%84%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">修改EFI默认启动的操作系统</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="机器是双系统-双硬盘-双启动-默认启动的是openSUSE-具体引导见下图"><a href="#机器是双系统-双硬盘-双启动-默认启动的是openSUSE-具体引导见下图" class="headerlink" title="机器是双系统 双硬盘 双启动 默认启动的是openSUSE 具体引导见下图"></a>机器是双系统 双硬盘 双启动 默认启动的是openSUSE 具体引导见下图</h3><h3 id="修改实现了双系统自动切换-以前只能默认openSUSE-要启动win每次都要ESC"><a href="#修改实现了双系统自动切换-以前只能默认openSUSE-要启动win每次都要ESC" class="headerlink" title="修改实现了双系统自动切换(以前只能默认openSUSE 要启动win每次都要ESC)"></a>修改实现了双系统自动切换(以前只能默认openSUSE 要启动win每次都要ESC)</h3><p><img src="http://wx3.sinaimg.cn/mw690/56e62e01gy1frmdub0ggrj20vg0b1di9.jpg" alt="系统分区状态"></p>
+<ul>
+<li>sda(固态-主硬盘区)sdb(机械盘-放在光驱位置)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">SUSE:~ # lsblk</span><br><span class="line">NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT</span><br><span class="line">sda      8:0    0 111.8G  0 disk </span><br><span class="line">├─sda1   8:1    0    16M  0 part </span><br><span class="line">├─sda2   8:2    0    84M  0 part &#x2F;boot&#x2F;efi</span><br><span class="line">├─sda3   8:3    0     2G  0 part [SWAP]</span><br><span class="line">├─sda4   8:4    0  49.7G  0 part &#x2F;</span><br><span class="line">├─sda5   8:5    0  59.2G  0 part </span><br><span class="line">└─sda6   8:6    0   871M  0 part </span><br><span class="line">sdb      8:16   0 931.5G  0 disk </span><br><span class="line">├─sdb1   8:17   0   195M  0 part </span><br><span class="line">├─sdb2   8:18   0   100G  0 part &#x2F;var&#x2F;run&#x2F;media&#x2F;xuan&#x2F;WinData</span><br><span class="line">├─sdb3   8:19   0    50G  0 part &#x2F;var&#x2F;run&#x2F;media&#x2F;xuan&#x2F;kali</span><br><span class="line">├─sdb4   8:20   0    50G  0 part &#x2F;opt</span><br><span class="line">├─sdb5   8:21   0   200G  0 part &#x2F;home</span><br><span class="line">├─sdb6   8:22   0   200G  0 part &#x2F;var&#x2F;run&#x2F;media&#x2F;xuan&#x2F;data</span><br><span class="line">└─sdb7   8:23   0 331.3G  0 part</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2018/05/24/%E4%BF%AE%E6%94%B9EFI%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8%E7%9A%84%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/05/24/%E4%BF%AE%E6%94%B9EFI%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8%E7%9A%84%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" data-id="ckivmllyh0044x720gbgo4kdn" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/05/24/%E4%BF%AE%E6%94%B9EFI%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8%E7%9A%84%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-tools" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/15/tools/" class="article-date">
+  <time datetime="2018-05-15T09:38:54.000Z" itemprop="datePublished">2018-05-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/15/tools/">win10小工具</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="剪切板工具：Ditto"><a href="#剪切板工具：Ditto" class="headerlink" title="剪切板工具：Ditto"></a>剪切板工具：Ditto</h2><h3 id="再也不用担心刚才复制的内容找不到了。"><a href="#再也不用担心刚才复制的内容找不到了。" class="headerlink" title="再也不用担心刚才复制的内容找不到了。"></a>再也不用担心刚才复制的内容找不到了。</h3><p><a href="https://ditto-cp.sourceforge.io/" target="_blank" rel="noopener">https://ditto-cp.sourceforge.io/</a></p>
+<h2 id="录屏工具：LICEcap"><a href="#录屏工具：LICEcap" class="headerlink" title="录屏工具：LICEcap"></a>录屏工具：LICEcap</h2><h3 id="比GifCam更好用。"><a href="#比GifCam更好用。" class="headerlink" title="比GifCam更好用。"></a>比GifCam更好用。</h3><p><a href="https://licecap.jaleco.com/download" target="_blank" rel="noopener">https://licecap.jaleco.com/download</a><br>
+        
+          <p class="article-more-link">
+            <a href="/2018/05/15/tools/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/05/15/tools/" data-id="ckivmlly7003ax7208otffya2" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/05/15/tools/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%86%E4%BA%AB/" rel="tag">分享</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-搬瓦工吐槽" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/12/%E6%90%AC%E7%93%A6%E5%B7%A5%E5%90%90%E6%A7%BD/" class="article-date">
+  <time datetime="2018-05-12T06:08:21.000Z" itemprop="datePublished">2018-05-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/12/%E6%90%AC%E7%93%A6%E5%B7%A5%E5%90%90%E6%A7%BD/">吐槽搬瓦工</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        The article has been encrypted, please enter your password to view.<br>
+        
+          <p class="article-more-link">
+            <a href="/2018/05/12/%E6%90%AC%E7%93%A6%E5%B7%A5%E5%90%90%E6%A7%BD/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/05/12/%E6%90%AC%E7%93%A6%E5%B7%A5%E5%90%90%E6%A7%BD/" data-id="ckivmllyt0050x7203vj8dt8j" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/05/12/%E6%90%AC%E7%93%A6%E5%B7%A5%E5%90%90%E6%A7%BD/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/me/" rel="tag">me</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-10个让你事半功倍的网站" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/19/10%E4%B8%AA%E8%AE%A9%E4%BD%A0%E4%BA%8B%E5%8D%8A%E5%8A%9F%E5%80%8D%E7%9A%84%E7%BD%91%E7%AB%99/" class="article-date">
+  <time datetime="2018-04-19T00:25:25.000Z" itemprop="datePublished">2018-04-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/19/10%E4%B8%AA%E8%AE%A9%E4%BD%A0%E4%BA%8B%E5%8D%8A%E5%8A%9F%E5%80%8D%E7%9A%84%E7%BD%91%E7%AB%99/">10个让你事半功倍的网站</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="以下内容转自-10个让你事半功倍的网站"><a href="#以下内容转自-10个让你事半功倍的网站" class="headerlink" title="以下内容转自 10个让你事半功倍的网站"></a>以下内容转自 <a href="https://www.v2ex.com/t/447666#reply87" target="_blank" rel="noopener">10个让你事半功倍的网站</a></h1><p>1 ．一款在线电子相册制作神器：自带主题模板及背景音乐，各种分屏特效、视频编辑、录屏功能一应俱全， 让你分分钟就可以创造出精彩炫酷的照片视频！</p>
+<p><a href="https://www.apowersoft.cn/create-video" target="_blank" rel="noopener">https://www.apowersoft.cn/create-video</a></p>
+<p>2 ． 360°全景在线展示：包括了诸多闻名的博物馆：故宫博物馆、首都博物馆、中国电影博物馆、上海当代艺术博物馆、中国美术馆、红砖美术馆等几十个博物馆和美术馆。可以在线观看全景展览，可放大可转动！还可以看相关介绍和解说，极有身临其境之感！</p>
+<p><a href="http://www.artronpano.com/home/index" target="_blank" rel="noopener">http://www.artronpano.com/home/index</a><br>
+        
+          <p class="article-more-link">
+            <a href="/2018/04/19/10%E4%B8%AA%E8%AE%A9%E4%BD%A0%E4%BA%8B%E5%8D%8A%E5%8A%9F%E5%80%8D%E7%9A%84%E7%BD%91%E7%AB%99/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/04/19/10%E4%B8%AA%E8%AE%A9%E4%BD%A0%E4%BA%8B%E5%8D%8A%E5%8A%9F%E5%80%8D%E7%9A%84%E7%BD%91%E7%AB%99/" data-id="ckivmllve0000x720cyfp2iqh" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/04/19/10%E4%B8%AA%E8%AE%A9%E4%BD%A0%E4%BA%8B%E5%8D%8A%E5%8A%9F%E5%80%8D%E7%9A%84%E7%BD%91%E7%AB%99/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%86%E4%BA%AB/" rel="tag">分享</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-xxx" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/19/xxx/" class="article-date">
+  <time datetime="2018-04-19T00:25:25.000Z" itemprop="datePublished">2018-04-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/19/xxx/">系统自毁</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        The article has been encrypted, please enter your password to view.<br>
+        
+          <p class="article-more-link">
+            <a href="/2018/04/19/xxx/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/04/19/xxx/" data-id="ckivmllyd003sx7206e9c7pf3" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/04/19/xxx/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/me/" rel="tag">me</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-rsync-bakcup-vps" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/06/rsync-bakcup-vps/" class="article-date">
+  <time datetime="2018-04-06T08:56:36.000Z" itemprop="datePublished">2018-04-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/06/rsync-bakcup-vps/">rsync备份</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="备份-home"><a href="#备份-home" class="headerlink" title="备份/home"></a>备份/home</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line">echo "备份home下的点文件目录"</span><br><span class="line"></span><br><span class="line">echo "删除回收站..."</span><br><span class="line">rm -rf $HOME/.local/share/Trash/files/*</span><br><span class="line">sleep 1</span><br><span class="line"></span><br><span class="line">echo "开始备份..."</span><br><span class="line">sudo rsync -aptgovrlHAXzP --delete-excluded --partial /home/XXX/ /run/media/xuan/data/home_XXX-backup/ --exclude=&#123;"Android/*","AndroidStudioProjects/*","brlcad/*","BurpSuiteFree/*","CloudMusic/*","downloads/*","draw/*","DS-5_v5.22.0/*","DS-5-Workspace/*","Embedded/*","ldra/*","leanote/*","logs/*","mongod-data/*","Music/*","nfs_share/*","node_modules/*","src/*","Stellarium/*","tftp/*","tools/*","Video/*","study/*","rpmbuild/*","VirtualBox\ VMs/*","work/*","Picture/*","桌面/*","blog/*","Documents/*",".npm/*",".wine/*",".android/avd/*",".cache/winetricks/*",".cache/netease-cloud-music/*",".cache/mozilla/*",".cache/wine/*"&#125;</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2018/04/06/rsync-bakcup-vps/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/04/06/rsync-bakcup-vps/" data-id="ckivmllwj002bx7209jw110u5" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/04/06/rsync-bakcup-vps/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/" rel="tag">VPS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rsync/" rel="tag">rsync</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-Back-up-dot-file" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/04/Back-up-dot-file/" class="article-date">
+  <time datetime="2018-04-04T09:32:59.000Z" itemprop="datePublished">2018-04-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/04/Back-up-dot-file/">rclone网盘备份神器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>在twitter上发现了个Linux系统的备份工具支持很多网盘 当然也包括微软和谷歌的了</li>
+<li>下载了静态文件按照<a href="https://rclone.org/docs/" target="_blank" rel="noopener">官网</a>的文档配置好了之后开始备份</li>
+<li>微软网盘备份目前不需要梯子</li>
+<li>备份过程中使用了-Lu选项 它备份的并不是文档根目录的一个链接 而是深入到了链接里面把其文件备份出来了 </li>
+<li>不要在同一个目录里面sync不同的源目录 这样会覆盖掉之前的内容只保留最后的一次sync</li>
+</ul>
+<h3 id="备份交易记录"><a href="#备份交易记录" class="headerlink" title="备份交易记录"></a>备份交易记录</h3><hr>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">echo "这是备份XX期货目录内容的脚本..."</span><br><span class="line">sleep 1</span><br><span class="line">echo "先列出现在网盘目录(backup)内容..."</span><br><span class="line"></span><br><span class="line">rclone lsd onedrive:/backup/qihuo</span><br><span class="line">sleep 2</span><br><span class="line"></span><br><span class="line">echo "进入源码目录准备同步..."</span><br><span class="line">cd /run/media/AAA/WinData/qihuo/</span><br><span class="line">pwd</span><br><span class="line">sleep 1</span><br><span class="line"></span><br><span class="line">rclone sync -Luv XX期货/ onedrive:backup/qihuo/XXqihuo</span><br></pre></td></tr></table></figure>
+<h3 id="备份软件源码"><a href="#备份软件源码" class="headerlink" title="备份软件源码"></a>备份软件源码</h3><hr>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">echo "这是备份文华财经目录内容的脚本..."</span><br><span class="line">sleep 1</span><br><span class="line">echo "先列出现在网盘目录(backup)内容..."</span><br><span class="line"></span><br><span class="line">rclone lsd onedrive:/backup/qihuo</span><br><span class="line">sleep 2</span><br><span class="line"></span><br><span class="line">echo "进入源码目录准备同步..."</span><br><span class="line">cd /run/media/XX/WinData/qihuo/</span><br><span class="line">pwd</span><br><span class="line">sleep 1</span><br><span class="line"></span><br><span class="line">rclone sync -Luv 文华财经/ onedrive:backup/qihuo/wenhuacaijing</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2018/04/04/Back-up-dot-file/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/04/04/Back-up-dot-file/" data-id="ckivmllvm0006x720hwcr9ugg" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/04/04/Back-up-dot-file/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/" rel="tag">VPS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rclone/" rel="tag">rclone</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/page/12/">&amp;laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/14/">下一页&amp;raquo;</a>
+  </nav>
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title recent-posts">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/03/08/%E6%A3%80%E6%9F%A5Go%E5%AF%BC%E5%85%A5%E5%8C%85%E7%9A%84%E5%8D%B1%E9%99%A9%E6%80%A7/">检查Go导入包的危险性</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/05/%E5%9F%9F%E5%90%8D/">域名</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/03/Flames/">雙生紫焰Violet Flames</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/01/cmha/">承蒙厚爱</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/24/%E6%81%B6/">恶</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

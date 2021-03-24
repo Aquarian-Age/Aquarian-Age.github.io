@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>openSUSE15.0安装Xblog | AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="安装软件包1sudo zypper in apache2-mod_php7 php-composer php7 php7-ctype php7-dom php7-fileinfo php7-gd php7-iconv php7-json php7-mbstring php7-mysql php7-openssl php7-pdo php7-phar php7-sqlite php7-tokeniz">
+<meta property="og:type" content="article">
+<meta property="og:title" content="openSUSE15.0安装Xblog">
+<meta property="og:url" content="https://aquarian-age.github.io/2018/06/13/openSUSE15-0%E5%AE%89%E8%A3%85Xblog/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:description" content="安装软件包1sudo zypper in apache2-mod_php7 php-composer php7 php7-ctype php7-dom php7-fileinfo php7-gd php7-iconv php7-json php7-mbstring php7-mysql php7-openssl php7-pdo php7-phar php7-sqlite php7-tokeniz">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wx1.sinaimg.cn/mw1024/56e62e01ly1fs8kw1gbumj211d0iagnf.jpg">
+<meta property="og:image" content="https://wx3.sinaimg.cn/mw1024/56e62e01ly1fs8kw1g8alj211v0kujtd.jpg">
+<meta property="article:published_time" content="2018-06-13T02:29:51.000Z">
+<meta property="article:modified_time" content="2020-10-16T10:44:47.789Z">
+<meta property="article:author" content="Liangzi">
+<meta property="article:tag" content="openSUSE">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wx1.sinaimg.cn/mw1024/56e62e01ly1fs8kw1gbumj211d0iagnf.jpg">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-openSUSE15-0安装Xblog" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/13/openSUSE15-0%E5%AE%89%E8%A3%85Xblog/" class="article-date">
+  <time datetime="2018-06-13T02:29:51.000Z" itemprop="datePublished">2018-06-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      openSUSE15.0安装Xblog
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h3 id="安装软件包"><a href="#安装软件包" class="headerlink" title="安装软件包"></a>安装软件包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo zypper <span class="keyword">in</span> apache2-mod_php7 php-composer php7 php7-ctype php7-dom php7-fileinfo php7-gd php7-iconv php7-json php7-mbstring php7-mysql php7-openssl php7-pdo php7-phar php7-sqlite php7-tokenizer php7-xmlreader php7-xmlwriter php7-zlib</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="Composer"><a href="#Composer" class="headerlink" title="Composer"></a><a href="https://getcomposer.org/download/" target="_blank" rel="noopener">Composer</a></h3><ul>
+<li>以root身份建立一个安装目录</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt</span><br><span class="line">mkdir composer</span><br><span class="line"><span class="built_in">cd</span> composer</span><br></pre></td></tr></table></figure>
+<ul>
+<li>把下面代码保存一个.sh文件进行安装<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">php -r &quot;copy(&#39;https:&#x2F;&#x2F;getcomposer.org&#x2F;installer&#39;, &#39;composer-setup.php&#39;);&quot;</span><br><span class="line">php -r &quot;if (hash_file(&#39;SHA384&#39;, &#39;composer-setup.php&#39;) &#x3D;&#x3D;&#x3D; &#39;544e09ee996cdf60ece3804abc52599c22b1f40f4323403c44d44fdfdd586475ca9813a858088ffbc1f233e9b180f061&#39;) &#123; echo &#39;Installer verified&#39;; &#125; else &#123; echo &#39;Installer corrupt&#39;; unlink(&#39;composer-setup.php&#39;); &#125; echo PHP_EOL;&quot;</span><br><span class="line">php composer-setup.php</span><br><span class="line">php -r &quot;unlink(&#39;composer-setup.php&#39;);&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p>生成可执行权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod +x ****.sh</span><br><span class="line">.&#x2F;****.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>退出root身份并返回用户主目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd</span><br></pre></td></tr></table></figure></li>
+<li>生成环境变量到.bashrc<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#composer</span><br><span class="line">export PATH&#x3D;&#x2F;opt&#x2F;composer&#x2F;:$PATH</span><br></pre></td></tr></table></figure></li>
+<li>使变量生效<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~&#x2F;.bashrc</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a><a href="https://nodejs.org/en/" target="_blank" rel="noopener">nodejs</a></h3><ul>
+<li>系统自带</li>
+</ul>
+<h3 id="从-GitHub-下载源码开始安装"><a href="#从-GitHub-下载源码开始安装" class="headerlink" title="从 GitHub 下载源码开始安装"></a>从 GitHub 下载源码开始安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;lufficc&#x2F;Xblog.git blog --depth 1</span><br><span class="line">cd blog</span><br></pre></td></tr></table></figure>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">composer.phar install</span><br><span class="line">cp .env.example .env</span><br><span class="line">php artisan key:generate</span><br></pre></td></tr></table></figure>
+<h3 id="在-env文件中填好数据库连接，例如"><a href="#在-env文件中填好数据库连接，例如" class="headerlink" title="在.env文件中填好数据库连接，例如"></a>在.env文件中填好数据库连接，例如</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DB_CONNECTION&#x3D;&quot;mysql&quot;</span><br><span class="line">DB_HOST&#x3D;&quot;127.0.0.1&quot;</span><br><span class="line">DB_PORT&#x3D;3306</span><br><span class="line">DB_DATABASE&#x3D;blog</span><br><span class="line">DB_USERNAME&#x3D;root</span><br><span class="line">DB_PASSWORD&#x3D;123456</span><br></pre></td></tr></table></figure>
+<h3 id="运行数据库迁移的准备"><a href="#运行数据库迁移的准备" class="headerlink" title="运行数据库迁移的准备"></a>运行数据库迁移的准备</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -s</span><br></pre></td></tr></table></figure>
+<ul>
+<li>编辑/etc/my.cnf:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># [mysqld1]</span><br><span class="line">port       &#x3D; 3306</span><br><span class="line">datadir    &#x3D; &#x2F;var&#x2F;lib&#x2F;mysql</span><br><span class="line">pid-file   &#x3D; &#x2F;var&#x2F;lib&#x2F;mysql&#x2F;mysqld.pid</span><br><span class="line">socket     &#x3D; &#x2F;var&#x2F;lib&#x2F;mysql&#x2F;mysql.sock</span><br><span class="line"># user       &#x3D; mysql</span><br><span class="line">user       &#x3D;root</span><br></pre></td></tr></table></figure></li>
+<li><a href="https://www.jianshu.com/p/7e9cb8fe4e6b" target="_blank" rel="noopener">设置mysql登录密码：</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># systemctl start mysql.service</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># mysql -u root -p</span><br><span class="line">Enter password: </span><br><span class="line">Welcome to the MariaDB monitor.  Commands end with ; or \g.</span><br><span class="line">Your MariaDB connection id is 27</span><br><span class="line">Server version: 10.2.15-MariaDB openSUSE package</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.</span><br><span class="line"></span><br><span class="line">Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.</span><br><span class="line"></span><br><span class="line">MariaDB [(none)]&gt; use mysql</span><br><span class="line">Reading table information for completion of table and column names</span><br><span class="line">You can turn off this feature to get a quicker startup with -A</span><br><span class="line"></span><br><span class="line">Database changed</span><br><span class="line">MariaDB [mysql]&gt; update user set password&#x3D;PASSWORD(&quot;123456&quot;) where user&#x3D;&quot;root&quot;; </span><br><span class="line">Query OK, 4 rows affected (0.00 sec)</span><br><span class="line">Rows matched: 4  Changed: 4  Warnings: 0</span><br><span class="line"></span><br><span class="line">MariaDB [mysql]&gt; exit</span><br><span class="line">Bye</span><br></pre></td></tr></table></figure></li>
+<li>重启服务:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># systemctl restart mysql.service</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<ul>
+<li>退出root模式测试设置是否有效:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">~&#x2F;work&#x2F;blog</span><br><span class="line">&gt;mysql -u root -p</span><br><span class="line">Enter password: </span><br><span class="line">Welcome to the MariaDB monitor.  Commands end with ; or \g.</span><br><span class="line">Your MariaDB connection id is 15</span><br><span class="line">Server version: 10.2.15-MariaDB openSUSE package</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.</span><br><span class="line"></span><br><span class="line">Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.</span><br><span class="line"></span><br><span class="line">MariaDB [(none)]&gt; status</span><br><span class="line"></span><br><span class="line">mysql  Ver 15.1 Distrib 10.2.15-MariaDB, for Linux (x86_64) using readline 5.1</span><br><span class="line"></span><br><span class="line">Connection id:          15</span><br><span class="line">Current database:</span><br><span class="line">Current user:           root@localhost</span><br><span class="line">SSL:                    Not in use</span><br><span class="line">Current pager:          less</span><br><span class="line">Using outfile:          &#39;&#39;</span><br><span class="line">Using delimiter:        ;</span><br><span class="line">Server:                 MariaDB</span><br><span class="line">Server version:         10.2.15-MariaDB openSUSE package</span><br><span class="line">Protocol version:       10</span><br><span class="line">Connection:             Localhost via UNIX socket</span><br><span class="line">Server characterset:    utf8mb4</span><br><span class="line">Db     characterset:    utf8mb4</span><br><span class="line">Client characterset:    utf8</span><br><span class="line">Conn.  characterset:    utf8</span><br><span class="line">UNIX socket:            &#x2F;run&#x2F;mysql&#x2F;mysql.sock</span><br><span class="line">Uptime:                 3 min 34 sec</span><br><span class="line"></span><br><span class="line">Threads: 8  Questions: 6  Slow queries: 0  Opens: 17  Flush tables: 1  Open tables: 11  Queries per second avg: 0.028</span><br><span class="line">--------------</span><br><span class="line"></span><br><span class="line">MariaDB [(none)]&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://books.google.com/books?id=YFZKDwAAQBAJ&amp;pg=PT256&amp;lpg=PT256&amp;dq=mysql++Unknown+database+%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D&amp;source=bl&amp;ots=FgNPY5-n7r&amp;sig=_v1DlURQQhSuWykInYja_TtD_9I&amp;hl=zh-CN&amp;sa=X&amp;ved=0ahUKEwjlvMDu783bAhUq6IMKHd4uCeIQ6AEIazAH#v=onepage&amp;q=mysql%20%20Unknown%20database%20%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D&amp;f=false" target="_blank" rel="noopener">创建数据库</a></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">~&#x2F;work&#x2F;blog</span><br><span class="line">&gt;mysql -u root -p</span><br><span class="line">Enter password: </span><br><span class="line">Welcome to the MariaDB monitor.  Commands end with ; or \g.</span><br><span class="line">Your MariaDB connection id is 28</span><br><span class="line">Server version: 10.2.15-MariaDB openSUSE package</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.</span><br><span class="line"></span><br><span class="line">Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.</span><br><span class="line"></span><br><span class="line">MariaDB [(none)]&gt; CREATE DATABASE blog;</span><br><span class="line">Query OK, 1 row affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [(none)]&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>登录数据库<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">~&#x2F;work&#x2F;blog</span><br><span class="line">&gt;mysql -u root -p blog</span><br><span class="line">Enter password: </span><br><span class="line">Welcome to the MariaDB monitor.  Commands end with ; or \g.</span><br><span class="line">Your MariaDB connection id is 33</span><br><span class="line">Server version: 10.2.15-MariaDB openSUSE package</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.</span><br><span class="line"></span><br><span class="line">Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.</span><br><span class="line"></span><br><span class="line">MariaDB [blog]&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="数据库迁移"><a href="#数据库迁移" class="headerlink" title="数据库迁移"></a>数据库迁移</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~&#x2F;work&#x2F;blog</span><br><span class="line">&gt;php artisan migrate</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="安装前端框架"><a href="#安装前端框架" class="headerlink" title="安装前端框架"></a>安装前端框架</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">~&#x2F;work&#x2F;blog</span><br><span class="line">&gt;npm install</span><br><span class="line">added 2292 packages in 157.769s</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="编译前端"><a href="#编译前端" class="headerlink" title="编译前端"></a>编译前端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~&#x2F;work&#x2F;blog</span><br><span class="line">&gt;npm run dev</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="安装完毕，你可以启动服务器来访问-http-127-0-0-1-8000"><a href="#安装完毕，你可以启动服务器来访问-http-127-0-0-1-8000" class="headerlink" title="安装完毕，你可以启动服务器来访问 http://127.0.0.1:8000/"></a>安装完毕，你可以启动服务器来访问 <a href="http://127.0.0.1:8000/" target="_blank" rel="noopener">http://127.0.0.1:8000/</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;php artisan serve</span><br><span class="line">Laravel development server started: &lt;http:&#x2F;&#x2F;127.0.0.1:8000&gt;</span><br><span class="line">[Tue Jun 12 11:53:17 2018] 127.0.0.1:52976 [200]: &#x2F;favicon.ico</span><br></pre></td></tr></table></figure>
+<ul>
+<li>为了不让网站看起来空荡荡的，你可以生产一些假数据：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan db:seed</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="修改博客头像"><a href="#修改博客头像" class="headerlink" title="修改博客头像"></a>修改博客头像</h3><ul>
+<li><p>把<a href="https://raw.githubusercontent.com/lufficc/images/master/Xblog/logo.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/lufficc/images/master/Xblog/logo.png</a><br>替换为 <a href="https://raw.githubusercontent.com/Aquarian-Age/Xblog/master/flower_of_life.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/Aquarian-Age/Xblog/master/flower_of_life.png</a></p>
+</li>
+<li><p>具體實現方法：<br>  把自己喜歡的圖片(注意版权)下載過來 修改爲563X563像素 上傳到分支<br>  然後獲取圖片的地址：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chrome按F12 --&gt; sources --&gt; open image in new tab</span><br></pre></td></tr></table></figure>
+<p>  在新窗口中會生成圖片地址<br>  然後用ack在源碼中搜索原圖片地址（如下两项）進行替換</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">resources&#x2F;views&#x2F;index.blade.php</span><br><span class="line">&lt;img class&#x3D;&quot;img-circle&quot; src&#x3D;&quot;&#123;&#123; $avatar or &#39;https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Aquarian-Age&#x2F;Xblog&#x2F;master&#x2F;flower_of_life.png&#39; &#125;&#125;&quot; alt&#x3D;&quot;&#123;&#123; $author or &#39;Author&#39; &#125;&#125;&quot;&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">resources&#x2F;views&#x2F;widget&#x2F;user.blade.php</span><br><span class="line"> src&#x3D;&quot;&#123;&#123; $avatar or &#39;https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Aquarian-Age&#x2F;Xblog&#x2F;master&#x2F;flower_of_life.png&#39; &#125;&#125;&quot;</span><br><span class="line">             alt&#x3D;&quot;User Avatar&quot;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h3><ul>
+<li><a href="https://lufficc.com/blog/how-to-install-my-blog#%E6%96%87%E7%AB%A0%E6%96%B9%E9%9D%A2" target="_blank" rel="noopener">https://lufficc.com/blog/how-to-install-my-blog#%E6%96%87%E7%AB%A0%E6%96%B9%E9%9D%A2</a></li>
+</ul>
+<hr>
+<p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+<p><img src="https://wx1.sinaimg.cn/mw1024/56e62e01ly1fs8kw1gbumj211d0iagnf.jpg" alt="示例1"><br><img src="https://wx3.sinaimg.cn/mw1024/56e62e01ly1fs8kw1g8alj211v0kujtd.jpg" alt="示例"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/06/13/openSUSE15-0%E5%AE%89%E8%A3%85Xblog/" data-id="ckivmllwh0024x720h3360fle" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/06/13/openSUSE15-0%E5%AE%89%E8%A3%85Xblog/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2018/06/30/CentOS6-8%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85Mysql5-6-40/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          CentOS6.8源码安装Mysql5.6.40
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/06/09/%E6%B5%81%E6%B0%93app/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">流氓app</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装软件包"><span class="toc-number">1.</span> <span class="toc-text">安装软件包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Composer"><span class="toc-number">2.</span> <span class="toc-text">Composer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nodejs"><span class="toc-number">3.</span> <span class="toc-text">nodejs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#从-GitHub-下载源码开始安装"><span class="toc-number">4.</span> <span class="toc-text">从 GitHub 下载源码开始安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">5.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在-env文件中填好数据库连接，例如"><span class="toc-number">6.</span> <span class="toc-text">在.env文件中填好数据库连接，例如</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行数据库迁移的准备"><span class="toc-number">7.</span> <span class="toc-text">运行数据库迁移的准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库迁移"><span class="toc-number">8.</span> <span class="toc-text">数据库迁移</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装前端框架"><span class="toc-number">9.</span> <span class="toc-text">安装前端框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编译前端"><span class="toc-number">10.</span> <span class="toc-text">编译前端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装完毕，你可以启动服务器来访问-http-127-0-0-1-8000"><span class="toc-number">11.</span> <span class="toc-text">安装完毕，你可以启动服务器来访问 http:&#x2F;&#x2F;127.0.0.1:8000&#x2F;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改博客头像"><span class="toc-number">12.</span> <span class="toc-text">修改博客头像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#參考"><span class="toc-number">13.</span> <span class="toc-text">參考</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2018/06/13/openSUSE15-0%E5%AE%89%E8%A3%85Xblog/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

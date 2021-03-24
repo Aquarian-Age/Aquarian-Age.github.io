@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>rclone网盘备份神器 | AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在twitter上发现了个Linux系统的备份工具支持很多网盘 当然也包括微软和谷歌的了 下载了静态文件按照官网的文档配置好了之后开始备份 微软网盘备份目前不需要梯子 备份过程中使用了-Lu选项 它备份的并不是文档根目录的一个链接 而是深入到了链接里面把其文件备份出来了  不要在同一个目录里面sync不同的源目录 这样会覆盖掉之前的内容只保留最后的一次sync  备份交易记录 123456789">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rclone网盘备份神器">
+<meta property="og:url" content="https://aquarian-age.github.io/2018/04/04/Back-up-dot-file/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:description" content="在twitter上发现了个Linux系统的备份工具支持很多网盘 当然也包括微软和谷歌的了 下载了静态文件按照官网的文档配置好了之后开始备份 微软网盘备份目前不需要梯子 备份过程中使用了-Lu选项 它备份的并不是文档根目录的一个链接 而是深入到了链接里面把其文件备份出来了  不要在同一个目录里面sync不同的源目录 这样会覆盖掉之前的内容只保留最后的一次sync  备份交易记录 123456789">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-04-04T09:32:59.000Z">
+<meta property="article:modified_time" content="2020-10-05T22:20:58.220Z">
+<meta property="article:author" content="Liangzi">
+<meta property="article:tag" content="openSUSE">
+<meta property="article:tag" content="rclone">
+<meta property="article:tag" content="VPS">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Back-up-dot-file" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/04/Back-up-dot-file/" class="article-date">
+  <time datetime="2018-04-04T09:32:59.000Z" itemprop="datePublished">2018-04-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      rclone网盘备份神器
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <ul>
+<li>在twitter上发现了个Linux系统的备份工具支持很多网盘 当然也包括微软和谷歌的了</li>
+<li>下载了静态文件按照<a href="https://rclone.org/docs/" target="_blank" rel="noopener">官网</a>的文档配置好了之后开始备份</li>
+<li>微软网盘备份目前不需要梯子</li>
+<li>备份过程中使用了-Lu选项 它备份的并不是文档根目录的一个链接 而是深入到了链接里面把其文件备份出来了 </li>
+<li>不要在同一个目录里面sync不同的源目录 这样会覆盖掉之前的内容只保留最后的一次sync</li>
+</ul>
+<h3 id="备份交易记录"><a href="#备份交易记录" class="headerlink" title="备份交易记录"></a>备份交易记录</h3><hr>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">echo "这是备份XX期货目录内容的脚本..."</span><br><span class="line">sleep 1</span><br><span class="line">echo "先列出现在网盘目录(backup)内容..."</span><br><span class="line"></span><br><span class="line">rclone lsd onedrive:/backup/qihuo</span><br><span class="line">sleep 2</span><br><span class="line"></span><br><span class="line">echo "进入源码目录准备同步..."</span><br><span class="line">cd /run/media/AAA/WinData/qihuo/</span><br><span class="line">pwd</span><br><span class="line">sleep 1</span><br><span class="line"></span><br><span class="line">rclone sync -Luv XX期货/ onedrive:backup/qihuo/XXqihuo</span><br></pre></td></tr></table></figure>
+<h3 id="备份软件源码"><a href="#备份软件源码" class="headerlink" title="备份软件源码"></a>备份软件源码</h3><hr>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">echo "这是备份文华财经目录内容的脚本..."</span><br><span class="line">sleep 1</span><br><span class="line">echo "先列出现在网盘目录(backup)内容..."</span><br><span class="line"></span><br><span class="line">rclone lsd onedrive:/backup/qihuo</span><br><span class="line">sleep 2</span><br><span class="line"></span><br><span class="line">echo "进入源码目录准备同步..."</span><br><span class="line">cd /run/media/XX/WinData/qihuo/</span><br><span class="line">pwd</span><br><span class="line">sleep 1</span><br><span class="line"></span><br><span class="line">rclone sync -Luv 文华财经/ onedrive:backup/qihuo/wenhuacaijing</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="备份图片"><a href="#备份图片" class="headerlink" title="备份图片"></a>备份图片</h3><hr>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">echo "这是把win系统E盘目录“形态记录”的内容备份到onedrive的一个简单脚本..."</span><br><span class="line">sleep 1</span><br><span class="line">echo "先列出现在网盘backup目录内容..."</span><br><span class="line"></span><br><span class="line">rclone lsd onedrive:/backup/qihuo</span><br><span class="line">sleep 2</span><br><span class="line"></span><br><span class="line">echo "进入源码目录准备同步..."</span><br><span class="line">cd /run/media/AAA/WinData/qihuo/</span><br><span class="line">pwd</span><br><span class="line">sleep 1</span><br><span class="line"></span><br><span class="line">rclone sync -Luv 形态记录/ onedrive:backup/qihuo/xingtaijilu</span><br></pre></td></tr></table></figure>
+<h3 id="备份文档"><a href="#备份文档" class="headerlink" title="备份文档"></a>备份文档</h3><hr>
+<ul>
+<li>备份同时排除某些目录</li>
+<li>备份链接 升级备份 显示明细</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"></span><br><span class="line">echo "sync Documents to onedrive via rclone -exclude some dir......."</span><br><span class="line">echo "参数说明: https://rclone.org/filtering/"</span><br><span class="line"></span><br><span class="line">rclone -Luv --delete-excluded --exclude=&#123;"/home/x/Documents/系统移植/*","/home/x/Documents/六十甲子纳因/*","/home/x/Documents/work-dir/*","/home/x/Documents/富士通内核编译记录/*","/home/x/Documents/ebook/*","/home/x/Documents/YOCTO-DOC/*","/home/x/Documents/jinbuguo-book/*","/home/x/Documents/security/topspeedsnail/*"&#125; sync /home/x/Documents/ onedrive:openSUSE-doc</span><br></pre></td></tr></table></figure>
+<h3 id="判断日期执行备份"><a href="#判断日期执行备份" class="headerlink" title="判断日期执行备份"></a><del>判断日期执行备份</del></h3><hr>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 这是一个自动判断日期和当前系统DNS的脚本</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 默认判断为每月第一个星期的星期六 </span></span><br><span class="line">daily=$(date +%d | cut -b 2)	#判断日期 每月第一个周六的日期应小于等于7</span><br><span class="line">week=$(date +%w)	#判断周几 当前定义为周六</span><br><span class="line">dns=$(cat /etc/resolv.conf |grep 'nameserver'| cut -b 11-26 | head -n 1)	#判断DNS 8.8.8.8</span><br><span class="line"></span><br><span class="line">if [ $daily -lt 8 ] &amp;&amp; [ $week -eq 6 ] &amp;&amp; [ $dns != "8.8.8.8" ];then</span><br><span class="line">echo 今天是$(date) 当前DNS为:$dns 条件具备 准备更新home-dot-file.tar.gz文件.......</span><br><span class="line">cd $HOME/bin;</span><br><span class="line">pwd;</span><br><span class="line">sleep 3;</span><br><span class="line">sh tar-dot-file-uf.sh;</span><br><span class="line">else</span><br><span class="line">echo "今天不是更新日期?网络有异常？OMG那还是出去走走把 。。。。。。。"</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+<h3 id="更新已有打包文件"><a href="#更新已有打包文件" class="headerlink" title="更新已有打包文件"></a><del>更新已有打包文件</del></h3><hr>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 更新已打包的home-dot-file.tar.gz 同时依然排除.wine .qq .cache目录</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 每月第一个星期的星期六实行自动备份</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 日期判断脚本见本目录的date-backup-for-tar-uf-home.sh</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"></span><br><span class="line">cd $HOME/;</span><br><span class="line">pwd;</span><br><span class="line">echo "当前日期网络正常开始更新备份文件";</span><br><span class="line">sleep 3;</span><br><span class="line"></span><br><span class="line">set -v</span><br><span class="line">tar uf home-dot-file.tar.gz .torrent .android .AndroidStudio3.0 .anyconnect .aria2 .ARM .avidemux3 .bashrc bin .BOINC .brweather .brweather.conf .bypy .byteexec .config .conky .conkyrc Documents .dbus .directory .dropbox .dropbox-dist .eclipse .electron .ew.json face .face.icon .fonts .gimp-2.8 .git .gitconfig .gitcookies .gnome .gnome2 .gnupg .goldendict .gphoto .gradle .gstreamer-0.10 i18n .ICEauthority .jack-server .kde .kde4 .lantern .lesshst .local .mozilla .msf4 .npm .pki .presage .profile .putty .qt .recently-used .repo repoconfig .repo_.gitconfig.json .rnd .rpmmacros .spotify-easyrpm .sqlite_history .sqlmap .ssh .ssr .stellarium .sunpinyin .TelegramDesktop .tex .tor .varicad .varicad-viewer.cn .varicad-work.ini .vim .viminfo .vimrc .weechat .Xauthority xim.template xinitrc.template .xscreensaver .xsession-errors-:0 .y2log .y2usersettings .zotero</span><br><span class="line"></span><br><span class="line">echo "更新压缩包完毕，开始备份到远程服务器"</span><br><span class="line">sleep 5;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 备份到远程服务器</span></span><br><span class="line">scp -P xxxx home-dot-file.tar.gz root@aa.bb.cc.dd:/home</span><br></pre></td></tr></table></figure>
+<h3 id="这个基本没法用"><a href="#这个基本没法用" class="headerlink" title="这个基本没法用"></a><del>这个基本没法用</del></h3><hr>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"></span><br><span class="line">cd $HOME/;</span><br><span class="line">pwd;</span><br><span class="line">sleep 3;</span><br><span class="line"></span><br><span class="line">set -v</span><br><span class="line"></span><br><span class="line">rclone sync -u /home/XXX/Documents googledrive:backup-home-dot-file;</span><br><span class="line">.......</span><br><span class="line">rclone sync -Lu /home/XXX/.zotero googledrive:backup-home-dot-file;</span><br><span class="line">echo "........backup end......."</span><br></pre></td></tr></table></figure>
+<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><p><a href="http://www.cnblogs.com/happyhotty/articles/2065412.html" target="_blank" rel="noopener">Shell数值、字符串比较</a><br><a href="http://heylinux.com/archives/1296.html" target="_blank" rel="noopener">在Linux上根据日期来判断星期几</a><br><a href="https://www.bbsmax.com/A/A7zggyPz4n/" target="_blank" rel="noopener">又是一篇Shell</a></p>
+<hr>
+<p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/04/04/Back-up-dot-file/" data-id="ckivmllvm0006x720hwcr9ugg" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/04/04/Back-up-dot-file/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/" rel="tag">VPS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rclone/" rel="tag">rclone</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2018/04/06/rsync-bakcup-vps/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          rsync备份
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/04/01/qemu-%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">使用qemu创建虚拟机</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#备份交易记录"><span class="toc-number">1.</span> <span class="toc-text">备份交易记录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#备份软件源码"><span class="toc-number">2.</span> <span class="toc-text">备份软件源码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#备份图片"><span class="toc-number">3.</span> <span class="toc-text">备份图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#备份文档"><span class="toc-number">4.</span> <span class="toc-text">备份文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#判断日期执行备份"><span class="toc-number">5.</span> <span class="toc-text">判断日期执行备份</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新已有打包文件"><span class="toc-number">6.</span> <span class="toc-text">更新已有打包文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#这个基本没法用"><span class="toc-number">7.</span> <span class="toc-text">这个基本没法用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考："><span class="toc-number">8.</span> <span class="toc-text">参考：</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2018/04/04/Back-up-dot-file/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

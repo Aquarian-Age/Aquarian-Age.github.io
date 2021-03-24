@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>KDE桌面环境用Dolphin访问手机空间 | AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="列出手机的信息 倒数第二行:ID 0bb4:0f8712345678910lsusbBus 002 Device 002: ID 8087:0024 Intel Corp. Integrated Rate Matching HubBus 002 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hubBus 001 Device 003: ID">
+<meta property="og:type" content="article">
+<meta property="og:title" content="KDE桌面环境用Dolphin访问手机空间">
+<meta property="og:url" content="https://aquarian-age.github.io/2018/05/30/KDE%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E7%94%A8Dolphin%E8%AE%BF%E9%97%AE%E6%89%8B%E6%9C%BA%E7%A9%BA%E9%97%B4/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:description" content="列出手机的信息 倒数第二行:ID 0bb4:0f8712345678910lsusbBus 002 Device 002: ID 8087:0024 Intel Corp. Integrated Rate Matching HubBus 002 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hubBus 001 Device 003: ID">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-05-30T07:14:42.000Z">
+<meta property="article:modified_time" content="2019-06-01T16:21:00.278Z">
+<meta property="article:author" content="Liangzi">
+<meta property="article:tag" content="openSUSE">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-KDE桌面环境用Dolphin访问手机空间" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/30/KDE%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E7%94%A8Dolphin%E8%AE%BF%E9%97%AE%E6%89%8B%E6%9C%BA%E7%A9%BA%E9%97%B4/" class="article-date">
+  <time datetime="2018-05-30T07:14:42.000Z" itemprop="datePublished">2018-05-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      KDE桌面环境用Dolphin访问手机空间
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h3 id="列出手机的信息"><a href="#列出手机的信息" class="headerlink" title="列出手机的信息"></a>列出手机的信息</h3><ul>
+<li>倒数第二行:ID 0bb4:0f87<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">lsusb</span><br><span class="line">Bus 002 Device 002: ID 8087:0024 Intel Corp. Integrated Rate Matching Hub</span><br><span class="line">Bus 002 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub</span><br><span class="line">Bus 001 Device 003: ID 1bcf:2883 Sunplus Innovation Technology Inc.</span><br><span class="line">Bus 001 Device 002: ID 8087:0024 Intel Corp. Integrated Rate Matching Hub</span><br><span class="line">Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub</span><br><span class="line">Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub</span><br><span class="line">Bus 003 Device 003: ID 15d9:0a4e Trust International B.V.</span><br><span class="line">Bus 003 Device 004: ID 0bb4:0f87 HTC (High Tech Computer Corp.)</span><br><span class="line">Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub</span><br></pre></td></tr></table></figure></li>
+<li>dmesg 查看详细信息:New USB device found, idVendor=0bb4, idProduct=0f87<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">dmesg | tail -n 15</span><br><span class="line">[   14.240087] wlan0: associate with 8c:f2:28:f4:22:00 (try 1&#x2F;3)</span><br><span class="line">[   14.245141] wlan0: RX AssocResp from 8c:f2:28:f4:22:00 (capab&#x3D;0x421 status&#x3D;0 aid&#x3D;16)</span><br><span class="line">[   14.245163] wlan0: AP has invalid WMM params (CWmin&#x2F;max&#x3D;15&#x2F;1023 for ACI 0), using defaults</span><br><span class="line">[   14.245263] wlan0: associated</span><br><span class="line">[   14.245316] IPv6: ADDRCONF(NETDEV_CHANGE): wlan0: link becomes ready</span><br><span class="line">[  267.678087] usb 3-1: reset high-speed USB device number 2 using xhci_hcd</span><br><span class="line">[  267.953974] usb 3-1: reset high-speed USB device number 2 using xhci_hcd</span><br><span class="line">[  288.861922] usb 3-1: reset high-speed USB device number 2 using xhci_hcd</span><br><span class="line">[  289.622139] usb 3-1: USB disconnect, device number 2</span><br><span class="line">[  294.061465] usb 3-1: new high-speed USB device number 4 using xhci_hcd</span><br><span class="line">[  294.211270] usb 3-1: New USB device found, idVendor&#x3D;0bb4, idProduct&#x3D;0f87</span><br><span class="line">[  294.211278] usb 3-1: New USB device strings: Mfr&#x3D;1, Product&#x3D;2, SerialNumber&#x3D;3</span><br><span class="line">[  294.211283] usb 3-1: Product: Android Phone</span><br><span class="line">[  294.211287] usb 3-1: Manufacturer: HTC</span><br><span class="line">[  294.211291] usb 3-1: SerialNumber: FA79J1700722</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="将以上信息写入udev规则-etc-udev-rules-d-51-android-rules"><a href="#将以上信息写入udev规则-etc-udev-rules-d-51-android-rules" class="headerlink" title="将以上信息写入udev规则:/etc/udev/rules.d/51-android.rules"></a>将以上信息写入udev规则:/etc/udev/rules.d/51-android.rules</h3></li>
+</ul>
+<p>cat /etc/udev/rules.d/51-android.rules | tail -n 15<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#HTC U Ultra</span><br><span class="line">SUBSYSTEM&#x3D;&#x3D;&quot;usb&quot;, ATTR&#123;idVendor&#125;&#x3D;&#x3D;&quot;0bb4&quot;, ATTR&#123;idProduct&#125;&#x3D;&#x3D;&quot;0f87&quot;, MODE&#x3D;&quot;0666&quot;, OWNER&#x3D;&quot;xuan&quot;</span><br><span class="line">#MediaTek_X9</span><br><span class="line">SUBSYSTEM&#x3D;&#x3D;&quot;usb&quot;, ATTR&#123;idVendor&#125;&#x3D;&#x3D;&quot;0e8d&quot;, ATTR&#123;idProduct&#125;&#x3D;&#x3D;&quot;201d&quot;, MODE&#x3D;&quot;0666&quot;, OWNER&#x3D;&quot;xuan&quot;</span><br><span class="line">#Fujitsu-mtp</span><br><span class="line">SUBSYSTEM&#x3D;&#x3D;&quot;usb&quot;, ATTR&#123;idVendor&#125;&#x3D;&#x3D;&quot;04c5&quot;, ATTR&#123;idProduct&#125;&#x3D;&#x3D;&quot;14ce&quot;, MODE&#x3D;&quot;0666&quot;, OWNER&#x3D;&quot;xuan&quot;</span><br><span class="line">#Fujitsu-debug</span><br><span class="line">SUBSYSTEM&#x3D;&#x3D;&quot;usb&quot;, ATTR&#123;idVendor&#125;&#x3D;&#x3D;&quot;04c5&quot;, ATTR&#123;idProduct&#125;&#x3D;&#x3D;&quot;14d1&quot;, MODE&#x3D;&quot;0666&quot;, OWNER&#x3D;&quot;xuan&quot;</span><br><span class="line">#YunOS</span><br><span class="line">SUBSYSTEM&#x3D;&#x3D;&quot;usb&quot;, ATTR&#123;idVendor&#125;&#x3D;&#x3D;&quot;18d1&quot;, ATTR&#123;idProduct&#125;&#x3D;&#x3D;&quot;d00d&quot;, MODE&#x3D;&quot;0666&quot;, OWNER&#x3D;&quot;xuan&quot;</span><br><span class="line">#BlackBerry-Q30</span><br><span class="line">SUBSYSTEM&#x3D;&#x3D;&quot;usb&quot;, ATTR&#123;idVendor&#125;&#x3D;&#x3D;&quot;ofca&quot;, ATTR&#123;idProduct&#125;&#x3D;&#x3D;&quot;8017&quot;, MODE&#x3D;&quot;0666&quot;, OWNER&#x3D;&quot;xuan&quot;</span><br><span class="line">#21KE</span><br><span class="line">SUBSYSTEM&#x3D;&#x3D;&quot;usb&quot;, ATTR&#123;idVendor&#125;&#x3D;&#x3D;&quot;0e8d&quot;, ATTR&#123;idProduct&#125;&#x3D;&#x3D;&quot;0002&quot;, MODE&#x3D;&quot;0666&quot;, OWNER&#x3D;&quot;xuan&quot;</span><br></pre></td></tr></table></figure></p>
+<h3 id="同步更新-etc-udev-rules-d-69-qualcomm-rules处理器规则"><a href="#同步更新-etc-udev-rules-d-69-qualcomm-rules处理器规则" class="headerlink" title="同步更新:/etc/udev/rules.d/69-qualcomm.rules处理器规则"></a>同步更新:/etc/udev/rules.d/69-qualcomm.rules处理器规则</h3><p>cat /etc/udev/rules.d/69-qualcomm.rules | tail -n 15<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#HTC U Ultra</span><br><span class="line">SUBSYSTEM&#x3D;&#x3D;&quot;usb&quot;, ATTR&#123;idVendor&#125;&#x3D;&#x3D;&quot;0bb4&quot;, ATTR&#123;idProduct&#125;&#x3D;&#x3D;&quot;0f87&quot;, MODE&#x3D;&quot;0666&quot;, OWNER&#x3D;&quot;xuan&quot;</span><br><span class="line">#Fujitsu-mtp</span><br><span class="line">SUBSYSTEM&#x3D;&#x3D;&quot;usb&quot;, ATTR&#123;idVendor&#125;&#x3D;&#x3D;&quot;04c5&quot;, ATTR&#123;idProduct&#125;&#x3D;&#x3D;&quot;14ce&quot;, MODE&#x3D;&quot;0666&quot;, OWNER&#x3D;&quot;xuan&quot;</span><br><span class="line">#Fujitsu-debug</span><br><span class="line">SUBSYSTEM&#x3D;&#x3D;&quot;usb&quot;, ATTR&#123;idVendor&#125;&#x3D;&#x3D;&quot;04c5&quot;, ATTR&#123;idProduct&#125;&#x3D;&#x3D;&quot;14d1&quot;, MODE&#x3D;&quot;0666&quot;, OWNER&#x3D;&quot;xuan&quot;</span><br><span class="line">#BlackBerry-Q30</span><br><span class="line">SUBSYSTEM&#x3D;&#x3D;&quot;usb&quot;, ATTR&#123;idVendor&#125;&#x3D;&#x3D;&quot;ofca&quot;, ATTR&#123;idProduct&#125;&#x3D;&#x3D;&quot;8017&quot;, MODE&#x3D;&quot;0666&quot;, OWNER&#x3D;&quot;xuan&quot;</span><br><span class="line">#21KE</span><br><span class="line">SUBSYSTEM&#x3D;&#x3D;&quot;usb&quot;, ATTR&#123;idVendor&#125;&#x3D;&#x3D;&quot;0e8d&quot;, ATTR&#123;idProduct&#125;&#x3D;&#x3D;&quot;0002&quot;, MODE&#x3D;&quot;0666&quot;, OWNER&#x3D;&quot;xuan&quot;</span><br></pre></td></tr></table></figure></p>
+<h3 id="安装相应软件包"><a href="#安装相应软件包" class="headerlink" title="安装相应软件包"></a>安装相应软件包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo zypper in kio_mtp kio-devel mtpfs mtp-tools libmtp-devel libmtp libmad-devel libid3tag libid3tag-devel solid-devel</span><br></pre></td></tr></table></figure>
+<h3 id="重新载入udev规则"><a href="#重新载入udev规则" class="headerlink" title="重新载入udev规则"></a>重新载入udev规则</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo udevadm control reload_rules</span><br></pre></td></tr></table></figure>
+<p>打开文件管理器 现在可以访问了 像windows一样用文件管理器直接浏览了 在konsole里面mtpfs mtp-connect依然无法访问 github上提交说是个bug 还是2015年的。。。。。。</p>
+<hr>
+<p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/05/30/KDE%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E7%94%A8Dolphin%E8%AE%BF%E9%97%AE%E6%89%8B%E6%9C%BA%E7%A9%BA%E9%97%B4/" data-id="ckivmllvq000dx7208hbh49lf" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/05/30/KDE%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E7%94%A8Dolphin%E8%AE%BF%E9%97%AE%E6%89%8B%E6%9C%BA%E7%A9%BA%E9%97%B4/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2018/06/02/HTC-U-Ultra%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          HTC U Ultra那些事儿
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/05/24/%E4%BF%AE%E6%94%B9EFI%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8%E7%9A%84%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">修改EFI默认启动的操作系统</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#列出手机的信息"><span class="toc-number">1.</span> <span class="toc-text">列出手机的信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将以上信息写入udev规则-etc-udev-rules-d-51-android-rules"><span class="toc-number">2.</span> <span class="toc-text">将以上信息写入udev规则:&#x2F;etc&#x2F;udev&#x2F;rules.d&#x2F;51-android.rules</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#同步更新-etc-udev-rules-d-69-qualcomm-rules处理器规则"><span class="toc-number">3.</span> <span class="toc-text">同步更新:&#x2F;etc&#x2F;udev&#x2F;rules.d&#x2F;69-qualcomm.rules处理器规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装相应软件包"><span class="toc-number">4.</span> <span class="toc-text">安装相应软件包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重新载入udev规则"><span class="toc-number">5.</span> <span class="toc-text">重新载入udev规则</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2018/05/30/KDE%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E7%94%A8Dolphin%E8%AE%BF%E9%97%AE%E6%89%8B%E6%9C%BA%E7%A9%BA%E9%97%B4/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

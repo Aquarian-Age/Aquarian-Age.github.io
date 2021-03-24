@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>系统升级引起的链接库问题 | AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="echo –&gt;  undefined symbol: sqlite3_column_table_name16">
+<meta property="og:type" content="article">
+<meta property="og:title" content="系统升级引起的链接库问题">
+<meta property="og:url" content="https://aquarian-age.github.io/2020/06/28/%E7%B3%BB%E7%BB%9F%E5%8D%87%E7%BA%A7%E5%BC%95%E8%B5%B7%E7%9A%84%E9%93%BE%E6%8E%A5%E5%BA%93%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:description" content="echo –&gt;  undefined symbol: sqlite3_column_table_name16">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-06-28T13:50:39.000Z">
+<meta property="article:modified_time" content="2020-06-28T14:14:55.610Z">
+<meta property="article:author" content="Liangzi">
+<meta property="article:tag" content="openSUSE">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-系统升级引起的链接库问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/28/%E7%B3%BB%E7%BB%9F%E5%8D%87%E7%BA%A7%E5%BC%95%E8%B5%B7%E7%9A%84%E9%93%BE%E6%8E%A5%E5%BA%93%E9%97%AE%E9%A2%98/" class="article-date">
+  <time datetime="2020-06-28T13:50:39.000Z" itemprop="datePublished">2020-06-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      系统升级引起的链接库问题
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>echo –&gt;  undefined symbol: sqlite3_column_table_name16 </p>
+<a id="more"></a>
+<p>电信营业厅拉了个最便宜的宽带　装好之后试了一下下载速度最多10M/s还是国内的内网速度<br>升级了一下系统15.1到15.2<br>15.1加了一些KDE的OBS源　优先级设置为90<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zypper dup --allow-vendor-change --auto-agree-with-licenses --force-resolution</span><br></pre></td></tr></table></figure><br>之前把除了packman之外的源都禁了<br>dup之后cd $HOME/.local/share &amp;&amp; mv /kactivitymanagerd/ kactivitymanagerd.old正常进入系统　</p>
+<p>第二天up之后外接的HDMI 21寸显示器马上就开始出毛病了　屏幕一晃一晃的…<br>各种的搞没搞定　KDE界面也被我搞得进不去了<br>索性直接dup到了风滚草 KDE进去了　看起来没什么毛病了</p>
+<p>打开QOwnNotes失败　网上搜了各种方法试了都不行<br>最后在作者哪里提问也没解决</p>
+<ul>
+<li>躺着躺着突然就想到了ldd和ldconfig这个东西</li>
+</ul>
+<p>/sbin/ldconfig -p|grep “/usr/local”| grep sqlite<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">libsqlite3.so.0 (libc6,x86-64) =&gt; /usr/<span class="built_in">local</span>/lib64/libsqlite3.so.0</span><br><span class="line">libsqlite3.so (libc6,x86-64) =&gt; /usr/<span class="built_in">local</span>/lib64/libsqlite3.so</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>这里很明显和<a href="https://stackoverflow.com/questions/53969202/qtcreator-undefined-symbol-sqlite3-column-table-name16%E3%80%80" target="_blank" rel="noopener">undefined-symbol-sqlite3-column-table-name16</a>说的一样</p>
+</li>
+<li><p>不过在ldd  /usr/bin/QOwnNotes的时候并没有显示用了/usr/local/lib64的库….</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line">linux-vdso.so.1 (0x00007ffe11902000)</span><br><span class="line"></span><br><span class="line">      libX11.so.6 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libX11.so.6 (0x00007f08c7ada000)</span><br><span class="line"></span><br><span class="line">      libQt5PrintSupport.so.5 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libQt5PrintSupport.so.5 (0x00007f08c7a6a000)</span><br><span class="line"></span><br><span class="line">      libQt5Widgets.so.5 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libQt5Widgets.so.5 (0x00007f08c73c7000)</span><br><span class="line"></span><br><span class="line">      libQt5X11Extras.so.5 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libQt5X11Extras.so.5 (0x00007f08c73c0000)</span><br><span class="line"></span><br><span class="line">      libQt5Gui.so.5 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libQt5Gui.so.5 (0x00007f08c6cd0000)</span><br><span class="line"></span><br><span class="line">      libQt5Sql.so.5 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libQt5Sql.so.5 (0x00007f08c6c92000)</span><br><span class="line"></span><br><span class="line">      libQt5XmlPatterns.so.5 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libQt5XmlPatterns.so.5 (0x00007f08c69a1000)</span><br><span class="line"></span><br><span class="line">      libQt5Qml.so.5 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libQt5Qml.so.5 (0x00007f08c653c000)</span><br><span class="line"></span><br><span class="line">      libQt5WebSockets.so.5 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libQt5WebSockets.so.5 (0x00007f08c6512000)</span><br><span class="line"></span><br><span class="line">      libQt5Network.so.5 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libQt5Network.so.5 (0x00007f08c6386000)</span><br><span class="line"></span><br><span class="line">      libQt5Xml.so.5 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libQt5Xml.so.5 (0x00007f08c6341000)</span><br><span class="line"></span><br><span class="line">      libQt5Core.so.5 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libQt5Core.so.5 (0x00007f08c5da0000)</span><br><span class="line"></span><br><span class="line">      libstdc++.so.6 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libstdc++.so.6 (0x00007f08c5bc8000)</span><br><span class="line"></span><br><span class="line">      libgcc_s.so.1 &#x3D;&gt; &#x2F;lib64&#x2F;libgcc_s.so.1 (0x00007f08c5bae000)</span><br><span class="line"></span><br><span class="line">      libc.so.6 &#x3D;&gt; &#x2F;lib64&#x2F;libc.so.6 (0x00007f08c59e7000)</span><br><span class="line"></span><br><span class="line">      &#x2F;lib64&#x2F;ld-linux-x86-64.so.2 (0x00007f08c81e6000)</span><br><span class="line"></span><br><span class="line">      libxcb.so.1 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libxcb.so.1 (0x00007f08c59bc000)</span><br><span class="line"></span><br><span class="line">      libdl.so.2 &#x3D;&gt; &#x2F;lib64&#x2F;libdl.so.2 (0x00007f08c59b6000)</span><br><span class="line"></span><br><span class="line">      libpthread.so.0 &#x3D;&gt; &#x2F;lib64&#x2F;libpthread.so.0 (0x00007f08c5994000)</span><br><span class="line"></span><br><span class="line">      libm.so.6 &#x3D;&gt; &#x2F;lib64&#x2F;libm.so.6 (0x00007f08c584d000)</span><br><span class="line"></span><br><span class="line">      libGL.so.1 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libGL.so.1 (0x00007f08c57b4000)</span><br><span class="line"></span><br><span class="line">      libpng16.so.16 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libpng16.so.16 (0x00007f08c576b000)</span><br><span class="line"></span><br><span class="line">      libz.so.1 &#x3D;&gt; &#x2F;lib64&#x2F;libz.so.1 (0x00007f08c5751000)</span><br><span class="line"></span><br><span class="line">      libharfbuzz.so.0 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libharfbuzz.so.0 (0x00007f08c5680000)</span><br><span class="line"></span><br><span class="line">      libproxy.so.1 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libproxy.so.1 (0x00007f08c5660000)</span><br><span class="line"></span><br><span class="line">      libssl.so.1.1 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libssl.so.1.1 (0x00007f08c55c9000)</span><br><span class="line"></span><br><span class="line">      libcrypto.so.1.1 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libcrypto.so.1.1 (0x00007f08c52db000)</span><br><span class="line"></span><br><span class="line">      libsystemd.so.0 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libsystemd.so.0 (0x00007f08c522d000)</span><br><span class="line"></span><br><span class="line">      libdouble-conversion.so.3 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libdouble-conversion.so.3 (0x00007f08c521c000)</span><br><span class="line"></span><br><span class="line">      libicui18n.so.67 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libicui18n.so.67 (0x00007f08c4f0f000)</span><br><span class="line"></span><br><span class="line">      libicuuc.so.67 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libicuuc.so.67 (0x00007f08c4d23000)</span><br><span class="line"></span><br><span class="line">      libpcre2-16.so.0 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libpcre2-16.so.0 (0x00007f08c4c78000)</span><br><span class="line"></span><br><span class="line">      libzstd.so.1 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libzstd.so.1 (0x00007f08c4ba3000)</span><br><span class="line"></span><br><span class="line">      libglib-2.0.so.0 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libglib-2.0.so.0 (0x00007f08c4a78000)</span><br><span class="line"></span><br><span class="line">      libXau.so.6 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libXau.so.6 (0x00007f08c4a73000)</span><br><span class="line"></span><br><span class="line">      libGLX.so.0 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libGLX.so.0 (0x00007f08c4a3f000)</span><br><span class="line"></span><br><span class="line">      libGLdispatch.so.0 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libGLdispatch.so.0 (0x00007f08c4981000)</span><br><span class="line"></span><br><span class="line">      libfreetype.so.6 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libfreetype.so.6 (0x00007f08c48bd000)</span><br><span class="line"></span><br><span class="line">      libgraphite2.so.3 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libgraphite2.so.3 (0x00007f08c489c000)</span><br><span class="line"></span><br><span class="line">      libmodman.so.1 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libmodman.so.1 (0x00007f08c4892000)</span><br><span class="line"></span><br><span class="line">      librt.so.1 &#x3D;&gt; &#x2F;lib64&#x2F;librt.so.1 (0x00007f08c4887000)</span><br><span class="line"></span><br><span class="line">      liblzma.so.5 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;liblzma.so.5 (0x00007f08c4852000)</span><br><span class="line"></span><br><span class="line">      liblz4.so.1 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;liblz4.so.1 (0x00007f08c4831000)</span><br><span class="line"></span><br><span class="line">      libgcrypt.so.20 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libgcrypt.so.20 (0x00007f08c470a000)</span><br><span class="line"></span><br><span class="line">      libicudata.so.67 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libicudata.so.67 (0x00007f08c4707000)</span><br><span class="line"></span><br><span class="line">      libpcre.so.1 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libpcre.so.1 (0x00007f08c4678000)</span><br><span class="line"></span><br><span class="line">      libbz2.so.1 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libbz2.so.1 (0x00007f08c4655000)</span><br><span class="line"></span><br><span class="line">      libbrotlidec.so.1 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libbrotlidec.so.1 (0x00007f08c4647000)</span><br><span class="line"></span><br><span class="line">      libgpg-error.so.0 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libgpg-error.so.0 (0x00007f08c4622000)</span><br><span class="line"></span><br><span class="line">      libbrotlicommon.so.1 &#x3D;&gt; &#x2F;usr&#x2F;lib64&#x2F;libbrotlicommon.so.1 (0x00007f08c45ff000)</span><br></pre></td></tr></table></figure></li>
+<li><p>先看一下现有文件内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">file /etc/ld.so.cache </span><br><span class="line">/etc/ld.so.cache: Apple DiskCopy 4.2 image d.so-1.7.0, 50528256 bytes, 0x6ea50100 tag size, 0xa5 encoding, 0xa5 format</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注释掉/etc/ld.so.conf里面含有/usr/local/的库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># &#x2F;usr&#x2F;local&#x2F;lib64</span><br><span class="line"># &#x2F;usr&#x2F;local&#x2F;lib</span><br></pre></td></tr></table></figure></li>
+<li><p>重建文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /sbin/ldconfig -f /etc/ld.so.conf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>确认</p>
+</li>
+</ul>
+<p>file /etc/ld.so.cache<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;etc&#x2F;ld.so.cache: Apple DiskCopy 4.2 image d.so-1.7.0, 50528256 bytes, 0x56990100 tag size, 0x8d encoding, 0x99 format</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2020/06/28/%E7%B3%BB%E7%BB%9F%E5%8D%87%E7%BA%A7%E5%BC%95%E8%B5%B7%E7%9A%84%E9%93%BE%E6%8E%A5%E5%BA%93%E9%97%AE%E9%A2%98/" data-id="ckivmllz2005px720bw2682u1" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2020/06/28/%E7%B3%BB%E7%BB%9F%E5%8D%87%E7%BA%A7%E5%BC%95%E8%B5%B7%E7%9A%84%E9%93%BE%E6%8E%A5%E5%BA%93%E9%97%AE%E9%A2%98/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/07/talk/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          使用persent在本地查看go.talks内容
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/06/23/duit-chinese-font/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">duit-chinese-font</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title recent-posts">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/03/08/%E6%A3%80%E6%9F%A5Go%E5%AF%BC%E5%85%A5%E5%8C%85%E7%9A%84%E5%8D%B1%E9%99%A9%E6%80%A7/">检查Go导入包的危险性</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/05/%E5%9F%9F%E5%90%8D/">域名</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/03/Flames/">雙生紫焰Violet Flames</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/01/cmha/">承蒙厚爱</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/24/%E6%81%B6/">恶</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2020/06/28/%E7%B3%BB%E7%BB%9F%E5%8D%87%E7%BA%A7%E5%BC%95%E8%B5%B7%E7%9A%84%E9%93%BE%E6%8E%A5%E5%BA%93%E9%97%AE%E9%A2%98/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

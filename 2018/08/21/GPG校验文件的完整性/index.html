@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>GPG校验文件的完整性 | AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="GPG的基本配置和一点校验使用主要用来校验文件的完整性以及文件是否被改动只要文件被改动过 哪怕是改完之后又被改回原样 已经生成的密钥会显示校验失败  列出已有密钥12345678910&gt;gpg --list-keys&#x2F;home&#x2F;---&#x2F;.gnupg&#x2F;pubring.gpg-----------------------------pub   1024D&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GPG校验文件的完整性">
+<meta property="og:url" content="https://aquarian-age.github.io/2018/08/21/GPG%E6%A0%A1%E9%AA%8C%E6%96%87%E4%BB%B6%E7%9A%84%E5%AE%8C%E6%95%B4%E6%80%A7/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:description" content="GPG的基本配置和一点校验使用主要用来校验文件的完整性以及文件是否被改动只要文件被改动过 哪怕是改完之后又被改回原样 已经生成的密钥会显示校验失败  列出已有密钥12345678910&gt;gpg --list-keys&#x2F;home&#x2F;---&#x2F;.gnupg&#x2F;pubring.gpg-----------------------------pub   1024D&amp;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-08-21T13:06:55.000Z">
+<meta property="article:modified_time" content="2020-10-05T22:18:33.243Z">
+<meta property="article:author" content="Liangzi">
+<meta property="article:tag" content="openSUSE">
+<meta property="article:tag" content="加密">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-GPG校验文件的完整性" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/21/GPG%E6%A0%A1%E9%AA%8C%E6%96%87%E4%BB%B6%E7%9A%84%E5%AE%8C%E6%95%B4%E6%80%A7/" class="article-date">
+  <time datetime="2018-08-21T13:06:55.000Z" itemprop="datePublished">2018-08-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      GPG校验文件的完整性
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>GPG的基本配置和一点校验使用<br>主要用来校验文件的完整性以及文件是否被改动<br>只要文件被改动过 哪怕是改完之后又被改回原样 已经生成的密钥会显示校验失败</p>
+<hr>
+<h3 id="列出已有密钥"><a href="#列出已有密钥" class="headerlink" title="列出已有密钥"></a>列出已有密钥</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;gpg --list-keys</span><br><span class="line">&#x2F;home&#x2F;---&#x2F;.gnupg&#x2F;pubring.gpg</span><br><span class="line">-----------------------------</span><br><span class="line">pub   1024D&#x2F;6338B6D4 2004-01-04</span><br><span class="line">uid       [ 未知 ] Paul Smith (Mad Scientist) &lt;psmith@gnu.org&gt;</span><br><span class="line">sub   2048g&#x2F;E----CE 2004-01-04</span><br><span class="line"></span><br><span class="line">pub   2048R&#x2F;30---C 2017-09-02</span><br><span class="line">uid       [ 绝对 ] L---i &lt;xi--o---@XXXX.com&gt;</span><br><span class="line">sub   2048R&#x2F;0A----E 2017-09-02</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="删除私钥"><a href="#删除私钥" class="headerlink" title="删除私钥"></a>删除私钥</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpg --delete-secret-keys 3xxxxxC</span><br></pre></td></tr></table></figure>
+<h3 id="删除公钥"><a href="#删除公钥" class="headerlink" title="删除公钥"></a>删除公钥</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpg --delete-keys AAA---i</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="生成新的密钥对"><a href="#生成新的密钥对" class="headerlink" title="生成新的密钥对"></a>生成新的密钥对</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&gt;gpg --gen-key</span><br><span class="line">gpg (GnuPG) 2.0.24; Copyright (C) 2013 Free Software Foundation, Inc.</span><br><span class="line">This is free software: you are free to change and redistribute it.</span><br><span class="line">There is NO WARRANTY, to the extent permitted by law.</span><br><span class="line"> </span><br><span class="line">请选择您要使用的密钥种类：</span><br><span class="line">   (1) RSA and RSA (default)</span><br><span class="line">   (2) DSA and Elgamal</span><br><span class="line">   (3) DSA (仅用于签名)</span><br><span class="line">   (4) RSA (仅用于签名)</span><br><span class="line">您的选择？ 1234（任意）</span><br><span class="line">xxA 密钥长度应在 1024 位与 4096 位之间。</span><br><span class="line">您想要用多大的密钥尺寸？(2048)</span><br><span class="line">您所要求的密钥尺寸是 2048 位</span><br><span class="line">请设定这把密钥的有效期限。</span><br><span class="line">         0 &#x3D; 密钥永不过期</span><br><span class="line">      &lt;n&gt;  &#x3D; 密钥在 n 天后过期</span><br><span class="line">      &lt;n&gt;w &#x3D; 密钥在 n 周后过期</span><br><span class="line">      &lt;n&gt;m &#x3D; 密钥在 n 月后过期</span><br><span class="line">      &lt;n&gt;y &#x3D; 密钥在 n 年后过期</span><br><span class="line">密钥的有效期限是？(0) </span><br><span class="line">密钥永远不会过期</span><br><span class="line">以上正确吗？(y&#x2F;n)y</span><br><span class="line"> </span><br><span class="line">You need a user ID to identify your key; the software constructs the user ID</span><br><span class="line">from the Real Name, Comment and Email Address in this form:</span><br><span class="line">    &quot;Heinrich Heine (Der Dichter) &lt;heinrichh@duesseldorf.de&gt;&quot;</span><br><span class="line"> </span><br><span class="line">真实姓名：AAA---i</span><br><span class="line">电子邮件地址：x---@XXXX.com</span><br><span class="line">注释：Use for GPG Encrypt</span><br><span class="line">您选定了这个用户标识：</span><br><span class="line">    “AAA--- (Use for GPG Encrypt) &lt;x---@XXXX.com&gt;”</span><br><span class="line"> </span><br><span class="line">更改姓名(N)、注释(C)、电子邮件地址(E)或确定(O)&#x2F;退出(Q)？O</span><br><span class="line">您需要一个密码来保护您的私钥。</span><br><span class="line"> </span><br><span class="line">我们需要生成大量的随机字节。这个时候您可以多做些琐事(像是敲打键盘、移动</span><br><span class="line">鼠标、读写硬盘之类的)，这会让随机数字发生器有更好的机会获得足够的熵数。</span><br><span class="line">我们需要生成大量的随机字节。这个时候您可以多做些琐事(像是敲打键盘、移动</span><br><span class="line">鼠标、读写硬盘之类的)，这会让随机数字发生器有更好的机会获得足够的熵数。</span><br><span class="line">gpg: 密钥 D---C 被标记为绝对信任</span><br><span class="line">公钥和私钥已经生成并经签名。</span><br><span class="line"> </span><br><span class="line">gpg: 正在检查信任度数据库</span><br><span class="line">gpg: 需要 3 份勉强信任和 1 份完全信任，PGP 信任模型</span><br><span class="line">gpg: 深度：0 有效性：  1 已签名：  0 信任度：0-，0q，0n，0m，0f，1u</span><br><span class="line">pub   2048R&#x2F;D---8C 2017-12-31</span><br><span class="line">密钥指纹 &#x3D; ---D88C</span><br><span class="line">uid       [ 绝对 ] AAA---i (Use for GPG Encrypt) &lt;x---@XXXX.com&gt;</span><br><span class="line">sub   2048R&#x2F;5----C 2017-12-31</span><br></pre></td></tr></table></figure>
+<h3 id="生成回收证书"><a href="#生成回收证书" class="headerlink" title="生成回收证书"></a>生成回收证书</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&gt;gpg --gen-revoke x---@XXXX.com</span><br><span class="line"> </span><br><span class="line">sec  2048R&#x2F;AAA---C 2017-12-31 AAA--- (Use for GPG Encrypt) &lt;x---@XXXX.com&gt;</span><br><span class="line"> </span><br><span class="line">要为这把密钥建立一份吊销证书吗？(y&#x2F;N)y</span><br><span class="line">请选择吊销的原因：</span><br><span class="line">  0 &#x3D; 未指定原因</span><br><span class="line">  1 &#x3D; 密钥已泄漏</span><br><span class="line">  2 &#x3D; 密钥被替换</span><br><span class="line">  3 &#x3D; 密钥不再使用</span><br><span class="line">  Q &#x3D; 取消</span><br><span class="line">(也许您会想要在这里选择 1)</span><br><span class="line">您的决定是什么？1</span><br><span class="line">请输入描述(可选)；以空白行结束：</span><br><span class="line">&gt; 密钥泄露决定吊销</span><br><span class="line">&gt; </span><br><span class="line">吊销原因：密钥已泄漏</span><br><span class="line">密钥泄露决定吊销</span><br><span class="line">这样可以吗？ (y&#x2F;N)y</span><br><span class="line"> </span><br><span class="line">您需要输入密码，才能解开这个用户的私钥：“AAA---i (Use for GPG Encrypt) &lt;AAAA----0@XXXX.com&gt;”</span><br><span class="line">2048 位的 RSA 密钥，钥匙号 AA--BB-CC，建立于 2017-12-31</span><br><span class="line"> </span><br><span class="line">已强行使用 ASCII 封装过的输出。</span><br><span class="line">已建立吊销证书。</span><br><span class="line"> </span><br><span class="line">请把这个文件转移到一个可隐藏起来的介质(如软盘)上；如果坏人能够取得这</span><br><span class="line">份证书的话，那么他就能让您的密钥无法继续使用。把这份凭证打印出来再藏</span><br><span class="line">到安全的地方也是很好的方法，以免您的保存媒体损毁而无法读取。但是千万</span><br><span class="line">小心：您的机器上的打印系统可能会在打印过程中把这些数据临时在某个其他</span><br><span class="line">人也能够看得到的地方！</span><br><span class="line">-----BEGIN PGP PUBLIC KEY BLOCK-----</span><br><span class="line">Version: GnuPG v2</span><br><span class="line">Comment: A revocation certificate should follow</span><br><span class="line"> </span><br><span class="line">---------</span><br><span class="line">&#x3D;jL9m</span><br><span class="line">-----END PGP PUBLIC KEY BLOCK-----</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="以ASCII码导出公钥"><a href="#以ASCII码导出公钥" class="headerlink" title="以ASCII码导出公钥"></a>以ASCII码导出公钥</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;gpg -a -o public-key.txt --export x----@XXXX.com</span><br><span class="line">文件‘public-key.txt’已存在。 是否覆盖？(y&#x2F;N)y</span><br><span class="line">~</span><br><span class="line">日 12月 31|12:11|0:&gt;cat -n public-key.txt                                    </span><br><span class="line">     1  -----BEGIN PGP PUBLIC KEY BLOCK-----</span><br><span class="line">     2  Version: GnuPG v2</span><br><span class="line">     3</span><br><span class="line">     4  ------</span><br><span class="line">    29  g-----A&#x3D;&#x3D;</span><br><span class="line">    30  &#x3D;1----m</span><br><span class="line">    31  -----END PGP PUBLIC KEY BLOCK-----</span><br></pre></td></tr></table></figure>
+<h3 id="以ASCII码导出私钥"><a href="#以ASCII码导出私钥" class="headerlink" title="以ASCII码导出私钥"></a>以ASCII码导出私钥</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;gpg -a -o secret-keys.txt --export-secret-keys x----@XXXX.com</span><br><span class="line">&gt;ls -l secret-keys.txt</span><br><span class="line">-rw-r--r-- 1 XXX users 3601 12月 31 12:18 secret-keys.txt</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="上传公钥到服务器"><a href="#上传公钥到服务器" class="headerlink" title="上传公钥到服务器"></a>上传公钥到服务器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;gpg --send-keys D------C</span><br><span class="line">gpg: 将密钥‘D-------C’上传到 hkp 服务器 keys.gnupg.net</span><br></pre></td></tr></table></figure>
+<h3 id="在服务器搜索密钥"><a href="#在服务器搜索密钥" class="headerlink" title="在服务器搜索密钥"></a>在服务器搜索密钥</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;gpg --search-keys L----</span><br><span class="line">gpg: 搜索“L----”，在 hkp 服务器 keys.gnupg.net 上</span><br><span class="line">(1)     L---- (Use for GPG Encrypt) &lt;x-------@XXXX.com&gt;</span><br><span class="line">          2048 bit RSA key D------C, 创建于：2017-12-31</span><br><span class="line">Keys 1-1 of 1 for &quot;L-------&quot;.  输入数字以选择，输入 N 翻页，输入 Q 退出 &gt;</span><br><span class="line">输入数字以选择，输入 N 翻页，输入 Q 退出 &gt;1-1</span><br><span class="line">gpg: 下载密钥‘D--------’，从 hkp 服务器 keys.gnupg.net</span><br><span class="line">gpg: 密钥 D-------：“L------- (Use for GPG Encrypt) &lt;x-------@XXXX.com&gt;”未改变</span><br><span class="line">gpg: 合计被处理的数量：1</span><br><span class="line">gpg:           未改变：1</span><br></pre></td></tr></table></figure>
+<h3 id="列出密钥指纹"><a href="#列出密钥指纹" class="headerlink" title="列出密钥指纹"></a>列出密钥指纹</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;gpg --fingerprint </span><br><span class="line">&#x2F;home&#x2F;---&#x2F;.gnupg&#x2F;pubring.gpg</span><br><span class="line">-----------------------------</span><br><span class="line">pub   1024D&#x2F;-----4 2004-01-04</span><br><span class="line">密钥指纹 &#x3D; ------ B6D4</span><br><span class="line">uid       [ 未知 ] Paul Smith (Mad Scientist) &lt;psmith@gnu.org&gt;</span><br><span class="line">sub   2048g&#x2F;E------- 2004-01-04</span><br><span class="line"> </span><br><span class="line">pub   2048R&#x2F;D------- 2017-12-31</span><br><span class="line">密钥指纹 &#x3D; C-------C</span><br><span class="line">uid       [ 绝对 ] L----- (Use for GPG Encrypt) &lt;x-------@XXXX.com&gt;</span><br><span class="line">sub   2048R&#x2F;------C 2017-12-31</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="导入公钥私钥"><a href="#导入公钥私钥" class="headerlink" title="导入公钥私钥"></a>导入公钥私钥</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;gpg --import public-key.txt </span><br><span class="line">gpg: 密钥 D----：“L---- (Use for GPG Encrypt) &lt;x-----@XXXX.com&gt;”未改变</span><br><span class="line">gpg: 合计被处理的数量：1</span><br><span class="line">gpg:           未改变：1</span><br><span class="line">~</span><br><span class="line"></span><br><span class="line">&gt;gpg --import secret-keys.txt </span><br><span class="line">gpg: 密钥 D-----：已在私钥钥匙环中</span><br><span class="line">gpg: 合计被处理的数量：1</span><br><span class="line">gpg:       读取的私钥：1</span><br><span class="line">gpg:     未改变的私钥：1</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="采用ASCII码形式，生成单独的签名文件，与文件内容分开存放"><a href="#采用ASCII码形式，生成单独的签名文件，与文件内容分开存放" class="headerlink" title="采用ASCII码形式，生成单独的签名文件，与文件内容分开存放"></a>采用ASCII码形式，生成单独的签名文件，与文件内容分开存放</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;gpg -a --detach-sign power-dc.pdf</span><br><span class="line">您需要输入密码，才能解开这个用户的私钥：“L---- (Use for GPG Encrypt) &lt;x----@XXXX.com&gt;”</span><br><span class="line">2048 位的 RSA 密钥，钥匙号 D----，建立于 2017-12-31</span><br><span class="line">文件‘power-dc.pdf.asc’已存在。 是否覆盖？(y&#x2F;N)y</span><br></pre></td></tr></table></figure>
+<h3 id="验证签名文件"><a href="#验证签名文件" class="headerlink" title="验证签名文件"></a>验证签名文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;gpg --verify power-dc.pdf.asc power-dc.pdf</span><br><span class="line">gpg: 于 2017年12月31日 星期日 13时07分04秒 CST 创建的签名，使用 RSA，钥匙号 D----C</span><br><span class="line">gpg: 完好的签名，来自于“L---- (Use for GPG Encrypt) &lt;x------@XXXX.com&gt;” [绝对]</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="生成分离的加密文件"><a href="#生成分离的加密文件" class="headerlink" title="生成分离的加密文件"></a>生成分离的加密文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;gpg -b AAAA.csv </span><br><span class="line">gpg: WARNING: unsafe permissions on homedir &#39;&#x2F;home&#x2F;XXX&#x2F;.gnupg&#39;</span><br><span class="line">gpg: using &quot;0------C&quot; as default secret key for signing</span><br><span class="line">File &#39;AAAA.csv.sig&#39; exists. 是否覆盖？(y&#x2F;N)y</span><br></pre></td></tr></table></figure>
+<h3 id="校验刚才生成的加密文件"><a href="#校验刚才生成的加密文件" class="headerlink" title="校验刚才生成的加密文件"></a>校验刚才生成的加密文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;gpg --verify AAAA.csv.sig </span><br><span class="line">gpg: WARNING: unsafe permissions on homedir &#39;&#x2F;home&#x2F;XXX&#x2F;.gnupg&#39;</span><br><span class="line">gpg: assuming signed data in &#39;AAAA.csv&#39;</span><br><span class="line">gpg: 签名建立于 2018年08月21日 星期二 08时20分14秒 CST</span><br><span class="line">gpg:               使用 RSA 密钥 CCCC----CCCCC-----C</span><br><span class="line">gpg: 完好的签名，来自于“BBBB (Use for GPG Encrypt) &lt;XXXX@XXXX.com&gt;” [绝对]</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="生成独立的密码文件"><a href="#生成独立的密码文件" class="headerlink" title="生成独立的密码文件"></a>生成独立的密码文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;gpg -c AAAA.csv</span><br><span class="line">gpg: WARNING: unsafe permissions on homedir &#39;&#x2F;home&#x2F;XXX&#x2F;.gnupg&#39;</span><br><span class="line"></span><br><span class="line">&gt;l</span><br><span class="line">-rw-r--r-- 1 XXX users       7025 8月  21 08:22 AAAA.csv.gpg</span><br></pre></td></tr></table></figure>
+<h3 id="解密独立的密码文件"><a href="#解密独立的密码文件" class="headerlink" title="解密独立的密码文件"></a>解密独立的密码文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;gpg -d AAAA.csv.gpg </span><br><span class="line">gpg: WARNING: unsafe permissions on homedir &#39;&#x2F;home&#x2F;XXX&#x2F;.gnupg&#39;</span><br><span class="line">gpg: AES 加密过的数据</span><br><span class="line">gpg: 以 1 个密码加密</span><br><span class="line">name,url,username,password</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="在另一台系统上导入秘钥"><a href="#在另一台系统上导入秘钥" class="headerlink" title="在另一台系统上导入秘钥"></a>在另一台系统上导入秘钥</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ gpg --keyserver keys.gnupg.net --search-keys AAAA--- </span><br><span class="line">gpg: 搜索“AAA-----i”，在 hkp 服务器 keys.gnupg.net 上 (1)	</span><br><span class="line">AAAA-----i (Use for GPG Encrypt) &lt;x-------@XXXX.com&gt; </span><br><span class="line">2048 bit RSA key D------C, 创建于：2017-12-31 Keys 1-1 of 1 for &quot;AAA------&quot;. </span><br><span class="line">输入数字以选择，输入 N 翻页，输入 Q 退出 &gt; 1-1 </span><br><span class="line"></span><br><span class="line">gpg: 下载密钥‘D-------C’，从 hkp 服务器 keys.gnupg.net </span><br><span class="line">gpg: &#x2F;home&#x2F;XXX&#x2F;.gnupg&#x2F;trustdb.</span><br><span class="line">gpg：建立了信任度数据库 </span><br><span class="line">gpg: 密钥 D-----C：公钥“AAA--- (Use for GPG Encrypt) &lt;x---------@XXX.com&gt;”已导入 </span><br><span class="line">gpg: 合计被处理的数量：1 </span><br><span class="line">gpg: 已导入：1 (RSA: 1) </span><br><span class="line"></span><br><span class="line">$ gpg -k &#x2F;home&#x2F;XXX&#x2F;.gnupg&#x2F;pubring.gpg ----------------------------- pub 2048R&#x2F;D-------- 2017-12-31 uid -----i (Use for GPG Encrypt) &lt;x-----------@XXX.com&gt; sub 2048R&#x2F;5---------C 2017-12-31</span><br></pre></td></tr></table></figure>
+<hr>
+<p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/08/21/GPG%E6%A0%A1%E9%AA%8C%E6%96%87%E4%BB%B6%E7%9A%84%E5%AE%8C%E6%95%B4%E6%80%A7/" data-id="ckivmllxv002gx72068r44vdi" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/08/21/GPG%E6%A0%A1%E9%AA%8C%E6%96%87%E4%BB%B6%E7%9A%84%E5%AE%8C%E6%95%B4%E6%80%A7/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8A%A0%E5%AF%86/" rel="tag">加密</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2018/08/22/apache2%E9%85%8D%E7%BD%AE%E5%AE%9E%E5%BD%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          apache2配置实录
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/08/20/openSUSE-15-0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">openSUSE</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#列出已有密钥"><span class="toc-number">1.</span> <span class="toc-text">列出已有密钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除私钥"><span class="toc-number">2.</span> <span class="toc-text">删除私钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除公钥"><span class="toc-number">3.</span> <span class="toc-text">删除公钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成新的密钥对"><span class="toc-number">4.</span> <span class="toc-text">生成新的密钥对</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成回收证书"><span class="toc-number">5.</span> <span class="toc-text">生成回收证书</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以ASCII码导出公钥"><span class="toc-number">6.</span> <span class="toc-text">以ASCII码导出公钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以ASCII码导出私钥"><span class="toc-number">7.</span> <span class="toc-text">以ASCII码导出私钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上传公钥到服务器"><span class="toc-number">8.</span> <span class="toc-text">上传公钥到服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在服务器搜索密钥"><span class="toc-number">9.</span> <span class="toc-text">在服务器搜索密钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#列出密钥指纹"><span class="toc-number">10.</span> <span class="toc-text">列出密钥指纹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导入公钥私钥"><span class="toc-number">11.</span> <span class="toc-text">导入公钥私钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#采用ASCII码形式，生成单独的签名文件，与文件内容分开存放"><span class="toc-number">12.</span> <span class="toc-text">采用ASCII码形式，生成单独的签名文件，与文件内容分开存放</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#验证签名文件"><span class="toc-number">13.</span> <span class="toc-text">验证签名文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成分离的加密文件"><span class="toc-number">14.</span> <span class="toc-text">生成分离的加密文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#校验刚才生成的加密文件"><span class="toc-number">15.</span> <span class="toc-text">校验刚才生成的加密文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成独立的密码文件"><span class="toc-number">16.</span> <span class="toc-text">生成独立的密码文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解密独立的密码文件"><span class="toc-number">17.</span> <span class="toc-text">解密独立的密码文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在另一台系统上导入秘钥"><span class="toc-number">18.</span> <span class="toc-text">在另一台系统上导入秘钥</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2018/08/21/GPG%E6%A0%A1%E9%AA%8C%E6%96%87%E4%BB%B6%E7%9A%84%E5%AE%8C%E6%95%B4%E6%80%A7/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>rsync免密码远程备份 | AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="The article has been encrypted, please enter your password to view.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rsync免密码远程备份">
+<meta property="og:url" content="https://aquarian-age.github.io/2019/05/15/rsync%E5%85%8D%E5%AF%86%E7%A0%81%E8%BF%9C%E7%A8%8B%E5%A4%87%E4%BB%BD/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:description" content="The article has been encrypted, please enter your password to view.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-05-15T11:31:28.000Z">
+<meta property="article:modified_time" content="2019-06-01T16:21:02.034Z">
+<meta property="article:author" content="Liangzi">
+<meta property="article:tag" content="VPS">
+<meta property="article:tag" content="rsync">
+<meta property="article:tag" content="ssh">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-rsync免密码远程备份" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/15/rsync%E5%85%8D%E5%AF%86%E7%A0%81%E8%BF%9C%E7%A8%8B%E5%A4%87%E4%BB%BD/" class="article-date">
+  <time datetime="2019-05-15T11:31:28.000Z" itemprop="datePublished">2019-05-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      rsync免密码远程备份
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <script src="/crypto-js.js"></script><script src="/mcommon.js"></script><h3 id="encrypt-message">enter password to read.</h3><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> <div id="security"> <div> <div class="input-group"> <input type="text" class="form-control" aria-label="Enter the password." id="pass"/> <div class="input-group-btn"> <button type="button" class="btn btn-default" onclick="decryptAES()">Decrypt</button> </div> </div> </div> </div> <div id="encrypt-blog" style="display:none"> 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 </div>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2019/05/15/rsync%E5%85%8D%E5%AF%86%E7%A0%81%E8%BF%9C%E7%A8%8B%E5%A4%87%E4%BB%BD/" data-id="ckivmllwk002cx720amhn4lz9" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2019/05/15/rsync%E5%85%8D%E5%AF%86%E7%A0%81%E8%BF%9C%E7%A8%8B%E5%A4%87%E4%BB%BD/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/" rel="tag">VPS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rsync/" rel="tag">rsync</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2019/05/16/%E9%AB%98%E5%8E%8B%E7%94%B5%E5%B7%A5%E8%AF%81/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          一个意外
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/05/07/ssh%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">ssh自动拷贝公钥</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#encrypt-message"><span class="toc-number">1.</span> <span class="toc-text">enter password to read.</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2019/05/15/rsync%E5%85%8D%E5%AF%86%E7%A0%81%E8%BF%9C%E7%A8%8B%E5%A4%87%E4%BB%BD/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

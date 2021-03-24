@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>openSUSE 42.3 实现IP转发且重启不失效 | AquarianAge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="官网文档内容 Basic Router SetupA router is a networking device that delivers and receives data (network packets) to or from more than one network back and forth. You often use a router to connect your local">
+<meta property="og:type" content="article">
+<meta property="og:title" content="openSUSE 42.3 实现IP转发且重启不失效">
+<meta property="og:url" content="https://aquarian-age.github.io/2018/03/26/openSUSE-42-3-%E5%AE%9E%E7%8E%B0IP%E8%BD%AC%E5%8F%91%E4%B8%94%E9%87%8D%E5%90%AF%E4%B8%8D%E5%A4%B1%E6%95%88/index.html">
+<meta property="og:site_name" content="AquarianAge">
+<meta property="og:description" content="官网文档内容 Basic Router SetupA router is a networking device that delivers and receives data (network packets) to or from more than one network back and forth. You often use a router to connect your local">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-03-26T09:50:27.000Z">
+<meta property="article:modified_time" content="2019-06-01T16:21:01.650Z">
+<meta property="article:author" content="Liangzi">
+<meta property="article:tag" content="openSUSE">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="https://Aquarian-Age.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://Aquarian-Age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AquarianAge</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</a>
+        </h2>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-openSUSE-42-3-实现IP转发且重启不失效" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/26/openSUSE-42-3-%E5%AE%9E%E7%8E%B0IP%E8%BD%AC%E5%8F%91%E4%B8%94%E9%87%8D%E5%90%AF%E4%B8%8D%E5%A4%B1%E6%95%88/" class="article-date">
+  <time datetime="2018-03-26T09:50:27.000Z" itemprop="datePublished">2018-03-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      openSUSE 42.3 实现IP转发且重启不失效
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p><a href="https://www.suse.com/documentation/sles-12/book_sle_admin/data/sec_basicnet_router.html" target="_blank" rel="noopener">官网文档内容</a></p>
+<h2 id="Basic-Router-Setup"><a href="#Basic-Router-Setup" class="headerlink" title="Basic Router Setup"></a>Basic Router Setup</h2><p>A router is a networking device that delivers and receives data (network packets) to or from more than one network back and forth. You often use a router to connect your local network to the remote network (Internet) or to connect local network segments. With SUSE Linux Enterprise Server you can build a router with features such as NAT (Network Address Translation) or advanced firewalling.</p>
+<p>The following are basic steps to turn SUSE Linux Enterprise Server into a router.<br><a id="more"></a></p>
+<h3 id="Enable-forwarding-for-example-in-etc-sysctl-d-50-router-conf"><a href="#Enable-forwarding-for-example-in-etc-sysctl-d-50-router-conf" class="headerlink" title="Enable forwarding, for example in /etc/sysctl.d/50-router.conf"></a>Enable forwarding, for example in /etc/sysctl.d/50-router.conf</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">net.ipv4.conf.all.forwarding &#x3D; 1</span><br><span class="line">net.ipv6.conf.all.forwarding &#x3D; 1</span><br></pre></td></tr></table></figure>
+<p>Then provide a static IPv4 and IPv6 IP setup for the interfaces. Enabling forwarding disables several mechanisms, for example IPv6 does not accept an IPv6 RA (router advertisement) anymore, which also prevents the creation of a default route.</p>
+<p>In many situations (for example, when you can reach the same network via more than one interface, or when VPN usually is used and already on “normal multi-home hosts”), you must disable the IPv4 reverse path filter (this feature does not currently exist for IPv6):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net.ipv4.conf.all.rp_filter &#x3D; 0</span><br></pre></td></tr></table></figure><br>You can also filter with firewall settings instead.</p>
+<p>To accept an IPv6 RA (from the router on an external, uplink, or ISP interface) and create a default (or also a more specific) IPv6 route again, set:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">net.ipv6.conf.$&#123;ifname&#125;.accept_ra &#x3D; 2</span><br><span class="line">net.ipv6.conf.$&#123;ifname&#125;.autoconf &#x3D; 0</span><br></pre></td></tr></table></figure><br>(Note: “eth0.42” needs to be written as eth0/42 in a dot-separated sysfs path.) </p>
+<p>More router behavior and forwarding dependencies are described in <a href="https://www.kernel.org/doc/Documentation/networking/ip-sysctl.txt" target="_blank" rel="noopener">https://www.kernel.org/doc/Documentation/networking/ip-sysctl.txt</a>.</p>
+<p>To provide IPv6 on your internal (DMZ) interfaces, and announce yourself as an IPv6 router and “autoconf networks” to the clients, install and configure radvd in /etc/radvd.conf, for example:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">interface eth0</span><br><span class="line">&#123;</span><br><span class="line">    IgnoreIfMissing on;         # do not fail if interface missed</span><br><span class="line"></span><br><span class="line">    AdvSendAdvert on;           # enable sending RAs</span><br><span class="line">    AdvManagedFlag on;          # IPv6 addresses managed via DHCPv6</span><br><span class="line">    AdvOtherConfigFlag on;      # DNS, NTP... only via DHCPv6</span><br><span class="line"></span><br><span class="line">    AdvDefaultLifetime 3600;    # client default route lifetime of 1 hour</span><br><span class="line"></span><br><span class="line">    prefix 2001:db8:0:1::&#x2F;64    # (&#x2F;64 is default and required for autoconf)</span><br><span class="line">    &#123;</span><br><span class="line">        AdvAutonomous off;         # Disable address autoconf (DHCPv6 only)</span><br><span class="line"></span><br><span class="line">        AdvValidLifetime 3600;     # prefix (autoconf addr) is valid 1 h</span><br><span class="line">        AdvPreferredLifetime 1800; # prefix (autoconf addr) is prefered 1&#x2F;2 h</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Lastly configure the firewall. In SuSEfirewall2, you need to set FW_ROUTE=”yes” (otherwise it will also reset forwarding sysctl again) and define the interfaces in the FW_DEV_INT, FW_DEV_EXT (and FW_DEV_DMZ) zone variables as needed, perhaps also FW_MASQUERADE=”yes” and FW_MASQ_DEV.</p>
+<h2 id="依据以上方法配置"><a href="#依据以上方法配置" class="headerlink" title="依据以上方法配置"></a>依据以上方法配置</h2><h3 id="在-etc-sysctl-d-添加配置文件50-router-conf"><a href="#在-etc-sysctl-d-添加配置文件50-router-conf" class="headerlink" title="在/etc/sysctl.d/ 添加配置文件50-router.conf"></a>在/etc/sysctl.d/ 添加配置文件50-router.conf</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SUSE:&#x2F;etc&#x2F;sysctl.d # cat 50-router.conf </span><br><span class="line">#本配置文件实现ip转发功能且随开机启动。</span><br><span class="line">net.ipv4.conf.all.forwarding &#x3D; 1</span><br><span class="line">net.ipv6.conf.all.forwarding &#x3D; 1</span><br></pre></td></tr></table></figure>
+<h3 id="禁用IP-v4反向路径筛选器"><a href="#禁用IP-v4反向路径筛选器" class="headerlink" title="禁用IP v4反向路径筛选器"></a>禁用IP v4反向路径筛选器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SUSE:&#x2F;etc&#x2F;sysctl.d # echo &quot;net.ipv4.conf.all.rp_filter &#x3D; 0&quot; &gt;&gt; 50-router.conf </span><br><span class="line">SUSE:&#x2F;etc&#x2F;sysctl.d # cat 50-router.conf </span><br><span class="line">net.ipv4.conf.all.forwarding &#x3D; 1</span><br><span class="line">net.ipv6.conf.all.forwarding &#x3D; 1</span><br><span class="line">net.ipv4.conf.all.rp_filter &#x3D; 0</span><br></pre></td></tr></table></figure>
+<h3 id="设置-接受IPv6-RA-来自外部、上行链路或ISP接口上的路由器-并再次创建默认-或更具体的-IPv6路由"><a href="#设置-接受IPv6-RA-来自外部、上行链路或ISP接口上的路由器-并再次创建默认-或更具体的-IPv6路由" class="headerlink" title="设置 接受IPv6 RA (来自外部、上行链路或ISP接口上的路由器)并再次创建默认(或更具体的) IPv6路由"></a>设置 接受IPv6 RA (来自外部、上行链路或ISP接口上的路由器)并再次创建默认(或更具体的) IPv6路由</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">net.ipv6.conf.$&#123;ifname&#125;.accept_ra &#x3D; 2</span><br><span class="line">net.ipv6.conf.$&#123;ifname&#125;.autoconf &#x3D; 0</span><br></pre></td></tr></table></figure>
+<h3 id="配置文件50-router-conf的最终内容"><a href="#配置文件50-router-conf的最终内容" class="headerlink" title="配置文件50-router.conf的最终内容:"></a>配置文件50-router.conf的最终内容:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SUSE:&#x2F;etc&#x2F;sysctl.d # cat 50-router.conf                    </span><br><span class="line">net.ipv4.conf.all.forwarding &#x3D; 1                                                               </span><br><span class="line">net.ipv6.conf.all.forwarding &#x3D; 1</span><br><span class="line">net.ipv4.conf.all.rp_filter &#x3D; 0</span><br><span class="line">net.ipv6.conf.$&#123;ifname&#125;.accept_ra &#x3D; 2</span><br><span class="line">net.ipv6.conf.$&#123;ifname&#125;.autoconf &#x3D; 0</span><br></pre></td></tr></table></figure>
+<h2 id="设置防火墙"><a href="#设置防火墙" class="headerlink" title="设置防火墙"></a>设置防火墙</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">SUSE:&#x2F;etc&#x2F;sysconfig # vim SuSEfirewall2</span><br><span class="line">----------------------------------------</span><br><span class="line">  86 # Format: space separated list of interface or configuration names</span><br><span class="line">  87 #</span><br><span class="line">  88 # Examples: &quot;tr0&quot;, &quot;eth0 eth1&quot;</span><br><span class="line">  89 #</span><br><span class="line">  90 FW_DEV_INT&#x3D;&quot;&quot;</span><br><span class="line">	改为：</span><br><span class="line">  90 FW_DEV_INT&#x3D;&quot;wlan0&quot;,&quot;eth0&quot;</span><br><span class="line">--------------------------------------</span><br><span class="line">  92 ## Type:        string</span><br><span class="line">  93 #</span><br><span class="line">  94 # Which are the interfaces that point to the dmz or dialup network?</span><br><span class="line">  95 #</span><br><span class="line">  96 # Enter all the network devices here which point to the dmz&#x2F;dialups.</span><br><span class="line">  97 # A &quot;dmz&quot; is a special, seperated network, which is only connected</span><br><span class="line">  98 # to the firewall, and should be reachable from the internet to</span><br><span class="line">  99 # provide services, e.g. WWW, Mail, etc. and hence is at risk from</span><br><span class="line"> 100 # attacks. See &#x2F;usr&#x2F;share&#x2F;doc&#x2F;packages&#x2F;SuSEfirewall2&#x2F;EXAMPLES for an</span><br><span class="line"> 101 # example.</span><br><span class="line"> 102 #</span><br><span class="line"> 103 # Note: You have to configure FW_FORWARD to define the services</span><br><span class="line"> 104 # which should be available to the internet and set FW_ROUTE to yes.</span><br><span class="line"> 105 #</span><br><span class="line"> 106 # Format: space separated list of interface or configuration names</span><br><span class="line"> 107 #</span><br><span class="line"> 108 # Examples: &quot;tr0&quot;, &quot;eth0 eth1&quot;</span><br><span class="line"> 109 #</span><br><span class="line"> 110 FW_DEV_DMZ&#x3D;&quot;&quot;</span><br><span class="line">	改为:</span><br><span class="line"> 110 FW_DEV_DMZ&#x3D;&quot;wlan0&quot;,&quot;eth0&quot;</span><br><span class="line">--------------------------------------</span><br><span class="line"></span><br><span class="line"> 126 # Setting this option one alone doesn&#39;t do anything. Either activate</span><br><span class="line"> 127 # masquerading with FW_MASQUERADE below if you want to masquerade</span><br><span class="line"> 128 # your internal network to the internet, or configure FW_FORWARD to</span><br><span class="line"> 129 # define what is allowed to be forwarded. You also need to define</span><br><span class="line"> 130 # internal or dmz interfaces in FW_DEV_INT or FW_DEV_DMZ.</span><br><span class="line"> 131 #</span><br><span class="line"> 132 # defaults to &quot;no&quot; if not set</span><br><span class="line"> 133 #</span><br><span class="line"> 134 FW_ROUTE&#x3D;&quot;no&quot;</span><br><span class="line">	改为</span><br><span class="line"> 135 FW_ROUTE&#x3D;&quot;yes&quot;</span><br><span class="line">--------------------------------------</span><br><span class="line"> 137 ## Type:        yesno</span><br><span class="line"> 138 #</span><br><span class="line"> 139 # Do you want to masquerade internal networks to the outside?</span><br><span class="line"> 140 #</span><br><span class="line"> 141 # Requires: FW_DEV_INT or FW_DEV_DMZ, FW_ROUTE, FW_MASQ_DEV</span><br><span class="line"> 142 #</span><br><span class="line"> 143 # &quot;Masquerading&quot; means that all your internal machines which use</span><br><span class="line"> 144 # services on the internet seem to come from your firewall. Please</span><br><span class="line"> 145 # note that it is more secure to communicate via proxies to the</span><br><span class="line"> 146 # internet than to use masquerading.</span><br><span class="line"> 147 # </span><br><span class="line"> 148 # This option is required for FW_MASQ_NETS and FW_FORWARD_MASQ.</span><br><span class="line"> 149 #</span><br><span class="line"> 150 # defaults to &quot;no&quot; if not set</span><br><span class="line"> 151 #</span><br><span class="line"> 152 # FW_MASQUERADE&#x3D;&quot;no&quot;</span><br><span class="line">	改为：</span><br><span class="line"> 153 FW_MASQUERADE&#x3D;&quot;yes&quot;</span><br><span class="line"></span><br><span class="line">--------------------------------------</span><br></pre></td></tr></table></figure>
+<h2 id="重建引导"><a href="#重建引导" class="headerlink" title="重建引导"></a>重建引导</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SUSE:&#x2F;etc&#x2F;sysconfig # mkinitrd</span><br><span class="line">SUSE:&#x2F;etc&#x2F;sysconfig # reboot</span><br></pre></td></tr></table></figure>
+<h2 id="查看ip-forward"><a href="#查看ip-forward" class="headerlink" title="查看ip_forward"></a>查看ip_forward</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">一 3月 26|17:18|0:&gt;cat &#x2F;proc&#x2F;sys&#x2F;net&#x2F;ipv4&#x2F;ip_forward</span><br><span class="line">1</span><br><span class="line">~</span><br></pre></td></tr></table></figure>
+<hr>
+<p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/03/26/openSUSE-42-3-%E5%AE%9E%E7%8E%B0IP%E8%BD%AC%E5%8F%91%E4%B8%94%E9%87%8D%E5%90%AF%E4%B8%8D%E5%A4%B1%E6%95%88/" data-id="ckivmllwg0021x720817y278k" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/03/26/openSUSE-42-3-%E5%AE%9E%E7%8E%B0IP%E8%BD%AC%E5%8F%91%E4%B8%94%E9%87%8D%E5%90%AF%E4%B8%8D%E5%A4%B1%E6%95%88/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/27/openSUSE-42-3-%E7%BC%96%E8%AF%91gcc4-9-4-%E5%AE%89%E8%A3%85flameshot/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          openSUSE 42.3 编译gcc4.9.4 安装flameshot
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/22/git%E8%BF%9C%E7%A8%8B%E6%8F%90%E4%BA%A4%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-Linux%E7%B3%BB%E7%BB%9F-The-requested-URL-returned-error-403/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">git远程提交错误</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Basic-Router-Setup"><span class="toc-number">1.</span> <span class="toc-text">Basic Router Setup</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Enable-forwarding-for-example-in-etc-sysctl-d-50-router-conf"><span class="toc-number">1.1.</span> <span class="toc-text">Enable forwarding, for example in &#x2F;etc&#x2F;sysctl.d&#x2F;50-router.conf</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#依据以上方法配置"><span class="toc-number">2.</span> <span class="toc-text">依据以上方法配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在-etc-sysctl-d-添加配置文件50-router-conf"><span class="toc-number">2.1.</span> <span class="toc-text">在&#x2F;etc&#x2F;sysctl.d&#x2F; 添加配置文件50-router.conf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#禁用IP-v4反向路径筛选器"><span class="toc-number">2.2.</span> <span class="toc-text">禁用IP v4反向路径筛选器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置-接受IPv6-RA-来自外部、上行链路或ISP接口上的路由器-并再次创建默认-或更具体的-IPv6路由"><span class="toc-number">2.3.</span> <span class="toc-text">设置 接受IPv6 RA (来自外部、上行链路或ISP接口上的路由器)并再次创建默认(或更具体的) IPv6路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置文件50-router-conf的最终内容"><span class="toc-number">2.4.</span> <span class="toc-text">配置文件50-router.conf的最终内容:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置防火墙"><span class="toc-number">3.</span> <span class="toc-text">设置防火墙</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重建引导"><span class="toc-number">4.</span> <span class="toc-text">重建引导</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看ip-forward"><span class="toc-number">5.</span> <span class="toc-text">查看ip_forward</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 Liangzi&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi20190216@outlook.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://Aquarian-Age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2018/03/26/openSUSE-42-3-%E5%AE%9E%E7%8E%B0IP%E8%BD%AC%E5%8F%91%E4%B8%94%E9%87%8D%E5%90%AF%E4%B8%8D%E5%A4%B1%E6%95%88/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>
