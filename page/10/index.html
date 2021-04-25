@@ -72,6 +72,56 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-VMBox" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/21/VMBox/" class="article-date">
+  <time datetime="2018-11-21T00:48:38.000Z" itemprop="datePublished">2018-11-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/21/VMBox/">vbox添加网卡</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>vbox网卡设置</p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>宿主机器为Linux 虚拟机vm里面也是Linux</p>
+<h3 id="设置VM"><a href="#设置VM" class="headerlink" title="设置VM"></a>设置VM</h3><p>网络–网卡<br>网卡2链接方式使用桥链接<br>界面名称eth0<br>混杂模式 全部允许</p>
+<h3 id="查看当前网卡名称-这是已经配置好了的"><a href="#查看当前网卡名称-这是已经配置好了的" class="headerlink" title="查看当前网卡名称(这是已经配置好了的)"></a>查看当前网卡名称(这是已经配置好了的)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">ip addr</span><br><span class="line">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000</span><br><span class="line">    link&#x2F;loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00</span><br><span class="line">    inet 127.0.0.1&#x2F;8 scope host lo</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 ::1&#x2F;128 scope host </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">2: enp0s3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP group default qlen 1000</span><br><span class="line">    link&#x2F;ether 08:00:27:15:a5:98 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 10.0.2.15&#x2F;24 brd 10.0.2.255 scope global enp0s3</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 fe80::a00:27ff:fe15:a598&#x2F;64 scope link </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">3: enp0s8: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP group default qlen 1000</span><br><span class="line">    link&#x2F;ether 08:00:27:4f:99:3c brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 192.168.1.110&#x2F;24 brd 192.168.1.255 scope global enp0s8</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 fe80::a00:27ff:fe4f:993c&#x2F;64 scope link </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2018/11/21/VMBox/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/11/21/VMBox/" data-id="ckivmllvu000kx720cno6a578" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/11/21/VMBox/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
     <article id="post-dkdm" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/11/21/dkdm/" class="article-date">
@@ -729,53 +779,6 @@
 
 
   
-    <article id="post-shanshui" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/10/23/shanshui/" class="article-date">
-  <time datetime="2018-10-23T09:48:56.000Z" itemprop="datePublished">2018-10-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/23/shanshui/">碧水</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>雨落青苔沾尘埃<br>风吹衣袂托双腮<br>碧水白莲缀时节<br>掩映闲鱼戏双鳃</p>
-<hr>
-<p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://aquarian-age.github.io/2018/10/23/shanshui/" data-id="ckivmlly1002vx7204xspglas" class="article-share-link">分享</a>
-      
-      
-        <a href="https://aquarian-age.github.io/2018/10/23/shanshui/#disqus_thread" class="article-comment-link">留言</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B0%8F%E8%AF%AD/" rel="tag">小语</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
 
 
   <nav id="page-nav">
@@ -803,6 +806,10 @@
       <ul>
         
           <li>
+            <a href="/2021/04/25/go%E8%AF%AD%E8%A8%80%E4%B8%87%E5%B9%B4%E5%8E%86%E6%B3%95/">go语言万年历法</a>
+          </li>
+        
+          <li>
             <a href="/2021/03/08/%E6%A3%80%E6%9F%A5Go%E5%AF%BC%E5%85%A5%E5%8C%85%E7%9A%84%E5%8D%B1%E9%99%A9%E6%80%A7/">检查Go导入包的危险性</a>
           </li>
         
@@ -816,10 +823,6 @@
         
           <li>
             <a href="/2021/03/01/cmha/">承蒙厚爱</a>
-          </li>
-        
-          <li>
-            <a href="/2021/02/24/%E6%81%B6/">恶</a>
           </li>
         
       </ul>
