@@ -72,6 +72,53 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-vspd-linux" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/27/vspd-linux/" class="article-date">
+  <time datetime="2019-03-27T02:15:33.000Z" itemprop="datePublished">2019-03-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/27/vspd-linux/">vspd-linux</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="STEP-1-0-install-default-kernel-and-reboot"><a href="#STEP-1-0-install-default-kernel-and-reboot" class="headerlink" title="STEP 1.0: install default kernel and reboot"></a>STEP 1.0: install default kernel and reboot</h3><p>yast -i kernel-default<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">yast -i kernel-default</span><br><span class="line">DEPRECATED. Use zypper directly: zypper --non-interactive install kernel-default</span><br><span class="line">Loading repository data...</span><br><span class="line">Reading installed packages...</span><br><span class="line">&#39;kernel-default&#39; is already installed.</span><br><span class="line">No update candidate for &#39;kernel-default-4.12.14-lp150.12.48.1.x86_64&#39;. The highest available version is already installed.</span><br><span class="line">Resolving package dependencies...</span><br><span class="line"></span><br><span class="line">Nothing to do.</span><br></pre></td></tr></table></figure><br>reboot</p>
+        
+          <p class="article-more-link">
+            <a href="/2019/03/27/vspd-linux/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2019/03/27/vspd-linux/" data-id="ckivmlm0b008bx7205cek4js5" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2019/03/27/vspd-linux/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
     <article id="post-WSL-mount-USB" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/03/26/WSL-mount-USB/" class="article-date">
@@ -720,54 +767,6 @@
 
 
   
-    <article id="post-7za加密" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/11/25/7za%E5%8A%A0%E5%AF%86/" class="article-date">
-  <time datetime="2018-11-25T02:56:25.000Z" itemprop="datePublished">2018-11-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/25/7za%E5%8A%A0%E5%AF%86/">7za加密</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="加密文件"><a href="#加密文件" class="headerlink" title="加密文件"></a>加密文件</h3><p>7za a -tzip -p -scrcSHA256 123.zip 123/*<br>a 添加<br>-t后面跟要加密的文件后缀类型<br>-p 使用密码<br>-scrc后面跟要使用加密的算法<br>123.zip 最终生成加密文件的名字<br>123/ 要加密的源文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">~&#x2F;tftp</span><br><span class="line">host@user 75 10:38 &gt;7za a -tzip -p -scrcSHA256 123.zip 123&#x2F;*</span><br><span class="line"></span><br><span class="line">7-Zip (a) [64] 16.02 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-21</span><br><span class="line">p7zip Version 16.02 (locale&#x3D;zh_CN.UTF-8,Utf16&#x3D;on,HugeFiles&#x3D;on,64 bits,4 CPUs Intel(R) Core(TM) i3-2370M CPU @ 2.40GHz (206A7),ASM)</span><br><span class="line"></span><br><span class="line">Scanning the drive:</span><br><span class="line">3 files, 4046 bytes (4 KiB)</span><br><span class="line"></span><br><span class="line">Creating archive: 123.zip</span><br><span class="line"></span><br><span class="line">Items to compress: 3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Enter password (will not be echoed):</span><br><span class="line">Verify password (will not be echoed) :</span><br><span class="line">    </span><br><span class="line">Files read from disk: 3</span><br><span class="line">Archive size: 3907 bytes (4 KiB)</span><br><span class="line">Everything is Ok</span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/2018/11/25/7za%E5%8A%A0%E5%AF%86/#more">继续阅读全文 »</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://aquarian-age.github.io/2018/11/25/7za%E5%8A%A0%E5%AF%86/" data-id="ckivmllvl0004x7205fr7by6o" class="article-share-link">分享</a>
-      
-      
-        <a href="https://aquarian-age.github.io/2018/11/25/7za%E5%8A%A0%E5%AF%86/#disqus_thread" class="article-comment-link">留言</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8A%A0%E5%AF%86/" rel="tag">加密</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
 
 
   <nav id="page-nav">
@@ -795,6 +794,10 @@
       <ul>
         
           <li>
+            <a href="/2021/05/24/mapToJson/">mapToJson</a>
+          </li>
+        
+          <li>
             <a href="/2021/04/25/go%E8%AF%AD%E8%A8%80%E4%B8%87%E5%B9%B4%E5%8E%86%E6%B3%95/">go语言万年历法</a>
           </li>
         
@@ -808,10 +811,6 @@
         
           <li>
             <a href="/2021/03/03/Flames/">雙生紫焰Violet Flames</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/01/cmha/">承蒙厚爱</a>
           </li>
         
       </ul>

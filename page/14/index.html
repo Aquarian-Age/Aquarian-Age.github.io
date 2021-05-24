@@ -72,6 +72,53 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-rsync-bakcup-vps" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/06/rsync-bakcup-vps/" class="article-date">
+  <time datetime="2018-04-06T08:56:36.000Z" itemprop="datePublished">2018-04-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/06/rsync-bakcup-vps/">rsync备份</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="备份-home"><a href="#备份-home" class="headerlink" title="备份/home"></a>备份/home</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line">echo "备份home下的点文件目录"</span><br><span class="line"></span><br><span class="line">echo "删除回收站..."</span><br><span class="line">rm -rf $HOME/.local/share/Trash/files/*</span><br><span class="line">sleep 1</span><br><span class="line"></span><br><span class="line">echo "开始备份..."</span><br><span class="line">sudo rsync -aptgovrlHAXzP --delete-excluded --partial /home/XXX/ /run/media/xuan/data/home_XXX-backup/ --exclude=&#123;"Android/*","AndroidStudioProjects/*","brlcad/*","BurpSuiteFree/*","CloudMusic/*","downloads/*","draw/*","DS-5_v5.22.0/*","DS-5-Workspace/*","Embedded/*","ldra/*","leanote/*","logs/*","mongod-data/*","Music/*","nfs_share/*","node_modules/*","src/*","Stellarium/*","tftp/*","tools/*","Video/*","study/*","rpmbuild/*","VirtualBox\ VMs/*","work/*","Picture/*","桌面/*","blog/*","Documents/*",".npm/*",".wine/*",".android/avd/*",".cache/winetricks/*",".cache/netease-cloud-music/*",".cache/mozilla/*",".cache/wine/*"&#125;</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2018/04/06/rsync-bakcup-vps/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2018/04/06/rsync-bakcup-vps/" data-id="ckivmllwj002bx7209jw110u5" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2018/04/06/rsync-bakcup-vps/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/" rel="tag">VPS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rsync/" rel="tag">rsync</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
     <article id="post-Back-up-dot-file" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/04/04/Back-up-dot-file/" class="article-date">
@@ -737,53 +784,6 @@
 
 
   
-    <article id="post-ocserv-install-on-centos6-8" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/01/28/ocserv-install-on-centos6-8/" class="article-date">
-  <time datetime="2018-01-28T15:25:17.000Z" itemprop="datePublished">2018-01-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/28/ocserv-install-on-centos6-8/">ocserv-install-on-centos6.8</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="下载相关依赖及软件"><a href="#下载相关依赖及软件" class="headerlink" title="下载相关依赖及软件"></a>下载相关依赖及软件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd </span><br><span class="line">yum install autoconf automake gcc libtasn1-devel zlib zlib-devel trousers trousers-devel gmp-devel gmp xz texinif libnl-devel libnl wrappers-libs tcp wrappers-devel tcp_wrappers dbus dbus-devel ncurses-devel pam-devel readline-devel bison bison-devel flex gcc wget</span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/2018/01/28/ocserv-install-on-centos6-8/#more">继续阅读全文 »</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://aquarian-age.github.io/2018/01/28/ocserv-install-on-centos6-8/" data-id="ckivmllxy002nx7201amr6nt3" class="article-share-link">分享</a>
-      
-      
-        <a href="https://aquarian-age.github.io/2018/01/28/ocserv-install-on-centos6-8/#disqus_thread" class="article-comment-link">留言</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/" rel="tag">VPS</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
 
 
   <nav id="page-nav">
@@ -811,6 +811,10 @@
       <ul>
         
           <li>
+            <a href="/2021/05/24/mapToJson/">mapToJson</a>
+          </li>
+        
+          <li>
             <a href="/2021/04/25/go%E8%AF%AD%E8%A8%80%E4%B8%87%E5%B9%B4%E5%8E%86%E6%B3%95/">go语言万年历法</a>
           </li>
         
@@ -824,10 +828,6 @@
         
           <li>
             <a href="/2021/03/03/Flames/">雙生紫焰Violet Flames</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/01/cmha/">承蒙厚爱</a>
           </li>
         
       </ul>
