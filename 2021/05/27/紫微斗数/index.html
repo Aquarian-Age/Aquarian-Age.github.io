@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>chroot openSUSE | AquarianAge</title>
+  <title>紫微斗数 | AquarianAge</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="openSUSE修复grub方法">
+  <meta name="description" content="紫微斗数Go+web">
 <meta property="og:type" content="article">
-<meta property="og:title" content="chroot openSUSE">
-<meta property="og:url" content="https://aquarian-age.github.io/2018/02/16/chroot-openSUSE/index.html">
+<meta property="og:title" content="紫微斗数">
+<meta property="og:url" content="https://aquarian-age.github.io/2021/05/27/%E7%B4%AB%E5%BE%AE%E6%96%97%E6%95%B0/index.html">
 <meta property="og:site_name" content="AquarianAge">
-<meta property="og:description" content="openSUSE修复grub方法">
+<meta property="og:description" content="紫微斗数Go+web">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2018-02-16T02:49:27.000Z">
-<meta property="article:modified_time" content="2020-10-16T10:43:18.936Z">
+<meta property="article:published_time" content="2021-05-27T03:21:00.000Z">
+<meta property="article:modified_time" content="2021-05-27T03:22:13.398Z">
 <meta property="article:author" content="Liangzi">
-<meta property="article:tag" content="openSUSE">
+<meta property="article:tag" content="Go">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="https://Aquarian-Age.github.io/atom.xml" title="AquarianAge" type="application/atom+xml">
@@ -75,10 +75,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-chroot-openSUSE" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-紫微斗数" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/02/16/chroot-openSUSE/" class="article-date">
-  <time datetime="2018-02-16T02:49:27.000Z" itemprop="datePublished">2018-02-16</time>
+    <a href="/2021/05/27/%E7%B4%AB%E5%BE%AE%E6%96%97%E6%95%B0/" class="article-date">
+  <time datetime="2021-05-27T03:21:00.000Z" itemprop="datePublished">2021-05-27</time>
 </a>
     
   </div>
@@ -89,7 +89,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      chroot openSUSE
+      紫微斗数
     </h1>
   
 
@@ -99,24 +99,21 @@
       
         <!-- Table of Contents -->
         
-        <p>openSUSE修复grub方法</p>
-<a id="more"></a>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="built_in">set</span> -v</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"-------mounts benging-------"</span></span><br><span class="line">mount /dev/sda4 /mnt</span><br><span class="line">mount /dev/sda2 /mnt/boot/efi</span><br><span class="line">mount /dev/sdb3 /mnt/var</span><br><span class="line">mount /dev/sdb4 /mnt/opt</span><br><span class="line">mount /dev/sdb5 /mnt/home</span><br><span class="line">mount -t proc proc /mnt/proc</span><br><span class="line">mount --rbind /sys /mnt/sys</span><br><span class="line">mount --rbind /dev /mnt/dev</span><br><span class="line">chroot /mnt /bin/bash</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"end"</span></span><br></pre></td></tr></table></figure>
-<p>重新安装grub</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grub2-mkconfig -o /boot/grub2/grub.cfg</span><br><span class="line">grub2-install /dev/sda</span><br></pre></td></tr></table></figure>
+        <p>紫微斗数Go+web<br><a id="more"></a></p>
+<p><a href="https://github.com/Aquarian-Age/zwds" target="_blank" rel="noopener">https://github.com/Aquarian-Age/zwds</a></p>
 <hr>
 <p>版权声明: 署名非商用<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://aquarian-age.github.io/2018/02/16/chroot-openSUSE/" data-id="ckivmllw2000zx7204o2c0cgd" class="article-share-link">分享</a>
+      <a data-url="https://aquarian-age.github.io/2021/05/27/%E7%B4%AB%E5%BE%AE%E6%96%97%E6%95%B0/" data-id="ckp6bywkz0000j520ej643c14" class="article-share-link">分享</a>
       
       
-        <a href="https://aquarian-age.github.io/2018/02/16/chroot-openSUSE/#disqus_thread" class="article-comment-link">留言</a>
+        <a href="https://aquarian-age.github.io/2021/05/27/%E7%B4%AB%E5%BE%AE%E6%96%97%E6%95%B0/#disqus_thread" class="article-comment-link">留言</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSUSE/" rel="tag">openSUSE</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/" rel="tag">Go</a></li></ul>
 
     </footer>
   </div>
@@ -168,19 +165,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/02/22/%E4%B8%8A%E8%AF%81%E6%8C%87%E6%95%B0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          上证指数0
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/02/15/%E5%B0%8F%E8%AF%AD/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2021/05/24/mapToJson/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">小语1</div>
+      <div class="article-nav-title">mapToJson</div>
     </a>
   
 </nav>
@@ -303,7 +291,7 @@ window.onload = function() {
 <script>
   var disqus_shortname = 'Aquarian-Age';
   
-  var disqus_url = 'https://aquarian-age.github.io/2018/02/16/chroot-openSUSE/';
+  var disqus_url = 'https://aquarian-age.github.io/2021/05/27/%E7%B4%AB%E5%BE%AE%E6%96%97%E6%95%B0/';
   
   (function(){
     var dsq = document.createElement('script');
