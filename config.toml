@@ -3,6 +3,9 @@ languageCode = "zh-CN"
 title = "浮生若梦"
 tag = "tags"
 theme = "maupassant"
+# page
+publishDir = "docs"
+
 googleAnalytics = ""  # UA-XXXXXXXX-X
 
 ## 保持分类的原始名字（false会做转小写处理）
