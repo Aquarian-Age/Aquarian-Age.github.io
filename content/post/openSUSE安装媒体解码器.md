@@ -1,5 +1,5 @@
 ---
-title: openSUSE安装媒体解码器
+title: openSUSE
 date: 2021-07-02T10:19:07+08:00
 tags: [openSUSE]
 ---
@@ -27,4 +27,32 @@ sudo zypper --no-refresh install libavresample3-3.4.4-lp150.9.1.x86_64
 sudo zypper --no-refresh install libpostproc54-3.4.4-lp150.9.1.x86_64
 sudo zypper --no-refresh install libswscale4-3.4.4-lp150.9.1.x86_64
 sudo zypper --no-refresh install libavdevice57-3.4.4-lp150.9.1.x86_64
+```
+
+
+### 系统备份
+
+rsync-backup-system.sh
+```bash
+#!/bin/bash
+
+echo " " >> /home/xxxx/logs/rsync-system-backup-info.log
+echo "**********$(date)开始备份**********" >> /home/xxxx/logs/rsync-system-backup-info.log 2>&1
+
+### -v參數去掉 避免在/var/spool/mail/root中輸出和log file重複信息
+# -a 存档模式 等于-rlptgoD(没有-H，-A，-X); 
+# -X 保留扩展属性;
+# -A 保留ACL（暗示--perms）;
+# -z 在传输过程中压缩文件数据
+# -p 保留权限
+# -t 保留修改时间
+# -g 保留组
+# -o 保留所有者（仅限超级用户）
+# -r 递归目录
+# -l 将符号链接复制为符号链接
+# -H 保留硬链接
+# -z 传输过程压缩
+# -R 使用相对路径名称(从源目录的起始位置 保留路径 备份到目标目录)
+
+sudo rsync -aptgovrlHAX --delete-excluded --partial --log-file=/home/xxxx/logs/rsync-system-backup.log / /mnt/sdcdata/system-backup/ --exclude={"/usr/src/*","/media/*","/sys/*","/proc/*","/mnt/*","/tmp/*","/run/*","/dev/*","/home/*","/var/tmp/*","/var/run/*","/var/log/*","/var/adm/*","/var/cache/*","/usr/share/doc/*"} && echo "**********$(date):系统备份完毕**********" >> /home/xxxx/logs/rsync-system-backup-info.log 2>&1 
 ```

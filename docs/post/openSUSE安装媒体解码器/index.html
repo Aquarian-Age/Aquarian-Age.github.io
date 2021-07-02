@@ -9,8 +9,8 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
     
 
-    <title>openSUSE安装媒体解码器 | 浮生若梦</title>
-    <meta property="og:title" content="openSUSE安装媒体解码器 - 浮生若梦">
+    <title>openSUSE | 浮生若梦</title>
+    <meta property="og:title" content="openSUSE - 浮生若梦">
     <meta property="og:type" content="article">
         
     <meta property="article:published_time" content='2021-07-02T10:19:07&#43;08:00'>
@@ -19,7 +19,7 @@
     <meta property="article:modified_time" content='2021-07-02T10:19:07&#43;08:00'>
         
     <meta name="Keywords" content="">
-    <meta name="description" content="openSUSE安装媒体解码器">
+    <meta name="description" content="openSUSE">
         
     <meta name="author" content="Amrta">
     <meta property="og:url" content="https://aquarian-age.github.io/post/openSUSE%E5%AE%89%E8%A3%85%E5%AA%92%E4%BD%93%E8%A7%A3%E7%A0%81%E5%99%A8/">
@@ -144,6 +144,7 @@
     <li>
       <ul>
         <li><a href="#解码器">解码器</a></li>
+        <li><a href="#系统备份">系统备份</a></li>
       </ul>
     </li>
   </ul>
@@ -179,7 +180,7 @@
 </script>
     <article class="post">
         <header>
-            <h1 class="post-title">openSUSE安装媒体解码器</h1>
+            <h1 class="post-title">openSUSE</h1>
         </header>
         <date class="post-meta meta-date">
             2021年7月2日
@@ -238,6 +239,56 @@ sudo zypper --no-refresh install libavresample3-3.4.4-lp150.9.1.x86_64
 sudo zypper --no-refresh install libpostproc54-3.4.4-lp150.9.1.x86_64
 sudo zypper --no-refresh install libswscale4-3.4.4-lp150.9.1.x86_64
 sudo zypper --no-refresh install libavdevice57-3.4.4-lp150.9.1.x86_64
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="系统备份">系统备份</h3>
+<p>rsync-backup-system.sh</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/bash
+</span><span style="color:#999;font-weight:bold;font-style:italic"></span>
+<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34; &#34;</span> &gt;&gt; /home/xxxx/logs/rsync-system-backup-info.log
+<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;**********</span><span style="color:#000;font-weight:bold">$(</span>date<span style="color:#000;font-weight:bold">)</span><span style="color:#d14">开始备份**********&#34;</span> &gt;&gt; /home/xxxx/logs/rsync-system-backup-info.log 2&gt;&amp;<span style="color:#099">1</span>
+
+<span style="color:#998;font-style:italic">### -v參數去掉 避免在/var/spool/mail/root中輸出和log file重複信息</span>
+<span style="color:#998;font-style:italic"># -a 存档模式 等于-rlptgoD(没有-H，-A，-X); </span>
+<span style="color:#998;font-style:italic"># -X 保留扩展属性;</span>
+<span style="color:#998;font-style:italic"># -A 保留ACL（暗示--perms）;</span>
+<span style="color:#998;font-style:italic"># -z 在传输过程中压缩文件数据</span>
+<span style="color:#998;font-style:italic"># -p 保留权限</span>
+<span style="color:#998;font-style:italic"># -t 保留修改时间</span>
+<span style="color:#998;font-style:italic"># -g 保留组</span>
+<span style="color:#998;font-style:italic"># -o 保留所有者（仅限超级用户）</span>
+<span style="color:#998;font-style:italic"># -r 递归目录</span>
+<span style="color:#998;font-style:italic"># -l 将符号链接复制为符号链接</span>
+<span style="color:#998;font-style:italic"># -H 保留硬链接</span>
+<span style="color:#998;font-style:italic"># -z 传输过程压缩</span>
+<span style="color:#998;font-style:italic"># -R 使用相对路径名称(从源目录的起始位置 保留路径 备份到目标目录)</span>
+
+sudo rsync -aptgovrlHAX --delete-excluded --partial --log-file<span style="color:#000;font-weight:bold">=</span>/home/xxxx/logs/rsync-system-backup.log / /mnt/sdcdata/system-backup/ --exclude<span style="color:#000;font-weight:bold">={</span><span style="color:#d14">&#34;/usr/src/*&#34;</span>,<span style="color:#d14">&#34;/media/*&#34;</span>,<span style="color:#d14">&#34;/sys/*&#34;</span>,<span style="color:#d14">&#34;/proc/*&#34;</span>,<span style="color:#d14">&#34;/mnt/*&#34;</span>,<span style="color:#d14">&#34;/tmp/*&#34;</span>,<span style="color:#d14">&#34;/run/*&#34;</span>,<span style="color:#d14">&#34;/dev/*&#34;</span>,<span style="color:#d14">&#34;/home/*&#34;</span>,<span style="color:#d14">&#34;/var/tmp/*&#34;</span>,<span style="color:#d14">&#34;/var/run/*&#34;</span>,<span style="color:#d14">&#34;/var/log/*&#34;</span>,<span style="color:#d14">&#34;/var/adm/*&#34;</span>,<span style="color:#d14">&#34;/var/cache/*&#34;</span>,<span style="color:#d14">&#34;/usr/share/doc/*&#34;</span><span style="color:#000;font-weight:bold">}</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;**********</span><span style="color:#000;font-weight:bold">$(</span>date<span style="color:#000;font-weight:bold">)</span><span style="color:#d14">:系统备份完毕**********&#34;</span> &gt;&gt; /home/xxxx/logs/rsync-system-backup-info.log 2&gt;&amp;<span style="color:#099">1</span> 
 </code></pre></td></tr></table>
 </div>
 </div>
@@ -385,7 +436,7 @@ sudo zypper --no-refresh install libavdevice57-3.4.4-lp150.9.1.x86_64
 <ul class="widget-list">
     
     <li>
-        <a href="https://aquarian-age.github.io/post/openSUSE%E5%AE%89%E8%A3%85%E5%AA%92%E4%BD%93%E8%A7%A3%E7%A0%81%E5%99%A8/" title="openSUSE安装媒体解码器">openSUSE安装媒体解码器</a>
+        <a href="https://aquarian-age.github.io/post/openSUSE%E5%AE%89%E8%A3%85%E5%AA%92%E4%BD%93%E8%A7%A3%E7%A0%81%E5%99%A8/" title="openSUSE">openSUSE</a>
     </li>
     
     <li>
