@@ -35,9 +35,7 @@
     
     
     
-        <link rel="stylesheet" href='/css/douban.css'>
-    
-        <link rel="stylesheet" href='/css/other.css'>
+        <link rel="stylesheet" href='/css/toc_style.css'>
     
 </head>
 
@@ -141,13 +139,9 @@
     <div class="post-toc-content">
         <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#解码器">解码器</a></li>
-        <li><a href="#系统备份">系统备份</a></li>
-        <li><a href="#sudo免密输入">sudo免密输入</a></li>
-      </ul>
-    </li>
+    <li><a href="#解码器">解码器</a></li>
+    <li><a href="#系统备份">系统备份</a></li>
+    <li><a href="#sudo免密输入">sudo免密输入</a></li>
   </ul>
 </nav>
     </div>
@@ -194,8 +188,14 @@
         </div>
         
         
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
+            </div>
+        </div>
+        
         <div class="post-content">
-            <h3 id="解码器">解码器</h3>
+            <h2 id="解码器">解码器</h2>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -242,7 +242,7 @@ sudo zypper --no-refresh install libswscale4-3.4.4-lp150.9.1.x86_64
 sudo zypper --no-refresh install libavdevice57-3.4.4-lp150.9.1.x86_64
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="系统备份">系统备份</h3>
+</div><h2 id="系统备份">系统备份</h2>
 <p>rsync-backup-system.sh</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -292,7 +292,7 @@ sudo zypper --no-refresh install libavdevice57-3.4.4-lp150.9.1.x86_64
 sudo rsync -aptgovrlHAX --delete-excluded --partial --log-file<span style="color:#000;font-weight:bold">=</span>/home/xxxx/logs/rsync-system-backup.log / /mnt/sdcdata/system-backup/ --exclude<span style="color:#000;font-weight:bold">={</span><span style="color:#d14">&#34;/usr/src/*&#34;</span>,<span style="color:#d14">&#34;/media/*&#34;</span>,<span style="color:#d14">&#34;/sys/*&#34;</span>,<span style="color:#d14">&#34;/proc/*&#34;</span>,<span style="color:#d14">&#34;/mnt/*&#34;</span>,<span style="color:#d14">&#34;/tmp/*&#34;</span>,<span style="color:#d14">&#34;/run/*&#34;</span>,<span style="color:#d14">&#34;/dev/*&#34;</span>,<span style="color:#d14">&#34;/home/*&#34;</span>,<span style="color:#d14">&#34;/var/tmp/*&#34;</span>,<span style="color:#d14">&#34;/var/run/*&#34;</span>,<span style="color:#d14">&#34;/var/log/*&#34;</span>,<span style="color:#d14">&#34;/var/adm/*&#34;</span>,<span style="color:#d14">&#34;/var/cache/*&#34;</span>,<span style="color:#d14">&#34;/usr/share/doc/*&#34;</span><span style="color:#000;font-weight:bold">}</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;**********</span><span style="color:#000;font-weight:bold">$(</span>date<span style="color:#000;font-weight:bold">)</span><span style="color:#d14">:系统备份完毕**********&#34;</span> &gt;&gt; /home/xxxx/logs/rsync-system-backup-info.log 2&gt;&amp;<span style="color:#099">1</span> 
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="sudo免密输入">sudo免密输入</h3>
+</div><h2 id="sudo免密输入">sudo免密输入</h2>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -448,8 +448,6 @@ visudo -c -f /etc/sudoers
 
 
 
-
-    <script src='/js/douban.js'></script>
 
 
 

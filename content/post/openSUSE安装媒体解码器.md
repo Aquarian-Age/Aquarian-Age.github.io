@@ -2,9 +2,10 @@
 title: openSUSE
 date: 2021-07-02T10:19:07+08:00
 tags: [openSUSE]
+toc: [true]
 ---
 
-### 解码器
+## 解码器
 
 ```bash
 
@@ -30,7 +31,7 @@ sudo zypper --no-refresh install libavdevice57-3.4.4-lp150.9.1.x86_64
 ```
 
 
-### 系统备份
+## 系统备份
 
 rsync-backup-system.sh
 ```bash
@@ -57,7 +58,7 @@ echo "**********$(date)开始备份**********" >> /home/xxxx/logs/rsync-system-b
 sudo rsync -aptgovrlHAX --delete-excluded --partial --log-file=/home/xxxx/logs/rsync-system-backup.log / /mnt/sdcdata/system-backup/ --exclude={"/usr/src/*","/media/*","/sys/*","/proc/*","/mnt/*","/tmp/*","/run/*","/dev/*","/home/*","/var/tmp/*","/var/run/*","/var/log/*","/var/adm/*","/var/cache/*","/usr/share/doc/*"} && echo "**********$(date):系统备份完毕**********" >> /home/xxxx/logs/rsync-system-backup-info.log 2>&1 
 ```
 
-### sudo免密输入 
+## sudo免密输入 
 
 
 ```bash

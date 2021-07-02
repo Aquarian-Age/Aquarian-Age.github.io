@@ -1,0 +1,7 @@
+.post-toc {
+  transition: all .3s ease;
+}
+
+.post-toc:hover,.post-toc:active {
+  width: 200px !important;
+} 
