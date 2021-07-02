@@ -137,7 +137,12 @@
 <div class="post-toc" style="position: absolute; top: 188px;">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-        <nav id="TableOfContents"></nav>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#hexo">hexo</a></li>
+    <li><a href="#hexo转hugo">hexo转hugo</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 <script type="text/javascript">
@@ -183,9 +188,95 @@
         
         
         <div class="post-content">
-            <p>这是第一次使用hugo搭建静态博客的测试文章
+            <h2 id="hexo">hexo</h2>
+<p>这是第一次使用hexo搭建静态博客的测试文章
 我的地址：https://Aquarian-Age.github.io/</p>
+<h2 id="hexo转hugo">hexo转hugo</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tar xvf hugo_0.84.3_Linux-64bit.tar.gz 
+sudo mv hugo /usr/local/bin/
+hugo version
+<span style="color:#0086b3">cd</span> ~/
+hugo new site blog
+<span style="color:#0086b3">cd</span> blog/
 
+git clone https://github.com/flysnow-org/maupassant-hugo themes/maupassant
+cp exampleSite/config.toml ../../
+
+rm -r themes/maupassant/.git/ <span style="color:#998;font-style:italic">#避免添加git子项</span>
+
+hugo new post/Amrta测试博客.md
+
+git init
+git remote add origin https://github.com/Aquarian-Age/Aquarian-Age.github.io.git
+git checkout -b hugo
+
+hugo server -D
+hugo server --theme<span style="color:#000;font-weight:bold">=</span>maupassant --buildDrafts --baseUrl<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;https://aquarian-age.github.io/&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>可以直接在　blog/content/post/里面添加xx.md文件</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo
+git status
+git add .
+git commit -m <span style="color:#d14">&#34;hugo test&#34;</span>
+git push --set-upstream origin hugo
+</code></pre></td></tr></table>
+</div>
+</div><p>themes/maupassant/static/css/　添加　toc_style.css</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#458;font-weight:bold">post-toc</span> {
+  <span style="color:#000;font-weight:bold">transition</span>: <span style="color:#000;font-weight:bold">all</span> <span style="color:#099">.3</span><span style="color:#458;font-weight:bold">s</span> <span style="color:#000;font-weight:bold">ease</span>;
+}
+
+.<span style="color:#458;font-weight:bold">post-toc</span>:<span style="color:#3c5d5d;font-weight:bold">hover</span><span style="color:#000;font-weight:bold">,</span>.<span style="color:#458;font-weight:bold">post-toc</span>:<span style="color:#3c5d5d;font-weight:bold">active</span> {
+  <span style="color:#000;font-weight:bold">width</span>: <span style="color:#099">200</span><span style="color:#458;font-weight:bold">px</span> <span style="color:#999;font-weight:bold;font-style:italic">!important</span>;
+} 
+</code></pre></td></tr></table>
+</div>
+</div>
         </div>
 
         
