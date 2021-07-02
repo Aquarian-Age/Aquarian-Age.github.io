@@ -56,3 +56,32 @@ echo "**********$(date)开始备份**********" >> /home/xxxx/logs/rsync-system-b
 
 sudo rsync -aptgovrlHAX --delete-excluded --partial --log-file=/home/xxxx/logs/rsync-system-backup.log / /mnt/sdcdata/system-backup/ --exclude={"/usr/src/*","/media/*","/sys/*","/proc/*","/mnt/*","/tmp/*","/run/*","/dev/*","/home/*","/var/tmp/*","/var/run/*","/var/log/*","/var/adm/*","/var/cache/*","/usr/share/doc/*"} && echo "**********$(date):系统备份完毕**********" >> /home/xxxx/logs/rsync-system-backup-info.log 2>&1 
 ```
+
+### sudo免密输入 
+
+
+```bash
+sudo -i
+chmod u+w /etc/sudoers
+```
+
+编辑　/etc/sudoers
+```text
+%wheel ALL=(ALL) ALL 取消前面的注释
+```
+
+设置免密命令
+```
+username ALL=(ALL) NOPASSWD:/usr/bin/zypper,/usr/sbin/privoxy,/usr/bin/rsync,/usr/sbin/cryptsetup,/usr/sbin/hdparm,/usr/bin/rpmbuild,/usr/bin/umount,/usr/bin/mount
+```
+
+添加用户到wheel组
+```
+usermod -a -G wheel username
+```
+
+还原文件属性
+```bash
+chmod u-w /etc/sudoers
+visudo -c -f /etc/sudoers
+```
