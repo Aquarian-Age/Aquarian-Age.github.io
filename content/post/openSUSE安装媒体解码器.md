@@ -1,9 +1,10 @@
 ---
-title: "OpenSUSE安装媒体解码器"
+title: openSUSE安装媒体解码器
 date: 2021-07-02T10:19:07+08:00
-draft: true
 tags: [openSUSE]
 ---
+
+### 解码器
 
 ```bash
 
