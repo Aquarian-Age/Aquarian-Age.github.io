@@ -141,7 +141,15 @@
   <ul>
     <li><a href="#解码器">解码器</a></li>
     <li><a href="#系统备份">系统备份</a></li>
+    <li><a href="#远程备份">远程备份</a></li>
+    <li><a href="#dns静态解析">DNS静态解析</a></li>
+    <li><a href="#禁用kde的baloo文件索引功能">禁用KDE的baloo文件索引功能</a></li>
+    <li><a href="#禁用akonadi服务">禁用akonadi服务</a></li>
+    <li><a href="#修复grub方法">修复grub方法</a></li>
+    <li><a href="#proxychain4">proxychain4</a></li>
     <li><a href="#sudo免密输入">sudo免密输入</a></li>
+    <li><a href="#联网">联网</a></li>
+    <li><a href="#添加开机启动服务">添加开机启动服务</a></li>
   </ul>
 </nav>
     </div>
@@ -292,6 +300,92 @@ sudo zypper --no-refresh install libavdevice57-3.4.4-lp150.9.1.x86_64
 sudo rsync -aptgovrlHAX --delete-excluded --partial --log-file<span style="color:#000;font-weight:bold">=</span>/home/xxxx/logs/rsync-system-backup.log / /mnt/sdcdata/system-backup/ --exclude<span style="color:#000;font-weight:bold">={</span><span style="color:#d14">&#34;/usr/src/*&#34;</span>,<span style="color:#d14">&#34;/media/*&#34;</span>,<span style="color:#d14">&#34;/sys/*&#34;</span>,<span style="color:#d14">&#34;/proc/*&#34;</span>,<span style="color:#d14">&#34;/mnt/*&#34;</span>,<span style="color:#d14">&#34;/tmp/*&#34;</span>,<span style="color:#d14">&#34;/run/*&#34;</span>,<span style="color:#d14">&#34;/dev/*&#34;</span>,<span style="color:#d14">&#34;/home/*&#34;</span>,<span style="color:#d14">&#34;/var/tmp/*&#34;</span>,<span style="color:#d14">&#34;/var/run/*&#34;</span>,<span style="color:#d14">&#34;/var/log/*&#34;</span>,<span style="color:#d14">&#34;/var/adm/*&#34;</span>,<span style="color:#d14">&#34;/var/cache/*&#34;</span>,<span style="color:#d14">&#34;/usr/share/doc/*&#34;</span><span style="color:#000;font-weight:bold">}</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;**********</span><span style="color:#000;font-weight:bold">$(</span>date<span style="color:#000;font-weight:bold">)</span><span style="color:#d14">:系统备份完毕**********&#34;</span> &gt;&gt; /home/xxxx/logs/rsync-system-backup-info.log 2&gt;&amp;<span style="color:#099">1</span> 
 </code></pre></td></tr></table>
 </div>
+</div><h2 id="远程备份">远程备份</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/sh
+</span><span style="color:#999;font-weight:bold;font-style:italic"></span>rsync -aptgovrlHAXzP -e <span style="color:#d14">&#34;ssh -p passwd&#34;</span> --delete-excluded --exclude<span style="color:#000;font-weight:bold">={</span><span style="color:#d14">&#34;/media/*&#34;</span>,<span style="color:#d14">&#34;/sys/*&#34;</span>,<span style="color:#d14">&#34;/proc/*&#34;</span>,<span style="color:#d14">&#34;/mnt/*&#34;</span>,<span style="color:#d14">&#34;/tmp/*&#34;</span>,<span style="color:#d14">&#34;/home/*&#34;</span>,<span style="color:#d14">&#34;/var/run/*&#34;</span>,<span style="color:#d14">&#34;/var/tmp/*&#34;</span><span style="color:#000;font-weight:bold">}</span> root@AA:AA:AA:AA:/ /run/media/AAA/data/rsync-vps-backup/
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="dns静态解析">DNS静态解析</h2>
+<p>/etc/sysconfig/network/config</p>
+<p>把 NETCONFIG_DNS_POLICY=&ldquo;auto&rdquo; 改为 NETCONFIG_DNS_POLICY=&quot;&quot;</p>
+<p>更改 resolv.conf 添加如下内容</p>
+<p>nameserver 223.5.5.5</p>
+<h2 id="禁用kde的baloo文件索引功能">禁用KDE的baloo文件索引功能</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">balooctl disable
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="禁用akonadi服务">禁用akonadi服务</h2>
+<p>~/.config/akonadi</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#008080">StartServer</span><span style="color:#000;font-weight:bold">=</span><span style="color:#0086b3">false</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="修复grub方法">修复grub方法</h2>
+<p>挂载顺序里面 / 在最前面</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/sh
+</span><span style="color:#999;font-weight:bold;font-style:italic"></span><span style="color:#0086b3">set</span> -v
+mount /dev/sda4 /mnt
+mount /dev/sda2 /mnt/boot/efi
+mount /dev/sdb3 /mnt/var
+mount /dev/sdb4 /mnt/opt
+mount /dev/sdb5 /mnt/home
+mount -t proc proc /mnt/proc
+mount --rbind /sys /mnt/sys
+mount --rbind /dev /mnt/dev
+chroot /mnt /bin/bash
+</code></pre></td></tr></table>
+</div>
+</div><p>重新安装grub</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">grub2-mkconfig -o /boot/grub2/grub.cfg
+grub2-install /dev/sda
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="proxychain4">proxychain4</h2>
+<p>用proxychain4实现firefox浏览器去插件全局走代理的方法</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo <span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;socks5 127.0.0.1 1080&#34;</span> &gt;&gt; /etc/proxychain4.conf
+</code></pre></td></tr></table>
+</div>
 </div><h2 id="sudo免密输入">sudo免密输入</h2>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -327,7 +421,124 @@ chmod u+w /etc/sudoers
 visudo -c -f /etc/sudoers
 </code></pre></td></tr></table>
 </div>
+</div><h2 id="联网">联网</h2>
+<p>查看无线网卡的设备名</p>
+<p>ip a</p>
+<p>查看可用的NetworkManager连接</p>
+<p>su
+nmcli con show</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nmcli con show
+NAME                            UUID                                  TYPE      DEVICE 
+<span style="color:#099">1101</span>                            909fe38a-b8e2-4b68-9c1c-431fae269514  wifi      wlan0  
+Wired connection <span style="color:#099">1</span>              2fbd9c16-aa4c-4885-a1bb-c6bd5d252d92  ethernet  eth0      
+</code></pre></td></tr></table>
 </div>
+</div><p>之前有过的连接　无线连网的命令就是</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nmcli con up uuid 909fe38a-b8e2-4b68-9c1c-431fae269514
+</code></pre></td></tr></table>
+</div>
+</div><p>要是没有连接 新建无线连接用这个命令</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nmcli dev wifi connect &lt;SSID&gt; password &lt;password&gt;
+</code></pre></td></tr></table>
+</div>
+</div><p>新建有线连接用这个命令</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nmcli con add <span style="color:#0086b3">type</span> ethernet con-name &lt;SSID&gt; ifname enp3s0
+</code></pre></td></tr></table>
+</div>
+</div><p>要是静态连接 在上面的命令后面添加</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip4 192.168.1.50/24 gw4 192.168.1.1
+</code></pre></td></tr></table>
+</div>
+</div><p>连接创建好后 假如要修改 dns</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nmcli con mod &lt;SSID&gt; ipv4.dns “8.8.8.8 8.8.4.4”
+</code></pre></td></tr></table>
+</div>
+</div><p>然后 nmcli con down <!-- raw HTML omitted --> 再重新 up 一下就可以</p>
+<h2 id="添加开机启动服务">添加开机启动服务</h2>
+<p>/etc/systemd/system/rc-local.service</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[Unit]  
+Description=/etc/rc.local Compatibility  
+ConditionFileIsExecutable=/etc/rc.local  
+After=network.target  
+
+[Service]  
+Type=forking  
+PIDFile=/var/run/rc.local.pid
+ExecStart=/etc/rc.local start  
+TimeoutSec=5  
+RemainAfterExit=yes  
+GuessMainPID=yes 
+
+[Install]  
+WantedBy=multi-user.target  
+</code></pre></td></tr></table>
+</div>
+</div><p>systemctl enable rc-local.service</p>
+<p>/etc/rc.local</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/sh
+</span><span style="color:#999;font-weight:bold;font-style:italic"></span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#000;font-weight:bold">$(</span>date<span style="color:#000;font-weight:bold">)</span><span style="color:#d14">: 测试rc.local....&#34;</span> &gt;&gt; /var/log/test-rc.log
+</code></pre></td></tr></table>
+</div>
+</div><p>chmod +x /etc/rc.local</p>
+
         </div>
 
         

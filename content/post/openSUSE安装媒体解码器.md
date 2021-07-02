@@ -58,6 +58,66 @@ echo "**********$(date)开始备份**********" >> /home/xxxx/logs/rsync-system-b
 sudo rsync -aptgovrlHAX --delete-excluded --partial --log-file=/home/xxxx/logs/rsync-system-backup.log / /mnt/sdcdata/system-backup/ --exclude={"/usr/src/*","/media/*","/sys/*","/proc/*","/mnt/*","/tmp/*","/run/*","/dev/*","/home/*","/var/tmp/*","/var/run/*","/var/log/*","/var/adm/*","/var/cache/*","/usr/share/doc/*"} && echo "**********$(date):系统备份完毕**********" >> /home/xxxx/logs/rsync-system-backup-info.log 2>&1 
 ```
 
+## 远程备份
+
+```bash
+#!/bin/sh
+rsync -aptgovrlHAXzP -e "ssh -p passwd" --delete-excluded --exclude={"/media/*","/sys/*","/proc/*","/mnt/*","/tmp/*","/home/*","/var/run/*","/var/tmp/*"} root@AA:AA:AA:AA:/ /run/media/AAA/data/rsync-vps-backup/
+```
+
+## DNS静态解析
+
+/etc/sysconfig/network/config
+
+把 NETCONFIG_DNS_POLICY="auto" 改为 NETCONFIG_DNS_POLICY=""
+
+更改 resolv.conf 添加如下内容
+
+nameserver 223.5.5.5
+
+## 禁用KDE的baloo文件索引功能
+
+```bash
+balooctl disable
+```
+
+## 禁用akonadi服务
+
+~/.config/akonadi
+```bash
+StartServer=false
+```
+
+## 修复grub方法
+挂载顺序里面 / 在最前面
+```bash
+#!/bin/sh
+set -v
+mount /dev/sda4 /mnt
+mount /dev/sda2 /mnt/boot/efi
+mount /dev/sdb3 /mnt/var
+mount /dev/sdb4 /mnt/opt
+mount /dev/sdb5 /mnt/home
+mount -t proc proc /mnt/proc
+mount --rbind /sys /mnt/sys
+mount --rbind /dev /mnt/dev
+chroot /mnt /bin/bash
+```
+
+重新安装grub
+```bash
+grub2-mkconfig -o /boot/grub2/grub.cfg
+grub2-install /dev/sda
+```
+
+## proxychain4
+
+用proxychain4实现firefox浏览器去插件全局走代理的方法
+```bash
+sudo echo "socks5 127.0.0.1 1080" >> /etc/proxychain4.conf
+```
+
+
 ## sudo免密输入 
 
 
@@ -86,3 +146,80 @@ usermod -a -G wheel username
 chmod u-w /etc/sudoers
 visudo -c -f /etc/sudoers
 ```
+
+
+## 联网
+
+查看无线网卡的设备名
+
+ip a
+
+查看可用的NetworkManager连接
+
+su
+nmcli con show
+```bash
+nmcli con show
+NAME                            UUID                                  TYPE      DEVICE 
+1101                            909fe38a-b8e2-4b68-9c1c-431fae269514  wifi      wlan0  
+Wired connection 1              2fbd9c16-aa4c-4885-a1bb-c6bd5d252d92  ethernet  eth0      
+```
+
+之前有过的连接　无线连网的命令就是
+```bash
+nmcli con up uuid 909fe38a-b8e2-4b68-9c1c-431fae269514
+```
+
+要是没有连接 新建无线连接用这个命令
+```bash
+nmcli dev wifi connect <SSID> password <password>
+```
+
+新建有线连接用这个命令
+```bash
+nmcli con add type ethernet con-name <SSID> ifname enp3s0
+```
+
+要是静态连接 在上面的命令后面添加
+```bash
+ip4 192.168.1.50/24 gw4 192.168.1.1
+```
+
+连接创建好后 假如要修改 dns
+```bash
+nmcli con mod <SSID> ipv4.dns “8.8.8.8 8.8.4.4”
+```
+
+然后 nmcli con down <SSID> 再重新 up 一下就可以
+
+
+
+## 添加开机启动服务
+
+/etc/systemd/system/rc-local.service 
+```text 
+[Unit]  
+Description=/etc/rc.local Compatibility  
+ConditionFileIsExecutable=/etc/rc.local  
+After=network.target  
+
+[Service]  
+Type=forking  
+PIDFile=/var/run/rc.local.pid
+ExecStart=/etc/rc.local start  
+TimeoutSec=5  
+RemainAfterExit=yes  
+GuessMainPID=yes 
+
+[Install]  
+WantedBy=multi-user.target  
+```
+
+systemctl enable rc-local.service
+
+/etc/rc.local
+```bash
+#!/bin/sh
+echo "$(date): 测试rc.local...." >> /var/log/test-rc.log
+```
+chmod +x /etc/rc.local
