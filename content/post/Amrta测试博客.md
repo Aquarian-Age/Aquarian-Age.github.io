@@ -1,5 +1,5 @@
 ---
-title: liangzi测试博客
+title: Amrta测试博客
 date: 2018-01-25 18:30:19
 tags: [hugo]
 ---
