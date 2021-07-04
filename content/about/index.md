@@ -24,6 +24,7 @@ tags: [me]
 [演禽](https://github.com/Aquarian-Age/yq/releases)
 
 [紫微斗数](https://github.com/Aquarian-Age/zwds)
+![](https://raw.githubusercontent.com/Aquarian-Age/zwds/amrta/docs/pc.png)
 
 [二十八宿日历](https://github.com/Aquarian-Age/xa/releases/tag/v0.0.3)
-
+![](https://raw.githubusercontent.com/Aquarian-Age/xa/master/example/cal/ui.png)

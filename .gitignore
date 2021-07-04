@@ -15,5 +15,5 @@
 # vendor/
 *.idea
 
-content/post/*.md
+# content/post/*.md
 
