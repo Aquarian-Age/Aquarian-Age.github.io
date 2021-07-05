@@ -30,6 +30,11 @@ sudo zypper --no-refresh install libswscale4-3.4.4-lp150.9.1.x86_64
 sudo zypper --no-refresh install libavdevice57-3.4.4-lp150.9.1.x86_64
 ```
 
+## 录屏
+图片编辑
+```bash
+sudo zypper in -y kolourpaint simplescreenrecorder
+```
 
 ## 系统备份
 

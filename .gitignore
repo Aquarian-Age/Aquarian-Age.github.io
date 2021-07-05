@@ -13,7 +13,12 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
-*.idea
-
-# content/post/*.md
-
+archetypes   
+content  
+# docs     
+resources  
+themes
+config.toml  
+data     
+layouts  
+static
