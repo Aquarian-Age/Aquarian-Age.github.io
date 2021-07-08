@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>openSUSE on 浮生若梦</title>
+    <link>https://aquarian-age.github.io/tags/openSUSE/</link>
+    <description>Recent content in openSUSE on 浮生若梦</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 02 Jul 2021 10:19:07 +0800</lastBuildDate><atom:link href="https://aquarian-age.github.io/tags/openSUSE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>openSUSE</title>
+      <link>https://aquarian-age.github.io/post/openSUSE/</link>
+      <pubDate>Fri, 02 Jul 2021 10:19:07 +0800</pubDate>
+      
+      <guid>https://aquarian-age.github.io/post/openSUSE/</guid>
+      <description>解码器 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 #!/bin/sh echo &amp;#34;packman 软件源的媒体播放文件&amp;#34; echo &amp;#34;添加packman源的国内镜像&amp;#34; sudo zypper ar -f https://mirrors.ustc.edu.cn/packman/suse/openSUSE_Leap_15.0/ packman_ustc set -v echo “开始安装....” sudo zypper --no-refresh install libavutil55-3.4.4-lp150.9.1.x86_64 sudo zypper --no-refresh install gstreamer-plugins-libav-1.12.5-lp150.3.2.x86_64 sudo zypper --no-refresh install libavcodec57-3.4.4-lp150.9.1.x86_64 sudo zypper --no-refresh install libavformat57-3.4.4-lp150.9.1.x86_64 sudo zypper --no-refresh install libswresample2-3.4.4-lp150.9.1.x86_64 sudo zypper --no-refresh install libavfilter6-3.4.4-lp150.9.1.x86_64 sudo zypper --no-refresh install libavresample3-3.4.4-lp150.9.1.x86_64 sudo zypper --no-refresh install libpostproc54-3.4.4-lp150.9.1.x86_64 sudo zypper --no-refresh install libswscale4-3.4.4-lp150.9.1.x86_64 sudo zypper --no-refresh install libavdevice57-3.4.4-lp150.9.1.x86_64 录屏 媒体</description>
+    </item>
+    
+  </channel>
+</rss>
