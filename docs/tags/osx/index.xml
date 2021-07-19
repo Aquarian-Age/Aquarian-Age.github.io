@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>osx on 浮生若梦</title>
+    <link>https://aquarian-age.github.io/tags/osx/</link>
+    <description>Recent content in osx on 浮生若梦</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 19 Jul 2021 21:37:33 +0800</lastBuildDate><atom:link href="https://aquarian-age.github.io/tags/osx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OSX-KVM</title>
+      <link>https://aquarian-age.github.io/post/osx-kvm/</link>
+      <pubDate>Mon, 19 Jul 2021 21:37:33 +0800</pubDate>
+      
+      <guid>https://aquarian-age.github.io/post/osx-kvm/</guid>
+      <description>&lt;p&gt;KVM&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
