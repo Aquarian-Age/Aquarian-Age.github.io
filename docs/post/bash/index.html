@@ -1,0 +1,2005 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+
+    <title>Bash | 浮生若梦</title>
+    <meta property="og:title" content="Bash - 浮生若梦">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2021-07-23T00:00:00&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2021-07-23T00:00:00&#43;08:00'>
+        
+    <meta name="Keywords" content="">
+    <meta name="description" content="Bash">
+        
+    <meta name="author" content="Amrta">
+    <meta property="og:url" content="https://aquarian-age.github.io/post/bash/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+        <link rel="stylesheet" href='/css/toc_style.css'>
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://aquarian-age.github.io/">
+                        浮生若梦
+                    </a>
+                
+                <p class="description">浮若游生醉梦情，地天隔处戏游星，晨慕朝阳夕抱月，亦真亦幻游浮生.......</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://aquarian-age.github.io/">首页</a>
+                    
+                    <a  href="https://aquarian-age.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://aquarian-age.github.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ssh_copy_id_auto">ssh_copy_id_auto</a></li>
+    <li><a href="#auto-ssh">auto ssh</a></li>
+    <li><a href="#cleanram">cleanRAM</a></li>
+    <li><a href="#gbk2utf">gbk2utf</a></li>
+    <li><a href="#html2md">html2md</a></li>
+    <li><a href="#jpg2pdf">jpg2pdf</a></li>
+    <li><a href="#pdf2md">pdf2md</a></li>
+    <li><a href="#led键盘灯">led键盘灯</a></li>
+    <li><a href="#备份">备份</a></li>
+    <li><a href="#mysql">mysql</a></li>
+    <li><a href="#pgsql">pgSQL</a></li>
+    <li><a href="#ntp">ntp</a></li>
+    <li><a href="#proxy">proxy</a></li>
+    <li><a href="#备份vps">备份vps</a></li>
+    <li><a href="#qt中文输入">qt中文输入</a></li>
+    <li><a href="#rclone">rclone</a></li>
+    <li><a href="#rclone-1">rclone</a></li>
+    <li><a href="#rdp">rdp</a></li>
+    <li><a href="#sed">sed</a></li>
+    <li><a href="#heic2jpeg">heic2jpeg</a></li>
+    <li><a href="#rsync">rsync</a></li>
+    <li><a href="#shell-clock">shell clock</a></li>
+    <li><a href="#notifyd">notifyd</a></li>
+    <li><a href="#history">history</a></li>
+    <li><a href="#usbmux">usbmux</a></li>
+    <li><a href="#bashrc">bashrc</a></li>
+    <li><a href="#profile">profile</a></li>
+    <li><a href="#mkswap">mkswap</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if(leftPos<220){
+                postToc.css({"width":leftPos-10,"margin-left":(0-leftPos)})
+            }
+
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+    })
+</script>
+    <article class="post">
+        <header>
+            <h1 class="post-title">Bash</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2021年7月23日
+        </date>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span>
+        </div>
+        
+        
+        <div class="post-content">
+            <p>bash</p>
+<h2 id="ssh_copy_id_auto">ssh_copy_id_auto</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-weight:bold;font-style:italic">#!/usr/bin/expect  
+</span><span style="color:#999;font-weight:bold;font-style:italic"></span><span style="color:#0086b3">set</span> timeout <span style="color:#099">10</span>  
+<span style="color:#0086b3">set</span> username <span style="color:#000;font-weight:bold">[</span>lindex <span style="color:#008080">$argv</span> 0<span style="color:#000;font-weight:bold">]</span>  
+<span style="color:#0086b3">set</span> password <span style="color:#000;font-weight:bold">[</span>lindex <span style="color:#008080">$argv</span> 1<span style="color:#000;font-weight:bold">]</span>  
+<span style="color:#0086b3">set</span> hostname <span style="color:#000;font-weight:bold">[</span>lindex <span style="color:#008080">$argv</span> 2<span style="color:#000;font-weight:bold">]</span>
+
+spawn ssh-copy-id -i <span style="color:#008080">$HOME</span>/.ssh/id_rsa.pub <span style="color:#008080">$username</span>@<span style="color:#008080">$hostname</span>
+expect <span style="color:#000;font-weight:bold">{</span>
+            <span style="color:#998;font-style:italic">#first connect, no public key in ~/.ssh/known_hosts</span>
+            <span style="color:#d14">&#34;Are you sure you want to continue connecting (yes/no)?&#34;</span> <span style="color:#000;font-weight:bold">{</span>
+            send <span style="color:#d14">&#34;yes\r&#34;</span>
+            expect <span style="color:#d14">&#34;password:&#34;</span>
+                send <span style="color:#d14">&#34;</span><span style="color:#008080">$password</span><span style="color:#d14">\r&#34;</span>
+            <span style="color:#000;font-weight:bold">}</span>
+            <span style="color:#998;font-style:italic">#already has public key in ~/.ssh/known_hosts</span>
+            <span style="color:#d14">&#34;password:&#34;</span> <span style="color:#000;font-weight:bold">{</span>
+                send <span style="color:#d14">&#34;</span><span style="color:#008080">$password</span><span style="color:#d14">\r&#34;</span>
+            <span style="color:#000;font-weight:bold">}</span>
+            <span style="color:#d14">&#34;Now try logging into the machine&#34;</span> <span style="color:#000;font-weight:bold">{</span>
+                <span style="color:#998;font-style:italic">#it has authorized, do nothing!</span>
+            <span style="color:#000;font-weight:bold">}</span>
+        <span style="color:#000;font-weight:bold">}</span>
+expect eof
+
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="auto-ssh">auto ssh</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/bash
+</span><span style="color:#999;font-weight:bold;font-style:italic"></span><span style="color:#008080">LANG</span><span style="color:#000;font-weight:bold">=</span>zh_CN.UTF-8
+<span style="color:#0086b3">export</span> LANG
+
+ssh_copy_id_auto<span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#008080">user</span><span style="color:#000;font-weight:bold">=</span><span style="color:#008080">$name</span>
+	<span style="color:#008080">pass</span><span style="color:#000;font-weight:bold">=</span><span style="color:#008080">$passwd</span>
+    <span style="color:#008080">host</span><span style="color:#000;font-weight:bold">=</span><span style="color:#008080">$host</span>
+    <span style="color:#008080">port</span><span style="color:#000;font-weight:bold">=</span><span style="color:#008080">$port</span>
+    <span style="color:#008080">key</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span><span style="color:#0086b3">echo</span> ~/.ssh/id_rsa.pub<span style="color:#000;font-weight:bold">)</span>
+expect <span style="color:#d14">&lt;&lt; EOF
+</span><span style="color:#d14">    set timeout 8;
+</span><span style="color:#d14">    spawn ssh-copy-id -i $key -p $port $user@$host;
+</span><span style="color:#d14">    expect {
+</span><span style="color:#d14">        *(yes/no)?* { send yes\r; exp_continue; }
+</span><span style="color:#d14">        *password:* { send $pass\r; exp_continue; }
+</span><span style="color:#d14">        eof         { exit 0; }
+</span><span style="color:#d14">    };
+</span><span style="color:#d14">EOF</span>
+<span style="color:#000;font-weight:bold">}</span>
+
+<span style="color:#000;font-weight:bold">while</span> :
+	<span style="color:#000;font-weight:bold">do</span>
+	<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;目前自动拷贝公钥只支持root用户&#34;</span>
+	<span style="color:#0086b3">echo</span> -n <span style="color:#d14">&#34;请选择　1自动拷贝公钥到远程主机; 2SSH链接远程主机&#34;</span>
+	<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34; &#34;</span>
+	<span style="color:#0086b3">read</span> choice
+	<span style="color:#000;font-weight:bold">case</span> <span style="color:#008080">$choice</span> in
+		1<span style="color:#000;font-weight:bold">)</span> <span style="color:#998;font-style:italic">#Copy ID</span>
+			<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;输入远程主机用户名:&#34;</span>
+			<span style="color:#0086b3">read</span> -p <span style="color:#d14">&#34;&#34;</span> name
+			<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;输入远程主机密码&#34;</span>
+			<span style="color:#0086b3">read</span> -p <span style="color:#d14">&#34;&#34;</span> passwd
+			<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;输入远程主机ip地址&#34;</span>
+			<span style="color:#0086b3">read</span> -p <span style="color:#d14">&#34;&#34;</span> host
+			<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;输入远程主机端口&#34;</span>
+			<span style="color:#0086b3">read</span> -p <span style="color:#d14">&#34;&#34;</span> port
+			
+			<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;远程主机用户名 </span><span style="color:#008080">$name</span><span style="color:#d14">&#34;</span>
+			<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;远程主机密码 </span><span style="color:#008080">$passwd</span><span style="color:#d14">&#34;</span>
+			<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;远程主机ip地址 </span><span style="color:#008080">$host</span><span style="color:#d14">&#34;</span>
+			<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;远程主机端口 </span><span style="color:#008080">$port</span><span style="color:#d14">&#34;</span>
+			<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;Now start copy public_key to remote host...&#34;</span>
+			sleep <span style="color:#099">3</span>
+			ssh_copy_id_auto
+			<span style="color:#0086b3">break</span>
+			;;
+
+		2<span style="color:#000;font-weight:bold">)</span> <span style="color:#998;font-style:italic">#SSH Connect Remote Host</span>
+			<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;输入远程主机用户名&#34;</span>
+			<span style="color:#0086b3">read</span> -p <span style="color:#d14">&#34;&#34;</span> name
+			<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;输入远程主机IP&#34;</span>
+			<span style="color:#0086b3">read</span> -p <span style="color:#d14">&#34;&#34;</span> host
+			<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;输入远程主机端口&#34;</span>
+			<span style="color:#0086b3">read</span> -p <span style="color:#d14">&#34;&#34;</span> port
+			<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;远程主机端口 </span><span style="color:#008080">$port</span><span style="color:#d14">&#34;</span>
+			<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;开始SSH链接远程主机...&#34;</span>
+			ssh -p <span style="color:#008080">$port</span> <span style="color:#008080">$name</span>@<span style="color:#008080">$host</span>
+			<span style="color:#0086b3">break</span>
+			;;
+		*<span style="color:#000;font-weight:bold">)</span> <span style="color:#998;font-style:italic"># error</span>
+			<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;ERROR Try again?&#34;</span>
+			<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;强制结束按Ctrl+C&#34;</span>
+	<span style="color:#000;font-weight:bold">esac</span>	
+<span style="color:#000;font-weight:bold">done</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="cleanram">cleanRAM</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/bash
+</span><span style="color:#999;font-weight:bold;font-style:italic"></span><span style="color:#998;font-style:italic">## Bash Script to clear cached memory on (Ubuntu/Debian) Linux</span>
+<span style="color:#998;font-style:italic">## By Philipp Klaus</span>
+<span style="color:#998;font-style:italic">## see &lt;http://blog.philippklaus.de/2011/02/clear-cached-memory-on-uuu/&gt;</span>
+
+<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#d14">&#34;</span><span style="color:#000;font-weight:bold">$(</span>whoami<span style="color:#000;font-weight:bold">)</span><span style="color:#d14">&#34;</span> !<span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;root&#34;</span> <span style="color:#000;font-weight:bold">]</span>
+<span style="color:#000;font-weight:bold">then</span>
+  <span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;You have to run this script as Superuser!&#34;</span>
+  <span style="color:#0086b3">exit</span> <span style="color:#099">1</span>
+<span style="color:#000;font-weight:bold">fi</span>
+
+<span style="color:#998;font-style:italic"># Get Memory Information</span>
+<span style="color:#008080">freemem_before</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>cat /proc/meminfo | grep MemFree | tr -s <span style="color:#d14">&#39; &#39;</span> | cut -d <span style="color:#d14">&#39; &#39;</span> -f2<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#008080">freemem_before</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$freemem_before</span><span style="color:#d14">/1024.0&#34;</span> | bc<span style="color:#000;font-weight:bold">)</span>
+<span style="color:#008080">cachedmem_before</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>cat /proc/meminfo | grep <span style="color:#d14">&#34;^Cached&#34;</span> | tr -s <span style="color:#d14">&#39; &#39;</span> | cut -d <span style="color:#d14">&#39; &#39;</span> -f2<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#008080">cachedmem_before</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$cachedmem_before</span><span style="color:#d14">/1024.0&#34;</span> | bc<span style="color:#000;font-weight:bold">)</span>
+
+<span style="color:#998;font-style:italic"># Output Information</span>
+<span style="color:#0086b3">echo</span> -e <span style="color:#d14">&#34;This script will clear cached memory and free up your ram.\n\nAt the moment you have </span><span style="color:#008080">$cachedmem_before</span><span style="color:#d14"> MiB cached and </span><span style="color:#008080">$freemem_before</span><span style="color:#d14"> MiB free memory.&#34;</span>
+
+<span style="color:#998;font-style:italic"># Test sync</span>
+<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$?</span><span style="color:#d14">&#34;</span> !<span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;0&#34;</span> <span style="color:#000;font-weight:bold">]</span>
+<span style="color:#000;font-weight:bold">then</span>
+  <span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;Something went wrong, It&#39;s impossible to sync the filesystem.&#34;</span>
+  <span style="color:#0086b3">exit</span> <span style="color:#099">1</span>
+<span style="color:#000;font-weight:bold">fi</span>
+
+<span style="color:#998;font-style:italic"># Clear Filesystem Buffer using &#34;sync&#34; and Clear Caches</span>
+sync <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#0086b3">echo</span> <span style="color:#099">3</span> &gt; /proc/sys/vm/drop_caches
+
+<span style="color:#008080">freemem_after</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>cat /proc/meminfo | grep MemFree | tr -s <span style="color:#d14">&#39; &#39;</span> | cut -d <span style="color:#d14">&#39; &#39;</span> -f2<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#008080">freemem_after</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$freemem_after</span><span style="color:#d14">/1024.0&#34;</span> | bc<span style="color:#000;font-weight:bold">)</span>
+
+<span style="color:#998;font-style:italic"># Output Summary</span>
+<span style="color:#0086b3">echo</span> -e <span style="color:#d14">&#34;This freed </span><span style="color:#000;font-weight:bold">$(</span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$freemem_after</span><span style="color:#d14"> - </span><span style="color:#008080">$freemem_before</span><span style="color:#d14">&#34;</span> | bc<span style="color:#000;font-weight:bold">)</span><span style="color:#d14"> MiB, so now you have </span><span style="color:#008080">$freemem_after</span><span style="color:#d14"> MiB of free RAM.&#34;</span>
+
+<span style="color:#0086b3">exit</span> <span style="color:#099">0</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="gbk2utf">gbk2utf</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/sh
+</span><span style="color:#999;font-weight:bold;font-style:italic"></span>ls * | <span style="color:#000;font-weight:bold">while</span> <span style="color:#0086b3">read</span> CMD
+<span style="color:#000;font-weight:bold">do</span>
+<span style="color:#0086b3">echo</span> <span style="color:#008080">$CMD</span>
+
+iconv -f GBK -t UTF-8 <span style="color:#008080">$CMD</span> -o <span style="color:#008080">$CMD</span>
+<span style="color:#000;font-weight:bold">done</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="html2md">html2md</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/sh
+</span><span style="color:#999;font-weight:bold;font-style:italic"></span>ls * | <span style="color:#000;font-weight:bold">while</span> <span style="color:#0086b3">read</span> CMD
+<span style="color:#000;font-weight:bold">do</span>
+<span style="color:#0086b3">echo</span> <span style="color:#008080">$CMD</span>
+
+iconv -f GBK -t UTF-8 <span style="color:#008080">$CMD</span> -o <span style="color:#008080">$CMD</span>
+<span style="color:#000;font-weight:bold">done</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="jpg2pdf">jpg2pdf</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/sh
+</span><span style="color:#999;font-weight:bold;font-style:italic"></span>ls * | <span style="color:#000;font-weight:bold">while</span> <span style="color:#0086b3">read</span> line;<span style="color:#000;font-weight:bold">do</span> <span style="color:#0086b3">echo</span> <span style="color:#008080">$line</span>;convert <span style="color:#008080">$line</span> <span style="color:#008080">$line</span>.pdf;<span style="color:#000;font-weight:bold">done</span>
+
+ls -ltr
+<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;合并pdf&#34;</span>
+sleep <span style="color:#099">5</span>
+pdfunite *.pdf all.pdf
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="pdf2md">pdf2md</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir /path/pdf2md
+
+ls *.pdf | <span style="color:#000;font-weight:bold">while</span> <span style="color:#0086b3">read</span> CMD
+<span style="color:#000;font-weight:bold">do</span>
+<span style="color:#0086b3">echo</span> <span style="color:#008080">$CMD</span>
+pdftohtml <span style="color:#008080">$CMD</span> -i -s -stdout /path/pdf2md/<span style="color:#008080">$CMD</span>
+<span style="color:#000;font-weight:bold">done</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="led键盘灯">led键盘灯</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/bash
+</span><span style="color:#999;font-weight:bold;font-style:italic"></span>
+<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$1</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;on&#34;</span> <span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">||[</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$1</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;ON&#34;</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
+		xset led  named <span style="color:#d14">&#39;Scroll Lock&#39;</span>
+<span style="color:#000;font-weight:bold">elif</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$1</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;off&#34;</span> <span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">||[</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$1</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;OFF&#34;</span> <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
+		xset -led named <span style="color:#d14">&#39;Scroll Lock&#39;</span>
+<span style="color:#000;font-weight:bold">else</span>
+		<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;Usage: </span><span style="color:#008080">$0</span><span style="color:#d14"> on/off&#34;</span>
+		<span style="color:#0086b3">exit</span> <span style="color:#099">1</span>
+<span style="color:#000;font-weight:bold">fi</span>
+<span style="color:#0086b3">exit</span> <span style="color:#099">0</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="备份">备份</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/bash
+</span><span style="color:#999;font-weight:bold;font-style:italic"></span>
+<span style="color:#008080">DATE</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>date<span style="color:#000;font-weight:bold">)</span>
+<span style="color:#008080">DISK</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>lsblk | grep ^sdc|awk <span style="color:#d14">&#39;{print $1}&#39;</span><span style="color:#000;font-weight:bold">)</span> 
+
+<span style="color:#008080">SDC1</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>cat /proc/mounts | grep sdc1 | awk <span style="color:#d14">&#39;{print $1}&#39;</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#008080">SDC2</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>cat /proc/mounts | grep sdc2 | awk <span style="color:#d14">&#39;{print $1}&#39;</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#008080">SDC3</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>cat /proc/mounts | grep sdc3 | awk <span style="color:#d14">&#39;{print $1}&#39;</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#008080">SDC4</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>cat /proc/mounts | grep sdc4 | awk <span style="color:#d14">&#39;{print $1}&#39;</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#008080">SDC5</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>cat /proc/mounts | grep sdc5 | awk <span style="color:#d14">&#39;{print $1}&#39;</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#008080">SDC6</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>cat /proc/mounts | grep sdc6 | awk <span style="color:#d14">&#39;{print $1}&#39;</span><span style="color:#000;font-weight:bold">)</span>
+
+<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$DISK</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#34;sdc&#34;</span> <span style="color:#000;font-weight:bold">]</span>
+<span style="color:#000;font-weight:bold">then</span>
+
+	<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$SDC1</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#34;/dev/sdc1&#34;</span> <span style="color:#000;font-weight:bold">]</span>
+	<span style="color:#000;font-weight:bold">then</span>
+			<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$DATE</span><span style="color:#d14"> sdc1 is already mounted&#34;</span> &gt;&gt; /path/logs/mount-sdc.log
+	<span style="color:#000;font-weight:bold">else</span>
+			<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$DATE</span><span style="color:#d14"> mount sdc1 to /path &#34;</span> &gt;&gt; /path/logs/mount-sdc.log
+sudo mount /dev/sdc1 /path/
+	<span style="color:#000;font-weight:bold">fi</span>
+	<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$SDC2</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#34;/dev/sdc2&#34;</span> <span style="color:#000;font-weight:bold">]</span>
+	<span style="color:#000;font-weight:bold">then</span>
+			<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$DATE</span><span style="color:#d14"> sdc2 is already mounted&#34;</span> &gt;&gt; /path/logs/mount-sdc.log
+	<span style="color:#000;font-weight:bold">else</span>
+			<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$DATE</span><span style="color:#d14"> mount sdc2 to /path &#34;</span> &gt;&gt; /path/logs/mount-sdc.log
+sudo mount /dev/sdc2 /path/
+	<span style="color:#000;font-weight:bold">fi</span>
+	<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$SDC3</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#34;/dev/sdc3&#34;</span> <span style="color:#000;font-weight:bold">]</span>
+	<span style="color:#000;font-weight:bold">then</span>
+			<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$DATE</span><span style="color:#d14"> sdc3 is already mounted&#34;</span> &gt;&gt; /path/logs/mount-sdc.log
+	<span style="color:#000;font-weight:bold">else</span>
+			<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$DATE</span><span style="color:#d14"> mount sdc3 to /path &#34;</span> &gt;&gt; /path/logs/mount-sdc.log
+sudo mount /dev/sdc3 /path/
+	<span style="color:#000;font-weight:bold">fi</span>
+	<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$SDC4</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#34;/dev/sdc4&#34;</span> <span style="color:#000;font-weight:bold">]</span>
+	<span style="color:#000;font-weight:bold">then</span>
+			<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$DATE</span><span style="color:#d14"> sdc4 is already mounted&#34;</span> &gt;&gt; /path/logs/mount-sdc.log
+	<span style="color:#000;font-weight:bold">else</span>
+			<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$DATE</span><span style="color:#d14"> mount sdc4 to /path &#34;</span> &gt;&gt; /path/logs/mount-sdc.log
+sudo mount /dev/sdc4 /path/
+	<span style="color:#000;font-weight:bold">fi</span>
+	<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$SDC5</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#34;/dev/sdc5&#34;</span> <span style="color:#000;font-weight:bold">]</span>
+	<span style="color:#000;font-weight:bold">then</span>
+			<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$DATE</span><span style="color:#d14"> sdc5 is already mounted&#34;</span> &gt;&gt; /path/logs/mount-sdc.log
+	<span style="color:#000;font-weight:bold">else</span>
+			<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$DATE</span><span style="color:#d14"> mount sdc5 to /path &#34;</span> &gt;&gt; /path/logs/mount-sdc.log
+sudo mount /dev/sdc5 /path/
+	<span style="color:#000;font-weight:bold">fi</span>
+	<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$SDC6</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#34;/dev/sdc6&#34;</span> <span style="color:#000;font-weight:bold">]</span>
+	<span style="color:#000;font-weight:bold">then</span>
+			<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$DATE</span><span style="color:#d14"> sdc6 is already mounted&#34;</span> &gt;&gt; /path/logs/mount-sdc.log
+	<span style="color:#000;font-weight:bold">else</span>
+			<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$DATE</span><span style="color:#d14"> mount sdc6 to /path &#34;</span> &gt;&gt; /path/logs/mount-sdc.log
+sudo mount /dev/sdc6 /path/
+	<span style="color:#000;font-weight:bold">fi</span>
+<span style="color:#000;font-weight:bold">else</span>
+		<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#000;font-weight:bold">$(</span>date<span style="color:#000;font-weight:bold">)</span><span style="color:#d14">:磁盘sdc没发现&#34;</span>&gt;&gt; /path/logs/mount-sdc.log
+<span style="color:#000;font-weight:bold">fi</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="mysql">mysql</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/bash
+</span><span style="color:#999;font-weight:bold;font-style:italic"></span>
+<span style="color:#998;font-style:italic"># Must be run as the root user</span>
+<span style="color:#008080">MUSER</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;user&#34;</span> 			<span style="color:#998;font-style:italic"># MySQL user</span>
+<span style="color:#008080">MHOST</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;localhost&#34;</span>	<span style="color:#998;font-style:italic"># MySQL server ip</span>
+<span style="color:#008080">MPASS</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;xxxx&#34;</span> 			<span style="color:#998;font-style:italic"># MySQL password</span>
+
+<span style="color:#008080">NOW</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>date +<span style="color:#d14">&#34;%d-%m-%Y&#34;</span><span style="color:#000;font-weight:bold">)</span>
+
+<span style="color:#008080">BPATH</span><span style="color:#000;font-weight:bold">=</span>/path/tftp/mysql/<span style="color:#008080">$NOW</span>
+
+<span style="color:#000;font-weight:bold">[</span> ! -d <span style="color:#008080">$BPATH</span> <span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> mkdir -p <span style="color:#008080">$BPATH</span>
+
+<span style="color:#008080">DBS</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;</span><span style="color:#000;font-weight:bold">$(</span>/usr/bin/mysql -u <span style="color:#008080">$MUSER</span> -h <span style="color:#008080">$MHOST</span> -p<span style="color:#008080">$MPASS</span> -Bse <span style="color:#d14">&#39;show databases&#39;</span><span style="color:#000;font-weight:bold">)</span><span style="color:#d14">&#34;</span>
+<span style="color:#0086b3">echo</span> <span style="color:#008080">$DBS</span>	<span style="color:#998;font-style:italic">#测试链接是否成功</span>
+
+<span style="color:#000;font-weight:bold">for</span> db in <span style="color:#008080">$DBS</span>
+<span style="color:#000;font-weight:bold">do</span>
+	<span style="color:#008080">FILE</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;</span><span style="color:#d14">${</span><span style="color:#008080">BPATH</span><span style="color:#d14">}</span><span style="color:#d14">/</span><span style="color:#d14">${</span><span style="color:#008080">db</span><span style="color:#d14">}</span><span style="color:#d14">.gz&#34;</span>
+
+	<span style="color:#000;font-weight:bold">[</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$db</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#34;adserverstats&#34;</span>  <span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#000;font-weight:bold">continue</span>
+	<span style="color:#000;font-weight:bold">[</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$db</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#34;mint&#34;</span>  <span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#000;font-weight:bold">continue</span>
+    /usr/bin/mysqldump --single-transaction -u <span style="color:#008080">$MUSER</span> -h <span style="color:#008080">$MHOST</span> -p<span style="color:#008080">$MPASS</span> <span style="color:#008080">$db</span> | /bin/gzip -9 &gt; <span style="color:#008080">$FILE</span>
+<span style="color:#000;font-weight:bold">done</span>
+
+sleep <span style="color:#099">2</span>
+ls -lR /path/mysql
+<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;数据库已备份到</span><span style="color:#008080">$BPATH</span><span style="color:#d14">&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="pgsql">pgSQL</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/bash
+</span><span style="color:#999;font-weight:bold;font-style:italic"></span>
+<span style="color:#008080">LANG</span><span style="color:#000;font-weight:bold">=</span>zh_CN.UTF-8
+<span style="color:#0086b3">export</span> LANG
+
+<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;备份数据库到/path/pgSQL目录...&#34;</span>
+<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;备份选择1 取消选择 0&#34;</span>
+
+<span style="color:#000;font-weight:bold">select</span> N in 备份 稍后备份
+<span style="color:#000;font-weight:bold">do</span>
+	<span style="color:#000;font-weight:bold">case</span> <span style="color:#008080">$N</span> in
+		备份<span style="color:#000;font-weight:bold">)</span>
+			<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#000;font-weight:bold">$(</span>date<span style="color:#000;font-weight:bold">)</span><span style="color:#d14"> 备份数据库&#34;</span> &gt;&gt; ~/logs/pqSQL-backup.log 2&gt;&amp;<span style="color:#099">1</span>
+			pg_dumpall &gt; /path/pgSQL/<span style="color:#000;font-weight:bold">$(</span>date +%Y-%m-%d<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#000;font-weight:bold">$(</span>date<span style="color:#000;font-weight:bold">)</span><span style="color:#d14"> 备份完毕...&#34;</span> &gt;&gt; ~/logs/pgSQL-backup.log 2&gt;&amp;<span style="color:#099">1</span>
+			<span style="color:#0086b3">break</span>
+			;;
+		稍后备份<span style="color:#000;font-weight:bold">)</span>
+			<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#000;font-weight:bold">$(</span>date<span style="color:#000;font-weight:bold">)</span><span style="color:#d14"> 稍后备份...&#34;</span>
+			<span style="color:#0086b3">break</span>
+			;;
+	<span style="color:#000;font-weight:bold">esac</span>
+<span style="color:#000;font-weight:bold">done</span>
+
+<span style="color:#998;font-style:italic">### 备份数据库</span>
+<span style="color:#998;font-style:italic"># pg_dumpall &gt; /path/pgSQL/$(date +%Y-%m-%d)</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="ntp">ntp</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/sh
+</span><span style="color:#999;font-weight:bold;font-style:italic"></span>
+<span style="color:#998;font-style:italic">### 时间校对脚本　</span>
+<span style="color:#998;font-style:italic">### CentOS6.8 + openSUSE15.0 + Ubuntu</span>
+
+net_time_SuSE<span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+	
+	zypper in -y netdate
+	systemctl stop ntpd.service
+	sleep <span style="color:#099">3</span>
+	ntpdate us.pool.ntp.org <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#000;font-weight:bold">$(</span>date<span style="color:#000;font-weight:bold">)</span><span style="color:#d14"> verify donw ...&#34;</span> &gt;&gt; /var/log/ntp-sync.log 2&gt;&amp;<span style="color:#099">1</span>
+	systemctl start ntpd.service
+	date -u
+
+<span style="color:#000;font-weight:bold">}</span>
+
+net_time_CentOS<span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+
+	<span style="color:#998;font-style:italic"># yum install ntp ntpdate -y</span>
+	/etc/init.d/ntpd stop
+	sleep <span style="color:#099">3</span>
+	ntpdate us.pool.ntp.org <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#000;font-weight:bold">$(</span>date<span style="color:#000;font-weight:bold">)</span><span style="color:#d14"> verify donw ...&#34;</span> &gt;&gt; /var/log/ntp-sync.log 2&gt;&amp;<span style="color:#099">1</span>
+	/etc/init.d/ntpd start
+	date -u
+
+<span style="color:#000;font-weight:bold">}</span>
+
+net_time_Ubuntu<span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+
+	apt install -y ntpdate ntp
+	/etc/init.d/ntp stop
+	sleep <span style="color:#099">3</span>
+	ntpdate us.pool.ntp.org <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#000;font-weight:bold">$(</span>date<span style="color:#000;font-weight:bold">)</span><span style="color:#d14"> verify donw ...&#34;</span> &gt;&gt; /var/log/ntp-sync.log 2&gt;&amp;<span style="color:#099">1</span>
+	/etc/init.d/ntp start
+	date -u
+
+<span style="color:#000;font-weight:bold">}</span>
+
+<span style="color:#008080">os_name</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>lsb_release -si<span style="color:#000;font-weight:bold">)</span>
+<span style="color:#008080">os_name1</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>cat /etc/redhat-release | awk <span style="color:#d14">&#39;{print $1}&#39;</span><span style="color:#000;font-weight:bold">)</span>
+net_time_sync<span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$os_name</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;openSUSE&#34;</span> <span style="color:#000;font-weight:bold">]</span>;<span style="color:#000;font-weight:bold">then</span>
+		<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;OS is </span><span style="color:#008080">$os_name</span><span style="color:#d14"> </span><span style="color:#000;font-weight:bold">$(</span>date<span style="color:#000;font-weight:bold">)</span><span style="color:#d14"> verify time now...&#34;</span> &gt;&gt; /var/log/ntp-sync.log
+		net_time_SuSE
+	<span style="color:#000;font-weight:bold">elif</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$os_name1</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;CentOS&#34;</span> <span style="color:#000;font-weight:bold">]</span>;<span style="color:#000;font-weight:bold">then</span>
+		<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;OS is </span><span style="color:#008080">$os_name1</span><span style="color:#d14"> </span><span style="color:#000;font-weight:bold">$(</span>date<span style="color:#000;font-weight:bold">)</span><span style="color:#d14"> verify time now ...&#34;</span> &gt;&gt; /var/log/ntp-sync.log
+		net_time_CentOS
+	<span style="color:#000;font-weight:bold">elif</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$os_name</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;Ubuntu&#34;</span> <span style="color:#000;font-weight:bold">]</span>;<span style="color:#000;font-weight:bold">then</span>
+		<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;OS is </span><span style="color:#008080">$os_name</span><span style="color:#d14"> </span><span style="color:#000;font-weight:bold">$(</span>date<span style="color:#000;font-weight:bold">)</span><span style="color:#d14"> verify time now...&#34;</span> &gt;&gt; /var/log/ntp-sync.log
+		net_time_Ubuntu
+	<span style="color:#000;font-weight:bold">fi</span>
+<span style="color:#000;font-weight:bold">}</span>
+
+
+Action<span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+
+	<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#d14">&#34;</span><span style="color:#000;font-weight:bold">$(</span>whoami<span style="color:#000;font-weight:bold">)</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;root&#34;</span> <span style="color:#000;font-weight:bold">]</span>;<span style="color:#000;font-weight:bold">then</span>
+		net_time_sync
+	<span style="color:#000;font-weight:bold">else</span>
+		<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;need root&#34;</span>
+	<span style="color:#000;font-weight:bold">fi</span>
+<span style="color:#000;font-weight:bold">}</span>
+
+Action
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="proxy">proxy</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-weight:bold;font-style:italic">#!/usr/bin/env bash
+</span><span style="color:#999;font-weight:bold;font-style:italic"></span><span style="color:#0086b3">export</span> <span style="color:#008080">http_proxy</span><span style="color:#000;font-weight:bold">=</span>socks5://127.0.0.1:1080
+<span style="color:#0086b3">export</span> <span style="color:#008080">https_proxy</span><span style="color:#000;font-weight:bold">=</span><span style="color:#008080">$http_proxy</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="备份vps">备份vps</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/sh
+</span><span style="color:#999;font-weight:bold;font-style:italic"></span>
+<span style="color:#998;font-style:italic">### 备份指定目录　--delete-exclude 必须配合 --exclude=使用才行</span>
+rsync -avrz --log-file<span style="color:#000;font-weight:bold">=</span>/path/logs/tengxunyun.log --delete-excluded -e <span style="color:#d14">&#34;sshpass -p aaabbbcccdde ssh -p 123456&#34;</span> uuu@1.4.2.3:/uuu/golang/nongli  /path/nfs_share/
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/sh
+</span><span style="color:#999;font-weight:bold;font-style:italic"></span>
+<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;普通用户身份备份...&#34;</span>
+
+rsync -e <span style="color:#d14">&#34;ssh -p 123456&#34;</span> -aptgovrlHAXzP --log-file<span style="color:#000;font-weight:bold">=</span>/path/logs/rsync_vps_usr.log --delete-excluded --exclude<span style="color:#000;font-weight:bold">={</span><span style="color:#d14">&#34;/swap&#34;</span>,<span style="color:#d14">&#34;/media/*&#34;</span>,<span style="color:#d14">&#34;/sys/*&#34;</span>,<span style="color:#d14">&#34;/proc/*&#34;</span>,<span style="color:#d14">&#34;/mnt/*&#34;</span>,<span style="color:#d14">&#34;/tmp/*&#34;</span>,<span style="color:#d14">&#34;/dev/*&#34;</span>,<span style="color:#d14">&#34;/other/*&#34;</span>,<span style="color:#d14">&#34;/var/run/*&#34;</span>,<span style="color:#d14">&#34;/var/tmp/*&#34;</span><span style="color:#000;font-weight:bold">}</span> user@2.3.4.5:/ /path/path/data/rsync-vps-backup/
+
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="qt中文输入">qt中文输入</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/bash
+</span><span style="color:#999;font-weight:bold;font-style:italic"></span><span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;以下命令解决 Qt Creator 4.2.0 (4.2.0)无法输入中文&#34;</span>
+<span style="color:#0086b3">cd</span> /opt/Qt/Tools/QtCreator/lib/Qt/plugins/platforminputcontexts/
+sudo cp /usr/lib64/qt5/plugins/platforminputcontexts/libfcitxplatforminputcontextplugin.so .
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="rclone">rclone</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/sh
+</span><span style="color:#999;font-weight:bold;font-style:italic"></span>
+<span style="color:#998;font-style:italic">#为crontab添加的环境变量</span>
+<span style="color:#998;font-style:italic"># source /etc/profile</span>
+<span style="color:#998;font-style:italic"># source /path/.profile</span>
+
+<span style="color:#998;font-style:italic"># 使用rclone同步Documents到onedrive...</span>
+<span style="color:#998;font-style:italic">#参数说明: https://rclone.org/filtering/  https://forum.rclone.org/</span>
+
+/usr/bin/rclone -Luv --log-file<span style="color:#000;font-weight:bold">=</span>/path/logs/rclone_sync_Documents_to_disk.log --delete-excluded sync /path/Documents/local-disk:remoteName <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#000;font-weight:bold">$(</span>date<span style="color:#000;font-weight:bold">)</span><span style="color:#d14">:local-disk同步脚本运行完毕...&#34;</span> &gt;&gt; /path/logs/message-rclone.log 2&gt;&amp;<span style="color:#099">1</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="rclone-1">rclone</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/sh
+</span><span style="color:#999;font-weight:bold;font-style:italic"></span>
+<span style="color:#998;font-style:italic"># echo &#34;导入代理环境...&#34;</span>
+<span style="color:#0086b3">export</span> <span style="color:#008080">https_proxy</span><span style="color:#000;font-weight:bold">=</span>socks5://127.0.0.1:1080
+<span style="color:#0086b3">export</span> <span style="color:#008080">http_proxy</span><span style="color:#000;font-weight:bold">=</span>socks5://127.0.0.1:1080
+
+sleep <span style="color:#099">2</span>
+sudo mount /dev/sdd6 /path <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;/dev/sdd6挂载到/path&#34;</span> &gt;&gt; /path/logs/message-rclone.log 
+<span style="color:#008080">SDD6</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>cat /proc/mounts | grep ^/dev/sdd6 | cut -b 1-9<span style="color:#000;font-weight:bold">)</span>
+
+<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$SDD6</span><span style="color:#d14">&#34;</span> <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#34;/dev/sdd6&#34;</span> <span style="color:#000;font-weight:bold">]</span>
+<span style="color:#000;font-weight:bold">then</span>
+rclone -Luv --log-file<span style="color:#000;font-weight:bold">=</span>/path/logs/rclone_diskName.log  --exclude MyLife/_book/** sync /path/remoteDisk:  <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;</span><span style="color:#000;font-weight:bold">$(</span>date<span style="color:#000;font-weight:bold">)</span><span style="color:#d14">:diskName同步脚本运行完毕...&#34;</span> &gt;&gt; /path/logs/message-rclone.log 2&gt;&amp;<span style="color:#099">1</span>
+<span style="color:#000;font-weight:bold">else</span>
+<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;/dev/sdd6挂载失败&#34;</span> &gt;&gt; /path/logs/message-rclone.log 2&gt;&amp;<span style="color:#099">1</span>
+<span style="color:#000;font-weight:bold">fi</span>
+
+sleep <span style="color:#099">10</span>
+sudo umount /dev/sdd6
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="rdp">rdp</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/bash
+</span><span style="color:#999;font-weight:bold;font-style:italic"></span>
+rdesktop -g 1440x900 -P -z -x l -r sound:off -u userName 192.168.6.104:3389
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="sed">sed</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#998;font-style:italic"># &#34;在文件name-only的每个行后面添加 \n&#34;</span>
+sed -i <span style="color:#d14">&#39;s/$/&amp;\\n/g&#39;</span> name-only 
+
+<span style="color:#998;font-style:italic"># &#34;在文件test-i的每个行前面面添加 find -inum&#34;</span>
+sed -i <span style="color:#d14">&#39;s/^/find -inum &amp;/g&#39;</span> test-i
+
+<span style="color:#998;font-style:italic"># 在每行的头添加字符，比如&#34;HEAD&#34;</span>
+sed <span style="color:#d14">&#39;s/^/HEAD&amp;/g&#39;</span> test.file
+
+<span style="color:#998;font-style:italic"># 在每行的行尾添加字符，比如“TAIL”</span>
+sed <span style="color:#d14">&#39;s/$/&amp;TAIL/g&#39;</span> test.file 
+
+<span style="color:#998;font-style:italic"># 去除空行</span>
+<span style="color:#998;font-style:italic"># &#34;切换到要转换的目录&#34;</span>
+sed -i <span style="color:#d14">&#39;/^\s*$/d&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="heic2jpeg">heic2jpeg</h2>
+<p><a href="https://github.com/Aquarian-Age/goheif/releases">heic2jpeg</a></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/sh
+</span><span style="color:#999;font-weight:bold;font-style:italic"></span>
+<span style="color:#000;font-weight:bold">for</span> f in <span style="color:#d14">`</span>ls *.heic<span style="color:#d14">`</span>
+<span style="color:#000;font-weight:bold">do</span>
+ 
+<span style="color:#998;font-style:italic">#	echo ${f%.*} #去掉文件后缀名</span>
+
+	heic2jpeg <span style="color:#008080">$f</span> <span style="color:#d14">${</span><span style="color:#008080">f</span>%.*<span style="color:#d14">}</span>.jpeg
+<span style="color:#998;font-style:italic">#	mv $f ${f%.*}.jpeg</span>
+<span style="color:#000;font-weight:bold">done</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="rsync">rsync</h2>
+<ul>
+<li>备份home</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/sh
+</span><span style="color:#999;font-weight:bold;font-style:italic"></span>
+<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;......删除回收站 清理缓存......&#34;</span>
+sudo rm -rf <span style="color:#008080">$HOME</span>/.local/share/Trash/files/*
+/bin/sh /path/bin/clean-cache-dir.sh
+<span style="color:#998;font-style:italic"># </span>
+sudo mount /dev/sdd4 /mnt/sdd4/
+<span style="color:#998;font-style:italic">#</span>
+sudo rsync -avR --delete-excluded /path/mnt/sdd4/ --exclude<span style="color:#000;font-weight:bold">={</span><span style="color:#d14">&#34;OSX-KVM/*&#34;</span>,<span style="color:#d14">&#34;Downloads/*&#34;</span>,<span style="color:#d14">&#34;vmware/&#34;</span>,<span style="color:#d14">&#34;VirtualBox\ VMs/*&#34;</span>,<span style="color:#d14">&#34;桌面/*&#34;</span>,<span style="color:#d14">&#34;.cache/*&#34;</span>,<span style="color:#d14">&#34;.nuget/*&#34;</span>,<span style="color:#d14">&#34;go_work/pkg/mod/cache/&#34;</span>,<span style="color:#d14">&#34;/path/.wine/*&#34;</span><span style="color:#000;font-weight:bold">}</span> <span style="color:#998;font-style:italic">#&gt; /dev/null 2&gt;&amp;1 &amp;</span>
+<span style="color:#998;font-style:italic"># -aptgovrlHAXzP</span>
+sleep <span style="color:#099">10</span>
+sudo umount /dev/sdd4
+
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>备份 /</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/sh
+</span><span style="color:#999;font-weight:bold;font-style:italic"></span>
+<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34; &#34;</span> &gt; /path/logs/rsync-system-backup-info.log
+<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;**********</span><span style="color:#000;font-weight:bold">$(</span>date<span style="color:#000;font-weight:bold">)</span><span style="color:#d14">开始备份**********&#34;</span> &gt;&gt; /path/logs/rsync-system-backup-info.log 2&gt;&amp;<span style="color:#099">1</span>
+
+<span style="color:#998;font-style:italic">### -v參數去掉 避免在/var/spool/mail/root中輸出和log file重複信息</span>
+<span style="color:#998;font-style:italic"># -a 存档模式 等于-rlptgoD(没有-H，-A，-X); </span>
+<span style="color:#998;font-style:italic"># -X 保留扩展属性;</span>
+<span style="color:#998;font-style:italic"># -A 保留ACL（暗示--perms）;</span>
+<span style="color:#998;font-style:italic"># -z 在传输过程中压缩文件数据</span>
+<span style="color:#998;font-style:italic"># -p 保留权限</span>
+<span style="color:#998;font-style:italic"># -t 保留修改时间</span>
+<span style="color:#998;font-style:italic"># -g 保留组</span>
+<span style="color:#998;font-style:italic"># -o 保留所有者（仅限超级用户）</span>
+<span style="color:#998;font-style:italic"># -r 递归目录</span>
+<span style="color:#998;font-style:italic"># -l 将符号链接复制为符号链接</span>
+<span style="color:#998;font-style:italic"># -H 保留硬链接</span>
+<span style="color:#998;font-style:italic"># -z 传输过程压缩</span>
+<span style="color:#998;font-style:italic"># -R 使用相对路径名称(从源目录的起始位置 保留路径 备份到目标目录)</span>
+sudo mount /dev/sdd5 /mnt/sdd5/
+sudo rsync -aptgovrlHAX --delete-excluded --partial --log-file<span style="color:#000;font-weight:bold">=</span>/path/logs/rsync-system-backup.log / /mnt/sdd5/system-backup/ --exclude<span style="color:#000;font-weight:bold">={</span><span style="color:#d14">&#34;/root/.cache/*&#34;</span>,<span style="color:#d14">&#34;/usr/src/*&#34;</span>,<span style="color:#d14">&#34;/media/*&#34;</span>,<span style="color:#d14">&#34;/sys/*&#34;</span>,<span style="color:#d14">&#34;/proc/*&#34;</span>,<span style="color:#d14">&#34;/mnt/*&#34;</span>,<span style="color:#d14">&#34;/tmp/*&#34;</span>,<span style="color:#d14">&#34;/run/*&#34;</span>,<span style="color:#d14">&#34;/dev/*&#34;</span>,<span style="color:#d14">&#34;/*&#34;</span>,<span style="color:#d14">&#34;/var/tmp/*&#34;</span>,<span style="color:#d14">&#34;/var/run/*&#34;</span>,<span style="color:#d14">&#34;/var/log/*&#34;</span>,<span style="color:#d14">&#34;/var/adm/*&#34;</span>,<span style="color:#d14">&#34;/var/cache/*&#34;</span>,<span style="color:#d14">&#34;/usr/share/doc/*&#34;</span>,<span style="color:#d14">&#34;root/.npm/_cacache/*&#34;</span><span style="color:#000;font-weight:bold">}&amp;&amp;</span> <span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;**********</span><span style="color:#000;font-weight:bold">$(</span>date<span style="color:#000;font-weight:bold">)</span><span style="color:#d14">:系统备份完毕**********&#34;</span> &gt;&gt; /path/logs/rsync-system-backup-info.log 2&gt;&amp;<span style="color:#099">1</span>
+sleep <span style="color:#099">10</span>
+sudo umount /dev/sdd5
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="shell-clock">shell clock</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#998;font-style:italic">### http://www.bkjia.com/xtzh/647316.html</span>
+
+<span style="color:#998;font-style:italic">#!/bin/bash</span>
+tput civis
+<span style="color:#000;font-weight:bold">while</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#099">1</span> <span style="color:#000;font-weight:bold">]</span>
+<span style="color:#000;font-weight:bold">do</span>
+   tput clear
+   tput cup <span style="color:#099">3</span> <span style="color:#099">10</span>
+   tput setb <span style="color:#099">0</span>
+   tput setf <span style="color:#099">2</span>
+   <span style="color:#0086b3">echo</span> <span style="color:#000;font-weight:bold">$(</span>date <span style="color:#d14">&#34;+%Y--%m--%d %H:%M:%S  %A&#34;</span><span style="color:#000;font-weight:bold">)</span>
+   sleep <span style="color:#099">1</span>
+
+<span style="color:#000;font-weight:bold">done</span>
+
+原文如下：
+
+    <span style="color:#998;font-style:italic">#!/bin/bash    </span>
+    tput civis  
+    <span style="color:#000;font-weight:bold">while</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#099">1</span> <span style="color:#000;font-weight:bold">]</span>  
+    <span style="color:#000;font-weight:bold">do</span>  
+        <span style="color:#008080">nonth</span><span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">$(</span>date +%B<span style="color:#000;font-weight:bold">)</span>  
+        <span style="color:#000;font-weight:bold">case</span> <span style="color:#d14">&#34;</span><span style="color:#008080">$nonth</span><span style="color:#d14">&#34;</span> in  
+            January<span style="color:#000;font-weight:bold">)</span>  <span style="color:#008080">nonth</span><span style="color:#000;font-weight:bold">=</span>1;;  
+            February<span style="color:#000;font-weight:bold">)</span>  <span style="color:#008080">nonth</span><span style="color:#000;font-weight:bold">=</span>2;;  
+            March<span style="color:#000;font-weight:bold">)</span>  <span style="color:#008080">nonth</span><span style="color:#000;font-weight:bold">=</span>3;;  
+            April<span style="color:#000;font-weight:bold">)</span>  <span style="color:#008080">nonth</span><span style="color:#000;font-weight:bold">=</span>4;;  
+            May<span style="color:#000;font-weight:bold">)</span>  <span style="color:#008080">nonth</span><span style="color:#000;font-weight:bold">=</span>5;;  
+            June<span style="color:#000;font-weight:bold">)</span>  <span style="color:#008080">nonth</span><span style="color:#000;font-weight:bold">=</span>6;;  
+            July<span style="color:#000;font-weight:bold">)</span>  <span style="color:#008080">nonth</span><span style="color:#000;font-weight:bold">=</span>7;;  
+            August<span style="color:#000;font-weight:bold">)</span>  <span style="color:#008080">nonth</span><span style="color:#000;font-weight:bold">=</span>8;;  
+            September<span style="color:#000;font-weight:bold">)</span>  <span style="color:#008080">nonth</span><span style="color:#000;font-weight:bold">=</span>9;;  
+            October<span style="color:#000;font-weight:bold">)</span>  <span style="color:#008080">nonth</span><span style="color:#000;font-weight:bold">=</span>10;;  
+            November<span style="color:#000;font-weight:bold">)</span>  <span style="color:#008080">nonth</span><span style="color:#000;font-weight:bold">=</span>11;;  
+            December<span style="color:#000;font-weight:bold">)</span>  <span style="color:#008080">nonth</span><span style="color:#000;font-weight:bold">=</span>12;;  
+        <span style="color:#000;font-weight:bold">esac</span>  
+            tput clear  
+            tput cup <span style="color:#099">3</span> <span style="color:#099">10</span>  
+        <span style="color:#0086b3">echo</span> <span style="color:#000;font-weight:bold">$(</span>date +%Y<span style="color:#000;font-weight:bold">)</span>--<span style="color:#008080">$nonth</span>--<span style="color:#000;font-weight:bold">$(</span>date +%d<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">$(</span>date +%H<span style="color:#000;font-weight:bold">)</span>:<span style="color:#000;font-weight:bold">$(</span>date +%M<span style="color:#000;font-weight:bold">)</span>:<span style="color:#000;font-weight:bold">$(</span>date +%S<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">$(</span>date +%A<span style="color:#000;font-weight:bold">)</span>  
+        sleep <span style="color:#099">1</span>  
+           
+    <span style="color:#000;font-weight:bold">done</span>  
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="notifyd">notifyd</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#998;font-style:italic">### xfce4的启动通知</span>
+systemctl --user start xfce4-notifyd
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="history">history</h2>
+<ul>
+<li>更详细的历史记录
+export HISTTIMEFORMAT='%Y.%m.%d-%T :: ' HISTFILESIZE=90000 HISTSIZE=90000</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+history|cut -c 8-|sed <span style="color:#d14">&#39;s/|/\n/g&#39;</span>|awk <span style="color:#d14">&#39;{if ($1==&#34;sudo&#34;) $1=&#34;&#34;;print $0}&#39;</span>|awk <span style="color:#d14">&#39;{print $1}&#39;</span>|sort|uniq -c|sort -gr|awk <span style="color:#d14">&#39;{if($1&gt;=5) print$0}&#39;</span>
+
+<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;参数适用于记录详细历史命令的设置 如果不是需要修改CMD[\$4]为[\$2]&#34;</span>
+
+<span style="color:#0086b3">history</span> | awk <span style="color:#d14">&#39;{CMD[$4]++;count++;} END { for (a in CMD )print CMD[ a ]&#34; &#34; CMD[ a ]/count*100 &#34;% &#34; a }&#39;</span> | grep -v <span style="color:#d14">&#34;./&#34;</span> | column -c3 -s <span style="color:#d14">&#34; &#34;</span> -t |sort -nr | nl | head -n20 
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="usbmux">usbmux</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#999;font-weight:bold;font-style:italic">#!/bin/sh
+</span><span style="color:#999;font-weight:bold;font-style:italic"></span>
+<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;Starting usbmuxd ... &#34;</span>
+sudo /usr/local/sbin/usbmuxd --user usbmux --systemd &gt;&gt; /path/logs/usbmuxd.log 2&gt;&amp;<span style="color:#099">1</span> &amp;
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="bashrc">bashrc</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">103
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">104
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">105
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">### 终端记录器并输出到指定目录
+# /usr/bin/script -qa /path/logs/bash-history.log
+
+#-设定PS1对当前登录用户环境生效
+# export PS1=&#34;\w\n\d|\A &gt;&#34;
+export PS1=&#34;\w\n\h@\u \# \A &gt;&#34;
+
+# Plan9
+# PLAN9=/usr/local/plan9
+# export PLAN9
+# PATH=$PATH:$PLAN9/bin
+# export PATH
+
+# GO环境变量（）
+export GOROOT=/usr/local/go
+export PATH=$GOROOT/bin:$PATH
+export GOPATH=$HOME/go_work
+export PATH=$GOPATH/bin:$PATH
+# export GOPROXY=https://goproxy.io
+
+# GoLand
+export PATH=/usr/local/GoLand/bin:$PATH
+
+
+# Android Studio
+export PATH=/opt/android-studio/bin:$PATH
+
+# Android SDK
+# export ANDROID_HOME=$HOME/Android/Sdk
+# export PATH=$PATH:$ANDROID_HOME/tools
+# export PATH=$PATH:$ANDROID_HOME/tools/bin
+# export PATH=$PATH:$ANDROID_HOME/platform-tools
+# export PATH=$PATH:$ANDROID_HOME/emulator
+# export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+
+######################gioui apk
+export ANDROID_SDK_ROOT=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+# export PATH=$PATH:/user/Android/Sdk/ndk/21.3.6528147
+# export ANDROID_NDK_HOME=$ANDROID_SDK_ROOT/ndk/21.3.6528147
+
+
+export PATH=/path/.local/bin:$PATH
+
+### dotnet
+export DOTNET_ROOT=$HOME/dotnet
+export PATH=$PATH:$HOME/dotnet
+export PATH=&#34;$PATH:/path/.dotnet/tools&#34;
+
+
+# 查看本机公网IP
+alias pubip=&#39;curl ifconfig.me&#39;
+# 按照大小排序目录（仅限目录）
+
+alias sortDirBySize=&#39;du -h --time --max-depth=1 | sort -hr &#39;
+
+# 只列出目录
+alias listdir=&#39;find * -type d -maxdepth 0&#39;
+
+#找出“当前目录下”最大的5个文件
+alias listFilesTop5=&#39;find . -type f -exec ls -s {} \; | sort -n -r | head -5&#39;
+
+# 显示可执行文件
+alias showExecutable-files=&#39;ls -F | grep &#39;*$&#39;&#39;
+
+# 列出tcp链接
+alias listTcpLink=&#39;sudo lsof -i -n -P | grep TCP&#39;
+
+#把当前目录下面的GBK编码转换为UTF-8编码
+alias gbk2utf-8=&#39;convmv -f GBK -t utf8 --notest -r .&#39;
+
+# 自定义ls ps cpu
+alias l=&#39;ls -ltr&#39;
+alias pscpu=&#39;ps -e --sort=-%cpu&#39;
+
+#逐行显示环境变量
+alias path=&#39;echo -e ${PATH//:/\\n}&#39;
+
+# 删除日志仅保留最近5天的内容
+alias journal-rm_5daily=&#39;sudo journalctl --vacuum-time=5d&#39;
+
+# 更详细的历史记录
+export HISTTIMEFORMAT=&#39;%Y.%m.%d-%T :: &#39; HISTFILESIZE=90000 HISTSIZE=90000
+
+# unset HISTFILE
+alias nongli=&#39;python3 /path/bin/nongli.py&#39;
+
+### dotnet自动补全 https://docs.microsoft.com/zh-cn/dotnet/core/tools/enable-tab-autocomplete
+_dotnet_bash_complete()
+{
+local word=${COMP_WORDS[COMP_CWORD]}
+
+local completions
+completions=&#34;$(dotnet complete --position &#34;${COMP_POINT}&#34; &#34;${COMP_LINE}&#34;)&#34;
+
+COMPREPLY=( $(compgen -W &#34;$completions&#34; -- &#34;$word&#34;) )
+}
+
+complete -f -F _dotnet_bash_complete dotnet
+
+export PATH=&#34;$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH&#34;
+
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="profile">profile</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#998;font-style:italic">#自定义交互式shell别名</span>
+<span style="color:#0086b3">alias</span> <span style="color:#008080">l</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;ls -ltr&#39;</span>
+<span style="color:#0086b3">alias</span> <span style="color:#008080">ps</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;ps aux&#39;</span>
+<span style="color:#0086b3">alias</span> <span style="color:#008080">pscpu</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;ps -e --sort=-%cpu&#39;</span>
+
+<span style="color:#998;font-style:italic">### rust</span>
+<span style="color:#0086b3">export</span> <span style="color:#008080">PATH</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;</span><span style="color:#008080">$HOME</span><span style="color:#d14">/.cargo/bin:</span><span style="color:#008080">$PATH</span><span style="color:#d14">&#34;</span>
+<span style="color:#998;font-style:italic">###　国内镜像用于更新</span>
+<span style="color:#998;font-style:italic">### 需要同步配置$HOME/.cargo/config</span>
+<span style="color:#998;font-style:italic">### https://github.com/RustChina/rust-wiki/blob/master/%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F.page</span>
+
+<span style="color:#998;font-style:italic"># export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static</span>
+<span style="color:#998;font-style:italic"># export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup</span>
+
+<span style="color:#998;font-style:italic">### exercism.io</span>
+<span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">[</span> -f ~/.config/exercism/exercism_completion.bash <span style="color:#000;font-weight:bold">]</span>; <span style="color:#000;font-weight:bold">then</span>
+<span style="color:#0086b3">source</span> ~/.config/exercism/exercism_completion.bash
+<span style="color:#000;font-weight:bold">fi</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="mkswap">mkswap</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#998;font-style:italic">#Here, 1M * 2000 ~= 2GB of swap memory</span>
+dd <span style="color:#000;font-weight:bold">if</span><span style="color:#000;font-weight:bold">=</span>/dev/zero <span style="color:#008080">of</span><span style="color:#000;font-weight:bold">=</span>swapfile <span style="color:#008080">bs</span><span style="color:#000;font-weight:bold">=</span>1M <span style="color:#008080">count</span><span style="color:#000;font-weight:bold">=</span><span style="color:#099">2000</span>
+mkswap swapfile
+swapon swapfile
+chmod <span style="color:#099">600</span> swapfile
+<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;/var/_swap_/swapfile none swap sw 0 0&#34;</span> &gt;&gt; /etc/fstab
+<span style="color:#998;font-style:italic">#cat /proc/meminfo</span>
+free -m
+</code></pre></td></tr></table>
+</div>
+</div>
+        </div>
+
+        
+<div class="post-archive">
+    <ul class="post-copyright">
+        <li><strong>原文作者：</strong><a rel="author" href="https://aquarian-age.github.io/">Amrta</a></li>
+        <li style="word-break:break-all"><strong>原文链接：</strong><a href="https://aquarian-age.github.io/post/bash/">https://aquarian-age.github.io/post/bash/</a></li>
+        <li><strong>版权声明：</strong>本作品采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li>
+    </ul>
+</div>
+<br/>
+
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/%E4%B8%83%E5%85%83%E7%A6%BD%E6%98%9F%E8%A1%A8/">七元禽星</a></li>
+        
+        <li><a href="/post/%E6%97%B6%E7%A6%BD/">时禽</a></li>
+        
+        <li><a href="/post/osx-kvm/">OSX-KVM</a></li>
+        
+        <li><a href="/post/%E9%BB%84%E9%BB%91/">黄黑</a></li>
+        
+        <li><a href="/post/%E5%BB%BA%E9%99%A4/">建除</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/bash'>bash</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "Aquarian-Age" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "Aquarian-Age.github.io"
+            issue-term="title"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2021 <a href="https://aquarian-age.github.io/">浮生若梦 By Amrta</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://aquarian-age.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://aquarian-age.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://aquarian-age.github.io/post/bash/" title="Bash">Bash</a>
+    </li>
+    
+    <li>
+        <a href="https://aquarian-age.github.io/post/%E4%B8%83%E5%85%83%E7%A6%BD%E6%98%9F%E8%A1%A8/" title="七元禽星">七元禽星</a>
+    </li>
+    
+    <li>
+        <a href="https://aquarian-age.github.io/post/%E6%97%B6%E7%A6%BD/" title="时禽">时禽</a>
+    </li>
+    
+    <li>
+        <a href="https://aquarian-age.github.io/post/osx-kvm/" title="OSX-KVM">OSX-KVM</a>
+    </li>
+    
+    <li>
+        <a href="https://aquarian-age.github.io/post/%E9%BB%84%E9%BB%91/" title="黄黑">黄黑</a>
+    </li>
+    
+    <li>
+        <a href="https://aquarian-age.github.io/post/%E5%BB%BA%E9%99%A4/" title="建除">建除</a>
+    </li>
+    
+    <li>
+        <a href="https://aquarian-age.github.io/post/openSUSE/" title="openSUSE">openSUSE</a>
+    </li>
+    
+    <li>
+        <a href="https://aquarian-age.github.io/post/%E6%83%85x/" title="情x">情x</a>
+    </li>
+    
+    <li>
+        <a href="https://aquarian-age.github.io/post/%E6%81%B6/" title="恶">恶</a>
+    </li>
+    
+    <li>
+        <a href="https://aquarian-age.github.io/post/%E8%BE%9B%E4%B8%91/" title="辛丑">辛丑</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://aquarian-age.github.io/tags/bash/">bash</a>
+    
+    <a href="https://aquarian-age.github.io/tags/hugo/">hugo</a>
+    
+    <a href="https://aquarian-age.github.io/tags/me/">me</a>
+    
+    <a href="https://aquarian-age.github.io/tags/openSUSE/">openSUSE</a>
+    
+    <a href="https://aquarian-age.github.io/tags/osx/">osx</a>
+    
+    <a href="https://aquarian-age.github.io/tags/%E4%B8%83%E6%94%BF%E5%9B%9B%E4%BD%99/">七政四余</a>
+    
+    <a href="https://aquarian-age.github.io/tags/%E5%B0%8F%E8%AF%AD/">小语</a>
+    
+    <a href="https://aquarian-age.github.io/tags/%E6%BC%94%E7%A6%BD/">演禽</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.flysnow.org/" title="飞雪无情的博客">飞雪无情的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://archive.is/" title="The Internet Archive">archive</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.wdl.org/zh/" title="">世界数字图书馆</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://pixabay.com/" title="Stunning free images  royalty free stock">Pixabay</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://500px.com/" title="">500px</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://ping.pe/ping.php" title="">ping</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://build.opensuse.org/project/show/home:liangzi" title="openSUSE">我的OBS</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://www.oneworldhealing.net/" title="What the World needs is Love">OneWorld</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.daoon.com/ang/" title="">道卬</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://shuge.org/" title="数字图书馆">书格</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://astrolog32v3.altervista.org/Documentation.zh.htm" title="">占星软件</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://www.nongli.net/sxwnl/" title="">壽星萬年曆</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://ytliu0.github.io/ChineseCalendar/index_simp.html" title="">公历和农历日期对照</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://www.sacred-texts.com/hin/index.htm#vedas" title="">吠陀經</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://www.solidot.org" title="">Solidot</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://aquarian-age.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
