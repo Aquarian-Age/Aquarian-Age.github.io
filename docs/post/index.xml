@@ -67,7 +67,7 @@
       <pubDate>Fri, 02 Jul 2021 10:19:07 +0800</pubDate>
       
       <guid>https://aquarian-age.github.io/post/openSUSE/</guid>
-      <description>&lt;p&gt;openSUSE常用配置&lt;/p&gt;</description>
+      <description>openSUSE常用配置 info neofetch OS openSUSE Tumbleweed x86_64 Host B450 I AORUS PRO WIFI Kernel 5.13.2-1-default Uptime 4 hours, 55 mins Packages 2906 (rpm) Shell bash 5.1.8 Resolution 1920x1080 DE Plasma 5.22.3 WM KWin Theme Breeze Light [Plasma], Breeze [GTK2/3] Icons [Plasma], breeze [GTK2/3] Terminal konsole Terminal Font Hack 17 CPU AMD Ryzen 5 3400G (8) @ 3.700GHz GPU AMD ATI 09:00.0 Picasso Memory 3327MiB / 13913MiB 解码器 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 #!/bin/sh echo &amp;#34;packman 软件源的媒体播放文件&amp;#34; echo &amp;#34;添加packman源的国内镜像&amp;</description>
     </item>
     
     <item>
