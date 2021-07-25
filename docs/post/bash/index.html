@@ -167,6 +167,7 @@
     <li><a href="#bashrc">bashrc</a></li>
     <li><a href="#profile">profile</a></li>
     <li><a href="#mkswap">mkswap</a></li>
+    <li><a href="#python开启网络服务">python开启网络服务</a></li>
   </ul>
 </nav>
     </div>
@@ -1702,6 +1703,24 @@ chmod <span style="color:#099">600</span> swapfile
 <span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;/var/_swap_/swapfile none swap sw 0 0&#34;</span> &gt;&gt; /etc/fstab
 <span style="color:#998;font-style:italic">#cat /proc/meminfo</span>
 free -m
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="python开启网络服务">python开启网络服务</h2>
+<p><a href="https://docs.python.org/2/library/simplehttpserver.html">simplehttpserver</a></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#998;font-style:italic"># 2.x</span>
+python -m SimpleHTTPServer <span style="color:#099">8000</span>
+
+<span style="color:#998;font-style:italic">### 3.x</span>
+python -m http.server <span style="color:#099">8000</span>
 </code></pre></td></tr></table>
 </div>
 </div>
