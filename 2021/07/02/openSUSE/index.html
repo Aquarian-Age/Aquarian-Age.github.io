@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>openSUSE | 浮生若梦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="openSUSE常用配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="openSUSE">
+<meta property="og:url" content="https://aquarian-age.github.io/2021/07/02/openSUSE/index.html">
+<meta property="og:site_name" content="浮生若梦">
+<meta property="og:description" content="openSUSE常用配置">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2021/12/11/OHqpborF4mx8vus.png">
+<meta property="og:image" content="https://s2.loli.net/2021/12/11/KC38kelSXE2iwaA.png">
+<meta property="og:image" content="https://s2.loli.net/2021/12/11/L8jNQipzGOmRhS7.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/16/VRIbiyh1cC4JKOS.png">
+<meta property="article:published_time" content="2021-07-01T18:19:07.000Z">
+<meta property="article:modified_time" content="2022-08-18T08:36:09.624Z">
+<meta property="article:author" content="Aquarian-Age">
+<meta property="article:tag" content="openSuSE">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2021/12/11/OHqpborF4mx8vus.png">
+  
+    <link rel="alternate" href="/atom.xml" title="浮生若梦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://aquarian-age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">浮生若梦</a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-openSUSE" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/07/02/openSUSE/" class="article-date">
+  <time datetime="2021-07-01T18:19:07.000Z" itemprop="datePublished">2021-07-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      openSUSE
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>openSUSE常用配置</p>
+<span id="more"></span>
+
+<h2 id="smb服务"><a href="#smb服务" class="headerlink" title="smb服务"></a>smb服务</h2><h3 id="创建共享目录"><a href="#创建共享目录" class="headerlink" title="创建共享目录"></a>创建共享目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> ~/smbShareDir</span><br></pre></td></tr></table></figure>
+
+<h3 id="赋予用户权限"><a href="#赋予用户权限" class="headerlink" title="赋予用户权限"></a>赋予用户权限</h3><p>有必要的话加个 chmod -R 777</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chown</span> <span class="variable">$USER</span> ~/smbShareDir/</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置密码"><a href="#设置密码" class="headerlink" title="设置密码"></a>设置密码</h3><ul>
+<li>$USER(替换成你的实际用户名)</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo smbpasswd -a <span class="variable">$USER</span></span><br><span class="line">[sudo] root 的密码：</span><br><span class="line">New SMB password:</span><br><span class="line">Retype new SMB password:</span><br><span class="line">Added user xxxx.</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置共享目录"><a href="#设置共享目录" class="headerlink" title="设置共享目录"></a>设置共享目录</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yast --&gt;samba服务 --&gt;Add</span><br><span class="line">ShareName 共享名称: smb</span><br><span class="line">Share Descriiption 共享说明</span><br><span class="line">Share Type 选择Directory</span><br><span class="line">Share Path 上面创建的目录`~/smbShareDir`</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置smb-conf"><a href="#配置smb-conf" class="headerlink" title="配置smb.conf"></a>配置smb.conf</h3><p>guest ok = Yes允许匿名登录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">passdb backend = tdbsam</span><br><span class="line">printing = cups</span><br><span class="line">printcap name = cups</span><br><span class="line">printcap cache time = 750</span><br><span class="line">cups options = raw</span><br><span class="line">map to guest = Bad User</span><br><span class="line">logon path = \\%L\profiles\.msprofile</span><br><span class="line">logon home = \\%L\%U\.9xprofile</span><br><span class="line">logon drive = P:</span><br><span class="line">usershare allow guests = No</span><br><span class="line">security = user</span><br><span class="line">wins server =</span><br><span class="line">wins support = No</span><br><span class="line">workgroup =</span><br><span class="line"></span><br><span class="line">[smb]</span><br><span class="line">comment = smb</span><br><span class="line">guest ok = Yes</span><br><span class="line">inherit acls = Yes</span><br><span class="line">path = /home/xxxx/smbShareDir</span><br><span class="line">read only = No</span><br><span class="line">Writable = Yes</span><br><span class="line">Browsable = Yes</span><br><span class="line">Valid users = xxxx//这里是上面$USER设置的用户名</span><br></pre></td></tr></table></figure>
+
+<h3 id="smb-service"><a href="#smb-service" class="headerlink" title="smb.service"></a>smb.service</h3><p>/usr/lib/systemd/system/smb.service</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Type=notify改为Type=simple</span><br></pre></td></tr></table></figure>
+<ul>
+<li>重载<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><p>systemctl start nmb<br>systemctl start winbind.service<br>systemctl start smb</p>
+<h3 id="Android手机链接"><a href="#Android手机链接" class="headerlink" title="Android手机链接"></a>Android手机链接</h3><p>下载个ES文件浏览器　网络–局域网–新建…<br>服务器一行:填写smb服务器地址 用户名　密码:smbpasswd对应的用户名:密码</p>
+<h3 id="ios手机链接"><a href="#ios手机链接" class="headerlink" title="ios手机链接"></a>ios手机链接</h3><p>下载个ES文件浏览器<br>首次启动允许链接本地网络<br>服务–SMB–新建URL:smb服务地址 用户名:密码 同上</p>
+<hr>
+<h2 id="info"><a href="#info" class="headerlink" title="info"></a>info</h2><p>neofetch</p>
+<table>
+<thead>
+<tr>
+<th>OS</th>
+<th>openSUSE Tumbleweed x86_64</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Host</td>
+<td>B450 I AORUS PRO WIFI</td>
+</tr>
+<tr>
+<td>Kernel</td>
+<td>5.13.2-1-default</td>
+</tr>
+<tr>
+<td>Uptime</td>
+<td>4 hours, 55 mins</td>
+</tr>
+<tr>
+<td>Packages</td>
+<td>2906 (rpm)</td>
+</tr>
+<tr>
+<td>Shell</td>
+<td>bash 5.1.8</td>
+</tr>
+<tr>
+<td>Resolution</td>
+<td>1920x1080</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Plasma 5.22.3</td>
+</tr>
+<tr>
+<td>WM</td>
+<td>KWin</td>
+</tr>
+<tr>
+<td>Theme</td>
+<td>Breeze Light [Plasma], Breeze [GTK2/3]</td>
+</tr>
+<tr>
+<td>Icons</td>
+<td>[Plasma], breeze [GTK2/3]</td>
+</tr>
+<tr>
+<td>Terminal</td>
+<td>konsole</td>
+</tr>
+<tr>
+<td>Terminal Font</td>
+<td>Hack 17</td>
+</tr>
+<tr>
+<td>CPU</td>
+<td>AMD Ryzen 5 3400G (8) @ 3.700GHz</td>
+</tr>
+<tr>
+<td>GPU</td>
+<td>AMD ATI 09:00.0 Picasso</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td>3327MiB / 13913MiB</td>
+</tr>
+</tbody></table>
+<h2 id="解码器"><a href="#解码器" class="headerlink" title="解码器"></a>解码器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;packman 软件源的媒体播放文件&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;添加packman源的国内镜像&quot;</span></span><br><span class="line">sudo zypper ar -f https://mirrors.ustc.edu.cn/packman/suse/openSUSE_Leap_15.0/ packman_ustc</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> -v </span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> “开始安装....”</span><br><span class="line">sudo zypper --no-refresh install libavutil55-3.4.4-lp150.9.1.x86_64 </span><br><span class="line">sudo zypper --no-refresh install gstreamer-plugins-libav-1.12.5-lp150.3.2.x86_64</span><br><span class="line">sudo zypper --no-refresh install libavcodec57-3.4.4-lp150.9.1.x86_64</span><br><span class="line">sudo zypper --no-refresh install libavformat57-3.4.4-lp150.9.1.x86_64</span><br><span class="line">sudo zypper --no-refresh install libswresample2-3.4.4-lp150.9.1.x86_64</span><br><span class="line">sudo zypper --no-refresh install libavfilter6-3.4.4-lp150.9.1.x86_64</span><br><span class="line">sudo zypper --no-refresh install libavresample3-3.4.4-lp150.9.1.x86_64</span><br><span class="line">sudo zypper --no-refresh install libpostproc54-3.4.4-lp150.9.1.x86_64</span><br><span class="line">sudo zypper --no-refresh install libswscale4-3.4.4-lp150.9.1.x86_64</span><br><span class="line">sudo zypper --no-refresh install libavdevice57-3.4.4-lp150.9.1.x86_64</span><br></pre></td></tr></table></figure>
+
+<h2 id="录屏-媒体"><a href="#录屏-媒体" class="headerlink" title="录屏 媒体"></a>录屏 媒体</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo zypper <span class="keyword">in</span> -y kolourpaint simplescreenrecorder vlc smplayer</span><br></pre></td></tr></table></figure>
+
+<h2 id="图片编辑"><a href="#图片编辑" class="headerlink" title="图片编辑"></a>图片编辑</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo zypper <span class="keyword">in</span> -y kolourpaint </span><br></pre></td></tr></table></figure>
+
+<h2 id="KDE-Connect"><a href="#KDE-Connect" class="headerlink" title="KDE Connect"></a>KDE Connect</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;KDE Connect 添加firewalld防火墙规则...&quot;</span></span><br><span class="line">sudo systemctl start firewalld.service</span><br><span class="line"></span><br><span class="line">sudo firewall-cmd --zone=public --permanent --add-port=1714-1764/tcp</span><br><span class="line">sudo firewall-cmd --zone=public --permanent --add-port=1714-1764/udp</span><br><span class="line">sudo systemctl restart firewalld.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># sudo systemctl stop firewalld.service</span></span><br><span class="line"><span class="comment"># https://community.kde.org/KDEConnect</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### sendanywherw</span></span><br><span class="line">sudo firewall-cmd --zone=public --permanent --add-service=http</span><br><span class="line">sudo firewall-cmd --zone=public --permanent --add-service=https</span><br><span class="line">sudo systemctl restart firewalld.service</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置语言"><a href="#设置语言" class="headerlink" title="设置语言"></a>设置语言</h2><p>en_US.utf8</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localectl set-locale LANG=en_US.utf8 </span><br></pre></td></tr></table></figure>
+
+<h2 id="YouCompleteMe"><a href="#YouCompleteMe" class="headerlink" title="YouCompleteMe"></a>YouCompleteMe</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo zypper <span class="keyword">in</span> python38-devel</span><br><span class="line"><span class="built_in">cd</span> .vim/bundle/</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/Valloric/YouCompleteMe.git</span><br><span class="line">git submodule update --init --recursive <span class="comment">#这里全部安装需要走代理</span></span><br><span class="line">python3.8 install.py --go-completer --rust-completer</span><br></pre></td></tr></table></figure>
+
+<p><strong>vimrc</strong></p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">set nocompatible</span><br><span class="line"></span><br><span class="line">set rtp+=~/.vim/bundle/Vundle.vim</span><br><span class="line">call vundle#begin() &quot;让vundle管理插件版本</span><br><span class="line"></span><br><span class="line">Plugin &#x27;VundleVim/Vundle.vim&#x27;</span><br><span class="line">Plugin &#x27;Valloric/YouCompleteMe&#x27;</span><br><span class="line">Plugin &#x27;rust-lang/rust.vim&#x27;</span><br><span class="line">Plugin &#x27;Chiel92/vim-autoformat&#x27; &quot;自动格式化https://github.com/Chiel92/vim-autoformat</span><br><span class="line">call vundle#end()            &quot; 必须</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">filetype plugin indent on</span><br><span class="line">&quot; syntax on</span><br><span class="line">set backspace=indent,eol,start</span><br><span class="line">set autowrite</span><br><span class="line">set number</span><br><span class="line">set mouse=nv</span><br><span class="line">set tabstop=4</span><br><span class="line">set encoding=utf-8</span><br><span class="line">set fencs=utf-8,GB18030,ucs-bom,default,latin1</span><br><span class="line"></span><br><span class="line">noremap &lt;F3&gt; :Autoformat&lt;CR&gt; &quot;F3格式化C#快捷键</span><br><span class="line"></span><br><span class="line">let g:go_highlight_types = 1</span><br><span class="line">let g:go_highlight_functions = 1</span><br><span class="line">let g:go_highlight_methods = 1</span><br><span class="line">let g:go_highlight_operators = 1</span><br><span class="line">let g:ycm_use_clangd = 0</span><br><span class="line">let g:ycm_autoclose_preview_window_after_insertion = 1</span><br><span class="line">let g:rustfmt_autosave = 1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&quot;golang自动导入</span><br><span class="line">let g:gofmt_command = &quot;goimports&quot;</span><br><span class="line">autocmd BufWritePre *.go :Fmt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&quot; jj                  保存文件并留在插入模式 [插入模式]</span><br><span class="line">imap jj &lt;ESC&gt;:w&lt;CR&gt;li</span><br><span class="line">&quot; kk                  返回Normal模式 插入模式</span><br><span class="line">imap kk &lt;ESC&gt;l</span><br></pre></td></tr></table></figure>
+
+<h2 id="系统备份"><a href="#系统备份" class="headerlink" title="系统备份"></a>系统备份</h2><p>rsync-backup-system.sh</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot; &quot;</span> &gt;&gt; /home/xxxx/logs/rsync-system-backup-info.log</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;**********<span class="subst">$(date)</span>开始备份**********&quot;</span> &gt;&gt; /home/xxxx/logs/rsync-system-backup-info.log 2&gt;&amp;1</span><br><span class="line"></span><br><span class="line"><span class="comment">### -v參數去掉 避免在/var/spool/mail/root中輸出和log file重複信息</span></span><br><span class="line"><span class="comment"># -a 存档模式 等于-rlptgoD(没有-H，-A，-X); </span></span><br><span class="line"><span class="comment"># -X 保留扩展属性;</span></span><br><span class="line"><span class="comment"># -A 保留ACL（暗示--perms）;</span></span><br><span class="line"><span class="comment"># -z 在传输过程中压缩文件数据</span></span><br><span class="line"><span class="comment"># -p 保留权限</span></span><br><span class="line"><span class="comment"># -t 保留修改时间</span></span><br><span class="line"><span class="comment"># -g 保留组</span></span><br><span class="line"><span class="comment"># -o 保留所有者（仅限超级用户）</span></span><br><span class="line"><span class="comment"># -r 递归目录</span></span><br><span class="line"><span class="comment"># -l 将符号链接复制为符号链接</span></span><br><span class="line"><span class="comment"># -H 保留硬链接</span></span><br><span class="line"><span class="comment"># -z 传输过程压缩</span></span><br><span class="line"><span class="comment"># -R 使用相对路径名称(从源目录的起始位置 保留路径 备份到目标目录)</span></span><br><span class="line"></span><br><span class="line">sudo rsync -aptgovrlHAX --delete-excluded --partial --log-file=/home/xxxx/logs/rsync-system-backup.log / /mnt/sdcdata/system-backup/ --exclude=&#123;<span class="string">&quot;/usr/src/*&quot;</span>,<span class="string">&quot;/media/*&quot;</span>,<span class="string">&quot;/sys/*&quot;</span>,<span class="string">&quot;/proc/*&quot;</span>,<span class="string">&quot;/mnt/*&quot;</span>,<span class="string">&quot;/tmp/*&quot;</span>,<span class="string">&quot;/run/*&quot;</span>,<span class="string">&quot;/dev/*&quot;</span>,<span class="string">&quot;/home/*&quot;</span>,<span class="string">&quot;/var/tmp/*&quot;</span>,<span class="string">&quot;/var/run/*&quot;</span>,<span class="string">&quot;/var/log/*&quot;</span>,<span class="string">&quot;/var/adm/*&quot;</span>,<span class="string">&quot;/var/cache/*&quot;</span>,<span class="string">&quot;/usr/share/doc/*&quot;</span>&#125; &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;**********<span class="subst">$(date)</span>:系统备份完毕**********&quot;</span> &gt;&gt; /home/xxxx/logs/rsync-system-backup-info.log 2&gt;&amp;1 </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>只备份当前用户的home</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">rsync -aptgovrlHAX --delete-excluded /home/username/ /mnt/backup/home-backup/ --exclude=&#123;&quot;go/pkg/mod/*&quot;,&quot;Android/Sdk/system-images/*&quot;,&quot;.cache/*&quot;,&quot;OSX-KVM/*&quot;,&quot;VirtualBox\ VMs/*&quot;,&quot;.gradle/*&quot;,&quot;.gradle/caches/*&quot;,&quot;USB/*&quot;,&quot;.android/avd/*&quot;,&quot;.*&quot;&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>以下命令可用于了解两个文件系统上的文件是否相同（数据和属性）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync -axHAXnP /mnt/part1/ /mnt/part2/</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="远程备份"><a href="#远程备份" class="headerlink" title="远程备份"></a>远程备份</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">rsync -aptgovrlHAXzP -e <span class="string">&quot;ssh -p passwd&quot;</span> --delete-excluded --exclude=&#123;<span class="string">&quot;/media/*&quot;</span>,<span class="string">&quot;/sys/*&quot;</span>,<span class="string">&quot;/proc/*&quot;</span>,<span class="string">&quot;/mnt/*&quot;</span>,<span class="string">&quot;/tmp/*&quot;</span>,<span class="string">&quot;/home/*&quot;</span>,<span class="string">&quot;/var/run/*&quot;</span>,<span class="string">&quot;/var/tmp/*&quot;</span>&#125; root@AA:AA:AA:AA:/ /run/media/AAA/data/rsync-vps-backup/</span><br></pre></td></tr></table></figure>
+
+<h2 id="DNS静态解析"><a href="#DNS静态解析" class="headerlink" title="DNS静态解析"></a>DNS静态解析</h2><p>/etc/sysconfig/network/config</p>
+<p>把 NETCONFIG_DNS_POLICY=”auto” 改为 NETCONFIG_DNS_POLICY=””</p>
+<p>更改 resolv.conf 添加如下内容</p>
+<p>nameserver 223.5.5.5</p>
+<h2 id="禁用KDE的baloo文件索引功能"><a href="#禁用KDE的baloo文件索引功能" class="headerlink" title="禁用KDE的baloo文件索引功能"></a>禁用KDE的baloo文件索引功能</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">balooctl <span class="built_in">disable</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="禁用akonadi服务"><a href="#禁用akonadi服务" class="headerlink" title="禁用akonadi服务"></a>禁用akonadi服务</h2><p>~/.config/akonadi</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">StartServer=<span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="修复grub方法"><a href="#修复grub方法" class="headerlink" title="修复grub方法"></a>修复grub方法</h2><p>挂载顺序里面 / 在最前面</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="built_in">set</span> -v</span><br><span class="line">mount /dev/sda4 /mnt</span><br><span class="line">mount /dev/sda2 /mnt/boot/efi</span><br><span class="line">mount /dev/sdb3 /mnt/var</span><br><span class="line">mount /dev/sdb4 /mnt/opt</span><br><span class="line">mount /dev/sdb5 /mnt/home</span><br><span class="line">mount -t proc proc /mnt/proc</span><br><span class="line">mount --rbind /sys /mnt/sys</span><br><span class="line">mount --rbind /dev /mnt/dev</span><br><span class="line"><span class="built_in">chroot</span> /mnt /bin/bash</span><br></pre></td></tr></table></figure>
+
+<p>重新安装grub</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grub2-mkconfig -o /boot/grub2/grub.cfg</span><br><span class="line">grub2-install /dev/sda</span><br></pre></td></tr></table></figure>
+
+<h2 id="proxychain4"><a href="#proxychain4" class="headerlink" title="proxychain4"></a>proxychain4</h2><p>用proxychain4实现firefox浏览器去插件全局走代理的方法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">echo</span> <span class="string">&quot;socks5 127.0.0.1 1080&quot;</span> &gt;&gt; /etc/proxychain4.conf</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="sudo免密输入"><a href="#sudo免密输入" class="headerlink" title="sudo免密输入"></a>sudo免密输入</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo -i</span><br><span class="line"><span class="built_in">chmod</span> u+w /etc/sudoers</span><br></pre></td></tr></table></figure>
+
+<p>编辑　/etc/sudoers</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%wheel ALL=(ALL) ALL 取消前面的注释</span><br></pre></td></tr></table></figure>
+
+<p>设置免密命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username ALL=(ALL) NOPASSWD:/usr/bin/zypper,/usr/sbin/privoxy,/usr/bin/rsync,/usr/sbin/cryptsetup,/usr/sbin/hdparm,/usr/bin/rpmbuild,/usr/bin/umount,/usr/bin/mount</span><br></pre></td></tr></table></figure>
+
+<p>添加用户到wheel组</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usermod -a -G wheel username</span><br></pre></td></tr></table></figure>
+
+<p>还原文件属性</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> u-w /etc/sudoers</span><br><span class="line">visudo -c -f /etc/sudoers</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="联网"><a href="#联网" class="headerlink" title="联网"></a>联网</h2><p>查看无线网卡的设备名</p>
+<p>ip a</p>
+<p>查看可用的NetworkManager连接</p>
+<p>su<br>nmcli con show</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nmcli con show</span><br><span class="line">NAME                            UUID                                  TYPE      DEVICE </span><br><span class="line">1101                            909fe38a-b8e2-4b68-9c1c-431fae269514  wifi      wlan0  </span><br><span class="line">Wired connection 1              2fbd9c16-aa4c-4885-a1bb-c6bd5d252d92  ethernet  eth0      </span><br></pre></td></tr></table></figure>
+
+<p>之前有过的连接　无线连网的命令就是</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmcli con up uuid 909fe38a-b8e2-4b68-9c1c-431fae269514</span><br></pre></td></tr></table></figure>
+
+<p>要是没有连接 新建无线连接用这个命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmcli dev wifi connect &lt;SSID&gt; password &lt;password&gt;</span><br></pre></td></tr></table></figure>
+
+<p>新建有线连接用这个命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmcli con add <span class="built_in">type</span> ethernet con-name &lt;SSID&gt; ifname enp3s0</span><br></pre></td></tr></table></figure>
+
+<p>要是静态连接 在上面的命令后面添加</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip4 192.168.1.50/24 gw4 192.168.1.1</span><br></pre></td></tr></table></figure>
+
+<p>连接创建好后 假如要修改 dns</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmcli con mod &lt;SSID&gt; ipv4.dns “8.8.8.8 8.8.4.4”</span><br></pre></td></tr></table></figure>
+
+<p>然后 nmcli con down <SSID> 再重新 up 一下就可以</p>
+<h2 id="添加开机启动服务"><a href="#添加开机启动服务" class="headerlink" title="添加开机启动服务"></a>添加开机启动服务</h2><p>/etc/systemd/system/rc-local.service </p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[Unit]  </span><br><span class="line">Description=/etc/rc.local Compatibility  </span><br><span class="line">ConditionFileIsExecutable=/etc/rc.local  </span><br><span class="line">After=network.target  </span><br><span class="line"></span><br><span class="line">[Service]  </span><br><span class="line">Type=forking  </span><br><span class="line">PIDFile=/var/run/rc.local.pid</span><br><span class="line">ExecStart=/etc/rc.local start  </span><br><span class="line">TimeoutSec=5  </span><br><span class="line">RemainAfterExit=yes  </span><br><span class="line">GuessMainPID=yes </span><br><span class="line"></span><br><span class="line">[Install]  </span><br><span class="line">WantedBy=multi-user.target  </span><br></pre></td></tr></table></figure>
+
+<p>systemctl enable rc-local.service</p>
+<p>/etc/rc.local</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;<span class="subst">$(date)</span>: 测试rc.local....&quot;</span> &gt;&gt; /var/log/test-rc.log</span><br></pre></td></tr></table></figure>
+<p>chmod +x /etc/rc.local</p>
+<h2 id="KDE自动登录"><a href="#KDE自动登录" class="headerlink" title="KDE自动登录"></a>KDE自动登录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /etc/sysconfig/displaymanager |grep -i autologin</span><br><span class="line">DISPLAYMANAGER_AUTOLOGIN=<span class="string">&quot;username&quot;</span> <span class="comment">#username改为要自动登录的用户名</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="40-custom"><a href="#40-custom" class="headerlink" title="40_custom"></a>40_custom</h2><p><strong>/etc/grub.d/40_custom</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="built_in">exec</span> <span class="built_in">tail</span> -n +3 <span class="variable">$0</span></span><br><span class="line"><span class="comment"># This file provides an easy way to add custom menu entries.  Simply type the</span></span><br><span class="line"><span class="comment"># menu entries you want to add after this comment.  Be careful not to change</span></span><br><span class="line"><span class="comment"># the &#x27;exec tail&#x27; line above.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### ubuntu</span></span><br><span class="line">menuentry <span class="string">&quot;Ubuntu 19.04 ISO&quot;</span> &#123;</span><br><span class="line"><span class="built_in">set</span> isofile=<span class="string">&quot;/ubuntu-19.04-desktop-amd64.iso&quot;</span></span><br><span class="line">search --<span class="built_in">set</span> -f <span class="variable">$isofile</span></span><br><span class="line">loopback loop (hd2,gpt7)/<span class="variable">$isofile</span></span><br><span class="line">linux (loop)/casper/vmlinuz boot=casper iso-scan/filename=<span class="variable">$&#123;isofile&#125;</span> quiet splash</span><br><span class="line">initrd (loop)/casper/initrd</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">### deeepin</span></span><br><span class="line">menuentry <span class="string">&quot;deepin_15.1&quot;</span>  &#123;</span><br><span class="line"> <span class="built_in">set</span> isofile=<span class="string">&quot;/deepin-15.11-amd64.iso&quot;</span></span><br><span class="line"> search --<span class="built_in">set</span> -f <span class="variable">$isofile</span></span><br><span class="line"> loopback loop (hd2,gpt7)/<span class="variable">$isofile</span></span><br><span class="line"> linux (loop)/live/vmlinuz boot=live union=overlay live-config findiso=<span class="variable">$&#123;isofile&#125;</span> locales=zh_CN.UTF-8 quiet splash nomodeset</span><br><span class="line"> initrd (loop)/live/initrd.lz</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="fsck"><a href="#fsck" class="headerlink" title="fsck"></a>fsck</h2><p><img src="https://s2.loli.net/2021/12/11/OHqpborF4mx8vus.png" alt="fsck-failed0.png"></p>
+<p><img src="https://s2.loli.net/2021/12/11/KC38kelSXE2iwaA.png" alt="fsck-failed.png"></p>
+<p>进入救援CD<br><img src="https://s2.loli.net/2021/12/11/L8jNQipzGOmRhS7.png" alt="fsck-failed2.png"></p>
+<hr>
+<h2 id="磁盘"><a href="#磁盘" class="headerlink" title="磁盘"></a>磁盘</h2><h3 id="清理"><a href="#清理" class="headerlink" title="清理"></a>清理</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.bleachbit.org/">bleachbit</a></li>
+</ul>
+<h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/cboxdoerfer/fsearch">fsearch</a></li>
+</ul>
+<hr>
+<h2 id="Xfce4桌面添加Ibus输入法"><a href="#Xfce4桌面添加Ibus输入法" class="headerlink" title="Xfce4桌面添加Ibus输入法"></a>Xfce4桌面添加Ibus输入法</h2><p>备用</p>
+<p>ibus 输入中文</p>
+<ol>
+<li><p>先确定当前语言环境</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locale|grep -i lang</span><br></pre></td></tr></table></figure></li>
+<li><p>sudo zypper in ibus-xkbc ibus-rime </p>
+</li>
+<li><p>ibus status</p>
+</li>
+<li><p>配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ibus-daemon -x -d</span><br><span class="line">ibus-setup </span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li>重启<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ibus-daemon -x -d -R</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="5">
+<li>配置开机启动<br>cat .profile <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#ibus input</span></span><br><span class="line"><span class="built_in">export</span> GTK_IM_MODULE=ibus</span><br><span class="line"><span class="built_in">export</span> XMODIFIERS=@im=ibus</span><br><span class="line"><span class="built_in">export</span> QT_IM_MODULE=ibus</span><br><span class="line">ibus-daemon -d -x</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="更改默认登陆的DE"><a href="#更改默认登陆的DE" class="headerlink" title="更改默认登陆的DE"></a>更改默认登陆的DE</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo zypper <span class="keyword">in</span> xdm</span><br><span class="line"></span><br><span class="line">sudo nano /etc/sysconfig/displaymanager</span><br><span class="line">DISPLAYMANAGER=<span class="string">&quot;gdm&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>要列出替代系统知道的所有显示管理器，运行<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --list default-displaymanager</span><br></pre></td></tr></table></figure></li>
+<li>要更改显示管理器<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --config default-displaymanager</span><br></pre></td></tr></table></figure>
+还有一个用于更新备选方案的YaST模块</li>
+</ul>
+<p>yast2-alternative中的sudo zypper<br>这将通过YaST接口执行类似的功能。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --display default-displaymanager</span><br><span class="line">default-displaymanager - 手动模式</span><br><span class="line">  最佳链接版本为 /usr/lib/X11/displaymanagers/sddm</span><br><span class="line"> 链接目前指向 /usr/lib/X11/displaymanagers/xdm</span><br><span class="line">  链接 default-displaymanager 指向 /usr/lib/X11/displaymanagers/default-displaymanager</span><br><span class="line">/usr/lib/X11/displaymanagers/console - 优先级 5</span><br><span class="line">/usr/lib/X11/displaymanagers/lightdm - 优先级 15</span><br><span class="line">/usr/lib/X11/displaymanagers/sddm - 优先级 25</span><br><span class="line">/usr/lib/X11/displaymanagers/xdm - 优先级 10</span><br></pre></td></tr></table></figure>
+
+<h2 id="修复KDE登陆错误"><a href="#修复KDE登陆错误" class="headerlink" title="修复KDE登陆错误"></a>修复KDE登陆错误</h2><h3 id="登陆显示错误信息"><a href="#登陆显示错误信息" class="headerlink" title="登陆显示错误信息"></a>登陆显示错误信息</h3><p><img src="https://s2.loli.net/2022/07/16/VRIbiyh1cC4JKOS.png" alt="2022-07-16_04-50.png"></p>
+<h3 id="修复之后的日志"><a href="#修复之后的日志" class="headerlink" title="修复之后的日志"></a>修复之后的日志</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo journalctl --system |grep breeze</span><br><span class="line"></span><br><span class="line">7月 16 04:37:25 liangzi.local sddm[1405]: Loading theme configuration from &quot;/usr/share/sddm/themes/breeze-openSUSE/theme.conf&quot;</span><br><span class="line">7月 16 04:37:26 liangzi.local sddm-greeter[1553]: Loading theme configuration from &quot;/usr/share/sddm/themes/breeze-openSUSE/theme.conf&quot;</span><br><span class="line">7月 16 04:37:26 liangzi.local sddm-greeter[1553]: Loading file:///usr/share/sddm/themes/breeze-openSUSE/Main.qml...</span><br><span class="line">7月 16 04:37:50 liangzi.local sddm[1405]: Loading theme configuration from &quot;/usr/share/sddm/themes/breeze-openSUSE/theme.conf&quot;</span><br><span class="line">7月 16 04:37:50 liangzi.local sddm-greeter[2967]: Loading theme configuration from &quot;/usr/share/sddm/themes/breeze-openSUSE/theme.conf&quot;</span><br><span class="line">7月 16 04:37:50 liangzi.local sddm-greeter[2967]: Loading file:///usr/share/sddm/themes/breeze-openSUSE/Main.qml...</span><br></pre></td></tr></table></figure>
+
+<h3 id="论坛上看到了一个类似的错误"><a href="#论坛上看到了一个类似的错误" class="headerlink" title="论坛上看到了一个类似的错误"></a>论坛上看到了一个类似的错误</h3><p><a target="_blank" rel="noopener" href="https://forums.opensuse.org/showthread.php/557095-Tumbleweed-File-dialog-crashing-applications">forums.opensuse.org</a></p>
+<p>根据这个思路 把所有libKF5软件从装一遍</p>
+<p>sudo zypper in –force libKF5*<br>这个时候会提示有些软件因为源里面没有 无法完成重新强制安装<br>把没有的这些全部卸载<br>sudo zypper rm libKF5AlarmCalendar5<br>再次运行<br>sudo zypper in –force libKF5*</p>
+<p>可能不需要的一个步骤<br>cd ~<br>mv .kde4/ .kde4-backup</p>
+<hr>
+<h2 id="一个系统备份软件"><a href="#一个系统备份软件" class="headerlink" title="一个系统备份软件"></a>一个系统备份软件</h2><p><a target="_blank" rel="noopener" href="https://www.fsarchiver.org/quickstart/">www.fsarchiver.org</a></p>
+<h3 id="备份efi-root"><a href="#备份efi-root" class="headerlink" title="备份efi-root"></a>备份efi-root</h3><p>这里是备份了 /efi 和/分区 到一个独立文件</p>
+<ul>
+<li><p>backup-openSUSE-efi.sh</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">T=`<span class="built_in">date</span> +%Y-%m-%d-%H`</span><br><span class="line">fsarchiver savefs -c - -o /mnt/backup/backupSystem-openSUSE/backup-openSUSE-efi-<span class="variable">$T</span>.fsa /dev/sdb1 -v -j4 -A</span><br></pre></td></tr></table></figure></li>
+<li><p>backup-openSUSE-root.sh</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line">T=`<span class="built_in">date</span> +%Y-%m-%d-%H`</span><br><span class="line">fsarchiver savefs -c - -o /mnt/backup/backupSystem-openSUSE/backup-openSUSE-root-amd64-<span class="variable">$T</span>.fsa /dev/sdb2 -v -j4-A -Z10 --exclude=&#123;<span class="string">&quot;/tmp&quot;</span>,<span class="string">&quot;/root/.cache&quot;</span>,<span class="string">&quot;/var/cache&quot;</span>,<span class="string">&quot;/var/log&quot;</span>,<span class="string">&quot;/usr/src&quot;</span>,<span class="string">&quot;/opt/android-studio&quot;</span>&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="恢复efi-root"><a href="#恢复efi-root" class="headerlink" title="恢复efi-root"></a>恢复efi-root</h3><ul>
+<li><p>recuse-openSUSE-efi.sh</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">fsarchiver restfs /mnt/backup/backupSystem-openSUSE/backup-openSUSE-efi-2022-08-11-07.fsa <span class="built_in">id</span>=0,dest=/dev/sdb1 -c - -v</span><br></pre></td></tr></table></figure></li>
+<li><p>recuse-openSUSE-root.sh</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">fsarchiver restfs /mnt/backup/backupSystem-openSUSE/backup-openSUSE-root-amd64-2022-08-11-07.fsa <span class="built_in">id</span>=0,dest=/dev/sdb2 -c - -v</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="备份home分区"><a href="#备份home分区" class="headerlink" title="备份home分区"></a>备份home分区</h3><p>这里主要是备份/home/username/的隐藏文件 </p>
+<p>userName替换自己的用户名( -c -)交互式密码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line">T=`<span class="built_in">date</span> +%Y-%m-%d-%H`</span><br><span class="line"></span><br><span class="line">fsarchiver savefs -c - -o /mnt/backup/backupSystem-openSUSE/backup-openSUSE-home-<span class="variable">$T</span>.fsa /dev/sdb3 -v -j4 -A --exclude=&#123;<span class="string">&quot;/userName/go/pkg/mod&quot;</span>,<span class="string">&quot;/userName/.npm&quot;</span>,<span class="string">&quot;/userName/.config/Slack/Service\ Worker/CacheStorage&quot;</span>,<span class="string">&quot;/userName/.config/Slack/Cache&quot;</span>,<span class="string">&quot;/userName/.android/avd&quot;</span>,<span class="string">&quot;/userName/tools/bilibili-down&quot;</span>,<span class="string">&quot;/userName/tools/ximalaya&quot;</span>,<span class="string">&quot;/userName/Data&quot;</span>,<span class="string">&quot;/userName/iptv&quot;</span>,<span class="string">&quot;/userName/Nextcloud&quot;</span>,<span class="string">&quot;/userName/smbShareDir&quot;</span>,<span class="string">&quot;/userName/VirtualBox\ VMs&quot;</span>,<span class="string">&quot;/userName/sdk&quot;</span>,<span class="string">&quot;/userName/Video&quot;</span>,<span class="string">&quot;/userName/Android&quot;</span>,<span class="string">&quot;/userName/nfs_share&quot;</span>,<span class="string">&quot;/userName/src&quot;</span>,<span class="string">&quot;/userName/Sync&quot;</span>,<span class="string">&quot;/userName/Downloads&quot;</span>,<span class="string">&quot;/userName/lazarus&quot;</span>,<span class="string">&quot;/userName/dw&quot;</span>,<span class="string">&quot;/userName/tftp&quot;</span>,<span class="string">&quot;/userName/.cache&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="输入法"><a href="#输入法" class="headerlink" title="输入法"></a>输入法</h2><p>.profile</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#ibus input</span><br><span class="line"># export GTK_IM_MODULE=ibus</span><br><span class="line"># export XMODIFIERS=@im=ibus</span><br><span class="line"># export QT_IM_MODULE=ibus</span><br><span class="line"># ibus-daemon -d -x</span><br><span class="line"></span><br><span class="line"># wayland input</span><br><span class="line">export XMODIFIERS=@im=fcitx</span><br><span class="line">export GTK_IM_MODULE=fcitx</span><br><span class="line">export QT_IM_MODULE=fcitx</span><br></pre></td></tr></table></figure>
+
+<h2 id="shell小文件传输"><a href="#shell小文件传输" class="headerlink" title="shell小文件传输"></a>shell小文件传输</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl --upload-file ./二十四山向.md https://transfer.sh/24shan.md</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2021/07/02/openSUSE/" data-id="claelm5w80012x8m177kfbuj6" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2021/07/02/openSUSE/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSuSE/" rel="tag">openSuSE</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2021/07/16/%E5%BB%BA%E9%99%A4/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          建除
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/06/06/%E6%83%85x/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">情x</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#smb%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.</span> <span class="toc-text">smb服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%85%B1%E4%BA%AB%E7%9B%AE%E5%BD%95"><span class="toc-number">1.1.</span> <span class="toc-text">创建共享目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B5%8B%E4%BA%88%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90"><span class="toc-number">1.2.</span> <span class="toc-text">赋予用户权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%AF%86%E7%A0%81"><span class="toc-number">1.3.</span> <span class="toc-text">设置密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%85%B1%E4%BA%AB%E7%9B%AE%E5%BD%95"><span class="toc-number">1.4.</span> <span class="toc-text">设置共享目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEsmb-conf"><span class="toc-number">1.5.</span> <span class="toc-text">配置smb.conf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#smb-service"><span class="toc-number">1.6.</span> <span class="toc-text">smb.service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8"><span class="toc-number">1.7.</span> <span class="toc-text">启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Android%E6%89%8B%E6%9C%BA%E9%93%BE%E6%8E%A5"><span class="toc-number">1.8.</span> <span class="toc-text">Android手机链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ios%E6%89%8B%E6%9C%BA%E9%93%BE%E6%8E%A5"><span class="toc-number">1.9.</span> <span class="toc-text">ios手机链接</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#info"><span class="toc-number">2.</span> <span class="toc-text">info</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E7%A0%81%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text">解码器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%95%E5%B1%8F-%E5%AA%92%E4%BD%93"><span class="toc-number">4.</span> <span class="toc-text">录屏 媒体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E7%BC%96%E8%BE%91"><span class="toc-number">5.</span> <span class="toc-text">图片编辑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#KDE-Connect"><span class="toc-number">6.</span> <span class="toc-text">KDE Connect</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E8%AF%AD%E8%A8%80"><span class="toc-number">7.</span> <span class="toc-text">设置语言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#YouCompleteMe"><span class="toc-number">8.</span> <span class="toc-text">YouCompleteMe</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%A4%87%E4%BB%BD"><span class="toc-number">9.</span> <span class="toc-text">系统备份</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E5%A4%87%E4%BB%BD"><span class="toc-number">10.</span> <span class="toc-text">远程备份</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS%E9%9D%99%E6%80%81%E8%A7%A3%E6%9E%90"><span class="toc-number">11.</span> <span class="toc-text">DNS静态解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A6%81%E7%94%A8KDE%E7%9A%84baloo%E6%96%87%E4%BB%B6%E7%B4%A2%E5%BC%95%E5%8A%9F%E8%83%BD"><span class="toc-number">12.</span> <span class="toc-text">禁用KDE的baloo文件索引功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A6%81%E7%94%A8akonadi%E6%9C%8D%E5%8A%A1"><span class="toc-number">13.</span> <span class="toc-text">禁用akonadi服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E5%A4%8Dgrub%E6%96%B9%E6%B3%95"><span class="toc-number">14.</span> <span class="toc-text">修复grub方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#proxychain4"><span class="toc-number">15.</span> <span class="toc-text">proxychain4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sudo%E5%85%8D%E5%AF%86%E8%BE%93%E5%85%A5"><span class="toc-number">16.</span> <span class="toc-text">sudo免密输入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%81%94%E7%BD%91"><span class="toc-number">17.</span> <span class="toc-text">联网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1"><span class="toc-number">18.</span> <span class="toc-text">添加开机启动服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#KDE%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95"><span class="toc-number">19.</span> <span class="toc-text">KDE自动登录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#40-custom"><span class="toc-number">20.</span> <span class="toc-text">40_custom</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fsck"><span class="toc-number">21.</span> <span class="toc-text">fsck</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A3%81%E7%9B%98"><span class="toc-number">22.</span> <span class="toc-text">磁盘</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%85%E7%90%86"><span class="toc-number">22.1.</span> <span class="toc-text">清理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2"><span class="toc-number">22.2.</span> <span class="toc-text">搜索</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Xfce4%E6%A1%8C%E9%9D%A2%E6%B7%BB%E5%8A%A0Ibus%E8%BE%93%E5%85%A5%E6%B3%95"><span class="toc-number">23.</span> <span class="toc-text">Xfce4桌面添加Ibus输入法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9%E9%BB%98%E8%AE%A4%E7%99%BB%E9%99%86%E7%9A%84DE"><span class="toc-number">24.</span> <span class="toc-text">更改默认登陆的DE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E5%A4%8DKDE%E7%99%BB%E9%99%86%E9%94%99%E8%AF%AF"><span class="toc-number">25.</span> <span class="toc-text">修复KDE登陆错误</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%99%BB%E9%99%86%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AF"><span class="toc-number">25.1.</span> <span class="toc-text">登陆显示错误信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E5%A4%8D%E4%B9%8B%E5%90%8E%E7%9A%84%E6%97%A5%E5%BF%97"><span class="toc-number">25.2.</span> <span class="toc-text">修复之后的日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BA%E5%9D%9B%E4%B8%8A%E7%9C%8B%E5%88%B0%E4%BA%86%E4%B8%80%E4%B8%AA%E7%B1%BB%E4%BC%BC%E7%9A%84%E9%94%99%E8%AF%AF"><span class="toc-number">25.3.</span> <span class="toc-text">论坛上看到了一个类似的错误</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E7%B3%BB%E7%BB%9F%E5%A4%87%E4%BB%BD%E8%BD%AF%E4%BB%B6"><span class="toc-number">26.</span> <span class="toc-text">一个系统备份软件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%87%E4%BB%BDefi-root"><span class="toc-number">26.1.</span> <span class="toc-text">备份efi-root</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%81%A2%E5%A4%8Defi-root"><span class="toc-number">26.2.</span> <span class="toc-text">恢复efi-root</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%87%E4%BB%BDhome%E5%88%86%E5%8C%BA"><span class="toc-number">26.3.</span> <span class="toc-text">备份home分区</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E6%B3%95"><span class="toc-number">27.</span> <span class="toc-text">输入法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#shell%E5%B0%8F%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93"><span class="toc-number">28.</span> <span class="toc-text">shell小文件传输</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2023 Aquarian-Age&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi@yandex.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://aquarian-age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2021/07/02/openSUSE/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

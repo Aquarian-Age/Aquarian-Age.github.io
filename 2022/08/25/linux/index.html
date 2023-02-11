@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>linux | 浮生若梦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="BIOS 删除空白启动(多于启动项) 显示当前启动信息 123456789user@host 1 17:27 &gt;&#x2F;usr&#x2F;sbin&#x2F;efibootmgr -vBootCurrent: 0000Timeout: 1 secondsBootOrder: 0000,0003,0004,0006,0007Boot0000* opensuse      HD(1,GPT,xxxx-x-xxx-aaa,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux">
+<meta property="og:url" content="https://aquarian-age.github.io/2022/08/25/linux/index.html">
+<meta property="og:site_name" content="浮生若梦">
+<meta property="og:description" content="BIOS 删除空白启动(多于启动项) 显示当前启动信息 123456789user@host 1 17:27 &gt;&#x2F;usr&#x2F;sbin&#x2F;efibootmgr -vBootCurrent: 0000Timeout: 1 secondsBootOrder: 0000,0003,0004,0006,0007Boot0000* opensuse      HD(1,GPT,xxxx-x-xxx-aaa,">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/09/03/BAbY6vslRXIzVfN.png">
+<meta property="og:image" content="https://s2.loli.net/2022/09/03/xXWqtoD3KprhVSE.png">
+<meta property="og:image" content="https://s2.loli.net/2022/10/04/GyxXrfZPzY9TWR3.png">
+<meta property="og:image" content="https://s2.loli.net/2022/10/04/U71YKbrBwLR6JVC.png">
+<meta property="og:image" content="https://s2.loli.net/2022/10/04/HG2ApSMCVnfY6Le.png">
+<meta property="article:published_time" content="2022-08-25T09:28:58.000Z">
+<meta property="article:modified_time" content="2022-10-27T11:57:18.024Z">
+<meta property="article:author" content="Aquarian-Age">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/09/03/BAbY6vslRXIzVfN.png">
+  
+    <link rel="alternate" href="/atom.xml" title="浮生若梦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://aquarian-age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">浮生若梦</a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-linux" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/08/25/linux/" class="article-date">
+  <time datetime="2022-08-25T09:28:58.000Z" itemprop="datePublished">2022-08-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      linux
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h1 id="BIOS-删除空白启动-多于启动项"><a href="#BIOS-删除空白启动-多于启动项" class="headerlink" title="BIOS 删除空白启动(多于启动项)"></a>BIOS 删除空白启动(多于启动项)</h1><ul>
+<li><p>显示当前启动信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">user@host 1 17:27 &gt;/usr/sbin/efibootmgr -v</span><br><span class="line">BootCurrent: 0000</span><br><span class="line">Timeout: 1 seconds</span><br><span class="line">BootOrder: 0000,0003,0004,0006,0007</span><br><span class="line">Boot0000* opensuse      HD(1,GPT,xxxx-x-xxx-aaa,0x800,0x327cc)/File(\EFI\OPENSUSE\GRUBX64.EFI)</span><br><span class="line">Boot0003* debian        HD(1,GPT,xxxx-x-xxx,0x800,0x100000)/File(\EFI\DEBIAN\SHIMX64.EFI)</span><br><span class="line">Boot0004* Windows Boot Manager  HD(1,GPT,xxxx-x-xxx-bbb,0x1000,0x96000)/File(\EFI\MICROSOFT\BOOT\BOOTMGFW.EFI)..BO</span><br><span class="line">Boot0006* UEFI: SanDisk, Partition 2    PciRoot(0x0)/Pci(0x1,0x2)/Pci(0x0,0x0)/USB(2,0)/HD(2,MBR,0x61f4c181,0x7280000,0x10000)..BO</span><br><span class="line">Boot0007* debian        HD(1,GPT,xxxx-x-xxx,0x800,0x100000)/File(\EFI\DEBIAN\GRUBX64.EFI)..BO</span><br></pre></td></tr></table></figure>
+<span id="more"></span></li>
+<li><p>删除指定的启动信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">user@host 3 17:27 &gt;sudo /usr/sbin/efibootmgr -b 0007 -B</span><br><span class="line">[sudo] root 的密码：</span><br><span class="line">BootCurrent: 0000</span><br><span class="line">Timeout: 1 seconds</span><br><span class="line">BootOrder: 0000,0003,0004,0006</span><br><span class="line">Boot0000* opensuse</span><br><span class="line">Boot0003* debian</span><br><span class="line">Boot0004* Windows Boot Manager</span><br><span class="line">Boot0006* UEFI: SanDisk, Partition 2</span><br></pre></td></tr></table></figure></li>
+<li><p>重新打印删除后的启动信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">user@host 4 17:27 &gt;/usr/sbin/efibootmgr -v</span><br><span class="line">BootCurrent: 0000</span><br><span class="line">Timeout: 1 seconds</span><br><span class="line">BootOrder: 0000,0003,0004,0006</span><br><span class="line">Boot0000* opensuse      HD(1,GPT,xxxx-x-xxx-aaa,0x800,0x327cc)/File(\EFI\OPENSUSE\GRUBX64.EFI)</span><br><span class="line">Boot0003* debian        HD(1,GPT,xxxx-x-xxx,0x800,0x100000)/File(\EFI\DEBIAN\SHIMX64.EFI)</span><br><span class="line">Boot0004* Windows Boot Manager  HD(1,GPT,xxxx-x-xxx-bbb,0x1000,0x96000)/File(\EFI\MICROSOFT\BOOT\BOOTMGFW.EFI)..BO</span><br><span class="line">Boot0006* UEFI: SanDisk, Partition 2    PciRoot(0x0)/Pci(0x1,0x2)/Pci(0x0,0x0)/USB(2,0)/HD(2,MBR,0x61f4c181,0x7280000,0x10000)..BO</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="添加当前用户sudo权限"><a href="#添加当前用户sudo权限" class="headerlink" title="添加当前用户sudo权限"></a>添加当前用户sudo权限</h1><h2 id="Debian-11"><a href="#Debian-11" class="headerlink" title="Debian 11"></a>Debian 11</h2><p>root登陆</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/usr/sbin/usermod -aG root userName</span><br><span class="line"><span class="built_in">cd</span> /etc/</span><br><span class="line">/usr/sbin/visudo sudoers</span><br><span class="line">userName ALL=(ALL:ALL) ALL</span><br></pre></td></tr></table></figure>
+
+<h1 id="修改内核启动项"><a href="#修改内核启动项" class="headerlink" title="修改内核启动项"></a>修改内核启动项</h1><h2 id="openSUSE"><a href="#openSUSE" class="headerlink" title="openSUSE"></a>openSUSE</h2><p><strong>默认启动项索引数字是</strong><code>0</code></p>
+<p><img src="https://s2.loli.net/2022/09/03/BAbY6vslRXIzVfN.png" alt="2022-09-03_18-50.png"></p>
+<ul>
+<li><code>1</code>是系统启动界面的第二个选项通常是高级选项</li>
+<li><code>2</code>是进入高级选项之后要启动的第三个内核 这里的顺序从0开始计算</li>
+</ul>
+<p><img src="https://s2.loli.net/2022/09/03/xXWqtoD3KprhVSE.png" alt="2022-09-03_18-50_1.png"></p>
+<p>vim /etc/default/grub<br>GRUB_DEFAULT=”1&gt;2”</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># Uncomment to set your own custom distributor. If you leave it unset or empty, the default</span><br><span class="line"># policy is to determine the value from /etc/os-release</span><br><span class="line">GRUB_DISTRIBUTOR=</span><br><span class="line">GRUB_DEFAULT=&quot;1&gt;2&quot;</span><br><span class="line"># GRUB_DEFAULT=saved ## 注释掉这行 改为上面那行</span><br><span class="line">GRUB_HIDDEN_TIMEOUT=3</span><br><span class="line">GRUB_HIDDEN_TIMEOUT_QUIET=true</span><br><span class="line">GRUB_TIMEOUT=0</span><br><span class="line">GRUB_CMDLINE_LINUX_DEFAULT=&quot;splash=silent quiet mitigations=auto&quot;</span><br><span class="line">GRUB_CMDLINE_LINUX=&quot;&quot;</span><br></pre></td></tr></table></figure>
+
+<p>生成配置文件(这里不需要install)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub2-mkconfig -o /boot/grub2/grub.cfg</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>列出默认启动<br>grub2-editenv list</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">saved_entry=openSUSE Tumbleweed</span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-grub2.html">cha-grub2</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://unix.stackexchange.com/questions/62733/how-to-correctly-set-up-the-right-grub-2-default-menu-entry">how-to-correctly-set-up-the-right-grub-2-default-menu-entry</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://forums.opensuse.org/showthread.php/523768-Change-default-boot-menu-entry">Change-default-boot-menu-entry</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://superuser.com/questions/1358080/what-does-grub-default-12-mean">what-does-grub-default-12-mean</a></p>
+</li>
+</ul>
+<h1 id="socks52http"><a href="#socks52http" class="headerlink" title="socks52http"></a>socks52http</h1><p>user@host:~$ sudo apt install privoxy</p>
+<ul>
+<li><p>配置ss代理端口</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">user@host:~$ grep socks5 -nr /etc/privoxy/config</span><br><span class="line">forward-socks5t   /               127.0.0.1:1080 .</span><br></pre></td></tr></table></figure></li>
+<li><p>重启服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">user@host:~$ systemctl restart privoxy.service</span><br></pre></td></tr></table></figure></li>
+<li><p>终端配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">user@host:~$ <span class="built_in">export</span> http_proxy=http://127.0.0.1:8118</span><br><span class="line">user@host:~$ <span class="built_in">export</span> https_proxy=<span class="variable">$http_proxy</span></span><br></pre></td></tr></table></figure></li>
+<li><p>验证</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">user@host:~$  curl -I www.google.com</span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: text/html; charset=ISO-8859-1</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="关闭ext4文件系统的日志"><a href="#关闭ext4文件系统的日志" class="headerlink" title="关闭ext4文件系统的日志"></a>关闭ext4文件系统的日志</h1><p>liveCD中执行<br><strong>正在挂载的盘无法关闭</strong></p>
+<ol>
+<li><p>tune2fs -l /dev/sda3 |grep has_journal</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Filesystem features:      has_journal ext_attr resize_inode dir_index filetype extent flex_bg sparse_super large_file huge_file uninit_bg dir_nlink extra_isize</span><br></pre></td></tr></table></figure></li>
+<li><p>tune2fs -O ^has_journal /dev/sda3</p>
+</li>
+<li><p>tune2fs -l /dev/sda3 |grep has_journal 这里无输出内容为关闭</p>
+</li>
+</ol>
+<h1 id="e2fsck"><a href="#e2fsck" class="headerlink" title="e2fsck"></a>e2fsck</h1><ul>
+<li>开机出现内核错误 硬盘突然断电 SSD释放trim之后硬盘无法挂载问题等….<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">e2fsck -c -y -v /dev/sda3</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="restic"><a href="#restic" class="headerlink" title="restic"></a>restic</h1><ul>
+<li><p><strong>[备份恢复工具]</strong>(<a target="_blank" rel="noopener" href="https://restic.net/#quickstart">https://restic.net/#quickstart</a>)</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://restic.readthedocs.io/en/stable/040_backup.html">restic.readthedocs.io</a></p>
+</li>
+<li><p>安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install restic</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="备份root"><a href="#备份root" class="headerlink" title="备份root"></a>备份root</h2><p><strong>这里没有备份单独分区的/boot/efi</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">restic -r /mnt/sdd1/restic-debian/ init</span><br><span class="line">sudo restic -r /mnt/sdd1/restic-debian/ backup --one-file-system / --exclude=/home/ --dry-run -v -n <span class="comment"># 试运行</span></span><br><span class="line">sudo restic -r /mnt/sdd1/restic-debian/ backup --one-file-system / --exclude=/home/ -v <span class="comment"># 排除/home/</span></span><br><span class="line"></span><br><span class="line">sudo restic -r /mnt/sdd1/restic-debian/ backup --one-file-system / --exclude=&#123;<span class="string">&quot;/home/user/.android/cache&quot;</span>,<span class="string">&quot;/home/user/.android/avd&quot;</span>,<span class="string">&quot;/home/user/.cache&quot;</span>,<span class="string">&quot;/home/user/.config/Slack/Cache/*&quot;</span>,<span class="string">&quot;/home/user/.config/Slack/Service\ Worker/CacheStorage/*&quot;</span>,<span class="string">&quot;/home/user/.config/Code/Cache/*&quot;</span>,<span class="string">&quot;/home/user/.dartServer/.analysis-driver/*&quot;</span>,<span class="string">&quot;/home/user/.gradle/caches/*&quot;</span>,<span class="string">&quot;/home/user/.gradle/native/*&quot;</span>,<span class="string">&quot;/home/user/.local/share/TelegramDesktop/tdata/user_data/cache/*&quot;</span>,<span class="string">&quot;/home/user/Blog/.deploy_git&quot;</span>,<span class="string">&quot;/home/user/Android/Sdk/platforms/*&quot;</span>,<span class="string">&quot;/home/user/flutter/.pub-cache/*&quot;</span>,<span class="string">&quot;/home/user/.pub-cache/*&quot;</span>,<span class="string">&quot;/home/user/.npm/_cacache/*&quot;</span>,<span class="string">&quot;/home/user/Download/*&quot;</span>&#125; -v <span class="comment"># 全备份</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>查看备份</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo restic -r /mnt/sdd1/restic-debian/ snapshots</span><br></pre></td></tr></table></figure></li>
+<li><p>列出备份详细</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo restic -r /mnt/sdd1/restic-debian/ <span class="built_in">ls</span> b9bf4ab3</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="添加tag"><a href="#添加tag" class="headerlink" title="添加tag"></a>添加tag</h2><p>为快照b9bf4ab3添加一个名为root的tag</p>
+<ul>
+<li>添加之前<br>user@host:~$ sudo restic -r /mnt/sdd1/restic-debian/ snapshots<br>[sudo] user 的密码：<br>enter password for repository:</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">repository d13c80ec opened (repository version 2) successfully, password is correct</span><br><span class="line">ID        Time                 Host        Tags        Paths</span><br><span class="line">------------------------------------------------------------</span><br><span class="line">b9bf4ab3  2022-09-12 12:02:35  host                 /</span><br><span class="line">2e7272ea  2022-09-12 12:16:07  host                 /</span><br><span class="line">------------------------------------------------------------</span><br><span class="line">2 snapshots</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>添加tag<br>user@host:~$ sudo restic -r /mnt/sdd1/restic-debian/  tag –add root b9bf4ab3<br>enter password for repository:</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">repository d13c80ec opened (repository version 2) successfully, password is correct</span><br><span class="line">create exclusive lock for repository</span><br><span class="line">modified tags on 1 snapshots</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看<br>user@host:~$ sudo restic -r /mnt/sdd1/restic-debian/ snapshots<br>enter password for repository:<br>wrong password or no key found. Try again<br>enter password for repository:</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">repository d13c80ec opened (repository version 2) successfully, password is correct</span><br><span class="line">ID        Time                 Host        Tags        Paths</span><br><span class="line">------------------------------------------------------------</span><br><span class="line">2844a1f2  2022-09-12 12:02:35  host     root        /</span><br><span class="line">2e7272ea  2022-09-12 12:16:07  host                 /</span><br><span class="line">------------------------------------------------------------</span><br><span class="line">2 snapshots</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="单独备份home"><a href="#单独备份home" class="headerlink" title="单独备份home"></a>单独备份home</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">user@host:~$ sudo restic -r /mnt/sdd1/restic-debian/ backup --tag home-none /home/ --exclude=&#123;<span class="string">&quot;/home/user/.android/*&quot;</span>,<span class="string">&quot;/home/user/.cache/*&quot;</span>,<span class="string">&quot;/home/user/.config/Slack/Cache/*&quot;</span>,<span class="string">&quot;/home/user/.config/Slack/Service\ Worker/CacheStorage/*&quot;</span>,<span class="string">&quot;/home/user/.config/Code/Cache/*&quot;</span>,<span class="string">&quot;/home/user/.dartServer/*&quot;</span>,<span class="string">&quot;/home/user/.gradle/*&quot;</span>,<span class="string">&quot;/home/user/.local/share/TelegramDesktop/tdata/user_data/cache/*&quot;</span>,<span class="string">&quot;/home/user/Blog/.deploy_git&quot;</span>,<span class="string">&quot;/home/user/Android/*&quot;</span>,<span class="string">&quot;/home/user/flutter/*&quot;</span>,<span class="string">&quot;/home/user/.pub-cache/*&quot;</span>,<span class="string">&quot;/home/user/.npm/*&quot;</span>,<span class="string">&quot;/home/user/Download/*&quot;</span>,<span class="string">&quot;/home/user/go/pkg/mod/*&quot;</span>,<span class="string">&quot;/home/user/android-studio/*&quot;</span>,<span class="string">&quot;/home/user/Sync/other/*&quot;</span>,<span class="string">&quot;/home/user/Sync/zysj/*&quot;</span>.<span class="string">&quot;/home/user/nfs_share/*&quot;</span>&#125; -v</span><br><span class="line">open repository</span><br><span class="line">enter password <span class="keyword">for</span> repository:</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">repository d13c80ec opened (repository version 2) successfully, password is correct</span><br><span class="line">lock repository</span><br><span class="line">no parent snapshot found, will read all files</span><br><span class="line">load index files</span><br><span class="line">start scan on [/home/]</span><br><span class="line">start backup on [/home/]</span><br><span class="line">scan finished in 15.199s: 40496 files, 30.927 GiB</span><br><span class="line"></span><br><span class="line">Files:       40496 new,     0 changed,     0 unmodified</span><br><span class="line">Dirs:        10607 new,     0 changed,     0 unmodified</span><br><span class="line">Data Blobs:    648 new</span><br><span class="line">Tree Blobs:  10256 new</span><br><span class="line">Added to the repository: 95.169 MiB (35.447 MiB stored)</span><br><span class="line"></span><br><span class="line">processed 40496 files, 30.927 GiB in 1:53</span><br><span class="line">snapshot 053932fb saved</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看<br>user@host:~$ sudo restic -r /mnt/sdd1/restic-debian/ snapshots<br>enter password for repository:</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">repository d13c80ec opened (repository version 2) successfully, password is correct</span><br><span class="line">ID        Time                 Host        Tags         Paths</span><br><span class="line">-------------------------------------------------------------</span><br><span class="line">2844a1f2  2022-09-12 12:02:35  host     root         /</span><br><span class="line">00d40601  2022-09-12 12:16:07  host     rootAndHome  /</span><br><span class="line">053932fb  2022-09-12 19:33:30  host     home-none    /home</span><br><span class="line">-------------------------------------------------------------</span><br><span class="line">3 snapshots</span><br></pre></td></tr></table></figure>
+
+<h2 id="check"><a href="#check" class="headerlink" title="check"></a>check</h2><p>user@host:~$ sudo restic -r /mnt/sdd1/restic-debian/ check</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">74 additional files were found in the repo, which likely contain duplicate data.</span><br><span class="line">This is non-critical, you can run `restic prune` to correct this.</span><br><span class="line">check snapshots, trees and blobs</span><br><span class="line">[0:02] 100.00%  3 / 3 snapshots</span><br><span class="line">no errors were found</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>prune<br>user@host:~$ sudo restic -r /mnt/sdd1/restic-debian/ prune<br>enter password for repository:</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">repository d13c80ec opened (repository version 2) successfully, password is correct</span><br><span class="line">loading indexes...</span><br><span class="line">loading all snapshots...</span><br><span class="line">finding data that is still in use for 3 snapshots</span><br><span class="line">[0:02] 100.00%  3 / 3 snapshots</span><br><span class="line">searching used packs...</span><br><span class="line">collecting packs for deletion and repacking</span><br><span class="line">[0:00] 100.00%  2777 / 2777 packs processed</span><br><span class="line"></span><br><span class="line">to repack:             0 blobs / 0 B</span><br><span class="line">this removes:          0 blobs / 0 B</span><br><span class="line">to delete:             0 blobs / 1.230 GiB</span><br><span class="line">total prune:           0 blobs / 1.230 GiB</span><br><span class="line">remaining:        463912 blobs / 45.564 GiB</span><br><span class="line">unused size after prune: 0 B (0.00% of remaining size)</span><br><span class="line"></span><br><span class="line">deleting unreferenced packs</span><br><span class="line">[0:00] 100.00%  74 / 74 files deleted</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>check<br>user@host:~$ sudo restic -r /mnt/sdd1/restic-debian/ check<br>using temporary cache in /tmp/restic-check-cache-2133091447<br>enter password for repository:</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">repository d13c80ec opened (repository version 2) successfully, password is correct</span><br><span class="line">created new cache in /tmp/restic-check-cache-2133091447</span><br><span class="line">create exclusive lock for repository</span><br><span class="line">load indexes</span><br><span class="line">check all packs</span><br><span class="line">check snapshots, trees and blobs</span><br><span class="line">[0:02] 100.00%  3 / 3 snapshots</span><br><span class="line">no errors were found</span><br></pre></td></tr></table></figure>
+
+<h2 id="恢复单个文件"><a href="#恢复单个文件" class="headerlink" title="恢复单个文件"></a>恢复单个文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo restic -r /mnt/sdd1/restic-debian/ restore b4e97487 --target / --include /home/user/xxx.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用gpg加密密码文件"><a href="#使用gpg加密密码文件" class="headerlink" title="使用gpg加密密码文件"></a>使用gpg加密密码文件</h2><ol>
+<li>创建一个保存密码的文件并写入备份密码</li>
+<li>使用gpg加密这个文件</li>
+<li>输入gpg密码来备份<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpg --decrypt gpg加密的密码文件.gpg |  restic -r ......</span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr>
+<h1 id="debug-shell"><a href="#debug-shell" class="headerlink" title="debug-shell"></a>debug-shell</h1><p>systemd 系统忘记密码以root登入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemd.debug-shell=1 <span class="comment">#Ctrl + F9</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="40-custom"><a href="#40-custom" class="headerlink" title="40_custom"></a>40_custom</h1><p>通过grub2启动iso(clonezilla-live-2.8.1-12-amd64.iso)</p>
+<h2 id="查看要启动的iso信息"><a href="#查看要启动的iso信息" class="headerlink" title="查看要启动的iso信息"></a>查看要启动的iso信息</h2><p><img src="https://s2.loli.net/2022/10/04/GyxXrfZPzY9TWR3.png" alt="40custom.png"></p>
+<h2 id="编写配置文件"><a href="#编写配置文件" class="headerlink" title="编写配置文件"></a>编写配置文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/grub.d/</span><br><span class="line">vim 40_custom</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>40_custom</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="built_in">exec</span> <span class="built_in">tail</span> -n +3 <span class="variable">$0</span></span><br><span class="line"><span class="comment"># This file provides an easy way to add custom menu entries.  Simply type the</span></span><br><span class="line"><span class="comment"># menu entries you want to add after this comment.  Be careful not to change</span></span><br><span class="line"><span class="comment"># the &#x27;exec tail&#x27; line above.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># path to the partition holding ISO images (using UUID)</span></span><br><span class="line">probe -u <span class="variable">$root</span> --<span class="built_in">set</span>=rootuuid</span><br><span class="line"><span class="built_in">set</span> imgdevpath=<span class="string">&quot;/dev/disk/by-uuid/<span class="variable">$rootuuid</span>&quot;</span></span><br><span class="line"></span><br><span class="line">menuentry <span class="string">&quot;clonezilla-live-2.8.1-12-amd64.iso&quot;</span> &#123;</span><br><span class="line">    <span class="built_in">set</span> isofile=<span class="string">&quot;/iso/clonezilla-live-2.8.1-12-amd64.iso&quot;</span></span><br><span class="line">    load_video</span><br><span class="line">    <span class="built_in">set</span> gfxpayload=keep</span><br><span class="line">    <span class="comment"># insmod gzip # /boot/grub/x86_64-efi/gzip.mod not found</span></span><br><span class="line">    insmod part_gpt</span><br><span class="line">    insmod ext2</span><br><span class="line">    loopback aloop (hd3,gpt2)<span class="variable">$isofile</span> <span class="comment"># (hd3,gpt2)的数字可能会在重启后变化 ls找到就可以</span></span><br><span class="line">    linux  (aloop)/live/vmlinuz boot=live findiso=<span class="variable">$isofile</span> live-media-path=/live components</span><br><span class="line">    initrd (aloop)/live/initrd.img</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>生成grub配置文件<br>生成grub.cfg后会在grub启动界面看到clonezilla-live-2.8.1-12-amd64.iso</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure></li>
+<li><p>reboot</p>
+</li>
+</ul>
+<h2 id="设置grub"><a href="#设置grub" class="headerlink" title="设置grub"></a>设置grub</h2><p>loopback aloop (hd3,gpt2)$isofile 这里的<code>(hd3,gpt2)</code>是系统重启后对应之前存放clonezilla-live-2.8.1-12-amd64.iso的路径<br>如果提示iso文件没有找到</p>
+<ul>
+<li>先列出一个可能的磁盘路径 如果不是就继续 直到(hdx,gptx)/iso/ 列出clonezilla-live-2.8.1-12-amd64.iso<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> -l (hd3,gpt1)/</span><br></pre></td></tr></table></figure>
+<img src="https://s2.loli.net/2022/10/04/U71YKbrBwLR6JVC.png" alt="40custom-grub.png"></li>
+</ul>
+<h2 id="成功启动"><a href="#成功启动" class="headerlink" title="成功启动"></a>成功启动</h2><p><img src="https://s2.loli.net/2022/10/04/HG2ApSMCVnfY6Le.png" alt="40custom-diff.png"></p>
+<hr>
+<h1 id="openssl"><a href="#openssl" class="headerlink" title="openssl"></a>openssl</h1><p>有效期 day=365<br><strong>Common Name (e.g. server FQDN or YOUR name) []:</strong> <code>这里写网站 www.example.com</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out server.key 2048</span><br><span class="line">openssl req -new -key server.key  -out server.csr</span><br><span class="line">openssl x509 -req -days 365 -<span class="keyword">in</span> server.csr -signkey server.key -out server.crt</span><br></pre></td></tr></table></figure>
+<p>Certificate request self-signature ok<br>subject=C = AU, ST = Some-State, O = Internet Widgits Pty Ltd, CN = <a target="_blank" rel="noopener" href="http://www.example.top/">www.example.top</a>, emailAddress = <a href="mailto:&#97;&#98;&#x63;&#x40;&#x65;&#x78;&#x61;&#109;&#x70;&#108;&#101;&#x2e;&#99;&#x6f;&#109;">&#97;&#98;&#x63;&#x40;&#x65;&#x78;&#x61;&#109;&#x70;&#108;&#101;&#x2e;&#99;&#x6f;&#109;</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2022/08/25/linux/" data-id="claelm5w7000xx8m1etg00rfp" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2022/08/25/linux/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2022/08/25/Debian/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Debian
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/08/24/android/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">android</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#BIOS-%E5%88%A0%E9%99%A4%E7%A9%BA%E7%99%BD%E5%90%AF%E5%8A%A8-%E5%A4%9A%E4%BA%8E%E5%90%AF%E5%8A%A8%E9%A1%B9"><span class="toc-number">1.</span> <span class="toc-text">BIOS 删除空白启动(多于启动项)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%BD%93%E5%89%8D%E7%94%A8%E6%88%B7sudo%E6%9D%83%E9%99%90"><span class="toc-number">2.</span> <span class="toc-text">添加当前用户sudo权限</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Debian-11"><span class="toc-number">2.1.</span> <span class="toc-text">Debian 11</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%86%85%E6%A0%B8%E5%90%AF%E5%8A%A8%E9%A1%B9"><span class="toc-number">3.</span> <span class="toc-text">修改内核启动项</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#openSUSE"><span class="toc-number">3.1.</span> <span class="toc-text">openSUSE</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#socks52http"><span class="toc-number">4.</span> <span class="toc-text">socks52http</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E9%97%ADext4%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%97%A5%E5%BF%97"><span class="toc-number">5.</span> <span class="toc-text">关闭ext4文件系统的日志</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#e2fsck"><span class="toc-number">6.</span> <span class="toc-text">e2fsck</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#restic"><span class="toc-number">7.</span> <span class="toc-text">restic</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%87%E4%BB%BDroot"><span class="toc-number">7.1.</span> <span class="toc-text">备份root</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0tag"><span class="toc-number">7.2.</span> <span class="toc-text">添加tag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E7%8B%AC%E5%A4%87%E4%BB%BDhome"><span class="toc-number">7.3.</span> <span class="toc-text">单独备份home</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#check"><span class="toc-number">7.4.</span> <span class="toc-text">check</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%81%A2%E5%A4%8D%E5%8D%95%E4%B8%AA%E6%96%87%E4%BB%B6"><span class="toc-number">7.5.</span> <span class="toc-text">恢复单个文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8gpg%E5%8A%A0%E5%AF%86%E5%AF%86%E7%A0%81%E6%96%87%E4%BB%B6"><span class="toc-number">7.6.</span> <span class="toc-text">使用gpg加密密码文件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#debug-shell"><span class="toc-number">8.</span> <span class="toc-text">debug-shell</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#40-custom"><span class="toc-number">9.</span> <span class="toc-text">40_custom</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%A6%81%E5%90%AF%E5%8A%A8%E7%9A%84iso%E4%BF%A1%E6%81%AF"><span class="toc-number">9.1.</span> <span class="toc-text">查看要启动的iso信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E5%86%99%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">9.2.</span> <span class="toc-text">编写配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AEgrub"><span class="toc-number">9.3.</span> <span class="toc-text">设置grub</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%90%E5%8A%9F%E5%90%AF%E5%8A%A8"><span class="toc-number">9.4.</span> <span class="toc-text">成功启动</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#openssl"><span class="toc-number">10.</span> <span class="toc-text">openssl</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2023 Aquarian-Age&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi@yandex.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://aquarian-age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2022/08/25/linux/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

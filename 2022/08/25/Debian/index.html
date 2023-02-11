@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Debian | 浮生若梦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Debian">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Debian">
+<meta property="og:url" content="https://aquarian-age.github.io/2022/08/25/Debian/index.html">
+<meta property="og:site_name" content="浮生若梦">
+<meta property="og:description" content="Debian">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-08-25T09:33:44.000Z">
+<meta property="article:modified_time" content="2022-10-13T03:13:17.061Z">
+<meta property="article:author" content="Aquarian-Age">
+<meta property="article:tag" content="Debian">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="浮生若梦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://aquarian-age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">浮生若梦</a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Debian" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/08/25/Debian/" class="article-date">
+  <time datetime="2022-08-25T09:33:44.000Z" itemprop="datePublished">2022-08-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Debian
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>Debian</p>
+<span id="more"></span>
+
+<h1 id="iso"><a href="#iso" class="headerlink" title="iso"></a>iso</h1><p>可以在安装过程连接wifi的</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/">cd-including-firmware</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/11.4.0+nonfree/amd64/iso-cd/firmware-11.4.0-amd64-netinst.iso">firmware-11.4.0-amd64-netinst.iso</a></p>
+</li>
+</ul>
+<h2 id="添加网卡驱动"><a href="#添加网卡驱动" class="headerlink" title="添加网卡驱动"></a>添加网卡驱动</h2><p>前提是可以插网线上网</p>
+<p>添加non-free的安装源到系统中<br>更新 /etc/apt/sources.list，添加以下记录：</p>
+<p>deb <a target="_blank" rel="noopener" href="http://httpredir.debian.org/debian/">http://httpredir.debian.org/debian/</a> buster main contrib non-free<br>注意：如果你是 Debian 9 的系统，请把 buster 替换为 stretch，响应的 Debian 8 的系统用 jessie， Debian 7 的系统用 wheezy。</p>
+<p>安装无线网卡驱动<br>在Debian.org 的 WiFi 页面中，我们可以查到，Intel Wireless-N 需要装的驱动为 firmware-iwlwifi。 我们在终端执行更新后，就可以安装 firmware-iwlwifi 了，</p>
+<p>sudo apt-get update<br>sudo apt-get install firmware-iwlwifi<br>重新载入模块<br>iwlwifi 模块会自动加载支持的设备，我们重新加载此模块，让它自动加载支持的设备。在终端中执行：</p>
+<p>modprobe -r iwlwifi<br>modprobe iwlwifi </p>
+<h1 id="联网"><a href="#联网" class="headerlink" title="联网"></a>联网</h1><h2 id="wifi联网"><a href="#wifi联网" class="headerlink" title="wifi联网"></a>wifi联网</h2><ul>
+<li>console模式<br>cd /etc/network/<br>vi interface<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">allow-hotplug wlp6s0</span><br><span class="line">auto wlp6s0 # wlp6s0 无限网卡名称</span><br><span class="line">iface wlp6s0 inet dhcp</span><br><span class="line">wpa-conf /etc/wpa.conf #指定无线网配置文件位置</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>wpa_passphrase ssid password &gt; /etc/wpa.conf<br>ssid要连接的无线网名称(比如 Danke111_5G)</p>
+<h2 id="网线"><a href="#网线" class="headerlink" title="网线"></a>网线</h2><p>cat /etc/network/interfaces.d/enp8s0</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># This file describes the network interfaces available on your system</span><br><span class="line"># and how to activate them. For more information, see interfaces(5).</span><br><span class="line"></span><br><span class="line"># The loopback network interface</span><br><span class="line"># auto lo</span><br><span class="line"># iface lo inet loopback</span><br><span class="line">#</span><br><span class="line">auto enp8s0</span><br><span class="line">allow-hotplug enp8s0</span><br><span class="line">iface enp8s0 inet dhcp</span><br><span class="line">iface enp8s0 inet6 auto</span><br></pre></td></tr></table></figure>
+<p>sudo ifup enp8s0<br>sudo systemctl restart networking.service</p>
+<h1 id="sources"><a href="#sources" class="headerlink" title="sources"></a>sources</h1><p>sudo sed -i ‘s/deb.debian.org/mirrors.ustc.edu.cn/g’ /etc/apt/sources.list</p>
+<h1 id="YCM"><a href="#YCM" class="headerlink" title="YCM"></a>YCM</h1><ul>
+<li><p>root</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">atp-get update</span><br><span class="line">apt install git gcc clang cmake vim-nox python3.9-dev build-essential</span><br><span class="line"></span><br><span class="line">wget -c https://dl.google.com/go/go1.19.linux-amd64.tar.gz /home/user/go1.19.linux-amd64.tar.gz</span><br><span class="line">tar xvf /home/user/go1.19.linux-amd64.tar.gz -C /usr/local/</span><br></pre></td></tr></table></figure></li>
+<li><p>home<br>golang</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">go <span class="built_in">env</span> -w GO111MODULE=<span class="string">&quot;on&quot;</span></span><br><span class="line">go <span class="built_in">env</span> -w GOPROXY=<span class="string">&quot;https://goproxy.cn,direct&quot;</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/local/go/bin</span><br><span class="line">go version</span><br></pre></td></tr></table></figure></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p .vim/bundle</span><br><span class="line"><span class="built_in">cd</span> .vim/bundle/</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim</span><br><span class="line"></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/Valloric/YouCompleteMe.git</span><br><span class="line"><span class="built_in">cd</span> YouCompleteMe/</span><br><span class="line">git submodule update --init --recursive</span><br><span class="line">python3.9 install.py --go-completer</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>vimrc<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">set nocompatible   &quot; be iMproved, required</span><br><span class="line">filetype off   &quot; required</span><br><span class="line">&quot; set the runtime path to include Vundle and initialize</span><br><span class="line">set rtp+=~/.vim/bundle/Vundle.vim</span><br><span class="line">call vundle#begin()</span><br><span class="line">Plugin &#x27;Valloric/YouCompleteMe&#x27;</span><br><span class="line">Plugin &#x27;https://github.com/Chiel92/vim-autoformat&#x27;</span><br><span class="line">call vundle#end()  &quot; required</span><br><span class="line"></span><br><span class="line">filetype plugin indent on &quot; required</span><br><span class="line">set backspace=indent,eol,start</span><br><span class="line">set autowrite</span><br><span class="line">set number</span><br><span class="line">set mouse=nv</span><br><span class="line">set tabstop=4</span><br><span class="line">set encoding=utf-8</span><br><span class="line">set fencs=utf-8,GB18030,ucs-bom,default,latin1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&quot; jj   保存文件并留在插入模式 [插入模式]</span><br><span class="line">imap jj &lt;ESC&gt;:w&lt;CR&gt;li</span><br><span class="line">&quot; kk   返回Normal模式 插入模式</span><br><span class="line">imap kk &lt;ESC&gt;l</span><br><span class="line"></span><br><span class="line">&quot;F3格式化C#快捷键</span><br><span class="line">noremap &lt;F3&gt; :Autoformat&lt;CR&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>打开vim 输入 :PluginInstall</p>
+<h1 id="idevices-IOS"><a href="#idevices-IOS" class="headerlink" title="idevices(IOS)"></a>idevices(IOS)</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt install libimobiledevice-utils</span><br><span class="line">ideviceinfo </span><br><span class="line"><span class="built_in">mkdir</span> /mnt/backup</span><br><span class="line">mount /dev/sdc1 /mnt/backup/</span><br><span class="line"><span class="built_in">cd</span> /mnt/backup/IOS/</span><br><span class="line"><span class="built_in">mkdir</span> backup-from-idevices-ios14.7</span><br><span class="line">idevice_id -l</span><br><span class="line">idevicebackup2 -s 840acf8040d6f13c16c2d98b950922515f75d232 backup --full ./backup-from-idevices-ios14.7/</span><br></pre></td></tr></table></figure>
+
+<h1 id="MariaDB"><a href="#MariaDB" class="headerlink" title="MariaDB"></a>MariaDB</h1><ul>
+<li>root<br>创建<br>mysql -u root -p123456<br>source /path/create-databases.sql<br>或者<br>DROP DATABASE IF EXISTS fate;<br>CREATE DATABASE fate DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;; </li>
+</ul>
+<p>DROP DATABASE IF EXISTS mysql;<br>CREATE DATABASE mysql DEFAULT CHARACTER SET utf8mb4;</p>
+<h2 id="恢复数据库-实现普通用户不用输入sudo"><a href="#恢复数据库-实现普通用户不用输入sudo" class="headerlink" title="恢复数据库 实现普通用户不用输入sudo"></a>恢复数据库 实现普通用户不用输入sudo</h2><ol>
+<li>~/.my.cnf<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># The following options will be passed to all MariaDB clients</span><br><span class="line">[client]</span><br><span class="line"># of the &#x27;~/.my.cnf&#x27; configuration file with an access mode set to 400 or 600.</span><br><span class="line">user = userName</span><br><span class="line">port = 3306</span><br><span class="line">socket = /run/mysqld/mysqld.sock</span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line"></span><br><span class="line">bind-address = 127.0.0.1</span><br><span class="line">innodb_file_format=Barracuda</span><br><span class="line">innodb_file_per_table=ON</span><br><span class="line">server-id	= 1</span><br><span class="line">sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES</span><br><span class="line"></span><br><span class="line">[mysqld_multi]</span><br><span class="line">mysqld  = /usr/bin/mysqld_safe</span><br><span class="line">mysqladmin = /usr/bin/mysqladmin</span><br></pre></td></tr></table></figure></li>
+<li>复制备份文件到files目录内</li>
+</ol>
+<p>mkdir files &amp;&amp; cd files<br>cp /path/26-08-2022/*.gz .<br>for f in <code>ls</code>;do gzip -d $f;done</p>
+<p>恢复<br>mysql -u root -p123456 mysql &lt; mysql<br>查看<br>mysql -u root -p123456 -Bse ‘show databases’</p>
+<p>mysql -u root -p123456</p>
+<p>重启服务<br>systemctl status mysql.service<br>systemctl restart mysql.service<br>systemctl status mysql.service</p>
+<h2 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h2><p>mysql-backup.bash </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># A sample mysql backup script</span></span><br><span class="line"><span class="comment"># Must be run as the root user</span></span><br><span class="line"><span class="comment"># Written by Vivek Gite</span></span><br><span class="line"><span class="comment"># Last updated on : 23/Aug/2003</span></span><br><span class="line"><span class="comment"># ---------------------------------</span></span><br><span class="line"><span class="comment"># MySQL Login Info</span></span><br><span class="line">MUSER=<span class="string">&quot;root&quot;</span> 			<span class="comment"># MySQL user</span></span><br><span class="line">MHOST=<span class="string">&quot;localhost&quot;</span>	<span class="comment"># MySQL server ip</span></span><br><span class="line">MPASS=<span class="string">&quot;123456&quot;</span> 			<span class="comment"># MySQL password</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># format dd-mm-yyyy </span></span><br><span class="line">NOW=$(<span class="built_in">date</span> +<span class="string">&quot;%d-%m-%Y&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Backupfile path</span></span><br><span class="line">BPATH=/home/userName/tftp/mysql/<span class="variable">$NOW</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># if backup path does not exists, create it </span></span><br><span class="line">[ ! -d <span class="variable">$BPATH</span> ] &amp;&amp; <span class="built_in">mkdir</span> -p <span class="variable">$BPATH</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># get database name lists</span></span><br><span class="line">DBS=<span class="string">&quot;<span class="subst">$(/usr/bin/mysql -u $MUSER -h $MHOST -p$MPASS -Bse &#x27;show databases&#x27;)</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$DBS</span>	<span class="comment">#测试链接是否成功</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> db <span class="keyword">in</span> <span class="variable">$DBS</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">	<span class="comment"># Bakcup file name</span></span><br><span class="line">	FILE=<span class="string">&quot;<span class="variable">$&#123;BPATH&#125;</span>/<span class="variable">$&#123;db&#125;</span>.gz&quot;</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment"># skip database backup if database name is adserverstats or mint</span></span><br><span class="line">	[ <span class="string">&quot;<span class="variable">$db</span>&quot;</span> == <span class="string">&quot;adserverstats&quot;</span> ] &amp;&amp; <span class="built_in">continue</span></span><br><span class="line">	[ <span class="string">&quot;<span class="variable">$db</span>&quot;</span> == <span class="string">&quot;mint&quot;</span> ] &amp;&amp; <span class="built_in">continue</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment"># okay lets dump a database backup </span></span><br><span class="line"> /usr/bin/mysqldump --single-transaction -u <span class="variable">$MUSER</span> -h <span class="variable">$MHOST</span> -p<span class="variable">$MPASS</span> <span class="variable">$db</span> | /bin/gzip -9 &gt; <span class="variable">$FILE</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">sleep</span> 2</span><br><span class="line"><span class="built_in">ls</span> -lR ~/path/mysql/<span class="variable">$NOW</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;数据库已备份到<span class="variable">$BPATH</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Xfce4"><a href="#Xfce4" class="headerlink" title="Xfce4"></a>Xfce4</h1><ul>
+<li>uninstall</li>
+</ul>
+<p><strong>root</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">apt purge libexo-2-0 libgarcon-1-0 libxfce4panel-2.0-4 libxfce4ui-2-0 libxfce4ui-common libxfce4ui-utils libxfce4util-bin libxfce4util-common libxfce4util7 libxfconf-0-3 mousepad ristretto task-xfce-desktop thunar xfburn xfce4 xfce4-appfinder xfce4-battery-plugin xfce4-clipman xfce4-clipman-plugin xfce4-cpufreq-plugin xfce4-cpugraph-plugin xfce4-datetime-plugin xfce4-dict xfce4-diskperf-plugin xfce4-fsguard-plugin xfce4-genmon-plugin xfce4-goodies xfce4-helpers xfce4-mailwatch-plugin xfce4-netload-plugin xfce4-notifyd xfce4-panel xfce4-places-plugin xfce4-power-manager xfce4-power-manager-data xfce4-power-manager-plugins xfce4-pulseaudio-plugin xfce4-screenshooter xfce4-sensors-plugin xfce4-session xfce4-settings xfce4-smartbookmark-plugin xfce4-systemload-plugin xfce4-taskmanager xfce4-terminal xfce4-timer-plugin xfce4-verve-plugin xfce4-wavelan-plugin xfce4-weather-plugin xfce4-whiskermenu-plugin xfce4-xkb-plugin xfconf xfdesktop4 xfdesktop4-data xfwm4 exo-utils libxfce4ui-common thunar xfce4-clipman xfce4-helpers xfce4-notifyd xfce4-panel xfce4-power-manager xfce4-session xfce4-settings xfce4-whiskermenu-plugin </span><br><span class="line"></span><br><span class="line">apt purge `dpkg --get-selections | grep gnome | <span class="built_in">cut</span> -f 1`</span><br><span class="line">apt -f install</span><br><span class="line">apt purge `dpkg --get-selections | grep deinstall | <span class="built_in">cut</span> -f 1`</span><br><span class="line">apt -f install</span><br><span class="line"></span><br><span class="line">dpkg --list |grep <span class="string">&quot;^rc&quot;</span> | <span class="built_in">cut</span> -d <span class="string">&quot; &quot;</span> -f 3 | xargs dpkg --purge</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /home/userName/.local/share</span><br><span class="line"><span class="built_in">rm</span> -rf gvfs-metadata icc keyrings Mousepad nano recently-used.xbel recently-used.xbel.BE1DR1 ristretto systemd Trash</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /home/userName/.config</span><br><span class="line"><span class="built_in">rm</span> -rf autostart dconf gtk-3.0 mimeapps.list pavucontrol.ini pluma pulse ristretto Thunar xarchiver</span><br><span class="line"><span class="built_in">rm</span> -rf bleachbit ibus libreoffice Mousepad pipewire-media-session procps QtProject.conf systemd VeraCrypt xfce4</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /home/userName</span><br><span class="line"><span class="built_in">rm</span> -rf .Xauthority .ICEauthority .xsession-errors* .lesshst</span><br><span class="line"><span class="built_in">rm</span> -rf .cache </span><br><span class="line"></span><br><span class="line">apt autoremove</span><br></pre></td></tr></table></figure>
+
+<h1 id="MATE"><a href="#MATE" class="headerlink" title="MATE"></a>MATE</h1><ul>
+<li><p><strong>install</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">apt install mate-tweak</span><br><span class="line">apt install mate-desktop-environment-core</span><br><span class="line">apt install mate-desktop-environment-extras</span><br><span class="line">apt install mate-desktop-environment</span><br><span class="line"></span><br><span class="line"><span class="comment"># 到这里在tty startx 可以正常启动</span></span><br><span class="line"></span><br><span class="line"><span class="comment">##下面这个都是第三方的组件 比如NM任务栏网络管理模块libreoffice.....</span></span><br><span class="line">apt install task-mate-desktop</span><br></pre></td></tr></table></figure></li>
+<li><p>remove</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">apt purge mate-tweak</span><br><span class="line">apt purge mate-desktop-environment-core</span><br><span class="line">apt purge mate-desktop-environment-extras</span><br><span class="line">apt purge mate-desktop-environment</span><br><span class="line"></span><br><span class="line"><span class="comment">##下面这个都是第三方的组件 比如NM任务栏网络管理模块libreoffice.....</span></span><br><span class="line">apt purge task-mate-desktop</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">apt purge `dpkg --get-selections | grep mate | <span class="built_in">cut</span> -f 1`</span><br><span class="line">apt -f install</span><br><span class="line">apt purge `dpkg --get-selections | grep depurge | <span class="built_in">cut</span> -f 1`</span><br><span class="line">apt -f install</span><br><span class="line"></span><br><span class="line">dpkg --list |grep <span class="string">&quot;^rc&quot;</span> | <span class="built_in">cut</span> -d <span class="string">&quot; &quot;</span> -f 3 | xargs sudo dpkg --purge</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /home/usrName</span><br><span class="line"><span class="built_in">rm</span> -rf .gnupg/*</span><br><span class="line"><span class="built_in">rm</span> -rf .sudo_as_admin_successful .selected_editor .pki/nssdb/ .lesshst .gphoto/ .dmrc</span><br><span class="line"><span class="built_in">rm</span> -rf .cache</span><br><span class="line"><span class="built_in">cd</span> .config</span><br><span class="line"><span class="built_in">rm</span> -rf autostart/ caja/ fcitx ibus/ mate/ mimeapps.list procps/ user-dirs.* vlc/ atril/ dconf/ enchant/ gtk-3.0/ menus/ pluma/ pluma/</span><br><span class="line"><span class="built_in">rm</span> -rf .xsession-errors .xsession-errors.old .Xauthority</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="KDE"><a href="#KDE" class="headerlink" title="KDE"></a>KDE</h1><ul>
+<li>install</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://wiki.debian.org/zh_CN/KDE#A.2BW4mIxQ-">wiki.debian.org</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">apt install task-kde-desktop</span><br><span class="line">apt install kde-plasma-desktop</span><br><span class="line">apt install kde-standard</span><br><span class="line">apt install breeze-gtk-theme</span><br><span class="line">apt install kde-config-sddm sddm-theme-debian-breeze</span><br><span class="line">apt install plasma-workspace-wayland</span><br><span class="line">apt install kde-config-tablet</span><br><span class="line">apt install kde-config-screenlocker</span><br><span class="line">apt install libreoffice-kde5</span><br><span class="line"></span><br><span class="line"><span class="comment">#################3</span></span><br><span class="line"><span class="comment">## cd  ~/.config</span></span><br><span class="line"><span class="comment">## for j in plasma*; do mv -- &quot;$j&quot; &quot;$&#123;j%&#125;.bak&quot;; done</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="系统迁移-rsync"><a href="#系统迁移-rsync" class="headerlink" title="系统迁移(rsync)"></a>系统迁移(rsync)</h1><p>要排除的目录 –exclude={“/home/userName/.cache/<em>“,”/home/userName/Sync/</em>“,”/home/userName/flutter/.pub-cache/*”}<br>登入任意linux系统执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> src dest</span><br><span class="line"><span class="built_in">cd</span> src/</span><br><span class="line"><span class="built_in">mkdir</span> efi root</span><br><span class="line"><span class="built_in">cd</span> ../dest/</span><br><span class="line"><span class="built_in">mkdir</span> efi root</span><br><span class="line"><span class="built_in">cd</span> ../</span><br><span class="line">mount /dev/sdd1 src/efi/ <span class="comment"># 原系统efi</span></span><br><span class="line">mount /dev/sdd2 src/root/ <span class="comment"># 原系统根分区 这里home没有单独分</span></span><br><span class="line"></span><br><span class="line">mount /dev/sdc1 dest/efi/ <span class="comment"># 目标盘</span></span><br><span class="line">mount /dev/sdc2 dest/root/ <span class="comment">#目标盘</span></span><br><span class="line"></span><br><span class="line">rsync -aptgovrlHAX --partial --log-file=src/root/home/userName/rsync.log src/efi/ dest/efi/</span><br><span class="line"></span><br><span class="line">rsync -aptgovrlHAX --partial --log-file=src/root/home/userName/rsync.log src/root/ dest/root/</span><br></pre></td></tr></table></figure>
+
+<p>–</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">localhost:/home/linux <span class="comment"># pwd</span></span><br><span class="line">/home/linux</span><br><span class="line">localhost:/home/linux <span class="comment"># ls src/efi/</span></span><br><span class="line">EFI</span><br><span class="line">localhost:/home/linux <span class="comment"># ls src/root/</span></span><br><span class="line">bin   dev  home        initrd.img.old  lib32  libx32      media  opt   root  sbin  sys  usr  vmlinuz</span><br><span class="line">boot  etc  initrd.img  lib             lib64  lost+found  mnt    proc  run   srv   tmp  var  vmlinuz.old</span><br><span class="line">localhost:/home/linux <span class="comment"># ls dest/efi/</span></span><br><span class="line">EFI</span><br><span class="line">localhost:/home/linux <span class="comment"># ls dest/root/</span></span><br><span class="line">bin   dev  home        initrd.img.old  lib32  libx32      media  opt   root  sbin  sys  usr  vmlinuz</span><br><span class="line">boot  etc  initrd.img  lib             lib64  lost+found  mnt    proc  run   srv   tmp  var  vmlinuz.old</span><br></pre></td></tr></table></figure>
+
+<p>更新之前分区的时候最好把UUID指定为原系统的<br>不指定需要修复grub引导</p>
+<hr>
+<h1 id="nftables"><a href="#nftables" class="headerlink" title="nftables"></a>nftables</h1><ul>
+<li><p><a target="_blank" rel="noopener" href="https://wiki.debian.org/nftables">wiki.debian.org</a></p>
+</li>
+<li><p>以下方法来自<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Nftables_(Espa%C3%B1ol)">wiki.archlinux.org</a></p>
+</li>
+</ul>
+<p><strong>Cortafuegos stateful simple</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">user@host:~$ sudo -i</span><br><span class="line">root@host:~<span class="comment"># nft list tables</span></span><br><span class="line">root@host:~<span class="comment"># vim /etc/nftables.conf</span></span><br><span class="line">root@host:~<span class="comment"># nft flush ruleset</span></span><br><span class="line">root@host:~<span class="comment"># nft add table inet filter</span></span><br><span class="line">root@host:~<span class="comment"># nft add chain inet filter input &#123; type filter hook input priority 0 \; policy drop \; &#125;</span></span><br><span class="line">root@host:~<span class="comment"># nft add chain inet filter forward &#123; type filter hook forward priority 0 \; policy drop \; &#125;</span></span><br><span class="line">root@host:~<span class="comment"># nft add chain inet filter output &#123; type filter hook output priority 0 \; policy accept \; &#125;</span></span><br><span class="line">root@host:~<span class="comment"># nft add chain inet filter TCP</span></span><br><span class="line">root@host:~<span class="comment"># nft add chain inet filter UDP</span></span><br><span class="line">root@host:~<span class="comment"># nft add rule inet filter input ct state related,established accept</span></span><br><span class="line">root@host:~<span class="comment"># nft add rule inet filter input iif lo accept</span></span><br><span class="line">root@host:~<span class="comment"># nft add rule inet filter input ct state invalid drop</span></span><br><span class="line">root@host:~<span class="comment"># nft add rule inet filter input ip protocol icmp icmp type echo-request ct state new accept</span></span><br><span class="line">root@host:~<span class="comment"># nft add rule inet filter input ip protocol udp ct state new jump UDP</span></span><br><span class="line">root@host:~<span class="comment"># nft add rule inet filter input ip protocol tcp tcp flags \&amp; \(fin\|syn\|rst\|ack\) == syn ct state new jump TCP</span></span><br><span class="line">root@host:~<span class="comment"># nft add rule inet filter input ip protocol udp reject</span></span><br><span class="line">root@host:~<span class="comment"># nft add rule inet filter input ip protocol tcp reject with tcp reset</span></span><br><span class="line">root@host:~<span class="comment"># nft add rule inet filter input counter reject with icmp type prot-unreachable</span></span><br><span class="line">root@host:~<span class="comment"># nft add rule inet filter TCP tcp dport 80 accept</span></span><br><span class="line">root@host:~<span class="comment"># nft add rule inet filter TCP tcp dport 443 accept</span></span><br><span class="line">root@host:~<span class="comment"># nft add rule inet filter TCP tcp dport 22 accept</span></span><br><span class="line">root@host:~<span class="comment"># nft add rule inet filter TCP tcp dport 53 accept</span></span><br><span class="line">root@host:~<span class="comment"># nft add rule inet filter UDP udp dport 53 accept</span></span><br><span class="line">root@host:~<span class="comment"># nft list tables</span></span><br><span class="line">table inet filter</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>生成备份文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@host:~<span class="comment"># nft list ruleset&gt; /etc/simple.ntf</span></span><br></pre></td></tr></table></figure></li>
+<li><p>从备份文件恢复</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nft -f /etc/simple.ntf</span><br></pre></td></tr></table></figure></li>
+<li><p>开机启动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@host:~<span class="comment"># cp /etc/nftables.conf /etc/nftables.conf.bak</span></span><br><span class="line"></span><br><span class="line">root@host:~<span class="comment"># nft list ruleset&gt;&gt; /etc/nftables.conf</span></span><br><span class="line"></span><br><span class="line">root@host:~<span class="comment"># systemctl enable nftables.service</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo -s</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;make_resolv_conf() &#123; :; &#125;&#x27;</span> &gt; /etc/dhcp/dhclient-enter-hooks.d/leave_my_resolv_conf_alone</span><br><span class="line"><span class="built_in">chmod</span> 755 /etc/dhcp/dhclient-enter-hooks.d/leave_my_resolv_conf_alone</span><br></pre></td></tr></table></figure>
+<p><strong>resolv.conf</strong><br>vim /etc/resolv.conf</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nameserver 8.8.8.8</span><br><span class="line">nameserver 223.5.5.5</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2022/08/25/Debian/" data-id="claelm5vq0004x8m1199m1fzj" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2022/08/25/Debian/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Debian/" rel="tag">Debian</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2022/08/30/ios/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          ios
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/08/25/linux/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">linux</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#iso"><span class="toc-number">1.</span> <span class="toc-text">iso</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E7%BD%91%E5%8D%A1%E9%A9%B1%E5%8A%A8"><span class="toc-number">1.1.</span> <span class="toc-text">添加网卡驱动</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%81%94%E7%BD%91"><span class="toc-number">2.</span> <span class="toc-text">联网</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#wifi%E8%81%94%E7%BD%91"><span class="toc-number">2.1.</span> <span class="toc-text">wifi联网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BA%BF"><span class="toc-number">2.2.</span> <span class="toc-text">网线</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sources"><span class="toc-number">3.</span> <span class="toc-text">sources</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#YCM"><span class="toc-number">4.</span> <span class="toc-text">YCM</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#idevices-IOS"><span class="toc-number">5.</span> <span class="toc-text">idevices(IOS)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MariaDB"><span class="toc-number">6.</span> <span class="toc-text">MariaDB</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%81%A2%E5%A4%8D%E6%95%B0%E6%8D%AE%E5%BA%93-%E5%AE%9E%E7%8E%B0%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7%E4%B8%8D%E7%94%A8%E8%BE%93%E5%85%A5sudo"><span class="toc-number">6.1.</span> <span class="toc-text">恢复数据库 实现普通用户不用输入sudo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%87%E4%BB%BD"><span class="toc-number">6.2.</span> <span class="toc-text">备份</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Xfce4"><span class="toc-number">7.</span> <span class="toc-text">Xfce4</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MATE"><span class="toc-number">8.</span> <span class="toc-text">MATE</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#KDE"><span class="toc-number">9.</span> <span class="toc-text">KDE</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%BF%81%E7%A7%BB-rsync"><span class="toc-number">10.</span> <span class="toc-text">系统迁移(rsync)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#nftables"><span class="toc-number">11.</span> <span class="toc-text">nftables</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DNS"><span class="toc-number">12.</span> <span class="toc-text">DNS</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2023 Aquarian-Age&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi@yandex.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://aquarian-age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2022/08/25/Debian/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>浮生若梦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="浮生若梦">
+<meta property="og:url" content="https://aquarian-age.github.io/page/4/index.html">
+<meta property="og:site_name" content="浮生若梦">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Aquarian-Age">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="浮生若梦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://aquarian-age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">浮生若梦</a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-linux" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/08/25/linux/" class="article-date">
+  <time datetime="2022-08-25T09:28:58.000Z" itemprop="datePublished">2022-08-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/08/25/linux/">linux</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="BIOS-删除空白启动-多于启动项"><a href="#BIOS-删除空白启动-多于启动项" class="headerlink" title="BIOS 删除空白启动(多于启动项)"></a>BIOS 删除空白启动(多于启动项)</h1><ul>
+<li><p>显示当前启动信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">user@host 1 17:27 &gt;/usr/sbin/efibootmgr -v</span><br><span class="line">BootCurrent: 0000</span><br><span class="line">Timeout: 1 seconds</span><br><span class="line">BootOrder: 0000,0003,0004,0006,0007</span><br><span class="line">Boot0000* opensuse      HD(1,GPT,xxxx-x-xxx-aaa,0x800,0x327cc)/File(\EFI\OPENSUSE\GRUBX64.EFI)</span><br><span class="line">Boot0003* debian        HD(1,GPT,xxxx-x-xxx,0x800,0x100000)/File(\EFI\DEBIAN\SHIMX64.EFI)</span><br><span class="line">Boot0004* Windows Boot Manager  HD(1,GPT,xxxx-x-xxx-bbb,0x1000,0x96000)/File(\EFI\MICROSOFT\BOOT\BOOTMGFW.EFI)..BO</span><br><span class="line">Boot0006* UEFI: SanDisk, Partition 2    PciRoot(0x0)/Pci(0x1,0x2)/Pci(0x0,0x0)/USB(2,0)/HD(2,MBR,0x61f4c181,0x7280000,0x10000)..BO</span><br><span class="line">Boot0007* debian        HD(1,GPT,xxxx-x-xxx,0x800,0x100000)/File(\EFI\DEBIAN\GRUBX64.EFI)..BO</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2022/08/25/linux/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2022/08/25/linux/" data-id="claelm5w7000xx8m1etg00rfp" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2022/08/25/linux/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-android" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/08/24/android/" class="article-date">
+  <time datetime="2022-08-24T01:18:54.000Z" itemprop="datePublished">2022-08-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/08/24/android/">android</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Android misc</p>
+        
+          <p class="article-more-link">
+            <a href="/2022/08/24/android/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2022/08/24/android/" data-id="claelm5vx000dx8m15tue68ee" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2022/08/24/android/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/" rel="tag">Android</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-置闰" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/06/20/%E7%BD%AE%E9%97%B0/" class="article-date">
+  <time datetime="2022-06-20T03:34:18.000Z" itemprop="datePublished">2022-06-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/06/20/%E7%BD%AE%E9%97%B0/">置闰</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>摘自协纪辩方书</p>
+        
+          <p class="article-more-link">
+            <a href="/2022/06/20/%E7%BD%AE%E9%97%B0/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2022/06/20/%E7%BD%AE%E9%97%B0/" data-id="claelm5xu005yx8m1es7sei9s" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2022/06/20/%E7%BD%AE%E9%97%B0/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%AF%E6%95%B0/" rel="tag">术数</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-qimen" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/05/12/qimen/" class="article-date">
+  <time datetime="2022-05-12T01:27:31.000Z" itemprop="datePublished">2022-05-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/05/12/qimen/">露水情</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="中宫天干寄宫"><a href="#中宫天干寄宫" class="headerlink" title="中宫天干寄宫"></a>中宫天干寄宫</h1><p>网传方法是寄宫在坤<br>实际使用隐遁和阳遁中宫天干寄宫位置有区别</p>
+<p>地盘八门落中宫寄宫在坤也是一样的</p>
+        
+          <p class="article-more-link">
+            <a href="/2022/05/12/qimen/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2022/05/12/qimen/" data-id="claelm5wa0016x8m1dyn2fevm" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2022/05/12/qimen/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B0%8F%E8%AF%AD/" rel="tag">小语</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-吃瓜" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/04/28/%E5%90%83%E7%93%9C/" class="article-date">
+  <time datetime="2022-04-28T03:33:11.000Z" itemprop="datePublished">2022-04-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/04/28/%E5%90%83%E7%93%9C/">吃瓜</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>🍉</p>
+<!---more--->
+
+<p>平头百姓只吃瓜 有瓜有豆有庄家<br>辛苦劳作为糊口 颤仰红旗头顶飘<br>……</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2022/04/28/%E5%90%83%E7%93%9C/" data-id="claelm5wk0021x8m1d3vy2sz2" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2022/04/28/%E5%90%83%E7%93%9C/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B0%8F%E8%AF%AD/" rel="tag">小语</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-中国农历" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/03/02/%E4%B8%AD%E5%9B%BD%E5%86%9C%E5%8E%86/" class="article-date">
+  <time datetime="2022-03-02T12:57:46.000Z" itemprop="datePublished">2022-03-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/02/%E4%B8%AD%E5%9B%BD%E5%86%9C%E5%8E%86/">阴阳历</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>2005年开始使用GNU/Linux 试过几个发行版<br>有的带一个中国农历 大部分是不带的<br>到现在终于自己实现了一个<br>说农历是一种通俗说法 我更喜欢把它叫<code>阴阳历</code></p>
+<p>一个很简单的阴阳历法<br>显示阳历日期(含节气/中气) 日干支(阳历) 朔望月(阴历)<br>橙色阴历鼠标悬停会显示本日宗教节日+三魂会日</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">空白处双击右键+点击星号显示星宿日历</span><br><span class="line">空白处双击左键+点击星号显示干支日历</span><br></pre></td></tr></table></figure>
+<p><a href="https://sm.ms/image/Oj1gaMCspiSfk7h" target="_blank"><img src="https://s2.loli.net/2022/03/02/Oj1gaMCspiSfk7h.png" ></a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Aquarian-Age/ccal/releases/tag/chineseLunar">下载</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2022/03/02/%E4%B8%AD%E5%9B%BD%E5%86%9C%E5%8E%86/" data-id="claelm5wf001mx8m1gjf01318" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2022/03/02/%E4%B8%AD%E5%9B%BD%E5%86%9C%E5%8E%86/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8B%A9%E6%97%A5/" rel="tag">择日</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-fcitx5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/02/22/fcitx5/" class="article-date">
+  <time datetime="2022-02-22T13:41:00.000Z" itemprop="datePublished">2022-02-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/02/22/fcitx5/">fcitx5</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>部分搜狗词库 永久下载链接 </p>
+<p><a target="_blank" rel="noopener" href="https://cloud.189.cn/web/share?code=eY7vyyjq2M3q">https://cloud.189.cn/web/share?code=eY7vyyjq2M3q</a></p>
+<p>适用KDE桌面环境</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2022/02/22/fcitx5/" data-id="claelm5w2000mx8m16n5j0a4d" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2022/02/22/fcitx5/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openSuSE/" rel="tag">openSuSE</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-星座" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/02/20/%E6%98%9F%E5%BA%A7/" class="article-date">
+  <time datetime="2022-02-20T08:58:00.000Z" itemprop="datePublished">2022-02-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/02/20/%E6%98%9F%E5%BA%A7/">星座</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>星座与月将</p>
+        
+          <p class="article-more-link">
+            <a href="/2022/02/20/%E6%98%9F%E5%BA%A7/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2022/02/20/%E6%98%9F%E5%BA%A7/" data-id="claelm5xa0041x8m1ea5r2lmp" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2022/02/20/%E6%98%9F%E5%BA%A7/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8B%A9%E6%97%A5/" rel="tag">择日</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-壬寅" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/12/07/%E5%A3%AC%E5%AF%85/" class="article-date">
+  <time datetime="2021-12-07T13:28:08.000Z" itemprop="datePublished">2021-12-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/12/07/%E5%A3%AC%E5%AF%85/">壬寅年</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>0812[79950.9+6371.6]</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2021/12/07/%E5%A3%AC%E5%AF%85/" data-id="claelm5wm0028x8m1ezgmdj5z" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2021/12/07/%E5%A3%AC%E5%AF%85/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/me/" rel="tag">me</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-中间件部署脚本" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/11/13/%E4%B8%AD%E9%97%B4%E4%BB%B6%E9%83%A8%E7%BD%B2%E8%84%9A%E6%9C%AC/" class="article-date">
+  <time datetime="2021-11-13T07:59:39.000Z" itemprop="datePublished">2021-11-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/11/13/%E4%B8%AD%E9%97%B4%E4%BB%B6%E9%83%A8%E7%BD%B2%E8%84%9A%E6%9C%AC/">中间件部署脚本</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>自动化监控项目中间件</p>
+        
+          <p class="article-more-link">
+            <a href="/2021/11/13/%E4%B8%AD%E9%97%B4%E4%BB%B6%E9%83%A8%E7%BD%B2%E8%84%9A%E6%9C%AC/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2021/11/13/%E4%B8%AD%E9%97%B4%E4%BB%B6%E9%83%A8%E7%BD%B2%E8%84%9A%E6%9C%AC/" data-id="claelm5wg001px8m1fw9x3t1v" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2021/11/13/%E4%B8%AD%E9%97%B4%E4%BB%B6%E9%83%A8%E7%BD%B2%E8%84%9A%E6%9C%AC/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/5/">下一页&amp;raquo;</a>
+  </nav>
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title recent-posts">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/02/03/%E7%99%B8%E5%8D%AF/">癸卯</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/03/%E9%99%8C/">陌</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/27/%E5%A5%87%E9%97%A8%E5%B1%80/">奇门局</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/27/%E5%AF%B9%E8%81%94%E6%88%90%E8%AF%97/">对联成诗</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/27/%E7%BA%A2%E6%A5%BC/">红楼</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2023 Aquarian-Age&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi@yandex.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://aquarian-age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

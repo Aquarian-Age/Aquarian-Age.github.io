@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>二十八宿日历 | 浮生若梦</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="为ios打包flutter项目">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二十八宿日历">
+<meta property="og:url" content="https://aquarian-age.github.io/2022/12/11/%E4%BA%8C%E5%8D%81%E5%85%AB%E5%AE%BF%E6%97%A5%E5%8E%86/index.html">
+<meta property="og:site_name" content="浮生若梦">
+<meta property="og:description" content="为ios打包flutter项目">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://user-images.githubusercontent.com/36611556/206906546-8b0a8bff-5d93-4a46-a13c-e5e31439d08e.png">
+<meta property="article:published_time" content="2022-12-11T13:41:55.000Z">
+<meta property="article:modified_time" content="2022-12-11T14:01:43.013Z">
+<meta property="article:author" content="Aquarian-Age">
+<meta property="article:tag" content="择日">
+<meta property="article:tag" content="flutter">
+<meta property="article:tag" content="ios，术数">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/36611556/206906546-8b0a8bff-5d93-4a46-a13c-e5e31439d08e.png">
+  
+    <link rel="alternate" href="/atom.xml" title="浮生若梦" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://Aquarian-Age.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="https://aquarian-age.github.io/2018/01/31/about/">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">浮生若梦</a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-二十八宿日历" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/12/11/%E4%BA%8C%E5%8D%81%E5%85%AB%E5%AE%BF%E6%97%A5%E5%8E%86/" class="article-date">
+  <time datetime="2022-12-11T13:41:55.000Z" itemprop="datePublished">2022-12-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      二十八宿日历
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>为ios打包flutter项目</p>
+<span id="more"></span>
+
+<ul>
+<li>打包出来了一个没有ffi的软件<br>做为一个小白级别的业余爱好者，各种知识点只能网上搜.</li>
+</ul>
+<ol>
+<li>一个Linux系统(用来运行kvm虚拟机)</li>
+<li>使用OpenCore创建并运行一个虚拟的MacOS系统</li>
+<li>copy Linux平台代码到MacOS</li>
+<li>配置MacOS的开发环境(flutter xcode vscode)</li>
+<li>为项目创建ios平台并修改部分代码</li>
+<li>获取证书和描述文件并在xcode配置</li>
+<li>flutter build ipa出错 最后只能想办法转换</li>
+<li>flutter build ios 创建可运行文件</li>
+<li>转换文件为ipa并上传到网站</li>
+<li>ios打开网页下载，并信任描述文件</li>
+<li>done</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">flutter build ios --release/debug</span><br><span class="line"></span><br><span class="line">找到runner.app</span><br><span class="line">build/ios/iphoneos/Runner.app</span><br><span class="line"></span><br><span class="line">mkdir ~/Payload</span><br><span class="line">cp -ax build/ios/iphoneos/Runner.app ~/Payload</span><br><span class="line"></span><br><span class="line">打开访达 找到Payload 并压缩(默认就是.zip格式)</span><br><span class="line"></span><br><span class="line">mv Payload.zip payload.ipa</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.diawi.com/">upload app</a></p>
+</li>
+<li><p><strong>感谢<a target="_blank" rel="noopener" href="https://applep12.com/">applep12</a></strong> 提供的证书</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/Aquarian-Age/ccal/releases/tag/calendar_flutter">下载</a></p>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/36611556/206906546-8b0a8bff-5d93-4a46-a13c-e5e31439d08e.png" alt="github"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://aquarian-age.github.io/2022/12/11/%E4%BA%8C%E5%8D%81%E5%85%AB%E5%AE%BF%E6%97%A5%E5%8E%86/" data-id="clbjf0z160000ukm1cecb6bcs" class="article-share-link">分享</a>
+      
+      
+        <a href="https://aquarian-age.github.io/2022/12/11/%E4%BA%8C%E5%8D%81%E5%85%AB%E5%AE%BF%E6%97%A5%E5%8E%86/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flutter/" rel="tag">flutter</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ios%EF%BC%8C%E6%9C%AF%E6%95%B0/" rel="tag">ios，术数</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8B%A9%E6%97%A5/" rel="tag">择日</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2023/01/01/%E6%96%B9%E4%BE%BF%E9%9D%A2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          covid-19
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/12/02/%E5%A5%87%E9%97%A8%E4%B9%8B%E5%80%BC%E7%AC%A6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">奇门之值符</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
+       
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title recent-posts">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/02/03/%E7%99%B8%E5%8D%AF/">癸卯</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/03/%E9%99%8C/">陌</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/27/%E5%A5%87%E9%97%A8%E5%B1%80/">奇门局</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/27/%E5%AF%B9%E8%81%94%E6%88%90%E8%AF%97/">对联成诗</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/27/%E7%BA%A2%E6%A5%BC/">红楼</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+
+  
+    
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2023 Aquarian-Age&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;liangzi@yandex.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="https://aquarian-age.github.io/2018/01/31/about/" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+<script>
+  var disqus_shortname = 'Aquarian-Age';
+  
+  var disqus_url = 'https://aquarian-age.github.io/2022/12/11/%E4%BA%8C%E5%8D%81%E5%85%AB%E5%AE%BF%E6%97%A5%E5%8E%86/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>
